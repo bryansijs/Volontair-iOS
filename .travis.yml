@@ -1,5 +1,5 @@
 language: objective-c
 
-xcode_project: Volontair-xcodeproj
+xcode_project: Volontair.xcodeproj
 xcode_scheme: VolontairTests
 osx_image: xcode7.3
