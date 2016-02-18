@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
+		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
+		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
+		578484E71C764542006A9841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 578484E61C764542006A9841 /* Assets.xcassets */; };
+		578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E81C764542006A9841 /* LaunchScreen.storyboard */; };
+		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
+		578485001C764542006A9841 /* VolontairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484FF1C764542006A9841 /* VolontairUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		578484F11C764542006A9841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 578484D41C764541006A9841 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 578484DB1C764541006A9841;
+			remoteInfo = Volontair;
+		};
+		578484FC1C764542006A9841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 578484D41C764541006A9841 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 578484DB1C764541006A9841;
+			remoteInfo = Volontair;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		578484E41C764541006A9841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		578484E61C764542006A9841 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		578484E91C764542006A9841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		578484EB1C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		578484F01C764542006A9841 /* VolontairTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VolontairTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		578484F41C764542006A9841 /* VolontairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairTests.swift; sourceTree = "<group>"; };
+		578484F61C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		578484FB1C764542006A9841 /* VolontairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VolontairUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
+		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		578484D91C764541006A9841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		578484ED1C764542006A9841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		578484F81C764542006A9841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		578484D31C764541006A9841 = {
+			isa = PBXGroup;
+			children = (
+				578484DE1C764541006A9841 /* Volontair */,
+				578484F31C764542006A9841 /* VolontairTests */,
+				578484FE1C764542006A9841 /* VolontairUITests */,
+				578484DD1C764541006A9841 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		578484DD1C764541006A9841 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				578484DC1C764541006A9841 /* Volontair.app */,
+				578484F01C764542006A9841 /* VolontairTests.xctest */,
+				578484FB1C764542006A9841 /* VolontairUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		578484DE1C764541006A9841 /* Volontair */ = {
+			isa = PBXGroup;
+			children = (
+				578484DF1C764541006A9841 /* AppDelegate.swift */,
+				578484E11C764541006A9841 /* ViewController.swift */,
+				578484E31C764541006A9841 /* Main.storyboard */,
+				578484E61C764542006A9841 /* Assets.xcassets */,
+				578484E81C764542006A9841 /* LaunchScreen.storyboard */,
+				578484EB1C764542006A9841 /* Info.plist */,
+			);
+			path = Volontair;
+			sourceTree = "<group>";
+		};
+		578484F31C764542006A9841 /* VolontairTests */ = {
+			isa = PBXGroup;
+			children = (
+				578484F41C764542006A9841 /* VolontairTests.swift */,
+				578484F61C764542006A9841 /* Info.plist */,
+			);
+			path = VolontairTests;
+			sourceTree = "<group>";
+		};
+		578484FE1C764542006A9841 /* VolontairUITests */ = {
+			isa = PBXGroup;
+			children = (
+				578484FF1C764542006A9841 /* VolontairUITests.swift */,
+				578485011C764542006A9841 /* Info.plist */,
+			);
+			path = VolontairUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		578484DB1C764541006A9841 /* Volontair */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 578485041C764542006A9841 /* Build configuration list for PBXNativeTarget "Volontair" */;
+			buildPhases = (
+				578484D81C764541006A9841 /* Sources */,
+				578484D91C764541006A9841 /* Frameworks */,
+				578484DA1C764541006A9841 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Volontair;
+			productName = Volontair;
+			productReference = 578484DC1C764541006A9841 /* Volontair.app */;
+			productType = "com.apple.product-type.application";
+		};
+		578484EF1C764542006A9841 /* VolontairTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 578485071C764542006A9841 /* Build configuration list for PBXNativeTarget "VolontairTests" */;
+			buildPhases = (
+				578484EC1C764542006A9841 /* Sources */,
+				578484ED1C764542006A9841 /* Frameworks */,
+				578484EE1C764542006A9841 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				578484F21C764542006A9841 /* PBXTargetDependency */,
+			);
+			name = VolontairTests;
+			productName = VolontairTests;
+			productReference = 578484F01C764542006A9841 /* VolontairTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		578484FA1C764542006A9841 /* VolontairUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5784850A1C764542006A9841 /* Build configuration list for PBXNativeTarget "VolontairUITests" */;
+			buildPhases = (
+				578484F71C764542006A9841 /* Sources */,
+				578484F81C764542006A9841 /* Frameworks */,
+				578484F91C764542006A9841 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				578484FD1C764542006A9841 /* PBXTargetDependency */,
+			);
+			name = VolontairUITests;
+			productName = VolontairUITests;
+			productReference = 578484FB1C764542006A9841 /* VolontairUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		578484D41C764541006A9841 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Volontair;
+				TargetAttributes = {
+					578484DB1C764541006A9841 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					578484EF1C764542006A9841 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 578484DB1C764541006A9841;
+					};
+					578484FA1C764542006A9841 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 578484DB1C764541006A9841;
+					};
+				};
+			};
+			buildConfigurationList = 578484D71C764541006A9841 /* Build configuration list for PBXProject "Volontair" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 578484D31C764541006A9841;
+			productRefGroup = 578484DD1C764541006A9841 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				578484DB1C764541006A9841 /* Volontair */,
+				578484EF1C764542006A9841 /* VolontairTests */,
+				578484FA1C764542006A9841 /* VolontairUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		578484DA1C764541006A9841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
+				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
+				578484E51C764541006A9841 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		578484EE1C764542006A9841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		578484F91C764542006A9841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		578484D81C764541006A9841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				578484E21C764541006A9841 /* ViewController.swift in Sources */,
+				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		578484EC1C764542006A9841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				578484F51C764542006A9841 /* VolontairTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		578484F71C764542006A9841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				578485001C764542006A9841 /* VolontairUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		578484F21C764542006A9841 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 578484DB1C764541006A9841 /* Volontair */;
+			targetProxy = 578484F11C764542006A9841 /* PBXContainerItemProxy */;
+		};
+		578484FD1C764542006A9841 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 578484DB1C764541006A9841 /* Volontair */;
+			targetProxy = 578484FC1C764542006A9841 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		578484E31C764541006A9841 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				578484E41C764541006A9841 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		578484E81C764542006A9841 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				578484E91C764542006A9841 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		578485021C764542006A9841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		578485031C764542006A9841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		578485051C764542006A9841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Volontair/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		578485061C764542006A9841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Volontair/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		578485081C764542006A9841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VolontairTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Volontair.app/Volontair";
+			};
+			name = Debug;
+		};
+		578485091C764542006A9841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VolontairTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Volontair.app/Volontair";
+			};
+			name = Release;
+		};
+		5784850B1C764542006A9841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VolontairUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Volontair;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		5784850C1C764542006A9841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VolontairUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Volontair;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		578484D71C764541006A9841 /* Build configuration list for PBXProject "Volontair" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				578485021C764542006A9841 /* Debug */,
+				578485031C764542006A9841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		578485041C764542006A9841 /* Build configuration list for PBXNativeTarget "Volontair" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				578485051C764542006A9841 /* Debug */,
+				578485061C764542006A9841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		578485071C764542006A9841 /* Build configuration list for PBXNativeTarget "VolontairTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				578485081C764542006A9841 /* Debug */,
+				578485091C764542006A9841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5784850A1C764542006A9841 /* Build configuration list for PBXNativeTarget "VolontairUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5784850B1C764542006A9841 /* Debug */,
+				5784850C1C764542006A9841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 578484D41C764541006A9841 /* Project object */;
+}
