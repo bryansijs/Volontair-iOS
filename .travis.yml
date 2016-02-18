@@ -5,8 +5,8 @@ xcode_scheme: Volontair
 osx_image: xcode7.3
 
 before_install:
-- brew update || brew update
+- brew update
 - brew outdated xctool || brew upgrade xctool
 
 script:
-- xctool -project Volontair.xcodeproj -scheme Volontair -sdk iphonesimulator build test -freshSimulator -freshInstall CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+- xctool -project Volontair.xcodeproj -scheme Volontair -sdk iphonesimulator build test -freshInstall CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
