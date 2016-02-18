@@ -9,4 +9,4 @@ before_install:
 - brew outdated xctool || brew upgrade xctool
 
 script:
-- xctool -project Volontair.xcodeproj -scheme Volontair -sdk iphonesimulator build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+- xctool -project Volontair.xcodeproj -scheme Volontair -sdk iphonesimulator -freshInstall -freshSimulator build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
