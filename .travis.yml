@@ -10,3 +10,6 @@ before_install:
 
 script:
 - xctool -project Volontair.xcodeproj -scheme Volontair -sdk iphonesimulator build test -freshInstall CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
+notifications:
+	slack: projectb-avans:siOpU3NrKhK1f4IkjwfKx0el
