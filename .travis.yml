@@ -13,3 +13,5 @@ script:
 
 notifications:
   slack: projectb-avans:siOpU3NrKhK1f4IkjwfKx0el
+  on_success: change
+  on_failure: always
