@@ -150,7 +150,7 @@
         <!--Settings-->
         <scene sceneID="WgJ-TF-ZlN">
             <objects>
-                <viewController id="MJH-58-WJc" sceneMemberID="viewController">
+                <viewController id="MJH-58-WJc" customClass="SettingsViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vR4-dg-HNl"/>
                         <viewControllerLayoutGuide type="bottom" id="PS2-ug-mWg"/>
