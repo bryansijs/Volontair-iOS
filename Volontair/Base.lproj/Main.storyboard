@@ -25,10 +25,19 @@
                                     <action selector="startWalkthrough:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHt-e6-MrS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-m7-Q1x">
+                                <rect key="frame" x="360" y="550" width="75" height="30"/>
+                                <state key="normal" title="Dashboard"/>
+                                <connections>
+                                    <segue destination="aV0-b1-kqn" kind="showDetail" id="ZrX-HP-CFu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5po-cE-9O5" secondAttribute="bottom" constant="20" id="MAg-eE-LfC"/>
+                            <constraint firstItem="tj7-m7-Q1x" firstAttribute="baseline" secondItem="5po-cE-9O5" secondAttribute="baseline" id="ZsF-hp-lEH"/>
+                            <constraint firstItem="tj7-m7-Q1x" firstAttribute="leading" secondItem="5po-cE-9O5" secondAttribute="trailing" constant="22" id="aWF-Tl-OFo"/>
                             <constraint firstItem="5po-cE-9O5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekt-aH-Roq"/>
                         </constraints>
                     </view>
@@ -109,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="1000" y="618"/>
         </scene>
-        <!--Item 2-->
+        <!--map-->
         <scene sceneID="xv2-sg-SpU">
             <objects>
                 <viewController id="PY4-Pi-QrT" sceneMemberID="viewController">
@@ -122,13 +131,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="uLi-Sc-Vj8"/>
+                    <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="570"/>
+            <point key="canvasLocation" x="2540" y="-180"/>
         </scene>
-        <!--item-->
+        <!--profiel-->
         <scene sceneID="Ski-SO-35M">
             <objects>
                 <viewController id="lof-7X-Xfp" sceneMemberID="viewController">
@@ -141,11 +150,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="item" id="ymh-iT-cRq"/>
+                    <tabBarItem key="tabBarItem" title="profiel" image="UserIcon" selectedImage="UserFilled" id="ymh-iT-cRq">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsA-IZ-U6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="1317"/>
+            <point key="canvasLocation" x="2540" y="481"/>
         </scene>
         <!--Settings-->
         <scene sceneID="WgJ-TF-ZlN">
@@ -160,13 +171,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="hOa-x0-N1o"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon" selectedImage="SettingsFilled" id="hOa-x0-N1o"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mow-Mz-H5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2541" y="-771"/>
+            <point key="canvasLocation" x="2540" y="1133"/>
         </scene>
-        <!--Item 1-->
+        <!--Dashboard-->
         <scene sceneID="eMa-jW-TMA">
             <objects>
                 <viewController id="H0Q-Ch-kR8" sceneMemberID="viewController">
@@ -179,16 +190,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="CGh-Hs-HOR"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="HomeFilled" selectedImage="HomeFilled" id="CGh-Hs-HOR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAR-0M-oks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2552" y="-90"/>
+            <point key="canvasLocation" x="2540" y="-898"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="d70-9Z-9mt">
             <objects>
-                <tabBarController id="aV0-b1-kqn" sceneMemberID="viewController">
+                <tabBarController id="aV0-b1-kqn" customClass="DashboardViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ojU-v1-d9o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -206,4 +217,13 @@
             <point key="canvasLocation" x="1738" y="228"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeFilled" width="25" height="25"/>
+        <image name="MapsFilled" width="25" height="25"/>
+        <image name="MapsIcon" width="25" height="25"/>
+        <image name="SettingsFilled" width="25" height="25"/>
+        <image name="SettingsIcon" width="25" height="25"/>
+        <image name="UserFilled" width="25" height="25"/>
+        <image name="UserIcon" width="25" height="25"/>
+    </resources>
 </document>
