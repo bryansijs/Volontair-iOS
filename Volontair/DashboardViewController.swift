@@ -8,11 +8,19 @@
 
 import UIKit
 
-class DashboardViewController: UITabBarController {
 
+class DashboardViewController: UIViewController {
+
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+    var dataPassed: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Set welcome text with name
+        welcomeLabel.text = "Hello \(dataPassed)!"
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +28,4 @@ class DashboardViewController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

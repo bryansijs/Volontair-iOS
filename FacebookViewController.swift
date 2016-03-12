@@ -1,0 +1,84 @@
+//
+//  FacebookViewController.swift
+//  Volontair
+//
+//  Created by M Mommersteeg on 12/03/16.
+//  Copyright © 2016 Volontair. All rights reserved.
+//
+
+import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+
+class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if (FBSDKAccessToken.currentAccessToken() == nil)
+        {
+            print("Not logged in")
+        }
+        else
+        {
+            print("logged in")
+        }
+        
+        let loginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        loginButton.center = self.view.center
+        
+        loginButton.delegate = self
+        
+        self.view.addSubview(loginButton)
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier != "showNew") {
+            return
+        }
+        
+        let request = FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"name,gender,birthday,first_name,last_name,email"]);
+        request.startWithCompletionHandler {
+            (connection, result, error) in
+            if error != nil {
+                print ("error \(error)")
+                return
+            }
+                
+            if let userData = result as? NSDictionary {
+                    
+                let firstname = userData["first_name"] as? String
+                    
+                print(result)
+                var svc = segue.destinationViewController as! DashboardViewController;
+                svc.dataPassed = firstname
+            }
+        }
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if(error != nil) {
+            print(error.localizedDescription)
+            return
+        }
+        
+        print("login complete")
+        
+        
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
+        FBSDKAccessToken.currentAccessToken().userID
+        self.performSegueWithIdentifier("showNew", sender: self)
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("user logged out")
+    }
+}
