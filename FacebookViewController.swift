@@ -41,7 +41,7 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
     
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier != "showNew") {
+        if(segue.identifier != "showDashboard") {
             return
         }
         
@@ -58,8 +58,13 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let firstname = userData["first_name"] as? String
                     
                 print(result)
-                var svc = segue.destinationViewController as! DashboardViewController;
-                svc.dataPassed = firstname
+
+                //Save username in settings
+                let prefs = NSUserDefaults.standardUserDefaults()
+                prefs.setObject(firstname, forKey: "Username")
+                
+                let svc = segue.destinationViewController as! DashboardViewController;
+                svc.userfirstname = firstname
             }
         }
     }
@@ -70,15 +75,18 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
             return
         }
         
-        print("login complete")
-        
+        print("login completed")
         
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
         FBSDKAccessToken.currentAccessToken().userID
-        self.performSegueWithIdentifier("showNew", sender: self)
+        
+        self.performSegueWithIdentifier("showDashboard", sender: self)
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        prefs.removeObjectForKey("Username")
+        print("preference deleted")
         print("user logged out")
     }
 }

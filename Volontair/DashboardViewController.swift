@@ -13,13 +13,15 @@ class DashboardViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     
-    var dataPassed: String!
+    var userfirstname: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(userfirstname)
+        
         // Set welcome text with name
-        welcomeLabel.text = "Hello \(dataPassed)!"
+        //welcomeLabel.text = "Hello \(userfirstname)!"
         
         // Do any additional setup after loading the view.
     }

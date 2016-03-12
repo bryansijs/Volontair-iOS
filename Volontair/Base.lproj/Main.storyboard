@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5UW-Dq-K2g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z9T-1o-TkX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -235,29 +235,31 @@
             </objects>
             <point key="canvasLocation" x="2549" y="1141"/>
         </scene>
-        <!--Facebook View Controller-->
-        <scene sceneID="Qm4-P4-4xt">
+        <!--FacebookViewController-->
+        <scene sceneID="qoq-Uh-yt5">
             <objects>
-                <viewController id="5UW-Dq-K2g" customClass="FacebookViewController" customModule="Volontair" sceneMemberID="viewController">
+                <viewController title="FacebookViewController" id="Z9T-1o-TkX" customClass="FacebookViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OQd-BP-KCk"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jdn-bk-bOs"/>
+                        <viewControllerLayoutGuide type="top" id="8tb-Lc-5JQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="BFp-QW-rwo"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="06x-bR-JZr">
+                    <view key="view" contentMode="scaleToFill" id="MSF-PD-eO4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bRZ-Eo-WdE"/>
+                    <connections>
+                        <segue destination="H0Q-Ch-kR8" kind="show" identifier="showDashboard" id="fD1-tC-4Bo"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f4G-2f-LaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0t-rt-w9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="-591"/>
+            <point key="canvasLocation" x="1938" y="-886"/>
         </scene>
-        <!--Dashboard-->
+        <!--DashboardViewController-->
         <scene sceneID="eMa-jW-TMA">
             <objects>
-                <viewController id="H0Q-Ch-kR8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" title="DashboardViewController" id="H0Q-Ch-kR8" customClass="DashboardViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wH3-SF-vB0"/>
                         <viewControllerLayoutGuide type="bottom" id="x7e-Mt-2sP"/>
@@ -266,7 +268,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-Oi-xVQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="welcomeLabel" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-Oi-xVQ">
                                 <rect key="frame" x="33" y="28" width="498" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -282,6 +284,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="HomeFilled" selectedImage="HomeFilled" id="CGh-Hs-HOR"/>
+                    <navigationItem key="navigationItem" id="rkg-W5-K4i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAR-0M-oks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -316,4 +319,7 @@
         <image name="UserFilled" width="25" height="25"/>
         <image name="UserIcon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fD1-tC-4Bo"/>
+    </inferredMetricsTieBreakers>
 </document>
