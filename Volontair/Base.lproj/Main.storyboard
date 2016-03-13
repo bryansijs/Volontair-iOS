@@ -249,9 +249,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="u7U-tH-cUr"/>
-                    <connections>
-                        <segue destination="H0Q-Ch-kR8" kind="show" identifier="showDashboard" id="2aD-qI-vq9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0t-rt-w9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -341,7 +338,4 @@
         <image name="UserFilled" width="25" height="25"/>
         <image name="UserIcon" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="xXV-Hx-wYn"/>
-    </inferredMetricsTieBreakers>
 </document>

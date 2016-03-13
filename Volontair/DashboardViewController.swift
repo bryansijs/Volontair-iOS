@@ -18,6 +18,10 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Get preferences and set username
+        let prefs = NSUserDefaults.standardUserDefaults()
+        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)
+        
         if welcomeLabel != nil {
             // Set welcome text with name
             welcomeLabel.text = "Welcome \(userfirstname)!"

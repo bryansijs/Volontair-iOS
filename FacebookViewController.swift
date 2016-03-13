@@ -26,7 +26,8 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else
         {
-            print("logged in")
+            print("User already logged in")
+            redirectToDashboard()
         }
         
         let loginButton = FBSDKLoginButton()
@@ -44,9 +45,9 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier != FacebookViewControllerConstants.showDashboardSegue) {
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if(error != nil) {
+            print(error.localizedDescription)
             return
         }
         
@@ -57,46 +58,42 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print ("error \(error)")
                 return
             }
-                
+            print("login succeeded")
+            
             if let userData = result as? NSDictionary {
-                    
+                
                 let firstname = userData["first_name"] as? String
-                    
+                
+                print("Retrieved data from Facebook:")
                 print(result)
-
+                
                 //Save username in settings
                 let prefs = NSUserDefaults.standardUserDefaults()
                 prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
+                prefs.synchronize()
                 
-                let svc = segue.destinationViewController as! DashboardViewController;
-                svc.userfirstname = firstname
+                print("username preference added")
+                
+                self.redirectToDashboard()
             }
         }
-    }
-    
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if(error != nil) {
-            print(error.localizedDescription)
-            return
-        }
-        
-        print("login completed")
-        
-        FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
-        FBSDKAccessToken.currentAccessToken().userID
-        
-        let tbc:UITabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UITabBarController
-        tbc.selectedIndex = 0
-        
-        self.performSegueWithIdentifier(FacebookViewControllerConstants.showDashboardSegue, sender: self)
-        
-        print("Redirect user to Dashboard")
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         let prefs = NSUserDefaults.standardUserDefaults()
         prefs.removeObjectForKey(FacebookViewControllerConstants.usernamePreference)
-        print("preference deleted")
+        print("username preference deleted")
         print("user logged out")
+    }
+    
+    func redirectToDashboard() {
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
+        FBSDKAccessToken.currentAccessToken().userID
+        
+        let tbc:UITabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UITabBarController
+        // Dashboard view = 0
+        tbc.selectedIndex = 0
+        self.navigationController!.pushViewController(tbc, animated: true)
+        print("Redirect user to Dashboard")
     }
 }
