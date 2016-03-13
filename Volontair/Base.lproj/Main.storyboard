@@ -170,7 +170,7 @@
                             <tableViewSection headerTitle="Map" id="Li4-xS-cCD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="radiusCell" rowHeight="75" id="aHF-dT-Pdz">
-                                        <rect key="frame" x="0.0" y="114" width="600" height="75"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHF-dT-Pdz" id="kMv-nE-7Tg">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
@@ -250,7 +250,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="u7U-tH-cUr"/>
                     <connections>
-                        <segue destination="aV0-b1-kqn" kind="show" identifier="showDashboard" id="QH6-go-2Rx"/>
+                        <segue destination="H0Q-Ch-kR8" kind="show" identifier="showDashboard" id="2aD-qI-vq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0t-rt-w9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="4156" y="-872"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="d70-9Z-9mt">
             <objects>
-                <tabBarController id="aV0-b1-kqn" customClass="DashboardViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabController" id="aV0-b1-kqn" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ojU-v1-d9o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -342,6 +342,6 @@
         <image name="UserIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QH6-go-2Rx"/>
+        <segue reference="xXV-Hx-wYn"/>
     </inferredMetricsTieBreakers>
 </document>

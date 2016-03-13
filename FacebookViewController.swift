@@ -85,6 +85,9 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
         FBSDKAccessToken.currentAccessToken().userID
         
+        let tbc:UITabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UITabBarController
+        tbc.selectedIndex = 0
+        
         self.performSegueWithIdentifier(FacebookViewControllerConstants.showDashboardSegue, sender: self)
         
         print("Redirect user to Dashboard")

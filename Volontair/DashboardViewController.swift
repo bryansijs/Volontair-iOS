@@ -18,10 +18,10 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(userfirstname)
-        
-        // Set welcome text with name
-        welcomeLabel.text = "Hello \(userfirstname)!"
+        if welcomeLabel != nil {
+            // Set welcome text with name
+            welcomeLabel.text = "Welcome \(userfirstname)!"
+        }
         
         // Do any additional setup after loading the view.
     }
