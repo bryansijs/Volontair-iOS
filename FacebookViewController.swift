@@ -10,13 +10,13 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+struct FacebookViewControllerConstants {
+    static let usernamePreference = "volontair.preferences.username"
+    static let showDashboardSegue = "showDashboard"
+}
+
 class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
 
-    struct FacebookViewControllerConstants {
-        static let usernamePreference = "Username"
-        static let showDashboardSegue = "showDashboard"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
