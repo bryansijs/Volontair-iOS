@@ -12,6 +12,11 @@ import FBSDKLoginKit
 
 class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    struct FacebookViewControllerConstants {
+        static let usernamePreference = "Username"
+        static let showDashboardSegue = "showDashboard"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +46,7 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
     
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier != "showDashboard") {
+        if(segue.identifier != FacebookViewControllerConstants.showDashboardSegue) {
             return
         }
         
@@ -61,7 +66,7 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
 
                 //Save username in settings
                 let prefs = NSUserDefaults.standardUserDefaults()
-                prefs.setObject(firstname, forKey: "Username")
+                prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
                 
                 let svc = segue.destinationViewController as! DashboardViewController;
                 svc.userfirstname = firstname
@@ -80,12 +85,14 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
         FBSDKAccessToken.currentAccessToken().userID
         
-        self.performSegueWithIdentifier("showDashboard", sender: self)
+        self.performSegueWithIdentifier(FacebookViewControllerConstants.showDashboardSegue, sender: self)
+        
+        print("Redirect user to Dashboard")
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         let prefs = NSUserDefaults.standardUserDefaults()
-        prefs.removeObjectForKey("Username")
+        prefs.removeObjectForKey(FacebookViewControllerConstants.usernamePreference)
         print("preference deleted")
         print("user logged out")
     }

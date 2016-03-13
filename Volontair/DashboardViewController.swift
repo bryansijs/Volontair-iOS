@@ -21,7 +21,7 @@ class DashboardViewController: UIViewController {
         print(userfirstname)
         
         // Set welcome text with name
-        //welcomeLabel.text = "Hello \(userfirstname)!"
+        welcomeLabel.text = "Hello \(userfirstname)!"
         
         // Do any additional setup after loading the view.
     }
