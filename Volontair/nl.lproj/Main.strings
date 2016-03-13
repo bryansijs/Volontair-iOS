@@ -25,3 +25,7 @@
 
 /* Class = "UITabBarItem"; title = "item"; ObjectID = "ymh-iT-cRq"; */
 "ymh-iT-cRq.title" = "item";
+
+
+/* Class = "UILabel"; text = "Welcome!"; ObjectID = "pQk-Oi-xVQ"; */
+"pQk-Oi-xVQ.text" = "Welkom!";
