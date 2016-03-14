@@ -3,7 +3,7 @@
 "5po-cE-9O5.normalTitle" = "Opnieuw beginnen";
 
 /* Class = "UITabBarItem"; title = "Item 1"; ObjectID = "CGh-Hs-HOR"; */
-"CGh-Hs-HOR.title" = "Item 1";
+"CGh-Hs-HOR.title" = "Dashboard";
 
 /* Class = "UITableViewSection"; headerTitle = "Map"; ObjectID = "Li4-xS-cCD"; */
 "Li4-xS-cCD.headerTitle" = "Kaart";
@@ -21,7 +21,7 @@
 "q4c-Ot-fiv.text" = "100km";
 
 /* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "uLi-Sc-Vj8"; */
-"uLi-Sc-Vj8.title" = "Item 2";
+"uLi-Sc-Vj8.title" = "Map";
 
 /* Class = "UITabBarItem"; title = "item"; ObjectID = "ymh-iT-cRq"; */
-"ymh-iT-cRq.title" = "item";
+"ymh-iT-cRq.title" = "Profiel";
