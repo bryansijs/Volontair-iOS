@@ -18,7 +18,8 @@
 		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
 		578485001C764542006A9841 /* VolontairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484FF1C764542006A9841 /* VolontairUITests.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
-		EF3E38D41C9B58E9005210ED /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
+		EF3E38D51C9B5C59005210ED /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
+		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
@@ -78,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF3E38D41C9B58E9005210ED /* FBSDKLoginKit.framework in Frameworks */,
+				EF3E38D51C9B5C59005210ED /* FBSDKLoginKit.framework in Frameworks */,
 				2FCA6D171C9B2E830025DD02 /* FBSDKCoreKit.framework in Frameworks */,
 				2FB60C261C946F2C0002BB51 /* Bolts.framework in Frameworks */,
 			);
@@ -306,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
