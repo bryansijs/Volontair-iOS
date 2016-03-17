@@ -482,7 +482,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/FBSDKLoginKit.framework\" \"$(SRCROOT)/FBSDKCoreKit.framework\"";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -499,7 +499,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/FBSDKLoginKit.framework\" \"$(SRCROOT)/FBSDKCoreKit.framework\"";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
