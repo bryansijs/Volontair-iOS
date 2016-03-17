@@ -12,23 +12,22 @@ import FBSDKLoginKit
 
 struct FacebookViewControllerConstants {
     static let usernamePreference = "volontair.preferences.username"
-    static let showDashboardSegue = "showDashboard"
+    static let showDashboardSegue = "unwindToDashboard"
 }
 
 class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if (FBSDKAccessToken.currentAccessToken() == nil)
-        {
-            print("Not logged in")
-        }
-        else
-        {
+        if(FBSDKAccessToken.currentAccessToken() != nil) {
             print("User already logged in")
             redirectToDashboard()
+            return
         }
+        print("Not logged in")
         
         let loginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["public_profile", "email", "user_friends"]
@@ -68,9 +67,8 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print(result)
                 
                 //Save username in settings
-                let prefs = NSUserDefaults.standardUserDefaults()
-                prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
-                prefs.synchronize()
+                self.prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
+                self.prefs.synchronize()
                 
                 print("username preference added")
                 
@@ -80,20 +78,12 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        let prefs = NSUserDefaults.standardUserDefaults()
         prefs.removeObjectForKey(FacebookViewControllerConstants.usernamePreference)
         print("username preference deleted")
         print("user logged out")
     }
     
     func redirectToDashboard() {
-        FBSDKProfile.enableUpdatesOnAccessTokenChange(true);
-        FBSDKAccessToken.currentAccessToken().userID
-        
-        let tbc:UITabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("tabController") as! UITabBarController
-        // Dashboard view = 0
-        tbc.selectedIndex = 0
-        self.navigationController!.pushViewController(tbc, animated: true)
-        print("Redirect user to Dashboard")
+        self.performSegueWithIdentifier(FacebookViewControllerConstants.showDashboardSegue, sender: self)
     }
 }

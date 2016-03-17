@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zCu-Lz-w5H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -238,7 +238,7 @@
         <!--FacebookViewController-->
         <scene sceneID="qoq-Uh-yt5">
             <objects>
-                <viewController title="FacebookViewController" id="Z9T-1o-TkX" customClass="FacebookViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FacebookViewController" title="FacebookViewController" id="Z9T-1o-TkX" customClass="FacebookViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8tb-Lc-5JQ"/>
                         <viewControllerLayoutGuide type="bottom" id="BFp-QW-rwo"/>
@@ -249,10 +249,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="u7U-tH-cUr"/>
+                    <connections>
+                        <segue destination="sfW-V5-wsf" kind="unwind" identifier="unwindToDashboard" unwindAction="unwindToDashboard:" id="G18-6H-XJC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0t-rt-w9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sfW-V5-wsf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2750" y="-886"/>
+            <point key="canvasLocation" x="3562" y="-886"/>
         </scene>
         <!--DashboardViewController-->
         <scene sceneID="eMa-jW-TMA">
@@ -266,7 +270,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="welcomeLabel" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-Oi-xVQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="welcomeLabel" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-Oi-xVQ">
                                 <rect key="frame" x="33" y="28" width="498" height="533"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -285,11 +289,12 @@
                     <navigationItem key="navigationItem" id="rkg-W5-K4i"/>
                     <connections>
                         <outlet property="welcomeLabel" destination="pQk-Oi-xVQ" id="WQT-qE-aAI"/>
+                        <segue destination="Z9T-1o-TkX" kind="presentation" identifier="showfacebookmodalsegue" id="AVG-zH-7h2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAR-0M-oks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4156" y="-872"/>
+            <point key="canvasLocation" x="4968" y="-872"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="d70-9Z-9mt">
@@ -310,24 +315,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04p-Hh-GFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1738" y="228"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xSV-GP-HDO">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zCu-Lz-w5H" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uvy-TI-q4t">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Z9T-1o-TkX" kind="relationship" relationship="rootViewController" id="NOI-gA-4q5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6DQ-9Z-LBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1938" y="-886"/>
         </scene>
     </scenes>
     <resources>
