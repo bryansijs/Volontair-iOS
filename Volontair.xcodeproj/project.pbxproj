@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2FB60C261C946F2C0002BB51 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C231C946F2C0002BB51 /* Bolts.framework */; };
-		2FB60C271C946F2C0002BB51 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; };
-		2FB60C281C946F2C0002BB51 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
+		2FCA6D171C9B2E830025DD02 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; };
+		2FCA6D191C9B2E830025DD02 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
@@ -78,9 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FCA6D171C9B2E830025DD02 /* FBSDKCoreKit.framework in Frameworks */,
 				2FB60C261C946F2C0002BB51 /* Bolts.framework in Frameworks */,
-				2FB60C271C946F2C0002BB51 /* FBSDKCoreKit.framework in Frameworks */,
-				2FB60C281C946F2C0002BB51 /* FBSDKLoginKit.framework in Frameworks */,
+				2FCA6D191C9B2E830025DD02 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +458,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -474,7 +474,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
