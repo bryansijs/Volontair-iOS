@@ -14,6 +14,7 @@
 		578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E81C764542006A9841 /* LaunchScreen.storyboard */; };
 		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
 		578485001C764542006A9841 /* VolontairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484FF1C764542006A9841 /* VolontairUITests.swift */; };
+		88F6C98134B92DC1A62CD3B3 /* Pods_Volontair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E30DD1E1850BCE3F80A59F /* Pods_Volontair.framework */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5422F735260005FFA460D6D4 /* Pods-Volontair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volontair.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volontair/Pods-Volontair.release.xcconfig"; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FA1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8B6B92E48DC4A4C6A0AC95BB /* Pods-Volontair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volontair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volontair/Pods-Volontair.debug.xcconfig"; sourceTree = "<group>"; };
+		E3E30DD1E1850BCE3F80A59F /* Pods_Volontair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Volontair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF4948581C8F2819001A8A3C /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
 		EF4948591C8F2819001A8A3C /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5A86C41CA01815004128E7 /* MapKit.framework in Frameworks */,
+				88F6C98134B92DC1A62CD3B3 /* Pods_Volontair.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30C61500D5B835BB9D18EFC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3E30DD1E1850BCE3F80A59F /* Pods_Volontair.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,8 @@
 				578484F31C764542006A9841 /* VolontairTests */,
 				578484FE1C764542006A9841 /* VolontairUITests */,
 				578484DD1C764541006A9841 /* Products */,
+				587E59290376327FDBDFA64A /* Pods */,
+				30C61500D5B835BB9D18EFC3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +173,15 @@
 			path = VolontairUITests;
 			sourceTree = "<group>";
 		};
+		587E59290376327FDBDFA64A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B6B92E48DC4A4C6A0AC95BB /* Pods-Volontair.debug.xcconfig */,
+				5422F735260005FFA460D6D4 /* Pods-Volontair.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 578485041C764542006A9841 /* Build configuration list for PBXNativeTarget "Volontair" */;
 			buildPhases = (
+				366C5E579CF95A3403578B0F /* Check Pods Manifest.lock */,
 				578484D81C764541006A9841 /* Sources */,
 				578484D91C764541006A9841 /* Frameworks */,
 				578484DA1C764541006A9841 /* Resources */,
+				C381FEF0F7A017EB2B45C065 /* Embed Pods Frameworks */,
+				08D6821E1C7262A6C491A2EE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,6 +314,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08D6821E1C7262A6C491A2EE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volontair/Pods-Volontair-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		366C5E579CF95A3403578B0F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C381FEF0F7A017EB2B45C065 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volontair/Pods-Volontair-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		578484D81C764541006A9841 /* Sources */ = {
@@ -441,6 +516,7 @@
 		};
 		578485051C764542006A9841 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B6B92E48DC4A4C6A0AC95BB /* Pods-Volontair.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -453,6 +529,7 @@
 		};
 		578485061C764542006A9841 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5422F735260005FFA460D6D4 /* Pods-Volontair.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
