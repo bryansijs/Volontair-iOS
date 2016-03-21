@@ -20,6 +20,9 @@
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
 		EF49485F1C8F2819001A8A3C /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485B1C8F2819001A8A3C /* page4.png */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
+		EF5A86C41CA01815004128E7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5A86C31CA01815004128E7 /* MapKit.framework */; };
+		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
+		EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */; };
 		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		EF49485A1C8F2819001A8A3C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
 		EF49485B1C8F2819001A8A3C /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5A86C41CA01815004128E7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +100,7 @@
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
+				EF5A86C31CA01815004128E7 /* MapKit.framework */,
 				578484DE1C764541006A9841 /* Volontair */,
 				578484F31C764542006A9841 /* VolontairTests */,
 				578484FE1C764542006A9841 /* VolontairUITests */,
@@ -126,6 +134,8 @@
 				578484EB1C764542006A9841 /* Info.plist */,
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
+				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
+				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
 			);
 			path = Volontair;
 			sourceTree = "<group>";
@@ -283,6 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
+				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
