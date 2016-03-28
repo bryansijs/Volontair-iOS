@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 
 class ProfileViewController: UIViewController {
@@ -15,20 +16,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var AboutMeLabel: UITextView!
     
-    let notificationKey = "profileDataChanged"
-    let model = ProfileModel()
+    //TODO: right user number
+    var url = "http://volontairtest-mikero.rhcloud.com/"
+    let profileUrl = "users/1"
+    var model : ProfileModel?  = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateOnNotification", name: notificationKey, object: nil)
         
+        // profile rounded image
         self.ProfileImageView.layer.cornerRadius = self.ProfileImageView.frame.size.width / 2
         self.ProfileImageView.layer.borderWidth = 3.0
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        //self.ProfileImageView.clipsToBounds = true
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
-        getData()
+        self.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,15 +38,32 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getData(){
-        print(model.data!["offersCategories"])
-        self.ProfileNameLabel.text = model.data!["name"] as? String
-        self.AboutMeLabel.text = model.data!["summary"] as? String
-        self.ProfileImageView.image = UIImage(data: model.profilePicture!)
+    func setData(){
+        self.ProfileNameLabel.text = model!.name
+        self.AboutMeLabel.text = model!.summary
+        self.ProfileImageView.image = UIImage(data: model!.profilePicture)
     }
     
-    //This will be triggered once the Data is updated.
-    func updateOnNotification() {
-        getData();
+    //MARK: DATA
+    private func getData(){
+        
+        //check if URL is valid
+        let profileURL = url + profileUrl
+        guard let url = NSURL(string: profileURL) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        Alamofire.request(.GET, url).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    self.model = ProfileModel(jsonData: value)
+                    self.setData()
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
     }
 }

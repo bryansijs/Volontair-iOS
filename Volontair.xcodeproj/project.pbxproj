@@ -15,6 +15,10 @@
 		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
 		578485001C764542006A9841 /* VolontairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484FF1C764542006A9841 /* VolontairUITests.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
+		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
+		EF287BA81CA9C1AD009155CC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; };
+		EF287BA91CA9C1AD009155CC /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EF326CA11CA9C9D9000D8912 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
@@ -43,6 +47,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EF287BAA1CA9C1AD009155CC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EF287BA91CA9C1AD009155CC /* SwiftyJSON.framework in Embed Frameworks */,
+				EF326CA11CA9C9D9000D8912 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +79,10 @@
 		57C6A5FA1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EF326CA01CA9C9D9000D8912 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EF4948581C8F2819001A8A3C /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
 		EF4948591C8F2819001A8A3C /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		EF49485A1C8F2819001A8A3C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
@@ -67,7 +90,7 @@
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileModel.swift; path = Volontair/ProfileModel.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF287BA81CA9C1AD009155CC /* SwiftyJSON.framework in Frameworks */,
 				EF5A86C41CA01815004128E7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,7 +124,9 @@
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
-				EF5A86C31CA01815004128E7 /* MapKit.framework */,
+				EF326CA21CA9CA0C000D8912 /* model */,
+				EF326CA01CA9C9D9000D8912 /* Alamofire.framework */,
+				EF287BB11CA9C527009155CC /* Frameworks */,
 				578484DE1C764541006A9841 /* Volontair */,
 				578484F31C764542006A9841 /* VolontairTests */,
 				578484FE1C764542006A9841 /* VolontairUITests */,
@@ -121,6 +147,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				EF287BA51CA9BFC6009155CC /* Cartfile */,
 				EF4948581C8F2819001A8A3C /* page1.png */,
 				EF4948591C8F2819001A8A3C /* page2.png */,
 				EF49485A1C8F2819001A8A3C /* page3.png */,
@@ -135,7 +162,6 @@
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
-				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
 			);
 			path = Volontair;
 			sourceTree = "<group>";
@@ -158,6 +184,24 @@
 			path = VolontairUITests;
 			sourceTree = "<group>";
 		};
+		EF287BB11CA9C527009155CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */,
+				EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */,
+				EF5A86C31CA01815004128E7 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF326CA21CA9CA0C000D8912 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +212,7 @@
 				578484D81C764541006A9841 /* Sources */,
 				578484D91C764541006A9841 /* Frameworks */,
 				578484DA1C764541006A9841 /* Resources */,
+				EF287BAA1CA9C1AD009155CC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +278,7 @@
 					};
 					578484FA1C764542006A9841 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = AW58WB4R6V;
 						TestTargetID = 578484DB1C764541006A9841;
 					};
 				};
@@ -264,6 +310,7 @@
 			files = (
 				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
 				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
+				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
 				EF49485E1C8F2819001A8A3C /* page3.png in Resources */,
 				EF49485F1C8F2819001A8A3C /* page4.png in Resources */,
 				EF49485C1C8F2819001A8A3C /* page1.png in Resources */,
@@ -444,6 +491,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Volontair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
@@ -456,6 +507,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Volontair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
@@ -490,10 +545,13 @@
 		5784850B1C764542006A9841 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Volontair;
 				USES_XCTRUNNER = YES;
 			};
@@ -502,10 +560,13 @@
 		5784850C1C764542006A9841 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Volontair;
 				USES_XCTRUNNER = YES;
 			};

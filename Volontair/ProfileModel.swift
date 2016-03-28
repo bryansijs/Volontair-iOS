@@ -7,68 +7,35 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class ProfileModel {
     
-    //TODO: right user number
-    var url = "http://volontairtest-mikero.rhcloud.com/"
-    let profileUrl = "users/1"
-    let notificationKey = "profileDataChanged"
-    var data: [String:AnyObject]? = nil
-    var profilePicture: NSData? = nil
+    var id : Int
+    var name: String
+    var profilePicture: NSData
+    var summary: String
+    var offersCategories: [String: JSON]
+    var contacts: [String: JSON]
+//    var offers: [String: JSON]
+//    var requests: [String: JSON]
     
-    init(){
-        getJson()
-    }
-    
-    func getData()->[String:AnyObject]{
-        return data!
-    }
-    
-    func refresh(){
-        getJson()
-    }
-    
-    private func getJson(){
+    init(jsonData: AnyObject){
+        let json = JSON(jsonData)
+        self.id = json["id"].int!
+        self.name = json["name"].string!
+        self.summary = json["summary"].string!
+        self.offersCategories = json["offersCategories"].dictionary!
+        self.contacts = json["contacts"].dictionaryValue
         
-        //check if URL is valid
-        let profileURL = url + profileUrl
-        guard let url = NSURL(string: profileURL) else {
-            print("Error: cannot create URL")
-            return
-        }
-        
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
-            if let httpRes = response as? NSHTTPURLResponse {
-                print("status code=",httpRes.statusCode)
-                if httpRes.statusCode == 200 {
-                    // parse data
-                    return self.parseDate(data)
-                }
-            } else {
-                print("error \(error)") // print the error!
-            }
-        }
-        task.resume()
-    }
-    
-    private func getProfilePicture(pictureURL: String){
-        let imageURL = self.url + pictureURL
-        let url = NSURL(string: imageURL)
-        self.profilePicture = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-    }
-    
-    private func parseDate(JSONdata: NSData?)
-    {
-        do {
-            let parsed = try NSJSONSerialization.JSONObjectWithData(JSONdata!, options:[]) as! [String:AnyObject]
-            data = parsed
-            getProfilePicture((data!["avatar"] as? String)!)
-            print(parsed)
-        } catch {
-            print("error \(error)") // print the error!
-        }
-        NSNotificationCenter.defaultCenter().postNotificationName(notificationKey, object: self)
-    }
+        //TODO: fix offers and requests
+//        print("JSON: \(json)")
+//        self.offers = json["offers"].dictionary!
+//        self.requests = json["requests"].dictionary!
 
+        //Download profile picutre
+        let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
+        let url = NSURL(string: imageURL)
+        self.profilePicture = NSData(contentsOfURL: url!)!
+    }
 }
