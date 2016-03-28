@@ -18,11 +18,14 @@
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF287BA81CA9C1AD009155CC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; };
 		EF287BA91CA9C1AD009155CC /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EF326CA71CA9E1DB000D8912 /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF326CA51CA9E1DB000D8912 /* Alamofire.framework.dSYM */; };
-		EF326CA81CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF326CA61CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM */; };
+		EF326CA71CA9E1DB000D8912 /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF326CA51CA9E1DB000D8912 /* Alamofire.framework.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EF326CA81CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF326CA61CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EF326CAA1CA9E3CB000D8912 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; };
 		EF326CAB1CA9E3D6000D8912 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF326CAC1CA9E3E2000D8912 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; };
+		EF326CAE1CA9E5B7000D8912 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; };
+		EF326CAF1CA9E5BA000D8912 /* Alamofire.framework in Resources */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; };
+		EF326CB01CA9E5BD000D8912 /* Alamofire.framework in Resources */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
@@ -134,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF326CAE1CA9E5B7000D8912 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF326CB01CA9E5BD000D8912 /* Alamofire.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF326CAF1CA9E5BA000D8912 /* Alamofire.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +602,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
@@ -611,6 +621,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
