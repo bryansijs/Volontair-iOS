@@ -20,6 +20,8 @@
 		EF287BA91CA9C1AD009155CC /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF326CA11CA9C9D9000D8912 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF326CA31CA9E01A000D8912 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */; };
+		EF326CA71CA9E1DB000D8912 /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF326CA51CA9E1DB000D8912 /* Alamofire.framework.dSYM */; };
+		EF326CA81CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF326CA61CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM */; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
@@ -61,6 +63,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF326CA41CA9E1AB000D8912 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				EF326CA71CA9E1DB000D8912 /* Alamofire.framework.dSYM in CopyFiles */,
+				EF326CA81CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +97,8 @@
 		EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EF326CA01CA9C9D9000D8912 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EF326CA51CA9E1DB000D8912 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
+		EF326CA61CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		EF4948581C8F2819001A8A3C /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
 		EF4948591C8F2819001A8A3C /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		EF49485A1C8F2819001A8A3C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
@@ -188,6 +203,8 @@
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF326CA51CA9E1DB000D8912 /* Alamofire.framework.dSYM */,
+				EF326CA61CA9E1DB000D8912 /* SwiftyJSON.framework.dSYM */,
 				EF326CA01CA9C9D9000D8912 /* Alamofire.framework */,
 				EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */,
 				EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */,
@@ -215,6 +232,8 @@
 				578484D91C764541006A9841 /* Frameworks */,
 				578484DA1C764541006A9841 /* Resources */,
 				EF287BAA1CA9C1AD009155CC /* Embed Frameworks */,
+				EF326CA41CA9E1AB000D8912 /* CopyFiles */,
+				EF326CA91CA9E22B000D8912 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -336,6 +355,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EF326CA91CA9E22B000D8912 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		578484D81C764541006A9841 /* Sources */ = {
