@@ -125,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				EF326CA21CA9CA0C000D8912 /* model */,
-				EF326CA01CA9C9D9000D8912 /* Alamofire.framework */,
 				EF287BB11CA9C527009155CC /* Frameworks */,
 				578484DE1C764541006A9841 /* Volontair */,
 				578484F31C764542006A9841 /* VolontairTests */,
@@ -187,6 +186,7 @@
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF326CA01CA9C9D9000D8912 /* Alamofire.framework */,
 				EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */,
 				EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */,
 				EF5A86C31CA01815004128E7 /* MapKit.framework */,

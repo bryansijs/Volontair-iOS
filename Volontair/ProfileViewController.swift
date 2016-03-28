@@ -20,6 +20,10 @@ class ProfileViewController: UIViewController {
     var url = "http://volontairtest-mikero.rhcloud.com/"
     let profileUrl = "users/1"
     var model : ProfileModel?  = nil
+        
+    override func viewWillAppear(animated: Bool) {
+        self.getData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,7 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
-        self.getData()
+        
     }
 
     override func didReceiveMemoryWarning() {
