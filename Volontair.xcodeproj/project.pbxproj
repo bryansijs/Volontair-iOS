@@ -19,6 +19,7 @@
 		EF287BA81CA9C1AD009155CC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; };
 		EF287BA91CA9C1AD009155CC /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF287BA71CA9C1AD009155CC /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF326CA11CA9C9D9000D8912 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF326CA01CA9C9D9000D8912 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EF326CA31CA9E01A000D8912 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF326C9E1CA9C9D3000D8912 /* Alamofire.framework */; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
@@ -101,6 +102,7 @@
 			files = (
 				EF287BA81CA9C1AD009155CC /* SwiftyJSON.framework in Frameworks */,
 				EF5A86C41CA01815004128E7 /* MapKit.framework in Frameworks */,
+				EF326CA31CA9E01A000D8912 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
