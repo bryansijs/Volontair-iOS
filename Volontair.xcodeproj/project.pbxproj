@@ -27,6 +27,8 @@
 		EFA50DF71CAAA97000FE4545 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFA50DFA1CAAAB9000FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
+		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
 		EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */; };
 		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
@@ -118,6 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA50DFA1CAAAB9000FE4545 /* Alamofire.framework in Frameworks */,
+				EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,18 +499,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/watchOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/watchOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
@@ -523,18 +515,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/Carthage/Build/watchOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftyJSON/Carthage/Build/watchOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
@@ -586,6 +566,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -605,6 +586,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
