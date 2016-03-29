@@ -16,22 +16,19 @@ class ProfileModel {
     var profilePicture: NSData
     var summary: String
     var offersCategories: [String: JSON]
-    var contacts: [String: JSON]
-//    var offers: [String: JSON]
-//    var requests: [String: JSON]
+    var contacts: [JSON]
+    var offers: [JSON]
+    var requests: [JSON]
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
         self.id = json["id"].int!
         self.name = json["name"].string!
-        self.summary = json["summary"].string!
-        self.offersCategories = json["offersCategories"].dictionary!
-        self.contacts = json["contacts"].dictionaryValue
-        
-        //TODO: fix offers and requests
-//        print("JSON: \(json)")
-//        self.offers = json["offers"].dictionary!
-//        self.requests = json["requests"].dictionary!
+        self.summary = json["summary"].stringValue
+        self.offersCategories = json["offersCategories"].dictionaryValue
+        self.contacts = json["contacts"].arrayValue
+        self.offers = json["offers"].arrayValue
+        self.requests = json["requests"].arrayValue
 
         //Download profile picutre
         let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
