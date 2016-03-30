@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ProfileNameLabel: UILabel!
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var AboutMeLabel: UITextView!
+    @IBOutlet weak var FriendsLabel: UILabel!
     
     //TODO: right user number
     var url = "http://volontairtest-mikero.rhcloud.com/"
@@ -46,6 +47,8 @@ class ProfileViewController: UIViewController {
         self.ProfileNameLabel.text = model!.name
         self.AboutMeLabel.text = model!.summary
         self.ProfileImageView.image = UIImage(data: model!.profilePicture)
+        let amountOfContacts: String = String(model!.contacts.count)
+        self.FriendsLabel.text! += amountOfContacts
     }
     
     //MARK: DATA
