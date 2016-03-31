@@ -7,29 +7,47 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
-class DashboardViewController: UITabBarController {
+struct DashboardViewControllerConstants {
+    static let showFacebookModalSegue = "showfacebookmodalsegue"
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class DashboardViewController: UIViewController {
 
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+    var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var userfirstname: String! = ""
+    
+    override func viewDidAppear(animated: Bool) {
+        if(!isLoggedIn()) {
+            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+            return
+        }
+        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)
+        if welcomeLabel != nil {
+            // Set welcome text with name
+            welcomeLabel.text = "Welcome \(userfirstname)!"
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Function for checking if the user is logged in using Facebook
+    func isLoggedIn() -> Bool {
+        if(FBSDKAccessToken.currentAccessToken() != nil) {
+            print("User already logged in")
+            return true
+        }
+        print("User not logged in")
+        return false
     }
-    */
-
+    
+    @IBAction func unwindToDashboard(segue: UIStoryboardSegue) {
+        print("Unwinded To Dashboard")
+    }
 }

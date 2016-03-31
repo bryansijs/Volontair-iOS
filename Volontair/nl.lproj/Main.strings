@@ -23,5 +23,8 @@
 /* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "uLi-Sc-Vj8"; */
 "uLi-Sc-Vj8.title" = "Map";
 
+/* Class = "UILabel"; text = "Welcome!"; ObjectID = "pQk-Oi-xVQ"; */
+"pQk-Oi-xVQ.text" = "Welkom!";
+
 /* Class = "UITabBarItem"; title = "item"; ObjectID = "ymh-iT-cRq"; */
 "ymh-iT-cRq.title" = "Profiel";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
@@ -14,8 +15,16 @@
 		578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E81C764542006A9841 /* LaunchScreen.storyboard */; };
 		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
 		578485001C764542006A9841 /* VolontairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484FF1C764542006A9841 /* VolontairUITests.swift */; };
+		57C442B61CA078D200A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
+		57C442BF1CA080C900A556F5 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C231C946F2C0002BB51 /* Bolts.framework */; };
+		57C442C01CA080C900A556F5 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C231C946F2C0002BB51 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57C442C21CA080CA00A556F5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; };
+		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
+		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
+		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
 		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
 		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
@@ -60,6 +69,9 @@
 			files = (
 				EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */,
 				EFA50DF71CAAA97000FE4545 /* Alamofire.framework in Embed Frameworks */,
+				57C442C01CA080C900A556F5 /* Bolts.framework in Embed Frameworks */,
+				57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */,
+				57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +79,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2FB60C231C946F2C0002BB51 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +120,10 @@
 			files = (
 				EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */,
 				EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */,
+				57C442BF1CA080C900A556F5 /* Bolts.framework in Frameworks */,
+				57C442C21CA080CA00A556F5 /* FBSDKCoreKit.framework in Frameworks */,
+				57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */,
+				EFAEEFDE1CA1E9CF007AFD63 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +133,7 @@
 			files = (
 				EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */,
 				EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */,
+				57C442B61CA078D200A556F5 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +149,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FB60C221C946F110002BB51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FB60C231C946F2C0002BB51 /* Bolts.framework */,
+				2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */,
+				2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +199,7 @@
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
+				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
 			);
 			path = Volontair;
 			sourceTree = "<group>";
@@ -348,8 +380,10 @@
 			files = (
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
+				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
+				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
@@ -499,10 +533,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) \\\"$(SRCROOT)/FBSDKLoginKit.framework\\\" \\\"$(SRCROOT)/FBSDKCoreKit.framework\\\" @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -515,10 +550,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) \\\"$(SRCROOT)/FBSDKLoginKit.framework\\\" \\\"$(SRCROOT)/FBSDKCoreKit.framework\\\" @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -530,7 +566,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VolontairTests/Info.plist;
@@ -547,7 +582,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VolontairTests/Info.plist;
