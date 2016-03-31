@@ -50,8 +50,9 @@ class ProfileViewController: UIViewController {
         self.AboutMeLabel.text = model!.summary
         self.ProfileImageView.image = UIImage(data: model!.profilePicture)
         let amountOfContacts: String = String(model!.contacts.count)
-        self.FriendsLabel.text! += amountOfContacts
+        self.FriendsLabel.text! = amountOfContacts
     }
+    
     @IBAction func indexChanged(sender: UISegmentedControl) {
         
         switch segmentedControl.selectedSegmentIndex
@@ -64,7 +65,6 @@ class ProfileViewController: UIViewController {
             AboutMeLabel.text = ""
             for request in model!.requests{
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
-                print(request["title"].stringValue)
             }
         default:
             break; 
