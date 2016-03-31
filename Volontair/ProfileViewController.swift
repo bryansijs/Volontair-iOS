@@ -16,6 +16,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var AboutMeLabel: UITextView!
     @IBOutlet weak var FriendsLabel: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var aboutMeHeader: UILabel!
     
     //TODO: right user number
     var url = "http://volontairtest-mikero.rhcloud.com/"
@@ -49,6 +51,24 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.image = UIImage(data: model!.profilePicture)
         let amountOfContacts: String = String(model!.contacts.count)
         self.FriendsLabel.text! += amountOfContacts
+    }
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            aboutMeHeader.text = "Over mij"
+            AboutMeLabel.text = model!.summary
+        case 1:
+            aboutMeHeader.text = "Vraag"
+            AboutMeLabel.text = ""
+            for request in model!.requests{
+                AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
+                print(request["title"].stringValue)
+            }
+        default:
+            break; 
+        }
     }
     
     //MARK: DATA
