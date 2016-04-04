@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
+		2FB6CA1F1CB26F1D008030B2 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6CA1E1CB26F1D008030B2 /* MapModel.swift */; };
+		2FB6CA201CB26F1D008030B2 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6CA1E1CB26F1D008030B2 /* MapModel.swift */; };
+		2FB6CA211CB26F1D008030B2 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6CA1E1CB26F1D008030B2 /* MapModel.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
@@ -71,6 +74,7 @@
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
+		2FB6CA1E1CB26F1D008030B2 /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,9 +140,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2FB6CA1D1CB26EE9008030B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FB6CA1E1CB26F1D008030B2 /* MapModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
+				2FB6CA1D1CB26EE9008030B2 /* Model */,
 				2FB60C221C946F110002BB51 /* Frameworks */,
 				EFAEEFDD1CA1E9CF007AFD63 /* MapKit.framework */,
 				578484DE1C764541006A9841 /* Volontair */,
@@ -333,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB6CA1F1CB26F1D008030B2 /* MapModel.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
@@ -347,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB6CA201CB26F1D008030B2 /* MapModel.swift in Sources */,
 				578484F51C764542006A9841 /* VolontairTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB6CA211CB26F1D008030B2 /* MapModel.swift in Sources */,
 				578485001C764542006A9841 /* VolontairUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
