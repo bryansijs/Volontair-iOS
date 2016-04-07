@@ -26,10 +26,6 @@
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
-		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
-		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
-		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
-		EF49485F1C8F2819001A8A3C /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485B1C8F2819001A8A3C /* page4.png */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
 		EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
 		EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
@@ -102,10 +98,6 @@
 		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		EF4948581C8F2819001A8A3C /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
-		EF4948591C8F2819001A8A3C /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
-		EF49485A1C8F2819001A8A3C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
-		EF49485B1C8F2819001A8A3C /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
@@ -177,10 +169,6 @@
 				EF287BB11CA9C527009155CC /* Frameworks */,
 				EF326CA21CA9CA0C000D8912 /* Models */,
 				EF287BA51CA9BFC6009155CC /* Cartfile */,
-				EF4948581C8F2819001A8A3C /* page1.png */,
-				EF4948591C8F2819001A8A3C /* page2.png */,
-				EF49485A1C8F2819001A8A3C /* page3.png */,
-				EF49485B1C8F2819001A8A3C /* page4.png */,
 				578484DF1C764541006A9841 /* AppDelegate.swift */,
 				578484E31C764541006A9841 /* Main.storyboard */,
 				578484E61C764542006A9841 /* Assets.xcassets */,
@@ -351,11 +339,7 @@
 				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
 				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
 				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
-				EF49485E1C8F2819001A8A3C /* page3.png in Resources */,
-				EF49485F1C8F2819001A8A3C /* page4.png in Resources */,
-				EF49485C1C8F2819001A8A3C /* page1.png in Resources */,
 				578484E51C764541006A9841 /* Main.storyboard in Resources */,
-				EF49485D1C8F2819001A8A3C /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
