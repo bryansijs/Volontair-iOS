@@ -18,27 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5po-cE-9O5">
-                                <rect key="frame" x="263" y="550" width="75" height="30"/>
-                                <state key="normal" title="Start again"/>
-                                <connections>
-                                    <action selector="startWalkthrough:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHt-e6-MrS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-m7-Q1x">
-                                <rect key="frame" x="360" y="550" width="75" height="30"/>
-                                <state key="normal" title="Dashboard"/>
-                                <connections>
-                                    <segue destination="aV0-b1-kqn" kind="showDetail" id="ZrX-HP-CFu"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="af8-h7-Ryb">
+                                <rect key="frame" x="215" y="550" width="170" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5po-cE-9O5">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                                        <state key="normal" title="Start again"/>
+                                        <connections>
+                                            <action selector="startWalkthrough:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QHt-e6-MrS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-m7-Q1x">
+                                        <rect key="frame" x="95" y="0.0" width="75" height="30"/>
+                                        <state key="normal" title="Dashboard"/>
+                                        <connections>
+                                            <segue destination="aV0-b1-kqn" kind="showDetail" id="ZrX-HP-CFu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5po-cE-9O5" secondAttribute="bottom" constant="20" id="MAg-eE-LfC"/>
-                            <constraint firstItem="tj7-m7-Q1x" firstAttribute="baseline" secondItem="5po-cE-9O5" secondAttribute="baseline" id="ZsF-hp-lEH"/>
-                            <constraint firstItem="tj7-m7-Q1x" firstAttribute="leading" secondItem="5po-cE-9O5" secondAttribute="trailing" constant="22" id="aWF-Tl-OFo"/>
-                            <constraint firstItem="5po-cE-9O5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekt-aH-Roq"/>
+                            <constraint firstItem="af8-h7-Ryb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YVC-6p-rTg"/>
+                            <constraint firstAttribute="bottom" secondItem="af8-h7-Ryb" secondAttribute="bottom" constant="20" symbolic="YES" id="xST-qe-eXv"/>
                         </constraints>
                     </view>
                 </viewController>
