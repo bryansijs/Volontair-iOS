@@ -58,8 +58,10 @@ class ProfileViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
+            aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = model!.summary
         case 1:
+            aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = ""
             for request in model!.requests{
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
@@ -83,6 +85,8 @@ class ProfileViewController: UIViewController {
             switch response.result {
             case .Success:
                 if let value = response.result.value {
+                    
+                    
                     self.model = ProfileModel(jsonData: value)
                     self.setData()
                 }
@@ -90,5 +94,7 @@ class ProfileViewController: UIViewController {
                 print(error)
             }
         }
+        
+        model?.id
     }
 }

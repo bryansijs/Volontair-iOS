@@ -23,6 +23,7 @@
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
+		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
@@ -96,6 +97,7 @@
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
+		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				EF0D059B1CB6D170005403B8 /* Services */,
 				EF0D05961CB6907F005403B8 /* Controllers */,
 				EF287BB11CA9C527009155CC /* Frameworks */,
 				EF326CA21CA9CA0C000D8912 /* Models */,
@@ -208,6 +211,14 @@
 				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EF0D059B1CB6D170005403B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EF0D05991CB6D00C005403B8 /* Service.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
@@ -372,6 +383,7 @@
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
+				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 			);
