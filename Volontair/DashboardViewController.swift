@@ -40,6 +40,7 @@ class DashboardViewController: UIViewController {
     // Function for checking if the user is logged in using Facebook
     func isLoggedIn() -> Bool {
         if(FBSDKAccessToken.currentAccessToken() != nil) {
+            //
             print("User already logged in")
             return true
         }

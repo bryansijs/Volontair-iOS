@@ -22,14 +22,22 @@
 		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
+		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
+		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
-		EF49485C1C8F2819001A8A3C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948581C8F2819001A8A3C /* page1.png */; };
-		EF49485D1C8F2819001A8A3C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4948591C8F2819001A8A3C /* page2.png */; };
-		EF49485E1C8F2819001A8A3C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485A1C8F2819001A8A3C /* page3.png */; };
-		EF49485F1C8F2819001A8A3C /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = EF49485B1C8F2819001A8A3C /* page4.png */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
-		EFAEEFDE1CA1E9CF007AFD63 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAEEFDD1CA1E9CF007AFD63 /* MapKit.framework */; };
+		EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
+		EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
+		EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
+		EFA50DF71CAAA97000FE4545 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
+		EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFA50DFA1CAAAB9000FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
+		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
+		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
+		EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */; };
 		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,12 +59,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		57C442C11CA080C900A556F5 /* Embed Frameworks */ = {
+		EF287BAA1CA9C1AD009155CC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */,
+				EFA50DF71CAAA97000FE4545 /* Alamofire.framework in Embed Frameworks */,
 				57C442C01CA080C900A556F5 /* Bolts.framework in Embed Frameworks */,
 				57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */,
 				57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */,
@@ -84,15 +94,18 @@
 		578484FB1C764542006A9841 /* VolontairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VolontairUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57C6A5FA1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
+		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
-		EF4948581C8F2819001A8A3C /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
-		EF4948591C8F2819001A8A3C /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
-		EF49485A1C8F2819001A8A3C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
-		EF49485B1C8F2819001A8A3C /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
+		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		EFAEEFDD1CA1E9CF007AFD63 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
+		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileModel.swift; path = Volontair/ProfileModel.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,10 +114,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */,
+				EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */,
 				57C442BF1CA080C900A556F5 /* Bolts.framework in Frameworks */,
 				57C442C21CA080CA00A556F5 /* FBSDKCoreKit.framework in Frameworks */,
 				57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */,
-				EFAEEFDE1CA1E9CF007AFD63 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */,
+				EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */,
 				57C442B61CA078D200A556F5 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,27 +136,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFA50DFA1CAAAB9000FE4545 /* Alamofire.framework in Frameworks */,
+				EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FB60C221C946F110002BB51 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2FB60C231C946F2C0002BB51 /* Bolts.framework */,
-				2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */,
-				2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
-				2FB60C221C946F110002BB51 /* Frameworks */,
-				EFAEEFDD1CA1E9CF007AFD63 /* MapKit.framework */,
 				578484DE1C764541006A9841 /* Volontair */,
 				578484F31C764542006A9841 /* VolontairTests */,
 				578484FE1C764542006A9841 /* VolontairUITests */,
@@ -161,20 +167,17 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
-				EF4948581C8F2819001A8A3C /* page1.png */,
-				EF4948591C8F2819001A8A3C /* page2.png */,
-				EF49485A1C8F2819001A8A3C /* page3.png */,
-				EF49485B1C8F2819001A8A3C /* page4.png */,
+				EF0D059B1CB6D170005403B8 /* Services */,
+				EF0D05961CB6907F005403B8 /* Controllers */,
+				EF287BB11CA9C527009155CC /* Frameworks */,
+				EF326CA21CA9CA0C000D8912 /* Models */,
+				EF287BA51CA9BFC6009155CC /* Cartfile */,
 				578484DF1C764541006A9841 /* AppDelegate.swift */,
-				578484E11C764541006A9841 /* ViewController.swift */,
-				EF1967431C8C826700B64AD3 /* PageContentViewController.swift */,
 				578484E31C764541006A9841 /* Main.storyboard */,
 				578484E61C764542006A9841 /* Assets.xcassets */,
 				578484E81C764542006A9841 /* LaunchScreen.storyboard */,
 				578484EB1C764542006A9841 /* Info.plist */,
-				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
-				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
-				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
+				EF0D05971CB690D4005403B8 /* Contstants.swift */,
 			);
 			path = Volontair;
 			sourceTree = "<group>";
@@ -197,6 +200,47 @@
 			path = VolontairUITests;
 			sourceTree = "<group>";
 		};
+		EF0D05961CB6907F005403B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				578484E11C764541006A9841 /* ViewController.swift */,
+				EF1967431C8C826700B64AD3 /* PageContentViewController.swift */,
+				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
+				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
+				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
+				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EF0D059B1CB6D170005403B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EF0D05991CB6D00C005403B8 /* Service.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		EF287BB11CA9C527009155CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */,
+				EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */,
+				EF5A86C31CA01815004128E7 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		EF326CA21CA9CA0C000D8912 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,7 +251,7 @@
 				578484D81C764541006A9841 /* Sources */,
 				578484D91C764541006A9841 /* Frameworks */,
 				578484DA1C764541006A9841 /* Resources */,
-				57C442C11CA080C900A556F5 /* Embed Frameworks */,
+				EF287BAA1CA9C1AD009155CC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,6 +317,7 @@
 					};
 					578484FA1C764542006A9841 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = AW58WB4R6V;
 						TestTargetID = 578484DB1C764541006A9841;
 					};
 				};
@@ -304,11 +349,8 @@
 			files = (
 				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
 				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
-				EF49485E1C8F2819001A8A3C /* page3.png in Resources */,
-				EF49485F1C8F2819001A8A3C /* page4.png in Resources */,
-				EF49485C1C8F2819001A8A3C /* page1.png in Resources */,
+				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
 				578484E51C764541006A9841 /* Main.storyboard in Resources */,
-				EF49485D1C8F2819001A8A3C /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,11 +375,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */,
+				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
+				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
+				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 			);
@@ -379,7 +425,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				578484E41C764541006A9841 /* Base */,
-				57C6A5FA1C90DBED00C98899 /* nl */,
+				EF0D05951CB68F4B005403B8 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -548,10 +594,18 @@
 		5784850B1C764542006A9841 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Volontair;
 				USES_XCTRUNNER = YES;
 			};
@@ -560,10 +614,18 @@
 		5784850C1C764542006A9841 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VolontairUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.VolontairUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Volontair;
 				USES_XCTRUNNER = YES;
 			};
