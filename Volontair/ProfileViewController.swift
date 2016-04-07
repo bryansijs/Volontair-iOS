@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 
+
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var ProfileNameLabel: UILabel!
@@ -20,7 +21,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var aboutMeHeader: UILabel!
     
     //TODO: right user number
-    var url = "http://volontairtest-mikero.rhcloud.com/"
     let profileUrl = "users/1"
     var model : ProfileModel?  = nil
         
@@ -58,10 +58,8 @@ class ProfileViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-            aboutMeHeader.text = "Over mij"
             AboutMeLabel.text = model!.summary
         case 1:
-            aboutMeHeader.text = "Vraag"
             AboutMeLabel.text = ""
             for request in model!.requests{
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
@@ -75,7 +73,7 @@ class ProfileViewController: UIViewController {
     private func getData(){
         
         //check if URL is valid
-        let profileURL = url + profileUrl
+        let profileURL = Config.url + profileUrl
         guard let url = NSURL(string: profileURL) else {
             print("Error: cannot create URL")
             return
