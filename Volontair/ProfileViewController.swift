@@ -34,6 +34,8 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         setData()
     }
 
@@ -43,11 +45,13 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        self.ProfileNameLabel.text = userService.model!.name
-        self.AboutMeLabel.text = userService.model!.summary
-        self.ProfileImageView.image = UIImage(data: userService.model!.profilePicture)
-        let amountOfContacts: String = String(userService.model!.contacts.count)
-        self.FriendsLabel.text! = amountOfContacts
+        if let data = userService.model?.name{
+            self.ProfileNameLabel.text = userService.model!.name
+            self.AboutMeLabel.text = userService.model!.summary
+            self.ProfileImageView.image = UIImage(data: userService.model!.profilePicture)
+            let amountOfContacts: String = String(userService.model!.contacts.count)
+            self.FriendsLabel.text! = amountOfContacts
+        }
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
@@ -66,5 +70,10 @@ class ProfileViewController: UIViewController {
         default:
             break; 
         }
+    }
+    
+    //This will be triggered once the Data is updated.
+    func updateOnNotification() {
+        setData()
     }
 }
