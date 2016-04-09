@@ -27,6 +27,7 @@
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
+		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
 		EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
 		EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
@@ -100,6 +101,7 @@
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
+				EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -379,6 +382,7 @@
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
+				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,

@@ -16,6 +16,7 @@ class UserService  {
     }
     
     var model : ProfileModel?  = nil
+    var dashboardmodel: DashboardModel? = nil
     
     func getUserProfileModel() -> ProfileModel?{
         return model
@@ -41,5 +42,24 @@ class UserService  {
                 print(error)
             }
         }
+    }
+    
+    func loadDashboardDataFromServer(){
+        let dashboardURL = Config.url + "dashboard"
+        guard let dashURL = NSURL(string: dashboardURL) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        Alamofire.request(.GET, dashURL).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    self.dashboardmodel = DashboardModel(jsonData: value)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Config.dashboardNotificationKey, object: self.model)
+                }
+            case .Failure(let error):
+                print(error)
+            }        }
     }
 }
