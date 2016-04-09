@@ -10,4 +10,5 @@ import Foundation
 
 struct Config{
     static let url = "https://volontairtest-mikero.rhcloud.com/"
+    static let profileNotificationKey = "ProfileDataUpdated"
 }
