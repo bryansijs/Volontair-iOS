@@ -14,6 +14,7 @@
 		2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AB1CBA6BF300879F7F /* MapService.swift */; };
 		2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */; };
 		2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */; };
+		2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE876381CBA902D007D9C41 /* MapViewModel.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferModel.swift; sourceTree = "<group>"; };
+		2FE876381CBA902D007D9C41 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				2FD6F1A71CBA657100879F7F /* MapMarkerModel.swift */,
 				2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */,
 				2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */,
+				2FE876381CBA902D007D9C41 /* MapViewModel.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -410,6 +413,7 @@
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
+				2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

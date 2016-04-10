@@ -10,7 +10,7 @@ import Foundation
 
 class OfferModel : MapModel {
     
-    init(jsonData: AnyObject) {
-        super.init(jsonData)
+    override init(jsonData: AnyObject) {
+        super.init(jsonData: jsonData)
     }
 }

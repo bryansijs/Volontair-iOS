@@ -67,5 +67,9 @@
 	<string>954134684624108</string>
 	<key>FacebookDisplayName</key>
 	<string>Volontair</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>NSLocationAlwaysUsage</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
 </dict>
 </plist>

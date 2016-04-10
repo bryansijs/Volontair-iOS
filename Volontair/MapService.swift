@@ -13,28 +13,13 @@ class MapService {
     
     static let sharedInstance = MapService()
     
-    var requests: [RequestModel] {
-        set {
-            getRequests()
-        }
-        get {
-            return self.requests
-        }
-    }
-    var offers: [OfferModel] {
-        set {
-            getOffers()
-        }
-        get {
-            return self.offers
-        }
-    }
+    var mapViewModel: MapViewModel? = nil
     
     private init() {
-        
+        self.mapViewModel = MapViewModel()
     }
     
-    func getRequests(){
+    func getRequests() {
         let requestsUrl = Config.url + Config.requestsEndPoint
         guard let url = NSURL(string: requestsUrl) else {
             print("Invalid url")
@@ -44,12 +29,16 @@ class MapService {
         Alamofire.request(.GET, url).validate().responseJSON { response in
             switch response.result {
             case .Success:
+                print("Requests:")
                 if let value = response.result.value {
-                    self.requests = []
-                    for  request in response.result.value as! [Dictionary<String, AnyObject>] {
-                        self.requests.append(RequestModel(jsonData: request))
+                    for request in value["data"] as! [[String:AnyObject]] {
+                        self.mapViewModel?.requests!.append(RequestModel(jsonData: request))
                     }
+                    NSNotificationCenter.defaultCenter().postNotificationName(
+                        Config.requestsUpdatedNotificationKey,
+                        object: self.mapViewModel?.requests as? AnyObject)
                 }
+                
             case .Failure(let error):
                 print(error)
             }
@@ -66,11 +55,14 @@ class MapService {
         Alamofire.request(.GET, url).validate().responseJSON { response in
             switch response.result {
             case .Success:
+                print("Offers:")
                 if let value = response.result.value {
-                    self.offers = []
-                    for  offer in response.result.value as! [Dictionary<String, AnyObject>] {
-                        self.offers.append(OfferModel(jsonData: offer))
+                    for offer in value["data"] as! [[String:AnyObject]] {
+                        self.mapViewModel?.offers!.append(OfferModel(jsonData: offer))
                     }
+                    NSNotificationCenter.defaultCenter().postNotificationName(
+                        Config.offersUpdatedNotificationKey,
+                        object: self.mapViewModel?.offers as? AnyObject)
                 }
             case .Failure(let error):
                 print(error)

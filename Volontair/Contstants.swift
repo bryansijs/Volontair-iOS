@@ -13,4 +13,10 @@ struct Config{
     
     static let requestsEndPoint = "discover/requests"
     static let offersEndPoint = "discover/offers"
+    
+    static let requestDiscipline = "Request"
+    static let offerDiscipline = "Offer"
+    
+    static let requestsUpdatedNotificationKey = "REQUESTS_UPDATED"
+    static let offersUpdatedNotificationKey = "OFFERS_UPDATED"
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Volontair. All rights reserved.
 //
 
-import Foundation
+import MapKit
 import SwiftyJSON
 
 class MapModel {
@@ -25,7 +25,11 @@ class MapModel {
         title = json["title"].string!
         category = json["category"].string!
         summary = json["summary"].string!
-        location = json["location"].CLLocationCoordinate2D!
+        
+        let lat = json["location"]["lat"].double!
+        let lon = json["location"]["lng"].double!
+        location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        
         created = json["created"].string!
         updated = json["updated"].string!
     }
