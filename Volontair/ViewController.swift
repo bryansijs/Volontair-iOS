@@ -59,7 +59,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! PageContentViewController).pageIndex!
-        index++
+        index += 1
         if(index >= self.images.count){
             return nil
         }
@@ -72,7 +72,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         if(index <= 0){
             return nil
         }
-        index--
+        index -= 1
         return self.viewControllerAtIndex(index)
     }
     
