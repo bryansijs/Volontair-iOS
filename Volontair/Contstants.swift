@@ -10,4 +10,7 @@ import Foundation
 
 struct Config{
     static let url = "https://volontairtest-mikero.rhcloud.com/"
+    
+    static let requestsEndPoint = "discover/requests"
+    static let offersEndPoint = "discover/offers"
 }

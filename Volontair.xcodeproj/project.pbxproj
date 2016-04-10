@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
+		2FD6F1A61CBA631100879F7F /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1A51CBA631100879F7F /* MapModel.swift */; };
+		2FD6F1A81CBA657100879F7F /* MapMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1A71CBA657100879F7F /* MapMarkerModel.swift */; };
+		2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1A91CBA664C00879F7F /* MapViewController.swift */; };
+		2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AB1CBA6BF300879F7F /* MapService.swift */; };
+		2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */; };
+		2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
@@ -81,6 +87,12 @@
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
+		2FD6F1A51CBA631100879F7F /* MapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
+		2FD6F1A71CBA657100879F7F /* MapMarkerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMarkerModel.swift; sourceTree = "<group>"; };
+		2FD6F1A91CBA664C00879F7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferModel.swift; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +221,7 @@
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
 				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
+				2FD6F1A91CBA664C00879F7F /* MapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				EF0D05991CB6D00C005403B8 /* Service.swift */,
+				2FD6F1AB1CBA6BF300879F7F /* MapService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -236,6 +250,10 @@
 			isa = PBXGroup;
 			children = (
 				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
+				2FD6F1A51CBA631100879F7F /* MapModel.swift */,
+				2FD6F1A71CBA657100879F7F /* MapMarkerModel.swift */,
+				2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */,
+				2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -379,13 +397,19 @@
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
+				2FD6F1A61CBA631100879F7F /* MapModel.swift in Sources */,
+				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
+				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
+				2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */,
+				2FD6F1A81CBA657100879F7F /* MapMarkerModel.swift in Sources */,
 				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
+				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
