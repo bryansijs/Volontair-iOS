@@ -20,17 +20,11 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
     var markers: [MapMarkerModel] = []
     
     override func viewDidLoad() {
-        // Request user authentication
-        self.locationManager.requestAlwaysAuthorization()
-        
         // Use GPS in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        self.locationManager.delegate = self
+        self.locationManager.requestLocation()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -97,14 +91,16 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let locValue:CLLocationCoordinate2D = (manager.location?.coordinate)! {
-            let curLat: CLLocationDegrees = locValue.latitude
-            let curLon: CLLocationDegrees = locValue.longitude                        
-            centerMapOnLocation(CLLocation(latitude: curLat, longitude: curLon))
+        if let location = locations.first {
+            centerMapOnLocation(CLLocation(
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude)
+            )
         }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("LocationManager failed to retrieve position")
         print(error)
     }
 }
