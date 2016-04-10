@@ -17,7 +17,8 @@ class DashboardViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var numberOfContactsLabel: UILabel!
-    @IBOutlet weak var numberOfVolunteers: UILabel!
+    @IBOutlet weak var numberOfVolunteersLabel: UILabel!
+
     
     let userService = UserService.sharedInstance
     
@@ -56,7 +57,7 @@ class DashboardViewController: UIViewController {
     
     func setData(){
         if let data = userService.dashboardmodel?.nearbyVolonteers{
-            numberOfVolunteers.text = String(userService.dashboardmodel!.nearbyVolonteers)
+            numberOfVolunteersLabel.text = String(userService.dashboardmodel!.nearbyVolonteers)
             numberOfContactsLabel.text = String(userService.dashboardmodel!.potentialContacts)
         }
     }
