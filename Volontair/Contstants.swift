@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct Config{
     static let url = "https://volontairtest-mikero.rhcloud.com/"
@@ -19,4 +20,6 @@ struct Config{
     
     static let requestsUpdatedNotificationKey = "REQUESTS_UPDATED"
     static let offersUpdatedNotificationKey = "OFFERS_UPDATED"
+    
+    static let defaultMapRadiusDistance: CLLocationDistance = 500
 }

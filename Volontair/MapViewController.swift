@@ -13,7 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController , CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView?
     
-    let regionRadius: CLLocationDistance = 500
+    let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
     

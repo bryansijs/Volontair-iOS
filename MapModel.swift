@@ -22,15 +22,15 @@ class MapModel {
         let json = JSON(jsonData)
     
         // Initialize model with JSON data here
-        title = json["title"].string!
-        category = json["category"].string!
-        summary = json["summary"].string!
+        title = json["title"].stringValue
+        category = json["category"].stringValue
+        summary = json["summary"].stringValue
         
-        let lat = json["location"]["lat"].double!
-        let lon = json["location"]["lng"].double!
+        let lat = json["location"]["lat"].doubleValue
+        let lon = json["location"]["lng"].doubleValue
         location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         
-        created = json["created"].string!
-        updated = json["updated"].string!
+        created = json["created"].stringValue
+        updated = json["updated"].stringValue
     }
 }
