@@ -15,28 +15,24 @@ class UserService  {
         print("init UserService")
     }
     
-    var model : ProfileModel?  = nil
+    var profileModel : ProfileModel?  = nil
     var dashboardmodel: DashboardModel? = nil
     
     func getUserProfileModel() -> ProfileModel?{
-        return model
+        return profileModel
     }
     
-    func loadProfileDataFromServer(profileUrl: String){
+    func loadProfileDataFromServer(userId: String){
         
         //check if URL is valid
-        let profileURL = Config.url + profileUrl
-        guard let url = NSURL(string: profileURL) else {
-            print("Error: cannot create URL")
-            return
-        }
+        let profileURL = NSURL(string: Config.url + Config.profileUrl + userId)
         
-        Alamofire.request(.GET, url).validate().responseJSON { response in
+        Alamofire.request(.GET, profileURL!).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    self.model = ProfileModel(jsonData: value)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.model)
+                    self.profileModel = ProfileModel(jsonData: value)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.profileModel)
                 }
             case .Failure(let error):
                 print(error)
@@ -56,10 +52,11 @@ class UserService  {
             case .Success:
                 if let value = response.result.value {
                     self.dashboardmodel = DashboardModel(jsonData: value)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.dashboardNotificationKey, object: self.model)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Config.dashboardNotificationKey, object: self.profileModel)
                 }
             case .Failure(let error):
                 print(error)
-            }        }
+            }
+        }
     }
 }

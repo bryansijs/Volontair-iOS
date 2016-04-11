@@ -45,11 +45,11 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        if let data = userService.model?.name{
-            self.ProfileNameLabel.text = userService.model!.name
-            self.AboutMeLabel.text = userService.model!.summary
-            self.ProfileImageView.image = UIImage(data: userService.model!.profilePicture)
-            let amountOfContacts: String = String(userService.model!.contacts.count)
+        if let data = userService.profileModel?.name{
+            self.ProfileNameLabel.text = userService.profileModel!.name
+            self.AboutMeLabel.text = userService.profileModel!.summary
+            self.ProfileImageView.image = UIImage(data: userService.profileModel!.profilePicture)
+            let amountOfContacts: String = String(userService.profileModel!.contacts.count)
             self.FriendsLabel.text! = amountOfContacts
         }
     }
@@ -60,11 +60,11 @@ class ProfileViewController: UIViewController {
         {
         case 0:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = userService.model!.summary
+            AboutMeLabel.text = userService.profileModel!.summary
         case 1:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = ""
-            for request in userService.model!.requests{
+            for request in userService.profileModel!.requests{
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
             }
         default:
