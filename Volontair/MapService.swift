@@ -20,16 +20,13 @@ class MapService {
     }
     
     func getRequests() {
-        let requestsUrl = Config.url + Config.requestsEndPoint
-        guard let url = NSURL(string: requestsUrl) else {
-            print("Invalid url")
-            return
-        }
+        let url = Config.url + Config.requestsEndPoint
         
         Alamofire.request(.GET, url).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 print("Requests:")
+                print(response)
                 if let value = response.result.value {
                     for request in value["data"] as! [[String:AnyObject]] {
                         self.mapViewModel?.requests!.append(RequestModel(jsonData: request))
@@ -46,16 +43,13 @@ class MapService {
     }
     
     func getOffers() {
-        let offersUrl = Config.url + Config.offersEndPoint
-        guard let url = NSURL(string: offersUrl) else {
-            print("Invalid url")
-            return
-        }
+        let url = Config.url + Config.offersEndPoint
         
         Alamofire.request(.GET, url).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 print("Offers:")
+                print(response)
                 if let value = response.result.value {
                     for offer in value["data"] as! [[String:AnyObject]] {
                         self.mapViewModel?.offers!.append(OfferModel(jsonData: offer))
