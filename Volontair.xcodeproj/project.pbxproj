@@ -23,11 +23,11 @@
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
-		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
+		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
 		EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
 		EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
@@ -38,6 +38,7 @@
 		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
 		EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */; };
+		EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4BC371CB937EB002D6E51 /* UserService.swift */; };
 		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,17 +96,18 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
-		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		EF5355011CB9916F00B5DEE2 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileModel.swift; path = Volontair/ProfileModel.swift; sourceTree = "<group>"; };
+		EFC4BC371CB937EB002D6E51 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,7 +218,7 @@
 		EF0D059B1CB6D170005403B8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EF0D05991CB6D00C005403B8 /* Service.swift */,
+				EFC4BC371CB937EB002D6E51 /* UserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
+				EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -379,11 +382,12 @@
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
+				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
-				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
+				EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 			);
@@ -425,7 +429,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				578484E41C764541006A9841 /* Base */,
-				EF0D05951CB68F4B005403B8 /* nl */,
+				EF5355011CB9916F00B5DEE2 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
