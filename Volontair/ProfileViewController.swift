@@ -23,7 +23,10 @@ class ProfileViewController: UIViewController {
     //TODO: right user number
     let profileUrl = "users/1"
     var model : ProfileModel?  = nil
-    let userService = UserService.sharedInstance
+        
+    override func viewWillAppear(animated: Bool) {
+        self.getData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,6 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
-        setData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +46,11 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        if let data = userService.profileModel?.name{
-            self.ProfileNameLabel.text = userService.profileModel!.name
-            self.AboutMeLabel.text = userService.profileModel!.summary
-            self.ProfileImageView.image = UIImage(data: userService.profileModel!.profilePicture)
-            let amountOfContacts: String = String(userService.profileModel!.contacts.count)
-            self.FriendsLabel.text! = amountOfContacts
-        }
+        self.ProfileNameLabel.text = model!.name
+        self.AboutMeLabel.text = model!.summary
+        self.ProfileImageView.image = UIImage(data: model!.profilePicture)
+        let amountOfContacts: String = String(model!.contacts.count)
+        self.FriendsLabel.text! = amountOfContacts
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
@@ -60,11 +59,11 @@ class ProfileViewController: UIViewController {
         {
         case 0:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = userService.profileModel!.summary
+            AboutMeLabel.text = model!.summary
         case 1:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = ""
-            for request in userService.profileModel!.requests{
+            for request in model!.requests{
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
             }
         default:
@@ -72,8 +71,30 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    //This will be triggered once the Data is updated.
-    func updateOnNotification() {
-        setData()
+    //MARK: DATA
+    private func getData(){
+        
+        //check if URL is valid
+        let profileURL = Config.url + profileUrl
+        guard let url = NSURL(string: profileURL) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        Alamofire.request(.GET, url).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    
+                    
+                    self.model = ProfileModel(jsonData: value)
+                    self.setData()
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+        
+        model?.id
     }
 }

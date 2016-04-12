@@ -20,7 +20,6 @@ class ProfileModel {
     var contacts: [JSON]
     var offers: [JSON]
     var requests: [JSON]
-
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
@@ -31,7 +30,7 @@ class ProfileModel {
         self.contacts = json["contacts"].arrayValue
         self.offers = json["offers"].arrayValue
         self.requests = json["requests"].arrayValue
-        
+
         //Download profile picutre
         let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
         let url = NSURL(string: imageURL)
