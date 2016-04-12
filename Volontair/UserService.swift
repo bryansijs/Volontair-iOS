@@ -22,10 +22,10 @@ class UserService  {
         return profileModel
     }
     
-    func loadProfileDataFromServer(userId: String){
+    func loadProfileDataFromServer(userId: Int){
         
         //check if URL is valid
-        let profileURL = NSURL(string: Config.url + Config.profileUrl + userId)
+        let profileURL = NSURL(string: Config.url + Config.profileUrl + String(userId))
         
         Alamofire.request(.GET, profileURL!).validate().responseJSON { response in
             switch response.result {
