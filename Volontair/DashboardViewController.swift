@@ -16,6 +16,11 @@ struct DashboardViewControllerConstants {
 class DashboardViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var numberOfContactsLabel: UILabel!
+    @IBOutlet weak var numberOfVolunteersLabel: UILabel!
+
+    
+    let userService = UserService.sharedInstance
     
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var userfirstname: String! = ""
@@ -30,6 +35,8 @@ class DashboardViewController: UIViewController {
             // Set welcome text with name
             welcomeLabel.text = "Welcome \(userfirstname)!"
         }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
+        setData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,6 +53,18 @@ class DashboardViewController: UIViewController {
         }
         print("User not logged in")
         return false
+    }
+    
+    func setData(){
+        if let data = userService.dashboardmodel?.nearbyVolonteers{
+            numberOfVolunteersLabel.text = String(userService.dashboardmodel!.nearbyVolonteers)
+            numberOfContactsLabel.text = String(userService.dashboardmodel!.potentialContacts)
+        }
+    }
+    
+    //This will be triggered once the Data is updated.
+    func updateOnNotification() {
+        setData()
     }
     
     @IBAction func unwindToDashboard(segue: UIStoryboardSegue) {
