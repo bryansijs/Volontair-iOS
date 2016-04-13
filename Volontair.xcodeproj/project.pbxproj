@@ -24,7 +24,13 @@
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
+		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
+		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
+		EF2721F31CBE2B4000BCD082 /* DahboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F21CBE2B4000BCD082 /* DahboardService.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
+		EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */; };
+		EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E41CBEDF9B00FD141C /* UserModel.swift */; };
+		EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
 		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
@@ -37,7 +43,6 @@
 		EFA50DFA1CAAAB9000FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
 		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
-		EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */; };
 		EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4BC371CB937EB002D6E51 /* UserService.swift */; };
 		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
@@ -98,15 +103,20 @@
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
+		EF2721F21CBE2B4000BCD082 /* DahboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DahboardService.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileServiceFactory.swift; sourceTree = "<group>"; };
+		EF2E81E41CBEDF9B00FD141C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardServiceFactory.swift; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardModel.swift; path = ../DashboardModel.swift; sourceTree = "<group>"; };
 		EF5355011CB9916F00B5DEE2 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileModel.swift; path = Volontair/ProfileModel.swift; sourceTree = "<group>"; };
 		EFC4BC371CB937EB002D6E51 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,10 +179,13 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
-				EF0D059B1CB6D170005403B8 /* Services */,
-				EF0D05961CB6907F005403B8 /* Controllers */,
+				EF2721EF1CBE293C00BCD082 /* Factory */,
+				EF2721EE1CBE280200BCD082 /* Service */,
+				EF2721EB1CBE275100BCD082 /* Settings */,
+				EF2721EA1CBE273400BCD082 /* Wizard */,
+				EF2721E91CBE270700BCD082 /* Dashboard */,
+				EF2721E81CBE26A200BCD082 /* Profile */,
 				EF287BB11CA9C527009155CC /* Frameworks */,
-				EF326CA21CA9CA0C000D8912 /* Models */,
 				EF287BA51CA9BFC6009155CC /* Cartfile */,
 				578484DF1C764541006A9841 /* AppDelegate.swift */,
 				578484E31C764541006A9841 /* Main.storyboard */,
@@ -202,25 +215,60 @@
 			path = VolontairUITests;
 			sourceTree = "<group>";
 		};
-		EF0D05961CB6907F005403B8 /* Controllers */ = {
+		EF2721E81CBE26A200BCD082 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EF2E81E41CBEDF9B00FD141C /* UserModel.swift */,
+				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
+				EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */,
+				EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		EF2721E91CBE270700BCD082 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
+				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
+				EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */,
+				EF2721F21CBE2B4000BCD082 /* DahboardService.swift */,
+				EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		EF2721EA1CBE273400BCD082 /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
 				578484E11C764541006A9841 /* ViewController.swift */,
 				EF1967431C8C826700B64AD3 /* PageContentViewController.swift */,
-				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
-				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
-				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
-				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
 			);
-			name = Controllers;
+			name = Wizard;
 			sourceTree = "<group>";
 		};
-		EF0D059B1CB6D170005403B8 /* Services */ = {
+		EF2721EB1CBE275100BCD082 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		EF2721EE1CBE280200BCD082 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				EFC4BC371CB937EB002D6E51 /* UserService.swift */,
 			);
-			name = Services;
+			name = Service;
+			sourceTree = "<group>";
+		};
+		EF2721EF1CBE293C00BCD082 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */,
+			);
+			name = Factory;
 			sourceTree = "<group>";
 		};
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
@@ -231,16 +279,6 @@
 				EF5A86C31CA01815004128E7 /* MapKit.framework */,
 			);
 			name = Frameworks;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		EF326CA21CA9CA0C000D8912 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				EFBDCCEA1CA009FB00981A6E /* ProfileModel.swift */,
-				EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */,
-			);
-			name = Models;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -378,12 +416,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
-				EFBDCCEB1CA009FB00981A6E /* ProfileModel.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
+				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
+				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
+				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
+				EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
+				EF2721F31CBE2B4000BCD082 /* DahboardService.swift in Sources */,
 				578484E21C764541006A9841 /* ViewController.swift in Sources */,
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,

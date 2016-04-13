@@ -20,22 +20,25 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var numberOfVolunteersLabel: UILabel!
 
     
-    let userService = UserService.sharedInstance
+    let dashboardService = DashboardServiceFactory.sharedInstance.getDashboardService()
     
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var userfirstname: String! = ""
+    var userfirstname: String = ""
     
     override func viewDidAppear(animated: Bool) {
+        
         if(!isLoggedIn()) {
             self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
             return
         }
-        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)
+        
+        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
+        
         if welcomeLabel != nil {
             // Set welcome text with name
             welcomeLabel.text = "Welcome \(userfirstname)!"
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
         setData()
     }
     
@@ -56,9 +59,9 @@ class DashboardViewController: UIViewController {
     }
     
     func setData(){
-        if let data = userService.dashboardmodel?.nearbyVolonteers{
-            numberOfVolunteersLabel.text = String(userService.dashboardmodel!.nearbyVolonteers)
-            numberOfContactsLabel.text = String(userService.dashboardmodel!.potentialContacts)
+        if let data = dashboardService.getDashboardModel(){
+            numberOfVolunteersLabel.text = String(data.nearbyVolonteers)
+            numberOfContactsLabel.text = String(data.potentialContacts)
         }
     }
     

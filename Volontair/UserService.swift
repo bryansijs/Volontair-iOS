@@ -10,19 +10,14 @@ import Foundation
 import Alamofire
 
 class UserService  {
-    static let sharedInstance = UserService()
-    private init(){
-        print("init UserService")
+    
+    var userModel : UserModel?
+    
+    func getUserProfileModel() -> UserModel?{
+        return userModel
     }
     
-    var profileModel : ProfileModel?  = nil
-    var dashboardmodel: DashboardModel? = nil
-    
-    func getUserProfileModel() -> ProfileModel?{
-        return profileModel
-    }
-    
-    func loadProfileDataFromServer(userId: Int){
+    func loadUserDataFromServer(userId: Int){
         
         //check if URL is valid
         let profileURL = NSURL(string: Config.url + Config.profileUrl + String(userId))
@@ -31,8 +26,8 @@ class UserService  {
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    self.profileModel = ProfileModel(jsonData: value)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.profileModel)
+                    self.userModel = UserModel(jsonData: value)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.userModel)
                 }
             case .Failure(let error):
                 print(error)
@@ -40,22 +35,20 @@ class UserService  {
         }
     }
     
-    func loadDashboardDataFromServer(){
-        let dashboardURL = Config.url + "dashboard"
-        guard let dashURL = NSURL(string: dashboardURL) else {
-            print("Error: cannot create URL")
-            return
-        }
+    func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
+        //check if URL is valid
+        let profileURL = NSURL(string: Config.url + Config.profileUrl + String(userId))
         
-        Alamofire.request(.GET, dashURL).validate().responseJSON { response in
+        Alamofire.request(.GET, profileURL!).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    self.dashboardmodel = DashboardModel(jsonData: value)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.dashboardNotificationKey, object: self.profileModel)
+                    self.userModel = UserModel(jsonData: value)
+                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.userModel)
+                    completionHandler(self.userModel, nil)
                 }
             case .Failure(let error):
-                print(error)
+                completionHandler(nil, error)
             }
         }
     }

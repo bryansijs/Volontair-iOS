@@ -1,8 +1,8 @@
 //
-//  ProfileModel.swift
+//  UserModel.swift
 //  Volontair
 //
-//  Created by Bryan Sijs on 21-03-16.
+//  Created by Bryan Sijs on 13-04-16.
 //  Copyright © 2016 Volontair. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class ProfileModel {
+class UserModel {
     
     var id : Int
     var name: String
@@ -20,12 +20,12 @@ class ProfileModel {
     var contacts: [JSON]
     var offers: [JSON]
     var requests: [JSON]
-
+    
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
-        self.id = json["id"].int!
-        self.name = json["name"].string!
+        self.id = json["id"].intValue
+        self.name = json["name"].stringValue
         self.summary = json["summary"].stringValue
         self.offersCategories = json["offersCategories"].dictionaryValue
         self.contacts = json["contacts"].arrayValue
