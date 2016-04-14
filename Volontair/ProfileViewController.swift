@@ -71,6 +71,7 @@ class ProfileViewController: UIViewController {
     
     //This will be triggered once the Data is updated.
     func updateOnNotification() {
+        profileService.loadProfileFromServer()
         setData()
     }
 }
