@@ -32,6 +32,11 @@
 		EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E41CBEDF9B00FD141C /* UserModel.swift */; };
 		EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */; };
 		EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
+		EF3E527F1CC00B6F0053A701 /* ConversationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E527E1CC00B6F0053A701 /* ConversationModel.swift */; };
+		EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52801CC00BC50053A701 /* ContactsService.swift */; };
+		EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52811CC00BC50053A701 /* ContactsViewController.swift */; };
+		EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */; };
+		EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
 		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
 		EFA50DF01CAAA93100FE4545 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */; };
@@ -46,7 +51,6 @@
 		EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4BC371CB937EB002D6E51 /* UserService.swift */; };
 		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 		EFF4D63D1CBFA2F3001AE6E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5A86C31CA01815004128E7 /* MapKit.framework */; };
-		EFF4D6401CBFA399001AE6E3 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF4D63F1CBFA399001AE6E3 /* ContactsViewController.swift */; };
 		EFF4D64B1CBFA73F001AE6E3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF4D6491CBFA73F001AE6E3 /* RxSwift.framework */; };
 		EFF4D64C1CBFA73F001AE6E3 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFF4D6491CBFA73F001AE6E3 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFF4D64D1CBFA73F001AE6E3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF4D64A1CBFA73F001AE6E3 /* RxCocoa.framework */; };
@@ -118,6 +122,11 @@
 		EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileServiceFactory.swift; sourceTree = "<group>"; };
 		EF2E81E41CBEDF9B00FD141C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardServiceFactory.swift; sourceTree = "<group>"; };
+		EF3E527E1CC00B6F0053A701 /* ConversationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationModel.swift; sourceTree = "<group>"; };
+		EF3E52801CC00BC50053A701 /* ContactsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
+		EF3E52811CC00BC50053A701 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactServiceFactory.swift; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardModel.swift; path = ../DashboardModel.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -126,7 +135,6 @@
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EFC4BC371CB937EB002D6E51 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		EFF4D63F1CBFA399001AE6E3 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		EFF4D6421CBFA4AB001AE6E3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EFF4D6491CBFA73F001AE6E3 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
 		EFF4D64A1CBFA73F001AE6E3 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
@@ -302,7 +310,11 @@
 		EFF4D63E1CBFA31A001AE6E3 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				EFF4D63F1CBFA399001AE6E3 /* ContactsViewController.swift */,
+				EF3E527E1CC00B6F0053A701 /* ConversationModel.swift */,
+				EF3E52801CC00BC50053A701 /* ContactsService.swift */,
+				EF3E52811CC00BC50053A701 /* ContactsViewController.swift */,
+				EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */,
+				EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -444,12 +456,13 @@
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
+				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
-				EFF4D6401CBFA399001AE6E3 /* ContactsViewController.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
+				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
 				EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */,
 				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
 				EF2721F31CBE2B4000BCD082 /* DahboardService.swift in Sources */,
@@ -457,6 +470,9 @@
 				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
 				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
 				EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */,
+				EF3E527F1CC00B6F0053A701 /* ConversationModel.swift in Sources */,
+				EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */,
+				EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 			);
