@@ -3,7 +3,7 @@ import RxSwift
 import Alamofire
 
 class ContactsService {
-    func conversations() -> Observable<ConversationModel> {
-        
-    }
+//    func conversations() -> Observable<ConversationModel> {
+//        return nil
+//    }
 }
