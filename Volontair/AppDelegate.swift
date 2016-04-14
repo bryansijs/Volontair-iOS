@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // GoogleMaps API key
+        GMSServices.provideAPIKey("AIzaSyB2e83_EpWFpohSaXpZ7zQ23Royr8pIq9E")
         
         MapService.sharedInstance.getRequests()
         MapService.sharedInstance.getOffers()
