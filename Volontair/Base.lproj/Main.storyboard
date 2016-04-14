@@ -316,11 +316,11 @@
                                 <rect key="frame" x="0.0" y="56" width="600" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" id="tAi-hr-7v7" customClass="ContactTableViewCell" customModule="Volontair" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContactTableViewCell" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" id="tAi-hr-7v7" customClass="ContactTableViewCell" customModule="Volontair" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tAi-hr-7v7" id="fTa-su-qEK">
-                                            <rect key="frame" x="0.0" y="0.0" width="553" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="553" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl8-Kp-C5E">
@@ -368,6 +368,12 @@
                                                 <constraint firstItem="Ikb-3l-bOX" firstAttribute="leading" secondItem="Sl8-Kp-C5E" secondAttribute="trailing" constant="8" symbolic="YES" id="e54-nl-hxL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contactImageView" destination="Sit-cQ-8yi" id="rXy-qK-ANb"/>
+                                            <outlet property="lastMessageLabel" destination="o5V-xR-O56" id="sbY-1y-szO"/>
+                                            <outlet property="nameLabel" destination="Sl8-Kp-C5E" id="2Kh-5q-fSh"/>
+                                            <outlet property="timeLabel" destination="Ikb-3l-bOX" id="zfj-H8-Ql3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

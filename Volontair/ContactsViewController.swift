@@ -25,9 +25,9 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         
         let conversation = conversations[indexPath.row]
         
-        cell.nameLabel.text = conversation.name
-        cell.lastMessageLabel.text = conversation.lastMessage
-        cell.timeLabel.text = "zojuist"
+//        cell.nameLabel.text = conversation.name
+//        cell.lastMessageLabel.text = conversation.lastMessage
+//        cell.timeLabel.text = "zojuist"
         
         return cell
     }
