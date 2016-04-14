@@ -305,7 +305,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hz-jv-kA6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hz-jv-kA6">
                                 <rect key="frame" x="0.0" y="56" width="600" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -316,33 +316,55 @@
                                             <rect key="frame" x="0.0" y="0.0" width="553" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Sit-cQ-8yi">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Sit-cQ-8yi">
                                                     <rect key="frame" x="8" y="5" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="jXt-Zp-5mO"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl8-Kp-C5E">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl8-Kp-C5E">
                                                     <rect key="frame" x="50" y="5" width="446" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-xR-O56">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-xR-O56">
                                                     <rect key="frame" x="50" y="23" width="446" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-3l-bOX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-3l-bOX">
                                                     <rect key="frame" x="504" y="15" width="36" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="4T4-3n-ncd"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="o5V-xR-O56" secondAttribute="bottom" constant="-8.5" id="4lf-gh-Wzn"/>
+                                                <constraint firstItem="Sl8-Kp-C5E" firstAttribute="leading" secondItem="o5V-xR-O56" secondAttribute="leading" id="5aK-4r-t5c"/>
+                                                <constraint firstItem="Sl8-Kp-C5E" firstAttribute="leading" secondItem="Sit-cQ-8yi" secondAttribute="trailing" constant="8" symbolic="YES" id="BPP-LB-GeN"/>
+                                                <constraint firstItem="Ikb-3l-bOX" firstAttribute="top" secondItem="fTa-su-qEK" secondAttribute="topMargin" constant="7" id="GLC-I0-Fv5"/>
+                                                <constraint firstItem="Sit-cQ-8yi" firstAttribute="leading" secondItem="fTa-su-qEK" secondAttribute="leadingMargin" id="Gl1-Ky-93s"/>
+                                                <constraint firstItem="Sit-cQ-8yi" firstAttribute="top" secondItem="fTa-su-qEK" secondAttribute="topMargin" constant="-3" id="HdU-Yz-c7X"/>
+                                                <constraint firstItem="Sit-cQ-8yi" firstAttribute="centerY" secondItem="fTa-su-qEK" secondAttribute="centerY" id="Hyd-yt-0SC"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Sl8-Kp-C5E" secondAttribute="bottom" constant="9.5" id="LAk-NU-Ebr"/>
+                                                <constraint firstItem="Sit-cQ-8yi" firstAttribute="top" secondItem="Sl8-Kp-C5E" secondAttribute="top" id="LPG-zL-vUE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ikb-3l-bOX" secondAttribute="bottom" constant="-0.5" id="Pzi-C5-Z9P"/>
+                                                <constraint firstItem="o5V-xR-O56" firstAttribute="top" secondItem="fTa-su-qEK" secondAttribute="topMargin" constant="15" id="Ufr-8k-ig9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ikb-3l-bOX" secondAttribute="trailing" constant="5" id="Z4U-zi-ocz"/>
+                                                <constraint firstItem="Ikb-3l-bOX" firstAttribute="leading" secondItem="o5V-xR-O56" secondAttribute="trailing" constant="8" symbolic="YES" id="e0R-gJ-7Pb"/>
+                                                <constraint firstItem="Ikb-3l-bOX" firstAttribute="leading" secondItem="Sl8-Kp-C5E" secondAttribute="trailing" constant="8" symbolic="YES" id="e54-nl-hxL"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oOx-kG-OEo">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oOx-kG-OEo">
                                 <rect key="frame" x="0.0" y="20" width="600" height="29"/>
                                 <segments>
                                     <segment title="RECENT"/>
@@ -351,6 +373,15 @@
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3hz-jv-kA6" firstAttribute="bottom" secondItem="WGr-FJ-9d5" secondAttribute="top" id="AvF-VJ-qi7"/>
+                            <constraint firstItem="3hz-jv-kA6" firstAttribute="width" secondItem="Qr2-FZ-ga6" secondAttribute="width" id="WMj-jP-dqb"/>
+                            <constraint firstItem="oOx-kG-OEo" firstAttribute="leading" secondItem="3hz-jv-kA6" secondAttribute="leading" id="ffj-Mb-kci"/>
+                            <constraint firstItem="oOx-kG-OEo" firstAttribute="top" secondItem="3iQ-Ng-2br" secondAttribute="bottom" id="gZH-RV-803"/>
+                            <constraint firstItem="oOx-kG-OEo" firstAttribute="width" secondItem="Qr2-FZ-ga6" secondAttribute="width" id="i35-wa-8jE"/>
+                            <constraint firstItem="3hz-jv-kA6" firstAttribute="top" secondItem="oOx-kG-OEo" secondAttribute="top" constant="36" id="ijb-k1-Skk"/>
+                            <constraint firstItem="3hz-jv-kA6" firstAttribute="centerX" secondItem="Qr2-FZ-ga6" secondAttribute="centerX" id="xCZ-Vo-ryM"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contacts" image="ContactsIcon" selectedImage="ContactsIcon" id="Mko-Ff-4eF"/>
                 </viewController>
