@@ -173,8 +173,6 @@
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
-				EFF4D6491CBFA73F001AE6E3 /* RxSwift.framework */,
-				EFF4D64A1CBFA73F001AE6E3 /* RxCocoa.framework */,
 				578484DE1C764541006A9841 /* Volontair */,
 				578484F31C764542006A9841 /* VolontairTests */,
 				578484FE1C764542006A9841 /* VolontairUITests */,
@@ -291,6 +289,8 @@
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFF4D6491CBFA73F001AE6E3 /* RxSwift.framework */,
+				EFF4D64A1CBFA73F001AE6E3 /* RxCocoa.framework */,
 				EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */,
 				EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */,
 				EF5A86C31CA01815004128E7 /* MapKit.framework */,
