@@ -133,7 +133,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-EK-dhU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-EK-dhU">
                                 <rect key="frame" x="20" y="406" width="560" height="137"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -150,24 +150,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xp5-Xs-TI0">
-                                <rect key="frame" x="20" y="20" width="560" height="386"/>
-                            </mapView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P64-iV-KPe" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eZ3-Le-2By" firstAttribute="top" secondItem="Fxh-EK-dhU" secondAttribute="bottom" constant="8" symbolic="YES" id="KdJ-jK-oKC"/>
-                            <constraint firstItem="Xp5-Xs-TI0" firstAttribute="leading" secondItem="7XP-7C-Obl" secondAttribute="leadingMargin" id="Q9I-fP-X79"/>
-                            <constraint firstItem="Xp5-Xs-TI0" firstAttribute="top" secondItem="0Of-bC-kow" secondAttribute="bottom" id="SFq-DN-nJw"/>
-                            <constraint firstItem="Fxh-EK-dhU" firstAttribute="top" secondItem="Xp5-Xs-TI0" secondAttribute="bottom" id="ajl-a8-frr"/>
-                            <constraint firstItem="Fxh-EK-dhU" firstAttribute="trailing" secondItem="Xp5-Xs-TI0" secondAttribute="trailing" id="icx-jL-cfW"/>
                             <constraint firstItem="Fxh-EK-dhU" firstAttribute="trailing" secondItem="7XP-7C-Obl" secondAttribute="trailingMargin" id="nFD-wQ-yB0"/>
-                            <constraint firstItem="Xp5-Xs-TI0" firstAttribute="leading" secondItem="Fxh-EK-dhU" secondAttribute="leading" id="ncI-WC-8Hw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
                     <connections>
-                        <outlet property="mapView" destination="Xp5-Xs-TI0" id="zQA-8s-p01"/>
+                        <outlet property="view" destination="P64-iV-KPe" id="p8n-3f-tVC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>

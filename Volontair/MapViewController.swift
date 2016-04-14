@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+import GoogleMaps
+
 class MapViewController: UIViewController , CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView?
     
@@ -20,6 +22,11 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
     var markers: [MapMarkerModel] = []
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        
+        
         // Use GPS in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -73,9 +80,15 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
     }
     
     func centerMapOnLocation(location: CLLocation) {
-        print("centerMapOnLocation called")
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2, regionRadius * 2)
-        mapView?.setRegion(coordinateRegion, animated: true)
+        let camera = GMSCameraPosition.cameraWithLatitude(location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 6)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.myLocationEnabled = true
+        
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        marker.title = "TitleText"
+        marker.snippet = "SnippetText"
+        marker.map = mapView        
     }
     
     func addMapMarkerToMap(marker: MapMarkerModel) {
