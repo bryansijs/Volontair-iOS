@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import MapKit
 import CoreLocation
 
 import GoogleMaps
 
-class MapViewController: UIViewController , CLLocationManagerDelegate {
-    @IBOutlet weak var mapView: MKMapView?
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+    @IBOutlet weak var mapView: GMSMapView?
     @IBOutlet weak var segmentedControl: UISegmentedControl?
     
     let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
@@ -48,45 +47,25 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
             object: nil)
         
         updateMarkers()
+        
+        centerMapOnLocation(CLLocation(latitude: 51.692115, longitude: 5.177494))
     }
     
     func updateMarkers() {
         print("Set requests and offers")
-        if let model = mapService.mapViewModel {
-            print(model)
+        if let model = mapService.getMapViewModel() {
             if let requests = model.requests {
                 for request in requests {
-                    addMapMarkerToMap(MapMarkerModel(
-                        title: request.title,
-                        locationName: "",
-                        discipline: Config.offerDiscipline,
-                        coordinate: request.location
-                    ))
+                    print(request)
+                    addMapMarkerToMap(request)
                 }
             }
             if let offers = model.offers {
                 for offer in offers {
-                    addMapMarkerToMap(MapMarkerModel(
-                        title: offer.title,
-                        locationName: "",
-                        discipline: Config.offerDiscipline,
-                        coordinate: offer.location
-                    ))
+                    addMapMarkerToMap(offer)
                 }
             }
         }
-    }
-    
-    func centerMapOnLocation(location: CLLocation) {
-        let camera = GMSCameraPosition.cameraWithLatitude(location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 6)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.myLocationEnabled = true
-        
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        marker.title = "TitleText"
-        marker.snippet = "SnippetText"
-        marker.map = mapView        
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
@@ -100,8 +79,20 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
         }
     }
     
+    func centerMapOnLocation(location: CLLocation) {
+        print("Centering Map Location")
+        let camera = GMSCameraPosition.cameraWithLatitude(location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 6)
+        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
+        mapView.myLocationEnabled = true
+        self.mapView = mapView
+    }
+    
     func addMapMarkerToMap(marker: MapMarkerModel) {
-        mapView?.addAnnotation(marker)
+        let gMarker = GMSMarker(position: marker.location)
+        gMarker.title = marker.title
+        gMarker.map = self.mapView
+        print("Marker added")
+        print(gMarker.title, marker.location)
     }
     
     func updateOnRequestsUpdatedNotification() {

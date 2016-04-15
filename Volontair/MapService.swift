@@ -15,10 +15,13 @@ class MapService {
     
     private var mapViewModel: MapViewModel?
     
+    init() {
+        self.mapViewModel = MapViewModel()
+    }
+    
     func getMapViewModel() -> MapViewModel? {
         return mapViewModel
     }
-    
     
     func getRequests() {
         let requestsUrl = Config.url + Config.requestsEndPoint

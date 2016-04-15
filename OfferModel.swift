@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OfferModel : MapModel {
+class OfferModel : MapMarkerModel {
     
     override init(jsonData: AnyObject) {
         super.init(jsonData: jsonData)
