@@ -20,7 +20,7 @@ class MapService {
     }
     
     func getMapViewModel() -> MapViewModel? {
-        return mapViewModel
+        return self.mapViewModel
     }
     
     func getRequests() {

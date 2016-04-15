@@ -12,23 +12,28 @@ import CoreLocation
 import GoogleMaps
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
-    @IBOutlet weak var mapView: GMSMapView?
+    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var segmentedControl: UISegmentedControl?
     
     let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
     
-    var markers: [MapMarkerModel] = []
+    var gMarkers: [GMSMarker!]! = []
+    
+    enum segmentedControlPages : Int {
+        case OffersMap = 0
+        case RequestsMap = 1
+    }
+    var currentPage: segmentedControlPages = segmentedControlPages.OffersMap
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Use GPS in foreground
-        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         
-        self.locationManager.delegate = self
-        self.locationManager.requestLocation()
+        mapView.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,20 +51,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             name: Config.offersUpdatedNotificationKey,
             object: nil)
         
-        updateMarkers()
+        // Default is showing offer makers
+        setOfferMarkers()
         
         centerMapOnLocation(CLLocation(latitude: 51.692115, longitude: 5.177494))
     }
     
-    func updateMarkers() {
-        print("Set requests and offers")
+    func setRequestMarkers() {
+        if currentPage != segmentedControlPages.RequestsMap {
+            return
+        }
+        print("Set Request markers")
+        clearMarkers()
         if let model = mapService.getMapViewModel() {
             if let requests = model.requests {
                 for request in requests {
-                    print(request)
                     addMapMarkerToMap(request)
                 }
             }
+        }
+    }
+    
+    func setOfferMarkers() {
+        if currentPage != segmentedControlPages.OffersMap {
+            return
+        }
+        print("Set Offer markers")
+        clearMarkers()
+        if let model = mapService.getMapViewModel() {
             if let offers = model.offers {
                 for offer in offers {
                     addMapMarkerToMap(offer)
@@ -71,8 +90,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl!.selectedSegmentIndex {
         case 0:
+            currentPage = segmentedControlPages.OffersMap
+            setOfferMarkers()
             break;
         case 1:
+            currentPage = segmentedControlPages.RequestsMap
+            setRequestMarkers()
             break;
         default:
             break;
@@ -88,32 +111,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     func addMapMarkerToMap(marker: MapMarkerModel) {
-        let gMarker = GMSMarker(position: marker.location)
+        var gMarker = GMSMarker(position: marker.location)
         gMarker.title = marker.title
+        gMarker.flat = true
         gMarker.map = self.mapView
-        print("Marker added")
-        print(gMarker.title, marker.location)
+        gMarkers!.append(gMarker)
+        print("Marker added \(gMarker.title) \(gMarker.position.latitude) | \(gMarker.position.longitude)")
+    }
+    
+    func clearMarkers() {
+        for m in gMarkers {
+            m.map = nil
+        }
     }
     
     func updateOnRequestsUpdatedNotification() {
-        updateMarkers()
+        setRequestMarkers()
     }
     
     func updateOnOffersUpdatedNotification() {
-        updateMarkers()
+        setOfferMarkers()
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            centerMapOnLocation(CLLocation(
-                latitude: location.coordinate.latitude,
-                longitude: location.coordinate.longitude)
-            )
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            locationManager.stopUpdatingLocation()
         }
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("LocationManager failed to retrieve position")
-        print(error)
+        
     }
 }
