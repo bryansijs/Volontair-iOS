@@ -14,6 +14,7 @@ import GoogleMaps
 
 class MapViewController: UIViewController , CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView?
+    @IBOutlet weak var segmentedControl: UISegmentedControl?
     
     let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
     let mapService = MapService.sharedInstance
@@ -23,9 +24,6 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
         // Use GPS in foreground
         self.locationManager.requestWhenInUseAuthorization()
@@ -89,6 +87,17 @@ class MapViewController: UIViewController , CLLocationManagerDelegate {
         marker.title = "TitleText"
         marker.snippet = "SnippetText"
         marker.map = mapView        
+    }
+    
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        switch segmentedControl!.selectedSegmentIndex {
+        case 0:
+            break;
+        case 1:
+            break;
+        default:
+            break;
+        }
     }
     
     func addMapMarkerToMap(marker: MapMarkerModel) {

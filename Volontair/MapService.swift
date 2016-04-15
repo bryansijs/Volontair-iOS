@@ -13,16 +13,17 @@ class MapService {
     
     static let sharedInstance = MapService()
     
-    var mapViewModel: MapViewModel? = nil
+    private var mapViewModel: MapViewModel?
     
-    private init() {
-        self.mapViewModel = MapViewModel()
+    func getMapViewModel() -> MapViewModel? {
+        return mapViewModel
     }
     
+    
     func getRequests() {
-        let url = Config.url + Config.requestsEndPoint
+        let requestsUrl = Config.url + Config.requestsEndPoint
         
-        Alamofire.request(.GET, url).validate().responseJSON { response in
+        Alamofire.request(.GET, requestsUrl).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 print("Requests:")
@@ -33,7 +34,7 @@ class MapService {
                     }
                     NSNotificationCenter.defaultCenter().postNotificationName(
                         Config.requestsUpdatedNotificationKey,
-                        object: self.mapViewModel?.requests as? AnyObject)
+                        object: self.mapViewModel?.requests)
                 }
                 
             case .Failure(let error):
@@ -43,9 +44,9 @@ class MapService {
     }
     
     func getOffers() {
-        let url = Config.url + Config.offersEndPoint
+        let offersUrl = Config.url + Config.offersEndPoint
         
-        Alamofire.request(.GET, url).validate().responseJSON { response in
+        Alamofire.request(.GET, offersUrl).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 print("Offers:")
@@ -56,7 +57,7 @@ class MapService {
                     }
                     NSNotificationCenter.defaultCenter().postNotificationName(
                         Config.offersUpdatedNotificationKey,
-                        object: self.mapViewModel?.offers as? AnyObject)
+                        object: self.mapViewModel?.offers)
                 }
             case .Failure(let error):
                 print(error)
