@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import RxSwift
 
 class ContactsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -38,6 +39,20 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         let conversation2 = ConversationModel(name: "Nathan Statham", avatarUrl: "", lastMessage: "Lorum ipsum dolor sit amet.", lastMessageDate: NSDate())
         let conversation3 = ConversationModel(name: "Lara Staar", avatarUrl: "", lastMessage: "Hoi, ok.", lastMessageDate: NSDate())
         
+        let disposeBag = DisposeBag()
+        contactSercvice.conversations()
+            .observeOn(MainScheduler.instance)
+            .map({ (item: ConversationItem) -> ConversationModel in
+                let conv = ConversationModel(name: item.name, avatarUrl: item.avatarUrl, lastMessage: item.lastMessage, lastMessageDate: NSDate())
+                return conv
+            })
+            .toArray()
+            .subscribe(onNext: { (models) -> Void in
+                self.conversations += models
+                self.tableView.reloadData()
+                }, onError: { (e) -> Void in
+                    print(e)    
+            }).addDisposableTo(disposeBag)
         conversations += [conversation1, conversation2, conversation3]
     }
     
