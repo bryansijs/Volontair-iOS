@@ -5,6 +5,8 @@ import RxSwift
 class ContactsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
+    let disposeBag = DisposeBag()
+    
     var conversations = [ConversationModel]()
     let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
     
@@ -35,25 +37,16 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func loadSampleConversations() {
-        let conversation1 = ConversationModel(name: "Lars Ulrich", avatarUrl: "", lastMessage: "Hoi, nee. Laat maar.", lastMessageDate: NSDate())
-        let conversation2 = ConversationModel(name: "Nathan Statham", avatarUrl: "", lastMessage: "Lorum ipsum dolor sit amet.", lastMessageDate: NSDate())
-        let conversation3 = ConversationModel(name: "Lara Staar", avatarUrl: "", lastMessage: "Hoi, ok.", lastMessageDate: NSDate())
-        
-        let disposeBag = DisposeBag()
-        contactSercvice.conversations()
+        self.contactSercvice.conversations()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
-            .map({ (item: ConversationItem) -> ConversationModel in
-                let conv = ConversationModel(name: item.name, avatarUrl: item.avatarUrl, lastMessage: item.lastMessage, lastMessageDate: NSDate())
-                return conv
-            })
             .toArray()
-            .subscribe(onNext: { (models) -> Void in
-                self.conversations += models
-                self.tableView.reloadData()
-                }, onError: { (e) -> Void in
-                    print(e)    
-            }).addDisposableTo(disposeBag)
-        conversations += [conversation1, conversation2, conversation3]
+            .subscribe(onNext: { (json) -> Void in
+                self.conversations += json
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            }).addDisposableTo(self.disposeBag)
     }
     
     func loadConversations() {

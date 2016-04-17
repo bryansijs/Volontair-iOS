@@ -21,8 +21,8 @@ class ContactsService {
 //    func conversations() -> Observable<ConversationModel> {
 //        return nil
 //    }
-    let disposeBag = DisposeBag()
 
+    
     func message(conversationId: Int, messageId: Int) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
         return manager.rx_JSON(.GET, "http://volontairtest-mikero.rhcloud.com/conversations/\(conversationId)/messages/\(messageId)")
@@ -33,9 +33,16 @@ class ContactsService {
         return manager.rx_JSON(.GET, "http://volontairtest-mikero.rhcloud.com/users/\(userId)")
     }
     
-    func conversations() -> Observable<ConversationItem> {
+    func test() -> Observable<ConversationModel> {
+        
         let manager = Manager.sharedInstance
-        return manager.rx_request(.GET, "http://volontairtest-mikero.rhcloud.com/conversations")
+        let dummyPostURLString = "http://volontairtest-mikero.rhcloud.com/conversations"
+        let dummyCommentsURLString = "http://jsonplaceholder.typicode.com/posts/1/comments"
+        
+        let postObservable = JSON(Method.GET, dummyPostURLString)
+        let commentsObservable = JSON(Method.GET, dummyCommentsURLString)
+        
+        return manager.rx_request(.GET, dummyPostURLString)
             .flatMap {
                 $0
                     .validate(statusCode: 200 ..< 300)
@@ -47,7 +54,7 @@ class ContactsService {
                 print(data)
                 return data.toObservable()
             })
-            .flatMap({ (data: AnyObject) -> Observable<ConversationItem> in
+            .flatMap({ (data: AnyObject) -> Observable<ConversationModel> in
                 let conversationIdStr = data["conversationId"] as! Int
                 let messageIdStr = data["lastMessage"] as! Int
                 let listenerIdStr = data["listener"] as! Int
@@ -59,28 +66,18 @@ class ContactsService {
                 return Observable.zip(
                     self.message(conversationId, messageId: messageId),
                     self.user(listenerId),
-                    resultSelector: { (message: AnyObject, user: AnyObject) -> ConversationItem in
+                    resultSelector: { (message: AnyObject, user: AnyObject) -> ConversationModel in
                         let name = user["name"] as! String
                         let lastMessage = message["message"] as! String
                         let avatarUrl = user["avatar"] as! String
-                        let item = ConversationItem(name: name, lastMessage: lastMessage, avatarUrl: avatarUrl);
+                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate());
                         return item
                     }
                 )
             })
     }
     
-    init(){
-        
-        let manager = Manager.sharedInstance
-        let dummyPostURLString = "http://volontairtest-mikero.rhcloud.com/conversations"
-        let dummyCommentsURLString = "http://jsonplaceholder.typicode.com/posts/1/comments"
-        
-        let postObservable = JSON(Method.GET, dummyPostURLString)
-        let commentsObservable = JSON(Method.GET, dummyCommentsURLString)
-        
-        
-    }
+    init(){ }
     
 }
 
