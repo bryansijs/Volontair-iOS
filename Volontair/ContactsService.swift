@@ -33,7 +33,7 @@ class ContactsService {
         return manager.rx_JSON(.GET, "http://volontairtest-mikero.rhcloud.com/users/\(userId)")
     }
     
-    func test() -> Observable<ConversationModel> {
+    func conversations() -> Observable<ConversationModel> {
         
         let manager = Manager.sharedInstance
         let dummyPostURLString = "http://volontairtest-mikero.rhcloud.com/conversations"
