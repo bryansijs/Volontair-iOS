@@ -166,6 +166,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P64-iV-KPe" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="361"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="mapView"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,7 +182,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
                     <connections>
-                        <outlet property="mapView" destination="P64-iV-KPe" id="ueP-nh-XAH"/>
+                        <outlet property="mapView" destination="P64-iV-KPe" id="Fv6-YQ-HB0"/>
                         <outlet property="segmentedControl" destination="OoW-4Z-IIl" id="cCt-Ep-NXV"/>
                     </connections>
                 </viewController>

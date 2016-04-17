@@ -13,7 +13,7 @@ import GoogleMaps
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     @IBOutlet weak var mapView: GMSMapView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl?
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
     let mapService = MapService.sharedInstance
@@ -41,13 +41,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector:#selector(MapViewController.updateOnRequestsUpdatedNotification),
+            selector:#selector(self.updateOnRequestsUpdatedNotification),
             name: Config.requestsUpdatedNotificationKey,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector:#selector(MapViewController.updateOnOffersUpdatedNotification),
+            selector:#selector(self.updateOnOffersUpdatedNotification),
             name: Config.offersUpdatedNotificationKey,
             object: nil)
         
@@ -111,7 +111,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     func addMapMarkerToMap(marker: MapMarkerModel) {
-        var gMarker = GMSMarker(position: marker.location)
+        let gMarker = GMSMarker(position: marker.location)
+        
+        print("MapView: \(self.mapView)")
+        
         gMarker.title = marker.title
         gMarker.flat = true
         gMarker.map = self.mapView
