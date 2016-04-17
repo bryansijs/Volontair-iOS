@@ -25,22 +25,18 @@ class ContactsService {
     
     func message(conversationId: Int, messageId: Int) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
-        return manager.rx_JSON(.GET, "http://volontairtest-mikero.rhcloud.com/conversations/\(conversationId)/messages/\(messageId)")
+        return manager.rx_JSON(.GET, Config.url + Config.conversationUrl + "\(conversationId)/" + Config.messagesUrl + "\(messageId)")
     }
     
     func user(userId: Int) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
-        return manager.rx_JSON(.GET, "http://volontairtest-mikero.rhcloud.com/users/\(userId)")
+        return manager.rx_JSON(.GET, Config.url + Config.profileUrl + "\(userId)")
     }
     
     func conversations() -> Observable<ConversationModel> {
         
         let manager = Manager.sharedInstance
-        let dummyPostURLString = "http://volontairtest-mikero.rhcloud.com/conversations"
-        let dummyCommentsURLString = "http://jsonplaceholder.typicode.com/posts/1/comments"
-        
-        let postObservable = JSON(Method.GET, dummyPostURLString)
-        let commentsObservable = JSON(Method.GET, dummyCommentsURLString)
+        let dummyPostURLString = Config.url + Config.conversationUrl
         
         return manager.rx_request(.GET, dummyPostURLString)
             .flatMap {
@@ -80,25 +76,3 @@ class ContactsService {
     init(){ }
     
 }
-
-//request('/conversations', function(data) {
-//    var conversations = []
-//    for(var conversation in data) {
-//        var user = request('/user/' + conversation.listenerId, function(userData) {
-//            var message = request('/conversations/' + data.id + '/messages/' + data.lastMessageId, function() {
-//                var conversationItem = new ConversationItem(
-//                    user.avatar,
-//                    user.name,
-//                    messsage.message,
-//                    data.created
-//                );
-//                conversations.push(conversationItem);
-//                
-//                if(conversation == data.last()) {
-//                    sendNotification();
-//                }
-//                });
-//            });
-//        
-//    }
-//    });
