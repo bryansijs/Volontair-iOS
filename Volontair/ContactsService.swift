@@ -3,25 +3,7 @@ import RxSwift
 import Alamofire
 import RxAlamofire
 
-class ConversationItem {
-    var name: String
-    var lastMessage: String
-//    var lastMessageDate: NSDate
-    var avatarUrl: String
-    
-    init(name: String, lastMessage: String, avatarUrl: String) {
-        self.name = name
-        self.lastMessage = lastMessage
-//        self.lastMessageDate = lastMessageDate
-        self.avatarUrl = avatarUrl
-    }
-}
-
 class ContactsService {
-//    func conversations() -> Observable<ConversationModel> {
-//        return nil
-//    }
-
     
     func message(conversationId: Int, messageId: Int) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance

@@ -12,7 +12,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleConversations()
+        loadConversations()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -36,7 +36,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func loadSampleConversations() {
+    func loadConversations() {
         self.contactSercvice.conversations()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
@@ -47,9 +47,5 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
                     self.tableView.reloadData()
                 }
             }).addDisposableTo(self.disposeBag)
-    }
-    
-    func loadConversations() {
-        
     }
 }
