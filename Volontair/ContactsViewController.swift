@@ -5,6 +5,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var conversations = [ConversationModel]()
+    let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
