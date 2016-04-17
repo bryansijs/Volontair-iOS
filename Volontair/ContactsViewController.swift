@@ -6,12 +6,23 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     let disposeBag = DisposeBag()
+    let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
     let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Refresh control
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(ContactsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshControl)
+        
+        loadConversations()
+    }
+    
+    func refresh(sender:AnyObject)
+    {
         loadConversations()
     }
     
@@ -33,10 +44,27 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         cell.lastMessageLabel.text = conversation.lastMessage
         cell.timeLabel.text = "zojuist"
         
+        // round images
+        cell.contactImageView.layer.cornerRadius = cell.contactImageView.frame.size.width / 2
+        cell.contactImageView.layer.masksToBounds = true
+
+        //Download profile picutre Async
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+            let imageURL = Config.url + conversation.avatarUrl
+            let url = NSURL(string: imageURL)
+            let imageData = NSData(contentsOfURL: url!)!
+
+            dispatch_async(dispatch_get_main_queue()) {
+                cell.contactImageView.image = UIImage(data: imageData)
+            }
+        }
+        
         return cell
     }
     
     func loadConversations() {
+        self.conversations.removeAll()
         self.contactSercvice.conversations()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
@@ -44,6 +72,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .subscribe(onNext: { (json) -> Void in
                 self.conversations += json
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
             }).addDisposableTo(self.disposeBag)

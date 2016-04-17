@@ -31,10 +31,13 @@ class UserModel {
         self.contacts = json["contacts"].arrayValue
         self.offers = json["offers"].arrayValue
         self.requests = json["requests"].arrayValue
+        self.profilePicture = NSData()
         
-        //Download profile picutre
-        let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
-        let url = NSURL(string: imageURL)
-        self.profilePicture = NSData(contentsOfURL: url!)!
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            //Download profile picutre async
+            let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
+            let url = NSURL(string: imageURL)
+            self.profilePicture = NSData(contentsOfURL: url!)!
+        }
     }
 }
