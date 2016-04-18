@@ -10,8 +10,10 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     var mapView: GMSMapView! = nil
+    
+    @IBOutlet weak var discoverTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
@@ -19,6 +21,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     let locationManager = CLLocationManager()
     
     var gMarkers: [GMSMarker!]! = []
+    
+    var discoverItems = [DiscoverItemModel]()
     
     enum segmentedControlPages : Int {
         case OffersMap = 0
@@ -30,9 +34,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.myLocationEnabled = true
         
-        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        
+        discoverItems.append(DiscoverItemModel(title: "Title1", summary: "Summary1"))
+        discoverItems.append(DiscoverItemModel(title: "Title2", summary: "Summary2"))
+        discoverItems.append(DiscoverItemModel(title: "Title3", summary: "Summary3"))
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -51,15 +61,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             object: nil)
         
         // Default is showing offer makers
-        setOfferMarkers()
+        setOffers()
     }
     
-    func setRequestMarkers() {
+    func clearMarkers() {
+        self.mapView.clear()
+        self.gMarkers = []
+    }
+    
+    func setRequests() {
         if currentPage != segmentedControlPages.RequestsMap {
             return
         }
         print("Set Request markers")
-        self.mapView.clear()
+        clearMarkers()
         if let model = mapService.getMapViewModel() {
             if let requests = model.requests {
                 for request in requests {
@@ -69,12 +84,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    func setOfferMarkers() {
+    func setOffers() {
         if currentPage != segmentedControlPages.OffersMap {
             return
         }
         print("Set Offer markers")
-        self.mapView.clear()
+        clearMarkers()
         if let model = mapService.getMapViewModel() {
             if let offers = model.offers {
                 for offer in offers {
@@ -85,14 +100,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
+        clearMarkers()
         switch segmentedControl!.selectedSegmentIndex {
         case 0:
             currentPage = segmentedControlPages.OffersMap
-            setOfferMarkers()
+            setOffers()
             break;
         case 1:
             currentPage = segmentedControlPages.RequestsMap
-            setRequestMarkers()
+            setRequests()
             break;
         default:
             break;
@@ -104,15 +120,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         gMarker.title = marker.title
         gMarker.map = self.mapView
         gMarkers!.append(gMarker)
+        discoverItems.append(DiscoverItemModel(title: marker.title, summary: marker.summary))
         print("Marker added \(gMarker.title) \(gMarker.position.latitude) | \(gMarker.position.longitude)")
     }
     
     func updateOnRequestsUpdatedNotification() {
-        setRequestMarkers()
+        setRequests()
     }
     
     func updateOnOffersUpdatedNotification() {
-        setOfferMarkers()
+        setOffers()
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -124,10 +141,30 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 6, bearing: 0, viewingAngle: 0)
+        if let location = mapView.myLocation {
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 10, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
         }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return discoverItems.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "DiscoverItemTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DiscoverItemTableViewCell
         
+        // Fetches the appropriate meal for the data source layout.
+        let discoverItem = discoverItems[indexPath.row]
+        
+        // Initialize cell item
+        cell.title.text = discoverItem.title
+        cell.summary.text = discoverItem.summary
+        
+        return cell
     }
 }
