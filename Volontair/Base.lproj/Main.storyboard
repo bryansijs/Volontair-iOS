@@ -124,6 +124,7 @@
         <!--map-->
         <scene sceneID="xv2-sg-SpU">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="PY4-Pi-QrT" customClass="MapViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Of-bC-kow"/>
@@ -182,11 +183,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
                     <connections>
-                        <outlet property="mapView" destination="P64-iV-KPe" id="Fv6-YQ-HB0"/>
+                        <outlet property="mapView" destination="P64-iV-KPe" id="zIf-jY-OBM"/>
                         <outlet property="segmentedControl" destination="OoW-4Z-IIl" id="cCt-Ep-NXV"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4175" y="-104"/>
         </scene>

@@ -8,11 +8,10 @@
 
 import UIKit
 import CoreLocation
-
 import GoogleMaps
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
-    @IBOutlet weak var mapView: GMSMapView!
+    var mapView: GMSMapView! = nil
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
@@ -30,10 +29,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
-        mapView.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -53,8 +52,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         // Default is showing offer makers
         setOfferMarkers()
-        
-        centerMapOnLocation(CLLocation(latitude: 51.692115, longitude: 5.177494))
     }
     
     func setRequestMarkers() {
@@ -62,7 +59,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             return
         }
         print("Set Request markers")
-        clearMarkers()
+        self.mapView.clear()
         if let model = mapService.getMapViewModel() {
             if let requests = model.requests {
                 for request in requests {
@@ -77,7 +74,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             return
         }
         print("Set Offer markers")
-        clearMarkers()
+        self.mapView.clear()
         if let model = mapService.getMapViewModel() {
             if let offers = model.offers {
                 for offer in offers {
@@ -102,30 +99,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         }
     }
     
-    func centerMapOnLocation(location: CLLocation) {
-        print("Centering Map Location")
-        let camera = GMSCameraPosition.cameraWithLatitude(location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 6)
-        let mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        mapView.myLocationEnabled = true
-        self.mapView = mapView
-    }
-    
     func addMapMarkerToMap(marker: MapMarkerModel) {
         let gMarker = GMSMarker(position: marker.location)
-        
-        print("MapView: \(self.mapView)")
-        
         gMarker.title = marker.title
-        gMarker.flat = true
         gMarker.map = self.mapView
         gMarkers!.append(gMarker)
         print("Marker added \(gMarker.title) \(gMarker.position.latitude) | \(gMarker.position.longitude)")
-    }
-    
-    func clearMarkers() {
-        for m in gMarkers {
-            m.map = nil
-        }
     }
     
     func updateOnRequestsUpdatedNotification() {
@@ -146,7 +125,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 6, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
         }
         
