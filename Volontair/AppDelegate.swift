@@ -17,8 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        UserService.sharedInstance.loadProfileDataFromServer(1)
-        UserService.sharedInstance.loadDashboardDataFromServer()
+        
+        //Load user object
+        ServiceFactory.sharedInstance.getUserService().loadUserDataFromServer(1)
+        //Load dashboard object
+        DashboardServiceFactory.sharedInstance.getDashboardService().loadDashboardDataFromServer()
+
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 

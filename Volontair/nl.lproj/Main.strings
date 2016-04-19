@@ -17,6 +17,9 @@
 /* Class = "UITableViewSection"; headerTitle = "Kaart"; ObjectID = "Li4-xS-cCD"; */
 "Li4-xS-cCD.headerTitle" = "Kaart";
 
+/* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "Mko-Ff-4eF"; */
+"Mko-Ff-4eF.title" = "Kontakten";
+
 /* Class = "UILabel"; text = "100"; ObjectID = "RH3-rC-SjO"; */
 "RH3-rC-SjO.text" = "100";
 

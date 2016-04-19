@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RxSwift
 
 
 
@@ -20,10 +21,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var aboutMeHeader: UILabel!
     
-    //TODO: right user number
-    let profileUrl = "users/1"
-    var model : ProfileModel?  = nil
-    let userService = UserService.sharedInstance
+    let profileService = ProfileServiceFactory.sharedInstance.getProfileService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +43,11 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        if let data = userService.profileModel?.name{
-            self.ProfileNameLabel.text = userService.profileModel!.name
-            self.AboutMeLabel.text = userService.profileModel!.summary
-            self.ProfileImageView.image = UIImage(data: userService.profileModel!.profilePicture)
-            let amountOfContacts: String = String(userService.profileModel!.contacts.count)
+        if let data = profileService.getUserProfileModel(){
+            self.ProfileNameLabel.text = data.name
+            self.AboutMeLabel.text = data.summary
+            self.ProfileImageView.image = UIImage(data: data.profilePicture)
+            let amountOfContacts: String = String(data.contacts.count)
             self.FriendsLabel.text! = amountOfContacts
         }
     }
@@ -60,11 +58,11 @@ class ProfileViewController: UIViewController {
         {
         case 0:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = userService.profileModel!.summary
+            AboutMeLabel.text = profileService.getUserProfileModel()?.summary
         case 1:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = ""
-            for request in userService.profileModel!.requests{
+            for request in (profileService.getUserProfileModel()?.requests)!{
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
             }
         default:
@@ -74,6 +72,7 @@ class ProfileViewController: UIViewController {
     
     //This will be triggered once the Data is updated.
     func updateOnNotification() {
+        profileService.loadProfileFromServer()
         setData()
     }
 }
