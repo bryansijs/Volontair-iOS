@@ -42,7 +42,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         
         cell.nameLabel.text = conversation.name
         cell.lastMessageLabel.text = conversation.lastMessage
-        cell.timeLabel.text = "zojuist"
+        cell.timeLabel.text = contactSercvice.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
         
         // round images
         cell.contactImageView.layer.cornerRadius = cell.contactImageView.frame.size.width / 2

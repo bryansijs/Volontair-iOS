@@ -37,6 +37,7 @@
 		EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52811CC00BC50053A701 /* ContactsViewController.swift */; };
 		EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */; };
 		EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */; };
+		EF3F68121CC62C8300258064 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF3F68141CC62C8300258064 /* Localizable.strings */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
 		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
 		EF9998B41CC38E7000C42537 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B01CC38E7000C42537 /* RxAlamofire.framework */; };
@@ -131,6 +132,8 @@
 		EF3E52811CC00BC50053A701 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactServiceFactory.swift; sourceTree = "<group>"; };
+		EF3F68131CC62C8300258064 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF3F68151CC62C8600258064 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardModel.swift; path = ../DashboardModel.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -207,6 +210,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				EF3F68141CC62C8300258064 /* Localizable.strings */,
 				EFF4D63E1CBFA31A001AE6E3 /* Contacts */,
 				EF2721EF1CBE293C00BCD082 /* Factory */,
 				EF2721EE1CBE280200BCD082 /* Service */,
@@ -416,6 +420,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = 578484D31C764541006A9841;
 			productRefGroup = 578484DD1C764541006A9841 /* Products */;
@@ -434,6 +439,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3F68121CC62C8300258064 /* Localizable.strings in Resources */,
 				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
 				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
 				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
@@ -535,6 +541,16 @@
 				57C6A5FB1C90DBED00C98899 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EF3F68141CC62C8300258064 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF3F68131CC62C8300258064 /* Base */,
+				EF3F68151CC62C8600258064 /* nl */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
