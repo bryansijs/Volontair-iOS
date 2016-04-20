@@ -12,9 +12,11 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
+    var skillCategories = [CategoryModel]()
+    
     let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
     
-    var skillCategorys = ["Cat One", "Cat Two", "Cat Three"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +38,18 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         skillCategoryPicker.delegate = self
         skillCategoryPicker.hidden = true
         skillCategoryPicker.showsSelectionIndicator = true
-        categoryTextField.text = skillCategorys[0]
         
+        loadCategories()
         loadConversations()
+        
+        if (skillCategories.count > 0){
+            categoryTextField.text = skillCategories[0].name
+        } else {
+            categoryTextField.text = NSLocalizedString("NO_CATEGORY",comment: "")
+        }
     }
+    
+    //MARK: TableView
     
     func refresh(sender:AnyObject)
     {
@@ -83,6 +93,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    //MARK: Data
+    
     func loadConversations() {
         self.conversations.removeAll()
         self.contactSercvice.conversations()
@@ -98,6 +110,22 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             }).addDisposableTo(self.disposeBag)
     }
     
+    func loadCategories() {
+        self.skillCategories.removeAll()
+        contactSercvice.categorys()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+            .observeOn(MainScheduler.instance)
+            .toArray()
+            .subscribe(onNext: { (json) -> Void in
+                print(json)
+                self.skillCategories += json
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.skillCategoryPicker.reloadAllComponents()
+                    self.categoryTextField.text = self.skillCategories[2].name
+                }
+            }).addDisposableTo(self.disposeBag)
+    }
+    
     //MARK: UIPicker
     
     // returns the number of 'columns' to display.
@@ -107,16 +135,16 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     // returns the # of rows in each component..
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return skillCategorys.count
+        return skillCategories.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return skillCategorys[row]
+        return skillCategories[row].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        categoryTextField.text = skillCategorys[row]
+        categoryTextField.text = skillCategories[row].name
         skillCategoryPicker.hidden = true;
     }
     

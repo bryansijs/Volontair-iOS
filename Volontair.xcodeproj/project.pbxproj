@@ -40,6 +40,7 @@
 		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
 		EF9400CD1CC79129008F93A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9400CF1CC79129008F93A9 /* Localizable.strings */; };
 		EF9400D41CC79CF7008F93A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9400D31CC79CF7008F93A9 /* Assets.xcassets */; };
+		EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9400D71CC7B732008F93A9 /* CategoryModel.swift */; };
 		EF9998B41CC38E7000C42537 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B01CC38E7000C42537 /* RxAlamofire.framework */; };
 		EF9998B51CC38E7000C42537 /* RxAlamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B01CC38E7000C42537 /* RxAlamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF9998B61CC38E7000C42537 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B11CC38E7000C42537 /* RxBlocking.framework */; };
@@ -137,6 +138,7 @@
 		EF9400CE1CC79129008F93A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D01CC7912D008F93A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D31CC79CF7008F93A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF9400D71CC7B732008F93A9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		EF9998B01CC38E7000C42537 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxAlamofire.framework; sourceTree = "<group>"; };
 		EF9998B11CC38E7000C42537 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = "<group>"; };
 		EF9998B21CC38E7000C42537 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				EF3E52811CC00BC50053A701 /* ContactsViewController.swift */,
 				EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */,
 				EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */,
+				EF9400D71CC7B732008F93A9 /* CategoryModel.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
+				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
