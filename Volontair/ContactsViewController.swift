@@ -2,16 +2,19 @@ import Foundation
 import UIKit
 import RxSwift
 
-class ContactsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ContactsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var skillCategoryPicker: UIPickerView!
     
     let disposeBag = DisposeBag()
     let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
     let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
+    
+    var skillCategorys = ["Cat One", "Cat Two", "Cat Three"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,11 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         imageView.frame = CGRectMake(0, 0, 20, 20);
         categoryTextField.leftView = imageView;
         categoryTextField.leftViewMode = UITextFieldViewMode.UnlessEditing
+        
+        //Category picker
+        skillCategoryPicker.delegate = self
+        skillCategoryPicker.hidden = true
+        categoryTextField.text = skillCategorys[0]
         
         loadConversations()
     }
@@ -88,4 +96,33 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
                 }
             }).addDisposableTo(self.disposeBag)
     }
+    
+    //MARK: UIPicker
+    
+    // returns the number of 'columns' to display.
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+        return 1
+    }
+    
+    // returns the # of rows in each component..
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return skillCategorys.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return skillCategorys[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        categoryTextField.text = skillCategorys[row]
+        skillCategoryPicker.hidden = true;
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        print("editor mode")
+        skillCategoryPicker.hidden = false
+        return false
+    }
+    
 }
