@@ -66,55 +66,16 @@ class ContactsService {
                 return self.user(data.listenerId)
             })
             .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
-                print(userData)
                 let userCategories = userData["offersCategories"]!!["main"] as! NSArray
                 return userCategories.toObservable()
             })
             .map({ (categorieData: AnyObject) -> CategoryModel in
-                print(categorieData)
                 let categoryName = categorieData as! String
                 let categoryItem = CategoryModel(name: categoryName, iconName: "")
                 
                 return categoryItem
             })
     }
-    
-    
-    
-//
-//            .flatMap(new Func1<ConversationEnvelope, Observable<Conversation>>() {
-//                @Override
-//                public Observable<Conversation> call(ConversationEnvelope conversationEnvelope) {
-//                    return Observable.from(conversationEnvelope.getData());
-//                }
-//                })
-//        .flatMap(new Func1<Conversation, Observable<Category>>() {
-//            @
-//            public Observable<Category> call(Conversation conversationObservable) {
-//                return user(conversationObservable.getListenerId())
-//                    .flatMap(new Func1<User, Observable<String>>() {
-//                        @Override
-//                        public Observable<String> call(User user) {
-//                            return Observable.from(user.getCategories().getMainCategories());
-//                        }
-//                        })
-//                .map(new Func1<String, Category>() {
-//                    @Override
-//                    public Category call(String s) {
-//                        return new Category(s);
-//                    }
-//                    });
-//            }
-//            }).distinct(new Func1<Category, String>() {
-//                @Override
-//                public String call(Category category) {
-//                    return category.getSub(null);
-//                }
-//                });
-        
-
-    
-    
     
     func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
         let calendar = NSCalendar.currentCalendar()

@@ -12,7 +12,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
-    var skillCategories = [CategoryModel]()
+    var skillCategories = [String: CategoryModel]()
     
     let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
     
@@ -43,7 +43,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         loadConversations()
         
         if (skillCategories.count > 0){
-            categoryTextField.text = skillCategories[0].name
+            categoryTextField.text = skillCategories.first?.1.name
         } else {
             categoryTextField.text = NSLocalizedString("NO_CATEGORY",comment: "")
         }
@@ -102,6 +102,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
+                print(json)
                 self.conversations += json
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
@@ -117,11 +118,15 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                print(json)
-                self.skillCategories += json
+                
+                for i in 0...json.count-1{
+                    if let category = json[i] as? CategoryModel{
+                        self.skillCategories[category.name] = category
+                    }
+                }
                 dispatch_async(dispatch_get_main_queue()) {
                     self.skillCategoryPicker.reloadAllComponents()
-                    self.categoryTextField.text = self.skillCategories[2].name
+                    self.categoryTextField.text = self.skillCategories.first?.1.name
                 }
             }).addDisposableTo(self.disposeBag)
     }
@@ -139,12 +144,14 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return skillCategories[row].name
+        let index = skillCategories.startIndex.advancedBy(row) // index 1
+        return skillCategories.keys[index]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        categoryTextField.text = skillCategories[row].name
+        let index = skillCategories.startIndex.advancedBy(row) // index 1
+        categoryTextField.text = skillCategories[index].1.name
         skillCategoryPicker.hidden = true;
     }
     
