@@ -24,6 +24,8 @@
 		2FB476F51CC55DD300A9CECA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476F41CC55DD300A9CECA /* CoreBluetooth.framework */; };
 		2FB476F71CC55DE300A9CECA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476F61CC55DE300A9CECA /* Accelerate.framework */; };
 		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
+		2FCE65F81CC7B77900D54956 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE65F61CC7B77900D54956 /* en.lproj */; };
+		2FCE65F91CC7B77900D54956 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE65F71CC7B77900D54956 /* nl.lproj */; };
 		2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1A91CBA664C00879F7F /* MapViewController.swift */; };
 		2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AB1CBA6BF300879F7F /* MapService.swift */; };
 		2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */; };
@@ -120,6 +122,8 @@
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
+		2FCE65F61CC7B77900D54956 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = ../../Desktop/en.lproj; sourceTree = "<group>"; };
+		2FCE65F71CC7B77900D54956 /* nl.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = nl.lproj; path = ../../Desktop/nl.lproj; sourceTree = "<group>"; };
 		2FD6F1A91CBA664C00879F7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestModel.swift; path = ../RequestModel.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				2FCE65F61CC7B77900D54956 /* en.lproj */,
+				2FCE65F71CC7B77900D54956 /* nl.lproj */,
 				2FFAA74C1CC0F0D80086CD6F /* Map */,
 				EF0D059B1CB6D170005403B8 /* Services */,
 				EF0D05961CB6907F005403B8 /* Controllers */,
@@ -441,8 +447,10 @@
 			files = (
 				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
 				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
+				2FCE65F91CC7B77900D54956 /* nl.lproj in Resources */,
 				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
 				578484E51C764541006A9841 /* Main.storyboard in Resources */,
+				2FCE65F81CC7B77900D54956 /* en.lproj in Resources */,
 				2F920E721CC566D6006AF4F8 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
