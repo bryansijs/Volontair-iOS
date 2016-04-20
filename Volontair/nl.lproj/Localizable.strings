@@ -2,9 +2,10 @@
   Localizable.strings
   Volontair
 
-  Created by Bryan Sijs on 19-04-16.
+  Created by Bryan Sijs on 20-04-16.
   Copyright © 2016 Volontair. All rights reserved.
 */
+
 JUST_NOW="zojuist";
 SECONDS_AGO="seconden geleden";
 A_MINUTE_AGO="een minuut geleden";
@@ -25,4 +26,3 @@ MONTHS_AGO="maanden geleden";
 LAST_YEAR="vorig jaar";
 ONE_YEAR_AGO="1 jaar geleden";
 YEARS_AGO="jaren geleden";
-
