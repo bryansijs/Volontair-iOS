@@ -7,22 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F920E701CC5665F006AF4F8 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F920E6F1CC5665F006AF4F8 /* GoogleMaps.framework */; };
-		2F920E721CC566D6006AF4F8 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F920E711CC566D6006AF4F8 /* GoogleMaps.bundle */; };
-		2FB476DD1CC55C1C00A9CECA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476DB1CC55C0400A9CECA /* AVFoundation.framework */; };
-		2FB476DF1CC55C3100A9CECA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476DE1CC55C3100A9CECA /* CoreData.framework */; };
-		2FB476E11CC55C3800A9CECA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476E01CC55C3800A9CECA /* CoreLocation.framework */; };
-		2FB476E31CC55C3D00A9CECA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476E21CC55C3D00A9CECA /* CoreText.framework */; };
-		2FB476E51CC55C5100A9CECA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476E41CC55C5100A9CECA /* GLKit.framework */; };
-		2FB476E71CC55C5900A9CECA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476E61CC55C5900A9CECA /* ImageIO.framework */; };
-		2FB476E91CC55C6200A9CECA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476E81CC55C6200A9CECA /* OpenGLES.framework */; };
-		2FB476EB1CC55C6A00A9CECA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476EA1CC55C6A00A9CECA /* QuartzCore.framework */; };
-		2FB476ED1CC55C7400A9CECA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476EC1CC55C7400A9CECA /* SystemConfiguration.framework */; };
-		2FB476EF1CC55C8A00A9CECA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476EE1CC55C8A00A9CECA /* libicucore.tbd */; };
-		2FB476F11CC55C9F00A9CECA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476F01CC55C9F00A9CECA /* libc++.tbd */; };
-		2FB476F31CC55CB400A9CECA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476F21CC55CB400A9CECA /* libz.tbd */; };
-		2FB476F51CC55DD300A9CECA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476F41CC55DD300A9CECA /* CoreBluetooth.framework */; };
-		2FB476F71CC55DE300A9CECA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476F61CC55DE300A9CECA /* Accelerate.framework */; };
 		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
 		2FCE65F81CC7B77900D54956 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE65F61CC7B77900D54956 /* en.lproj */; };
 		2FCE65F91CC7B77900D54956 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE65F71CC7B77900D54956 /* nl.lproj */; };
@@ -47,6 +31,7 @@
 		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B8BE67F0AF842060AAD3AD75 /* libPods-Volontair.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2ACFB2AA9104072E8E140B /* libPods-Volontair.a */; };
 		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
 		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
@@ -102,22 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F920E6F1CC5665F006AF4F8 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		2F920E711CC566D6006AF4F8 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../Downloads/369280b0e1f04cb7-GoogleMaps-1.13.0/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
-		2FB476DB1CC55C0400A9CECA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		2FB476DE1CC55C3100A9CECA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2FB476E01CC55C3800A9CECA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2FB476E21CC55C3D00A9CECA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		2FB476E41CC55C5100A9CECA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		2FB476E61CC55C5900A9CECA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		2FB476E81CC55C6200A9CECA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		2FB476EA1CC55C6A00A9CECA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2FB476EC1CC55C7400A9CECA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		2FB476EE1CC55C8A00A9CECA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		2FB476F01CC55C9F00A9CECA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		2FB476F21CC55CB400A9CECA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		2FB476F41CC55DD300A9CECA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		2FB476F61CC55DE300A9CECA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		293B1100C169E59CB010928F /* Pods-Volontair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volontair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volontair/Pods-Volontair.debug.xcconfig"; sourceTree = "<group>"; };
 		2FB60C231C946F2C0002BB51 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -131,6 +101,7 @@
 		2FE876381CBA902D007D9C41 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewModel.swift; path = ../MapViewModel.swift; sourceTree = "<group>"; };
 		2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapServiceFactory.swift; sourceTree = "<group>"; };
 		2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMarkerModel.swift; sourceTree = "<group>"; };
+		42767524D41D38AE53874121 /* Pods-Volontair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volontair.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volontair/Pods-Volontair.release.xcconfig"; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +116,7 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9C2ACFB2AA9104072E8E140B /* libPods-Volontair.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Volontair.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
 		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -164,26 +136,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FB476F71CC55DE300A9CECA /* Accelerate.framework in Frameworks */,
-				2FB476F51CC55DD300A9CECA /* CoreBluetooth.framework in Frameworks */,
-				2FB476F31CC55CB400A9CECA /* libz.tbd in Frameworks */,
-				2FB476F11CC55C9F00A9CECA /* libc++.tbd in Frameworks */,
-				2FB476EF1CC55C8A00A9CECA /* libicucore.tbd in Frameworks */,
-				2FB476ED1CC55C7400A9CECA /* SystemConfiguration.framework in Frameworks */,
-				2FB476EB1CC55C6A00A9CECA /* QuartzCore.framework in Frameworks */,
-				2FB476E91CC55C6200A9CECA /* OpenGLES.framework in Frameworks */,
-				2FB476E71CC55C5900A9CECA /* ImageIO.framework in Frameworks */,
-				2FB476E51CC55C5100A9CECA /* GLKit.framework in Frameworks */,
-				2FB476E31CC55C3D00A9CECA /* CoreText.framework in Frameworks */,
-				2FB476E11CC55C3800A9CECA /* CoreLocation.framework in Frameworks */,
-				2FB476DF1CC55C3100A9CECA /* CoreData.framework in Frameworks */,
-				2FB476DD1CC55C1C00A9CECA /* AVFoundation.framework in Frameworks */,
 				EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */,
 				EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */,
 				57C442BF1CA080C900A556F5 /* Bolts.framework in Frameworks */,
 				57C442C21CA080CA00A556F5 /* FBSDKCoreKit.framework in Frameworks */,
-				2F920E701CC5665F006AF4F8 /* GoogleMaps.framework in Frameworks */,
 				57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */,
+				B8BE67F0AF842060AAD3AD75 /* libPods-Volontair.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +167,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CCB9A339B7B3D9F945DE9C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C2ACFB2AA9104072E8E140B /* libPods-Volontair.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2FFAA74C1CC0F0D80086CD6F /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +196,8 @@
 				578484F31C764542006A9841 /* VolontairTests */,
 				578484FE1C764542006A9841 /* VolontairUITests */,
 				578484DD1C764541006A9841 /* Products */,
+				5B24A9AFCA751F3186A04016 /* Pods */,
+				0CCB9A339B7B3D9F945DE9C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -282,6 +250,15 @@
 			path = VolontairUITests;
 			sourceTree = "<group>";
 		};
+		5B24A9AFCA751F3186A04016 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				293B1100C169E59CB010928F /* Pods-Volontair.debug.xcconfig */,
+				42767524D41D38AE53874121 /* Pods-Volontair.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EF0D05961CB6907F005403B8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,22 +283,6 @@
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2F920E711CC566D6006AF4F8 /* GoogleMaps.bundle */,
-				2F920E6F1CC5665F006AF4F8 /* GoogleMaps.framework */,
-				2FB476F61CC55DE300A9CECA /* Accelerate.framework */,
-				2FB476F41CC55DD300A9CECA /* CoreBluetooth.framework */,
-				2FB476EC1CC55C7400A9CECA /* SystemConfiguration.framework */,
-				2FB476EA1CC55C6A00A9CECA /* QuartzCore.framework */,
-				2FB476E81CC55C6200A9CECA /* OpenGLES.framework */,
-				2FB476E61CC55C5900A9CECA /* ImageIO.framework */,
-				2FB476E41CC55C5100A9CECA /* GLKit.framework */,
-				2FB476F21CC55CB400A9CECA /* libz.tbd */,
-				2FB476F01CC55C9F00A9CECA /* libc++.tbd */,
-				2FB476EE1CC55C8A00A9CECA /* libicucore.tbd */,
-				2FB476E21CC55C3D00A9CECA /* CoreText.framework */,
-				2FB476E01CC55C3800A9CECA /* CoreLocation.framework */,
-				2FB476DE1CC55C3100A9CECA /* CoreData.framework */,
-				2FB476DB1CC55C0400A9CECA /* AVFoundation.framework */,
 				EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */,
 				EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */,
 				EF5A86C31CA01815004128E7 /* MapKit.framework */,
@@ -346,10 +307,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 578485041C764542006A9841 /* Build configuration list for PBXNativeTarget "Volontair" */;
 			buildPhases = (
+				0953DA9C540357153C7FC871 /* Check Pods Manifest.lock */,
 				578484D81C764541006A9841 /* Sources */,
 				578484D91C764541006A9841 /* Frameworks */,
 				578484DA1C764541006A9841 /* Resources */,
 				EF287BAA1CA9C1AD009155CC /* Embed Frameworks */,
+				7FC3A1FF5427385599D7D7F2 /* Embed Pods Frameworks */,
+				38966FF5C00C191EAC4F77AF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -451,7 +415,6 @@
 				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
 				578484E51C764541006A9841 /* Main.storyboard in Resources */,
 				2FCE65F81CC7B77900D54956 /* en.lproj in Resources */,
-				2F920E721CC566D6006AF4F8 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +433,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0953DA9C540357153C7FC871 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		38966FF5C00C191EAC4F77AF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volontair/Pods-Volontair-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FC3A1FF5427385599D7D7F2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volontair/Pods-Volontair-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		578484D81C764541006A9841 /* Sources */ = {
@@ -637,6 +648,7 @@
 		};
 		578485051C764542006A9841 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 293B1100C169E59CB010928F /* Pods-Volontair.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -648,7 +660,6 @@
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) \\\"$(SRCROOT)/FBSDKLoginKit.framework\\\" \\\"$(SRCROOT)/FBSDKCoreKit.framework\\\" @executable_path/Frameworks";
-				"OTHER_LDFLAGS[arch=*]" = "-objC";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -656,6 +667,7 @@
 		};
 		578485061C764542006A9841 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42767524D41D38AE53874121 /* Pods-Volontair.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -667,7 +679,6 @@
 				);
 				INFOPLIST_FILE = Volontair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) \\\"$(SRCROOT)/FBSDKLoginKit.framework\\\" \\\"$(SRCROOT)/FBSDKCoreKit.framework\\\" @executable_path/Frameworks";
-				"OTHER_LDFLAGS[arch=*]" = "-objC";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.avans.projectb.Volontair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
