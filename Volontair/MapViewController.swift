@@ -58,7 +58,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     }
     
     func clearMarkers() {
+        // Clear markers from Google Map
         self.mapView.clear()
+        // Clear array containing references to markers on Google Map
         self.gMarkers = []
     }
     
@@ -67,7 +69,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             return
         }
         print("Set Request markers")
+        // Clear all current markers from the map
         clearMarkers()
+        // Iterate over all requests currently in the MapViewModel at MapService
         if let model = mapService.getMapViewModel() {
             if let requests = model.requests {
                 for request in requests {
@@ -78,11 +82,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     }
     
     func setOffers() {
+        // Check if the call is legit
         if currentPage != segmentedControlPages.OffersMap {
             return
         }
         print("Set Offer markers")
+        // Clear all current markers from the map
         clearMarkers()
+        // Iterate over all offers currently in the MapViewModel at MapService
         if let model = mapService.getMapViewModel() {
             if let offers = model.offers {
                 for offer in offers {
@@ -92,15 +99,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         }
     }
     
+    // IndexChanged for SegmentedControl
     @IBAction func indexChanged(sender: UISegmentedControl) {
         clearMarkers()
         switch segmentedControl!.selectedSegmentIndex {
         case 0:
+            // Set currentPage enum to OffersMap
             currentPage = segmentedControlPages.OffersMap
+            // Get and set Offers (Add to map)
             setOffers()
             break;
         case 1:
+            // Set currentPage enum to RequestsMap
             currentPage = segmentedControlPages.RequestsMap
+            // Get and set Requests (Add to map)
             setRequests()
             break;
         default:
@@ -108,6 +120,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         }
     }
     
+    // Added given Marker to map
     func addMapMarkerToMap(marker: MapMarkerModel) {
         let gMarker = GMSMarker(position: marker.location)
         gMarker.title = marker.title
