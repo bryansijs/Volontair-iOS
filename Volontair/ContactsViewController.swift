@@ -35,6 +35,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         //Category picker
         skillCategoryPicker.delegate = self
         skillCategoryPicker.hidden = true
+        skillCategoryPicker.showsSelectionIndicator = true
         categoryTextField.text = skillCategorys[0]
         
         loadConversations()
