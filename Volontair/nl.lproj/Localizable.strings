@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Volontair
+
+  Created by Bryan Sijs on 20-04-16.
+  Copyright © 2016 Volontair. All rights reserved.
+*/
+
+JUST_NOW="zojuist";
+SECONDS_AGO="seconden geleden";
+A_MINUTE_AGO="een minuut geleden";
+ONE_MINUTE_AGO="1 minuut geleden";
+MINUTES_AGO="minuten geleden";
+AN_HOUR_AGO="een uur geleden";
+ONE_HOUR_AGO="1 uur geleden";
+HOURS_AGO="uren geleden";
+YESTERDAY="gisteren";
+ONE_DAY_AGO="1 dag geleden";
+DAYS_AGO="dagen geleden";
+LAST_WEEK="vorige week";
+ONE_WEEK_AGO="1 week geleden";
+WEEKS_AGO="weken geleden";
+LAST_MONTH="laatste maand";
+ONE_MONTH_AGO="1 maand geleden";
+MONTHS_AGO="maanden geleden";
+LAST_YEAR="vorig jaar";
+ONE_YEAR_AGO="1 jaar geleden";
+YEARS_AGO="jaren geleden";

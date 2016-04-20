@@ -8,14 +8,26 @@
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "CGh-Hs-HOR"; */
 "CGh-Hs-HOR.title" = "Dashboard";
 
+/* Class = "UILabel"; text = "In de omgeving"; ObjectID = "Ccy-mP-fPO"; */
+"Ccy-mP-fPO.text" = "In de omgeving";
+
 /* Class = "UIViewController"; title = "DashboardViewController"; ObjectID = "H0Q-Ch-kR8"; */
 "H0Q-Ch-kR8.title" = "DashboardViewController";
 
 /* Class = "UITableViewSection"; headerTitle = "Kaart"; ObjectID = "Li4-xS-cCD"; */
 "Li4-xS-cCD.headerTitle" = "Kaart";
 
+/* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "Mko-Ff-4eF"; */
+"Mko-Ff-4eF.title" = "Kontakten";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "RH3-rC-SjO"; */
+"RH3-rC-SjO.text" = "100";
+
 /* Class = "UIViewController"; title = "FacebookViewController"; ObjectID = "Z9T-1o-TkX"; */
 "Z9T-1o-TkX.title" = "FacebookViewController";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "aAX-82-dXb"; */
+"aAX-82-dXb.text" = "100";
 
 /* Class = "UITabBarItem"; title = "Instellingen"; ObjectID = "aHW-0D-C5h"; */
 "aHW-0D-C5h.title" = "Instellingen";
@@ -23,7 +35,10 @@
 /* Class = "UILabel"; text = "Name"; ObjectID = "fr6-Wi-JtL"; */
 "fr6-Wi-JtL.text" = "Name";
 
-/* Class = "UISegmentedControl"; hmH-ES-hCM.segmentTitles[0] = "Over"; ObjectID = "hmH-ES-hCM"; */
+/* Class = "UILabel"; text = "Contacten"; ObjectID = "gjZ-YO-RnM"; */
+"gjZ-YO-RnM.text" = "Contacten";
+
+/* Class = "UISegmentedControl"; hmH-ES-hCM.segmentTitles[0] = "Over mij"; ObjectID = "hmH-ES-hCM"; */
 "hmH-ES-hCM.segmentTitles[0]" = "Over mij";
 
 /* Class = "UISegmentedControl"; hmH-ES-hCM.segmentTitles[1] = "Vraag"; ObjectID = "hmH-ES-hCM"; */
@@ -32,7 +47,7 @@
 /* Class = "UILabel"; text = "Radius"; ObjectID = "i3p-Z7-lcX"; */
 "i3p-Z7-lcX.text" = "Radius";
 
-/* Class = "UILabel"; text = "Over mij:"; ObjectID = "ovk-Xn-qxP"; */
+/* Class = "UILabel"; text = "Over mij"; ObjectID = "ovk-Xn-qxP"; */
 "ovk-Xn-qxP.text" = "Over mij";
 
 /* Class = "UILabel"; text = "Welkom!"; ObjectID = "pQk-Oi-xVQ"; */
@@ -47,11 +62,14 @@
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "qVD-mG-hhD"; */
 "qVD-mG-hhD.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
+/* Class = "UILabel"; text = "Vrijwilligers"; ObjectID = "rld-gM-464"; */
+"rld-gM-464.text" = "Vrijwilligers";
+
 /* Class = "UIButton"; normalTitle = "Dashboard"; ObjectID = "tj7-m7-Q1x"; */
 "tj7-m7-Q1x.normalTitle" = "Dashboard";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "uLi-Sc-Vj8"; */
-"uLi-Sc-Vj8.title" = "Map";
+"uLi-Sc-Vj8.title" = "MEP";
 
 /* Class = "UITabBarItem"; title = "Profiel"; ObjectID = "ymh-iT-cRq"; */
 "ymh-iT-cRq.title" = "Profiel";

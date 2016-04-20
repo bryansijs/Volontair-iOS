@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Volontair
+
+  Created by Bryan Sijs on 20-04-16.
+  Copyright © 2016 Volontair. All rights reserved.
+*/
+JUST_NOW="just now";
+SECONDS_AGO="seconds ago";
+A_MINUTE_AGO="a minute ago";
+ONE_MINUTE_AGO="1 minute ago";
+MINUTES_AGO="minutes ago";
+AN_HOUR_AGO="an hour ago";
+ONE_HOUR_AGO="1 hour ago";
+HOURS_AGO="hours ago";
+YESTERDAY="yesterday";
+ONE_DAY_AGO="1 day ago";
+DAYS_AGO="days ago";
+LAST_WEEK="last week";
+ONE_WEEK_AGO="1 week ago";
+WEEKS_AGO="weeks ago";
+LAST_MONTH="last moth";
+ONE_MONTH_AGO="1 moth ago";
+MONTHS_AGO="moths ago";
+LAST_YEAR="last year";
+ONE_YEAR_AGO="1 year ago";
+YEARS_AGO="years ago";
