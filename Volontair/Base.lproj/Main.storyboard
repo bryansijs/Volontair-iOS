@@ -133,8 +133,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OoW-4Z-IIl">
-                                <rect key="frame" x="171" y="28" width="259" height="29"/>
+                            <view contentMode="scaleAspectFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P64-iV-KPe" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="69" width="600" height="482"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="mapView"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OoW-4Z-IIl">
+                                <rect key="frame" x="0.0" y="28" width="600" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="259" id="3zD-qB-ddX"/>
                                 </constraints>
@@ -146,27 +151,33 @@
                                     <action selector="indexChanged:" destination="PY4-Pi-QrT" eventType="valueChanged" id="Tee-TR-ud6"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P64-iV-KPe" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="600" height="312"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="mapView"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="discoverTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dac-Wa-yBL">
-                                <rect key="frame" x="0.0" y="384" width="600" height="159"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" constant="15" id="0kJ-L9-hli"/>
+                            <constraint firstItem="OoW-4Z-IIl" firstAttribute="top" secondItem="0Of-bC-kow" secondAttribute="bottom" id="3DB-oc-nCu"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="leading" secondItem="OoW-4Z-IIl" secondAttribute="leading" id="7Bo-F7-PUW"/>
                             <constraint firstItem="OoW-4Z-IIl" firstAttribute="centerX" secondItem="7XP-7C-Obl" secondAttribute="centerX" id="7UX-JU-EeW"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="leading" secondItem="7XP-7C-Obl" secondAttribute="leading" id="B4K-ns-l6e"/>
                             <constraint firstItem="OoW-4Z-IIl" firstAttribute="top" secondItem="0Of-bC-kow" secondAttribute="bottom" constant="8" symbolic="YES" id="G7Y-4N-WBi"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" id="Geq-c1-7bF"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="leading" secondItem="7XP-7C-Obl" secondAttribute="leadingMargin" id="TMD-er-8cG"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" constant="20" id="TVE-xZ-8Fc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P64-iV-KPe" secondAttribute="trailing" id="arP-W8-etW"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" constant="8" symbolic="YES" id="dMj-Wr-E0W"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="bottom" secondItem="eZ3-Le-2By" secondAttribute="top" id="flu-ar-SdD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P64-iV-KPe" secondAttribute="trailing" id="hmw-17-ae2"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" constant="8" symbolic="YES" id="lcN-gN-YcE"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" id="nCC-Kt-43y"/>
+                            <constraint firstItem="P64-iV-KPe" firstAttribute="leading" secondItem="7XP-7C-Obl" secondAttribute="leadingMargin" id="q1G-ba-JbM"/>
+                            <constraint firstItem="OoW-4Z-IIl" firstAttribute="leading" secondItem="7XP-7C-Obl" secondAttribute="leadingMargin" id="qg1-3n-Cwe"/>
+                            <constraint firstAttribute="trailing" secondItem="P64-iV-KPe" secondAttribute="trailing" id="rk8-L2-mNr"/>
                             <constraint firstItem="P64-iV-KPe" firstAttribute="top" secondItem="OoW-4Z-IIl" secondAttribute="bottom" constant="8" symbolic="YES" id="vE8-c4-f2O"/>
                             <constraint firstItem="OoW-4Z-IIl" firstAttribute="centerX" secondItem="P64-iV-KPe" secondAttribute="centerX" id="xh7-hV-uEO"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
                     <connections>
-                        <outlet property="discoverTableView" destination="dac-Wa-yBL" id="ai7-gl-R0i"/>
                         <outlet property="mapView" destination="P64-iV-KPe" id="zIf-jY-OBM"/>
                         <outlet property="segmentedControl" destination="OoW-4Z-IIl" id="cCt-Ep-NXV"/>
                     </connections>

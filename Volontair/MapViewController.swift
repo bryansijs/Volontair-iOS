@@ -10,9 +10,8 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
-class MapViewController: UIViewController, GMSMapViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     var mapView: GMSMapView! = nil
-    
     @IBOutlet weak var discoverTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -21,8 +20,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UITableViewDataSo
     let locationManager = CLLocationManager()
     
     var gMarkers: [GMSMarker!]! = []
-    
-    var discoverItems = [DiscoverItemModel]()
     
     enum segmentedControlPages : Int {
         case OffersMap = 0
@@ -39,10 +36,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UITableViewDataSo
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
-        
-        discoverItems.append(DiscoverItemModel(title: "Title1", summary: "Summary1"))
-        discoverItems.append(DiscoverItemModel(title: "Title2", summary: "Summary2"))
-        discoverItems.append(DiscoverItemModel(title: "Title3", summary: "Summary3"))
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -120,7 +113,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UITableViewDataSo
         gMarker.title = marker.title
         gMarker.map = self.mapView
         gMarkers!.append(gMarker)
-        discoverItems.append(DiscoverItemModel(title: marker.title, summary: marker.summary))
         print("Marker added \(gMarker.title) \(gMarker.position.latitude) | \(gMarker.position.longitude)")
     }
     
@@ -145,26 +137,5 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UITableViewDataSo
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 10, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
         }
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return discoverItems.count
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "DiscoverItemTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DiscoverItemTableViewCell
-        
-        // Fetches the appropriate meal for the data source layout.
-        let discoverItem = discoverItems[indexPath.row]
-        
-        // Initialize cell item
-        cell.title.text = discoverItem.title
-        cell.summary.text = discoverItem.summary
-        
-        return cell
-    }
+    }    
 }

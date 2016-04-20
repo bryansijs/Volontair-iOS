@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F920E701CC5665F006AF4F8 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F920E6F1CC5665F006AF4F8 /* GoogleMaps.framework */; };
 		2F920E721CC566D6006AF4F8 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2F920E711CC566D6006AF4F8 /* GoogleMaps.bundle */; };
-		2F920E741CC56E6C006AF4F8 /* DiscoverItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F920E731CC56E6C006AF4F8 /* DiscoverItemTableViewCell.swift */; };
-		2F920E761CC57422006AF4F8 /* DiscoverItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F920E751CC57422006AF4F8 /* DiscoverItemModel.swift */; };
 		2FB476DD1CC55C1C00A9CECA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476DB1CC55C0400A9CECA /* AVFoundation.framework */; };
 		2FB476DF1CC55C3100A9CECA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476DE1CC55C3100A9CECA /* CoreData.framework */; };
 		2FB476E11CC55C3800A9CECA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB476E01CC55C3800A9CECA /* CoreLocation.framework */; };
@@ -104,8 +102,6 @@
 /* Begin PBXFileReference section */
 		2F920E6F1CC5665F006AF4F8 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		2F920E711CC566D6006AF4F8 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "../Downloads/369280b0e1f04cb7-GoogleMaps-1.13.0/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
-		2F920E731CC56E6C006AF4F8 /* DiscoverItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverItemTableViewCell.swift; sourceTree = "<group>"; };
-		2F920E751CC57422006AF4F8 /* DiscoverItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverItemModel.swift; sourceTree = "<group>"; };
 		2FB476DB1CC55C0400A9CECA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2FB476DE1CC55C3100A9CECA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2FB476E01CC55C3800A9CECA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -212,7 +208,6 @@
 		2FFAA74C1CC0F0D80086CD6F /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				2F920E731CC56E6C006AF4F8 /* DiscoverItemTableViewCell.swift */,
 				2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */,
 				2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */,
 				2FE876381CBA902D007D9C41 /* MapViewModel.swift */,
@@ -220,7 +215,6 @@
 				2FD6F1A91CBA664C00879F7F /* MapViewController.swift */,
 				2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */,
 				2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */,
-				2F920E751CC57422006AF4F8 /* DiscoverItemModel.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -489,11 +483,9 @@
 				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
-				2F920E761CC57422006AF4F8 /* DiscoverItemModel.swift in Sources */,
 				2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */,
 				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
 				2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */,
-				2F920E741CC56E6C006AF4F8 /* DiscoverItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
