@@ -3,7 +3,9 @@ import UIKit
 import RxSwift
 
 class ContactsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var categoryTextField: UITextField!
     
     let disposeBag = DisposeBag()
     let refreshControl = UIRefreshControl()
@@ -13,10 +15,19 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Refresh control
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(ContactsViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshControl)
+        
+        
+        //Category filter
+        let imageView = UIImageView();
+        imageView.image = UIImage(named: "Filter");
+        imageView.frame = CGRectMake(0, 0, 20, 20);
+        categoryTextField.leftView = imageView;
+        categoryTextField.leftViewMode = UITextFieldViewMode.UnlessEditing
         
         loadConversations()
     }
