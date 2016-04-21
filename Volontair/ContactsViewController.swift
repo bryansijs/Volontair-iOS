@@ -111,17 +111,34 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             }).addDisposableTo(self.disposeBag)
     }
     
-    func loadCategories() {
-        self.skillCategories.removeAll()
-        contactSercvice.categorys()
+    func loadConversationsFilteredBy(filter: String){
+        self.conversations.removeAll()
+        self.contactSercvice.conversationsFilteredByCategory(filter)
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                
-                for i in 0...json.count-1{
-                    if let category = json[i] as? CategoryModel{
-                        self.skillCategories[category.name] = category
+                print(json)
+                self.conversations += json
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.refreshControl.endRefreshing()
+                    self.tableView.reloadData()
+                }
+            }).addDisposableTo(self.disposeBag)
+    }
+    
+    func loadCategories() {
+        self.skillCategories.removeAll()
+        contactSercvice.categories()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+            .observeOn(MainScheduler.instance)
+            .toArray()
+            .subscribe(onNext: { (json) -> Void in
+                if json.count > 0{
+                    for i in 0...json.count-1{
+                        if let category = json[i] as? CategoryModel{
+                            self.skillCategories[category.name] = category
+                        }
                     }
                 }
                 dispatch_async(dispatch_get_main_queue()) {
@@ -151,7 +168,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        categoryTextField.text = skillCategories[index].1.name
+        loadConversationsFilteredBy(skillCategories[index].0)
+        categoryTextField.text = skillCategories[index].0
         skillCategoryPicker.hidden = true;
     }
     

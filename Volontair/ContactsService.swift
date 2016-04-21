@@ -16,6 +16,20 @@ class ContactsService {
         return manager.rx_JSON(.GET, Config.url + Config.profileUrl + "\(userId)")
     }
     
+    func userCategories(userId: Int)  -> Observable<CategoryModel> {
+        return self.user(userId)
+            .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
+                let userCategories = userData["offersCategories"]!!["main"] as! NSArray
+                return userCategories.toObservable()
+            })
+            .map({ (categorieData: AnyObject) -> CategoryModel in
+                let categoryName = categorieData as! String
+                let categoryItem = CategoryModel(name: categoryName, iconName: "")
+                
+                return categoryItem
+            })
+    }
+    
     func category(categoryName: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
         return manager.rx_JSON(.GET, Config.url + Config.categoryUrl + "\(categoryName)")
@@ -54,13 +68,35 @@ class ContactsService {
                         let lastMessage = message["message"] as! String
                         let avatarUrl = user["avatar"] as! String
                         let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), listenerId: listenerId);
+                        item.listener = UserModel(jsonData: user)
                         return item
                     }
                 )
             })
     }
     
-    func categorys() -> Observable<CategoryModel> {
+    func conversationsFilteredByCategory(categoryName: String) -> Observable<ConversationModel>{
+    
+        return self.conversations()
+            .filter({ (data: ConversationModel) -> Bool in
+                
+                if let items = data.listener!.offersCategories["main"]?.array {
+                    for item in items {
+                        if let title = item.string {
+                            if title == categoryName{
+                                return true
+                            }
+                        }
+                    }
+                }
+                return false
+            })
+    }
+
+
+    
+    
+    func categories() -> Observable<CategoryModel> {
         return self.conversations()
             .flatMap({ (data: ConversationModel) -> Observable<AnyObject> in
                 return self.user(data.listenerId)

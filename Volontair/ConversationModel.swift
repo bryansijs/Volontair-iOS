@@ -6,6 +6,7 @@ class ConversationModel {
     var lastMessage: String = ""
     var listenerId: Int
     var lastMessageDate: NSDate
+    var listener: UserModel?
     
     init(name: String, avatarUrl: String, lastMessage: String, lastMessageDate: NSDate, listenerId: Int) {
         self.name = name
