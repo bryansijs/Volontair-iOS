@@ -21,5 +21,6 @@ struct Config{
     static let requestsUpdatedNotificationKey = "REQUESTS_UPDATED"
     static let offersUpdatedNotificationKey = "OFFERS_UPDATED"
     
-    static let defaultMapRadiusDistance: CLLocationDistance = 500
+    static let defaultMapLatitudeDelta: Double = 1
+    static let defaultMapLongitudeDelta: Double = 1
 }

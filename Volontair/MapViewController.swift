@@ -8,18 +8,15 @@
 
 import UIKit
 import CoreLocation
-import GoogleMaps
+import MapKit
 
-class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
-    var mapView: GMSMapView! = nil
+class MapViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var discoverTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    let regionRadius: CLLocationDistance = Config.defaultMapRadiusDistance
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
-    
-    var gMarkers: [GMSMarker!]! = []
     
     enum segmentedControlPages : Int {
         case OffersMap = 0
@@ -29,9 +26,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mapView.delegate = self
-        mapView.myLocationEnabled = true
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
@@ -58,10 +52,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     }
     
     func clearMarkers() {
-        // Clear markers from Google Map
-        self.mapView.clear()
-        // Clear array containing references to markers on Google Map
-        self.gMarkers = []
+        // Clear markers from Map
+        let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
+        mapView.removeAnnotations( annotationsToRemove )
     }
     
     func setRequests() {
@@ -122,11 +115,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     // Added given Marker to map
     func addMapMarkerToMap(marker: MapMarkerModel) {
-        let gMarker = GMSMarker(position: marker.location)
-        gMarker.title = marker.title
-        gMarker.map = self.mapView
-        gMarkers!.append(gMarker)
-        print("Marker added \(gMarker.title) \(gMarker.position.latitude) | \(gMarker.position.longitude)")
+        mapView?.addAnnotation(marker)
+        print("Marker added")
     }
     
     func updateOnRequestsUpdatedNotification() {
@@ -139,16 +129,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
+            // Start updating location when authorized
             locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
-            mapView.settings.myLocationButton = true
         }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = mapView.myLocation {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 10, bearing: 0, viewingAngle: 0)
+        if let location = locations.first {
+            // Set region on map once by user location and stop updating
+            let l = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            // Todo: bind Span to radius set by user?
+            let span = MKCoordinateSpanMake(Config.defaultMapLatitudeDelta, Config.defaultMapLongitudeDelta)
+            let region = MKCoordinateRegion(center: l, span: span)
+            mapView.setRegion(region, animated: true)
             locationManager.stopUpdatingLocation()
         }
-    }    
+    }
 }
