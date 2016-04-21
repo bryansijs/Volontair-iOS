@@ -7,23 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F597B6E1CC837CC00D84125 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F597B6D1CC837CC00D84125 /* CoreBluetooth.framework */; };
-		2F597B701CC837D900D84125 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F597B6F1CC837D900D84125 /* Accelerate.framework */; };
 		2FB2B4891CC81D1300FC1BC4 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2FB2B4871CC81D1300FC1BC4 /* en.lproj */; };
 		2FB2B48A1CC81D1300FC1BC4 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2FB2B4881CC81D1300FC1BC4 /* nl.lproj */; };
 		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
-		2FD6B5511CC8333B00C42694 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5501CC8333B00C42694 /* AVFoundation.framework */; };
-		2FD6B5531CC8334100C42694 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5521CC8334100C42694 /* CoreData.framework */; };
-		2FD6B5551CC8334B00C42694 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5541CC8334B00C42694 /* CoreLocation.framework */; };
-		2FD6B5571CC8335200C42694 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5561CC8335200C42694 /* CoreText.framework */; };
-		2FD6B5591CC8335900C42694 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5581CC8335900C42694 /* GLKit.framework */; };
-		2FD6B55B1CC8335F00C42694 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B55A1CC8335F00C42694 /* ImageIO.framework */; };
-		2FD6B55D1CC8336800C42694 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B55C1CC8336800C42694 /* libc++.tbd */; };
-		2FD6B55F1CC8337000C42694 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B55E1CC8337000C42694 /* libicucore.tbd */; };
-		2FD6B5611CC8337700C42694 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5601CC8337700C42694 /* libz.tbd */; };
-		2FD6B5631CC8337F00C42694 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5621CC8337F00C42694 /* OpenGLES.framework */; };
-		2FD6B5651CC8338600C42694 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5641CC8338600C42694 /* QuartzCore.framework */; };
-		2FD6B5671CC8338D00C42694 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD6B5661CC8338D00C42694 /* SystemConfiguration.framework */; };
 		2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1A91CBA664C00879F7F /* MapViewController.swift */; };
 		2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AB1CBA6BF300879F7F /* MapService.swift */; };
 		2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */; };
@@ -100,26 +86,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F597B6D1CC837CC00D84125 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		2F597B6F1CC837D900D84125 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		2FB2B4871CC81D1300FC1BC4 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = ../../en.lproj; sourceTree = "<group>"; };
 		2FB2B4881CC81D1300FC1BC4 /* nl.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = nl.lproj; path = ../../nl.lproj; sourceTree = "<group>"; };
 		2FB60C231C946F2C0002BB51 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
-		2FD6B5501CC8333B00C42694 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		2FD6B5521CC8334100C42694 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2FD6B5541CC8334B00C42694 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2FD6B5561CC8335200C42694 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		2FD6B5581CC8335900C42694 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		2FD6B55A1CC8335F00C42694 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		2FD6B55C1CC8336800C42694 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		2FD6B55E1CC8337000C42694 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		2FD6B5601CC8337700C42694 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		2FD6B5621CC8337F00C42694 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		2FD6B5641CC8338600C42694 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2FD6B5661CC8338D00C42694 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2FD6F1A91CBA664C00879F7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestModel.swift; path = ../RequestModel.swift; sourceTree = "<group>"; };
@@ -160,20 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F597B701CC837D900D84125 /* Accelerate.framework in Frameworks */,
-				2F597B6E1CC837CC00D84125 /* CoreBluetooth.framework in Frameworks */,
-				2FD6B5671CC8338D00C42694 /* SystemConfiguration.framework in Frameworks */,
-				2FD6B5651CC8338600C42694 /* QuartzCore.framework in Frameworks */,
-				2FD6B5631CC8337F00C42694 /* OpenGLES.framework in Frameworks */,
-				2FD6B5611CC8337700C42694 /* libz.tbd in Frameworks */,
-				2FD6B55F1CC8337000C42694 /* libicucore.tbd in Frameworks */,
-				2FD6B55D1CC8336800C42694 /* libc++.tbd in Frameworks */,
-				2FD6B55B1CC8335F00C42694 /* ImageIO.framework in Frameworks */,
-				2FD6B5591CC8335900C42694 /* GLKit.framework in Frameworks */,
-				2FD6B5571CC8335200C42694 /* CoreText.framework in Frameworks */,
-				2FD6B5551CC8334B00C42694 /* CoreLocation.framework in Frameworks */,
-				2FD6B5531CC8334100C42694 /* CoreData.framework in Frameworks */,
-				2FD6B5511CC8333B00C42694 /* AVFoundation.framework in Frameworks */,
 				EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */,
 				EFA50DF61CAAA97000FE4545 /* Alamofire.framework in Frameworks */,
 				57C442BF1CA080C900A556F5 /* Bolts.framework in Frameworks */,
@@ -301,20 +259,6 @@
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2F597B6F1CC837D900D84125 /* Accelerate.framework */,
-				2F597B6D1CC837CC00D84125 /* CoreBluetooth.framework */,
-				2FD6B5661CC8338D00C42694 /* SystemConfiguration.framework */,
-				2FD6B5641CC8338600C42694 /* QuartzCore.framework */,
-				2FD6B5621CC8337F00C42694 /* OpenGLES.framework */,
-				2FD6B5601CC8337700C42694 /* libz.tbd */,
-				2FD6B55E1CC8337000C42694 /* libicucore.tbd */,
-				2FD6B55C1CC8336800C42694 /* libc++.tbd */,
-				2FD6B55A1CC8335F00C42694 /* ImageIO.framework */,
-				2FD6B5581CC8335900C42694 /* GLKit.framework */,
-				2FD6B5561CC8335200C42694 /* CoreText.framework */,
-				2FD6B5541CC8334B00C42694 /* CoreLocation.framework */,
-				2FD6B5521CC8334100C42694 /* CoreData.framework */,
-				2FD6B5501CC8333B00C42694 /* AVFoundation.framework */,
 				EFA50DEE1CAAA93100FE4545 /* Alamofire.framework */,
 				EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */,
 				EF5A86C31CA01815004128E7 /* MapKit.framework */,
