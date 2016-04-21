@@ -23,4 +23,13 @@ struct Config{
     
     static let defaultMapLatitudeDelta: Double = 1
     static let defaultMapLongitudeDelta: Double = 1
+    
+    static let profileUrl = "users/"
+    static let dashboardUrl = "dashboard/"
+    static let conversationUrl = "conversations/"
+    
+    // provided from conversations
+    static let messagesUrl = "messages/"
+    static let profileNotificationKey = "ProfileDataUpdated"
+    static let dashboardNotificationKey = "DashboardDataUpdated"
 }

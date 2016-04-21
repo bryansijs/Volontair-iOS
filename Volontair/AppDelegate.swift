@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MapService.sharedInstance.getRequests()
         MapService.sharedInstance.getOffers()
         
+        //Load user object
+        ServiceFactory.sharedInstance.getUserService().loadUserDataFromServer(1)
+        //Load dashboard object
+        DashboardServiceFactory.sharedInstance.getDashboardService().loadDashboardDataFromServer()
+
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
