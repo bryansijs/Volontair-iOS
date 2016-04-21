@@ -398,7 +398,7 @@
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAl-FM-J35">
                                 <rect key="frame" x="0.0" y="335" width="600" height="216"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="kIq-lo-JkP" id="wWl-Xi-kim"/>
                                     <outlet property="delegate" destination="kIq-lo-JkP" id="vJi-N2-ecb"/>
