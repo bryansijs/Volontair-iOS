@@ -129,6 +129,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadCategories() {
         self.skillCategories.removeAll()
+        skillCategories["-"] = CategoryModel(name: "-", iconName: "")
         contactSercvice.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
@@ -168,7 +169,11 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        loadConversationsFilteredBy(skillCategories[index].0)
+        if(skillCategories[index].0 != "-"){
+            loadConversationsFilteredBy(skillCategories[index].0)
+        } else {
+            loadConversations()
+        }
         categoryTextField.text = skillCategories[index].0
         skillCategoryPicker.hidden = true;
     }
