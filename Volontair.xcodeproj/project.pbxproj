@@ -23,7 +23,6 @@
 		2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
-		578484E71C764542006A9841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 578484E61C764542006A9841 /* Assets.xcassets */; };
 		578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E81C764542006A9841 /* LaunchScreen.storyboard */; };
 		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
 		578485001C764542006A9841 /* VolontairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484FF1C764542006A9841 /* VolontairUITests.swift */; };
@@ -49,6 +48,10 @@
 		EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */; };
 		EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
+		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
+		EF9400CD1CC79129008F93A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9400CF1CC79129008F93A9 /* Localizable.strings */; };
+		EF9400D41CC79CF7008F93A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9400D31CC79CF7008F93A9 /* Assets.xcassets */; };
+		EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9400D71CC7B732008F93A9 /* CategoryModel.swift */; };
 		EF9998B41CC38E7000C42537 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B01CC38E7000C42537 /* RxAlamofire.framework */; };
 		EF9998B51CC38E7000C42537 /* RxAlamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B01CC38E7000C42537 /* RxAlamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF9998B61CC38E7000C42537 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998B11CC38E7000C42537 /* RxBlocking.framework */; };
@@ -125,7 +128,6 @@
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		578484E41C764541006A9841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		578484E61C764542006A9841 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		578484E91C764542006A9841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		578484EB1C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		578484F01C764542006A9841 /* VolontairTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VolontairTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,10 @@
 		EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactServiceFactory.swift; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EF9400CE1CC79129008F93A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF9400D01CC7912D008F93A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF9400D31CC79CF7008F93A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF9400D71CC7B732008F93A9 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		EF9998B01CC38E7000C42537 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxAlamofire.framework; sourceTree = "<group>"; };
 		EF9998B11CC38E7000C42537 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = "<group>"; };
 		EF9998B21CC38E7000C42537 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
@@ -250,10 +256,11 @@
 				EF287BA51CA9BFC6009155CC /* Cartfile */,
 				578484DF1C764541006A9841 /* AppDelegate.swift */,
 				578484E31C764541006A9841 /* Main.storyboard */,
-				578484E61C764542006A9841 /* Assets.xcassets */,
 				578484E81C764542006A9841 /* LaunchScreen.storyboard */,
 				578484EB1C764542006A9841 /* Info.plist */,
 				EF0D05971CB690D4005403B8 /* Contstants.swift */,
+				EF9400CF1CC79129008F93A9 /* Localizable.strings */,
+				EF9400D31CC79CF7008F93A9 /* Assets.xcassets */,
 			);
 			path = Volontair;
 			sourceTree = "<group>";
@@ -356,6 +363,7 @@
 				EF3E52811CC00BC50053A701 /* ContactsViewController.swift */,
 				EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */,
 				EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */,
+				EF9400D71CC7B732008F93A9 /* CategoryModel.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -449,6 +457,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = 578484D31C764541006A9841;
 			productRefGroup = 578484DD1C764541006A9841 /* Products */;
@@ -467,10 +476,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9400CD1CC79129008F93A9 /* Localizable.strings in Resources */,
 				578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */,
-				578484E71C764542006A9841 /* Assets.xcassets in Resources */,
 				EF287BA61CA9BFC6009155CC /* Cartfile in Resources */,
 				578484E51C764541006A9841 /* Main.storyboard in Resources */,
+				EF9400D41CC79CF7008F93A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +521,8 @@
 				2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */,
 				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
+				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
+				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
@@ -577,6 +589,15 @@
 				57C6A5FB1C90DBED00C98899 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EF9400CF1CC79129008F93A9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF9400CE1CC79129008F93A9 /* nl */,
+				EF9400D01CC7912D008F93A9 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

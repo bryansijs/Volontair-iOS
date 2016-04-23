@@ -27,6 +27,7 @@ struct Config{
     static let profileUrl = "users/"
     static let dashboardUrl = "dashboard/"
     static let conversationUrl = "conversations/"
+    static let categoryUrl = "categories/"
     
     // provided from conversations
     static let messagesUrl = "messages/"
