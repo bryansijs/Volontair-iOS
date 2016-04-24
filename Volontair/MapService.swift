@@ -29,8 +29,6 @@ class MapService {
         Alamofire.request(.GET, requestsUrl).validate().responseJSON { response in
             switch response.result {
             case .Success:
-                print("Requests:")
-                print(response)
                 if let value = response.result.value {
                     for request in value["data"] as! [[String:AnyObject]] {
                         self.mapViewModel?.requests!.append(RequestModel(jsonData: request))
@@ -52,8 +50,6 @@ class MapService {
         Alamofire.request(.GET, offersUrl).validate().responseJSON { response in
             switch response.result {
             case .Success:
-                print("Offers:")
-                print(response)
                 if let value = response.result.value {
                     for offer in value["data"] as! [[String:AnyObject]] {
                         self.mapViewModel?.offers!.append(OfferModel(jsonData: offer))

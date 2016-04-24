@@ -116,7 +116,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // Added given Marker to map
     func addMapMarkerToMap(marker: MapMarkerModel) {
         mapView?.addAnnotation(marker)
-        print("Marker added")
     }
     
     func updateOnRequestsUpdatedNotification() {
