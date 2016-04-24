@@ -10,8 +10,6 @@ import UIKit
 import Alamofire
 import RxSwift
 
-
-
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var ProfileNameLabel: UILabel!
@@ -36,7 +34,7 @@ class ProfileViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         setData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,7 +64,7 @@ class ProfileViewController: UIViewController {
                 AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
             }
         default:
-            break; 
+            break;
         }
     }
     

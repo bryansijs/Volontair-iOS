@@ -1,5 +1,5 @@
 //
-//  DahboardService.swift
+//  DashboardService.swift
 //  Volontair
 //
 //  Created by Bryan Sijs on 13-04-16.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class DahboardService {
+class DashboardService {
     
     private var dashboardmodel: DashboardModel?
     

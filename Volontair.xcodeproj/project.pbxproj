@@ -7,9 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
+		2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1A91CBA664C00879F7F /* MapViewController.swift */; };
+		2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AB1CBA6BF300879F7F /* MapService.swift */; };
+		2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */; };
+		2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */; };
+		2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE876381CBA902D007D9C41 /* MapViewModel.swift */; };
+		2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */; };
+		2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */; };
+		2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
+		2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
+		2FFD7DC81CC958D4005CDE2C /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
+		2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
+		2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCA1CC95949005CDE2C /* UserService.swift */; };
+		2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */; };
+		2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
-		578484E21C764541006A9841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
 		578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E81C764542006A9841 /* LaunchScreen.storyboard */; };
 		578484F51C764542006A9841 /* VolontairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484F41C764542006A9841 /* VolontairTests.swift */; };
@@ -22,10 +34,9 @@
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
-		EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
+		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
-		EF2721F31CBE2B4000BCD082 /* DahboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F21CBE2B4000BCD082 /* DahboardService.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
 		EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */; };
 		EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2E81E41CBEDF9B00FD141C /* UserModel.swift */; };
@@ -56,8 +67,6 @@
 		EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
-		EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4BC371CB937EB002D6E51 /* UserService.swift */; };
-		EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 		EFF4D63D1CBFA2F3001AE6E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5A86C31CA01815004128E7 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +114,16 @@
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
+		2FD6F1A91CBA664C00879F7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestModel.swift; path = ../RequestModel.swift; sourceTree = "<group>"; };
+		2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfferModel.swift; path = ../OfferModel.swift; sourceTree = "<group>"; };
+		2FE876381CBA902D007D9C41 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewModel.swift; path = ../MapViewModel.swift; sourceTree = "<group>"; };
+		2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapServiceFactory.swift; sourceTree = "<group>"; };
+		2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapMarkerModel.swift; sourceTree = "<group>"; };
+		2FFD7DCA1CC95949005CDE2C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardService.swift; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,11 +137,12 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
+		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
-		EF2721F21CBE2B4000BCD082 /* DahboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DahboardService.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileServiceFactory.swift; sourceTree = "<group>"; };
 		EF2E81E41CBEDF9B00FD141C /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -133,7 +153,6 @@
 		EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactServiceFactory.swift; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardModel.swift; path = ../DashboardModel.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EF9400CE1CC79129008F93A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D01CC7912D008F93A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -146,7 +165,6 @@
 		EF9998BC1CC38EAC00C42537 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		EFC4BC371CB937EB002D6E51 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		EFF4D6421CBFA4AB001AE6E3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +207,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FFAA74C1CC0F0D80086CD6F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */,
+				2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */,
+				2FE876381CBA902D007D9C41 /* MapViewModel.swift */,
+				2FD6F1AB1CBA6BF300879F7F /* MapService.swift */,
+				2FD6F1A91CBA664C00879F7F /* MapViewController.swift */,
+				2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */,
+				2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		578484D31C764541006A9841 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +244,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				2FFAA74C1CC0F0D80086CD6F /* Map */,
 				EFF4D63E1CBFA31A001AE6E3 /* Contacts */,
 				EF2721EF1CBE293C00BCD082 /* Factory */,
 				EF2721EE1CBE280200BCD082 /* Service */,
@@ -266,9 +299,9 @@
 			children = (
 				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
-				EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */,
-				EF2721F21CBE2B4000BCD082 /* DahboardService.swift */,
 				EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */,
+				2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */,
+				2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -293,7 +326,8 @@
 		EF2721EE1CBE280200BCD082 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				EFC4BC371CB937EB002D6E51 /* UserService.swift */,
+				2FFD7DCA1CC95949005CDE2C /* UserService.swift */,
+				EF0D05991CB6D00C005403B8 /* Service.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -398,7 +432,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Volontair;
 				TargetAttributes = {
 					578484DB1C764541006A9841 = {
@@ -471,11 +505,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
+				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
+				2FFD7DC81CC958D4005CDE2C /* PageContentViewController.swift in Sources */,
+				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
+				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
+				2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */,
+				2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */,
+				2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */,
+				2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */,
+				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
@@ -483,17 +527,16 @@
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
 				EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */,
-				EF1967441C8C826700B64AD3 /* PageContentViewController.swift in Sources */,
-				EF2721F31CBE2B4000BCD082 /* DahboardService.swift in Sources */,
-				578484E21C764541006A9841 /* ViewController.swift in Sources */,
-				2FB60C2A1C9470C50002BB51 /* FacebookViewController.swift in Sources */,
-				EFD116891C92C2FF00C05E09 /* DashboardViewController.swift in Sources */,
-				EFC4BC381CB937EB002D6E51 /* UserService.swift in Sources */,
 				EF3E527F1CC00B6F0053A701 /* ConversationModel.swift in Sources */,
 				EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */,
 				EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
+				2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */,
+				2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */,
+				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
+				2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */,
+				2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +576,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				578484E41C764541006A9841 /* Base */,
+				EF0D05951CB68F4B005403B8 /* nl */,
 				EFF4D6421CBFA4AB001AE6E3 /* nl */,
 			);
 			name = Main.storyboard;
@@ -579,6 +623,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -624,6 +669,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -647,6 +693,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -664,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",

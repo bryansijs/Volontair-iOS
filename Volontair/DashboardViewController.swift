@@ -18,7 +18,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var numberOfContactsLabel: UILabel!
     @IBOutlet weak var numberOfVolunteersLabel: UILabel!
-
     
     let dashboardService = DashboardServiceFactory.sharedInstance.getDashboardService()
     

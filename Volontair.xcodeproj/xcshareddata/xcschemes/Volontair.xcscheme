@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0730"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -85,7 +85,7 @@
       <AdditionalOptions>
       </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+         identifier = "Moscow, Russia"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>

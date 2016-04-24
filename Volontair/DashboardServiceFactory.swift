@@ -11,13 +11,13 @@ import Foundation
 class DashboardServiceFactory  {
     static let sharedInstance = DashboardServiceFactory()
     
-    let dashboardService = DahboardService()
+    let dashboardService = DashboardService()
     
     private init(){
         print("init DashboardServiceFactory")
     }
     
-    func getDashboardService() -> DahboardService{
+    func getDashboardService() -> DashboardService{
         return dashboardService
     }
 }
