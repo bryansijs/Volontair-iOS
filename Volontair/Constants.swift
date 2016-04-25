@@ -44,7 +44,7 @@ struct Config{
         CategoryIconModel(category: "technical_questions", iconUrl: "icon_technical_questions"),
         CategoryIconModel(category: "social_activities", iconUrl: "icon_social_activities"),
         CategoryIconModel(category: "housekeeping", iconUrl: "icon_housekeeping"),
-        CategoryIconModel(category: "transporting", iconUrl: "icon_transporting"),
+        CategoryIconModel(category: "transportation", iconUrl: "icon_transportation"),
         CategoryIconModel(category: "repairing_and_replacing", iconUrl: "icon_repairing_and_replacing"),
         CategoryIconModel(category: "events", iconUrl: "icon_events")
     ]
