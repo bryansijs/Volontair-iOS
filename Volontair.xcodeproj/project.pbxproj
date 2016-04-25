@@ -21,6 +21,7 @@
 		2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCA1CC95949005CDE2C /* UserService.swift */; };
 		2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */; };
 		2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */; };
+		2FFE5A651CCE867900D02333 /* CategoryIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE5A641CCE867900D02333 /* CategoryIconModel.swift */; };
 		578484E01C764541006A9841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484DF1C764541006A9841 /* AppDelegate.swift */; };
 		578484E51C764541006A9841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E31C764541006A9841 /* Main.storyboard */; };
 		578484EA1C764542006A9841 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578484E81C764542006A9841 /* LaunchScreen.storyboard */; };
@@ -33,7 +34,7 @@
 		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Contstants.swift */; };
+		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
 		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -48,7 +49,7 @@
 		EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */; };
 		EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
-		EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5354FE1CB98DA800B5DEE2 /* DashboardModel.swift */; };
+		EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		EF9400CD1CC79129008F93A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9400CF1CC79129008F93A9 /* Localizable.strings */; };
 		EF9400D41CC79CF7008F93A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9400D31CC79CF7008F93A9 /* Assets.xcassets */; };
 		EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9400D71CC7B732008F93A9 /* CategoryModel.swift */; };
@@ -124,6 +125,7 @@
 		2FFD7DCA1CC95949005CDE2C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardService.swift; sourceTree = "<group>"; };
+		2FFE5A641CCE867900D02333 /* CategoryIconModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryIconModel.swift; sourceTree = "<group>"; };
 		578484DC1C764541006A9841 /* Volontair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volontair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578484DF1C764541006A9841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578484E11C764541006A9841 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
-		EF0D05971CB690D4005403B8 /* Contstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contstants.swift; sourceTree = "<group>"; };
+		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				2FD6F1A91CBA664C00879F7F /* MapViewController.swift */,
 				2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */,
 				2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */,
+				2FFE5A641CCE867900D02333 /* CategoryIconModel.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -258,7 +261,7 @@
 				578484E31C764541006A9841 /* Main.storyboard */,
 				578484E81C764542006A9841 /* LaunchScreen.storyboard */,
 				578484EB1C764542006A9841 /* Info.plist */,
-				EF0D05971CB690D4005403B8 /* Contstants.swift */,
+				EF0D05971CB690D4005403B8 /* Constants.swift */,
 				EF9400CF1CC79129008F93A9 /* Localizable.strings */,
 				EF9400D31CC79CF7008F93A9 /* Assets.xcassets */,
 			);
@@ -507,7 +510,7 @@
 			files = (
 				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
-				EF0D05981CB690D4005403B8 /* Contstants.swift in Sources */,
+				EF0D05981CB690D4005403B8 /* Constants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
@@ -522,7 +525,7 @@
 				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
-				EF5354FF1CB98DA800B5DEE2 /* DashboardModel.swift in Sources */,
+				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
@@ -535,6 +538,7 @@
 				2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */,
 				2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */,
 				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
+				2FFE5A651CCE867900D02333 /* CategoryIconModel.swift in Sources */,
 				2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */,
 				2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */,
 			);

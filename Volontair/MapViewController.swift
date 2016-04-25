@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var discoverTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -26,6 +26,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mapView.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
@@ -116,6 +118,45 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // Added given Marker to map
     func addMapMarkerToMap(marker: MapMarkerModel) {
         mapView?.addAnnotation(marker)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        // Not one of our custom Annotations
+        if !(annotation is MapMarkerModel) {
+            return nil
+        }
+        
+        let reuseId = "reused_id"
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            annotationView?.canShowCallout = true
+        } else {
+          annotationView?.annotation = annotation
+        }
+        
+        let mmm = annotation as! MapMarkerModel
+        var markerImage: UIImage
+        
+        // Get iconUrl for specific
+        //TODO: Replace "housekeeping" with mmm.category when chaging to API
+        if let found = Config.categoryIconDictionary.indexOf({ $0.category == "default" }) {
+            markerImage = UIImage(named: Config.categoryIconDictionary[found].iconUrl)!
+        } else {
+            // We couldn't find an icon for the given category, show the default
+            markerImage = UIImage(named: Config.defaultCategoryIconUrl)!
+        }
+        
+        // Resize icon (outcomment if required)
+        //UIGraphicsBeginImageContext(Config.defaultMapAnnotationImageSize)
+        //markerImage.drawInRect(CGRectMake(0, 0, Config.defaultMapAnnotationImageSize.width, Config.defaultMapAnnotationImageSize.height))
+        //let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        //UIGraphicsEndImageContext()
+        
+        // Change markerImage to resizedImage if resizing
+        annotationView!.image = markerImage
+        
+        return annotationView
     }
     
     func updateOnRequestsUpdatedNotification() {
