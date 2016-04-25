@@ -139,7 +139,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var markerImage: UIImage
         
         // Get iconUrl for specific
-        //TODO: Replace "housekeeping" with mmm.category when chaging to API
+        //TODO: Replace "default" with mmm.category when changing to API
         if let found = Config.categoryIconDictionary.indexOf({ $0.category == "default" }) {
             markerImage = UIImage(named: Config.categoryIconDictionary[found].iconUrl)!
         } else {
