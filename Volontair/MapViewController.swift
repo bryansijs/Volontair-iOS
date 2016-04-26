@@ -138,8 +138,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         } else {
           annotationView?.annotation = annotation
         }
-        
-        let mmm = annotation as! MapMarkerModel
+
         var markerImage: UIImage
         
         // Get iconUrl for specific

@@ -72,7 +72,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories["-"] = CategoryModel(name: "-", iconName: "")
+
         contactSercvice.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
