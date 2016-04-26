@@ -10,7 +10,10 @@ import Foundation
 import Alamofire
 
 class RequestService{
-
+    
+    var requests = [RequestModel]()
+    
+    //POST
     func submitRequest(request: RequestModel){
         
         //sample params.
@@ -26,6 +29,24 @@ class RequestService{
             print(response)
             print(data)
             print(error)
+        }
+    }
+    
+    //GET
+    func loadRequestDataFromServer(completionHandler: ([RequestModel]?,NSError?) -> Void) {
+        Alamofire.request(.GET, Config.url + Config.requestsPOSTPoint).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    
+                    for request in value["data"] as! [[String:AnyObject]] {
+                        self.requests.append(RequestModel(jsonData: request))
+                    }
+                    completionHandler(self.requests, nil)
+                }
+            case .Failure(let error):
+                completionHandler(nil, error)
+            }
         }
     }
 }
