@@ -19,6 +19,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
     
     var skillCategories = [String: CategoryModel]()
     let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
@@ -49,6 +50,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         //default title
         self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
         submitButton.setTitle(NSLocalizedString("SUBMIT",comment: ""), forState: .Normal)
+        messageLabel.text = NSLocalizedString("MESSAGE",comment: "")
         
         loadCategories()
     }

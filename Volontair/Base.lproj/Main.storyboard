@@ -644,7 +644,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-R7-j8v">
-                                <rect key="frame" x="20" y="210" width="560" height="300"/>
+                                <rect key="frame" x="20" y="199" width="560" height="315"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="329" id="rpU-iG-dUB"/>
@@ -695,10 +695,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bericht:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUb-01-c1O">
-                                <rect key="frame" x="20" y="180" width="60" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                                <rect key="frame" x="20" y="180" width="45" height="15"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -723,10 +723,10 @@
                             <constraint firstItem="iWQ-zV-Dm8" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="ZI3-eP-bgN"/>
                             <constraint firstItem="rgL-EB-1YS" firstAttribute="top" secondItem="lYI-J8-zqf" secondAttribute="bottom" id="Zis-Ft-2Xg"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="Zta-Gb-1ZB"/>
-                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="8" id="a1w-Ht-j3c"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="4" id="a1w-Ht-j3c"/>
                             <constraint firstItem="iWQ-zV-Dm8" firstAttribute="top" secondItem="lYI-J8-zqf" secondAttribute="bottom" constant="8" id="eqg-aN-9QF"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="5" id="gEB-cW-bUv"/>
-                            <constraint firstItem="Q8S-R7-j8v" firstAttribute="top" secondItem="JUb-01-c1O" secondAttribute="bottom" constant="9" id="h52-fS-10U"/>
+                            <constraint firstItem="Q8S-R7-j8v" firstAttribute="top" secondItem="JUb-01-c1O" secondAttribute="bottom" constant="4" id="h52-fS-10U"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="14" id="jeW-Fe-cUK"/>
                             <constraint firstItem="e31-vJ-tty" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="lb4-Wc-Lv6"/>
                             <constraint firstItem="Cpd-nW-Io5" firstAttribute="top" secondItem="7Fv-5C-P0W" secondAttribute="bottom" id="oxa-xZ-w1f"/>
@@ -751,6 +751,7 @@
                     <connections>
                         <outlet property="categoryPicker" destination="7Fv-5C-P0W" id="S7G-io-KHu"/>
                         <outlet property="categoryTextField" destination="e31-vJ-tty" id="x4j-mb-bUC"/>
+                        <outlet property="messageLabel" destination="JUb-01-c1O" id="uNT-7M-3Yg"/>
                         <outlet property="messageTextField" destination="Q8S-R7-j8v" id="yW3-Rf-72K"/>
                         <outlet property="offerView" destination="0D7-ES-WFF" id="rWT-Mk-wKl"/>
                         <outlet property="segmentedControl" destination="iWQ-zV-Dm8" id="GFi-dY-msr"/>

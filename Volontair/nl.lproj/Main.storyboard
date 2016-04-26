@@ -644,7 +644,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-R7-j8v">
-                                <rect key="frame" x="20" y="181" width="560" height="329"/>
+                                <rect key="frame" x="20" y="210" width="560" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="329" id="rpU-iG-dUB"/>
@@ -694,15 +694,23 @@
                                 <rect key="frame" x="0.0" y="340" width="600" height="216"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bericht:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUb-01-c1O">
+                                <rect key="frame" x="20" y="180" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rgL-EB-1YS" firstAttribute="top" secondItem="iWQ-zV-Dm8" secondAttribute="bottom" constant="8" symbolic="YES" id="0kd-BF-r20"/>
                             <constraint firstItem="iWQ-zV-Dm8" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="2Ll-U3-Cjq"/>
                             <constraint firstItem="7Fv-5C-P0W" firstAttribute="width" secondItem="cee-0L-PYN" secondAttribute="width" id="6EI-N0-zMy"/>
+                            <constraint firstItem="JUb-01-c1O" firstAttribute="top" secondItem="e31-vJ-tty" secondAttribute="bottom" constant="4" id="6Yx-5i-Q6E"/>
                             <constraint firstItem="rgL-EB-1YS" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="7J0-gu-YM3"/>
                             <constraint firstItem="0D7-ES-WFF" firstAttribute="centerX" secondItem="e31-vJ-tty" secondAttribute="centerX" id="9oU-Sc-nRg"/>
                             <constraint firstItem="Q8S-R7-j8v" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="BZx-J8-zQk"/>
+                            <constraint firstItem="JUb-01-c1O" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="CWu-ai-y8S"/>
                             <constraint firstItem="Q8S-R7-j8v" firstAttribute="top" secondItem="e31-vJ-tty" secondAttribute="bottom" constant="5" id="EBw-hp-t3f"/>
                             <constraint firstItem="Cpd-nW-Io5" firstAttribute="top" secondItem="6RJ-Hs-JWk" secondAttribute="bottom" constant="8" symbolic="YES" id="GQ2-1n-rfU"/>
                             <constraint firstItem="Q8S-R7-j8v" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="HPr-b9-e50"/>
@@ -718,6 +726,7 @@
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="8" id="a1w-Ht-j3c"/>
                             <constraint firstItem="iWQ-zV-Dm8" firstAttribute="top" secondItem="lYI-J8-zqf" secondAttribute="bottom" constant="8" id="eqg-aN-9QF"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="5" id="gEB-cW-bUv"/>
+                            <constraint firstItem="Q8S-R7-j8v" firstAttribute="top" secondItem="JUb-01-c1O" secondAttribute="bottom" constant="9" id="h52-fS-10U"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="14" id="jeW-Fe-cUK"/>
                             <constraint firstItem="e31-vJ-tty" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="lb4-Wc-Lv6"/>
                             <constraint firstItem="Cpd-nW-Io5" firstAttribute="top" secondItem="7Fv-5C-P0W" secondAttribute="bottom" id="oxa-xZ-w1f"/>
@@ -730,6 +739,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Zis-Ft-2Xg"/>
+                                <exclude reference="EBw-hp-t3f"/>
                                 <exclude reference="Ids-bT-5B5"/>
                                 <exclude reference="gEB-cW-bUv"/>
                                 <exclude reference="jeW-Fe-cUK"/>
@@ -744,6 +754,7 @@
                         <outlet property="messageTextField" destination="Q8S-R7-j8v" id="yW3-Rf-72K"/>
                         <outlet property="offerView" destination="0D7-ES-WFF" id="rWT-Mk-wKl"/>
                         <outlet property="segmentedControl" destination="iWQ-zV-Dm8" id="GFi-dY-msr"/>
+                        <outlet property="submitButton" destination="6RJ-Hs-JWk" id="6PX-Dx-Kd3"/>
                         <outlet property="titleTextField" destination="rgL-EB-1YS" id="kYi-Da-qXT"/>
                     </connections>
                 </viewController>

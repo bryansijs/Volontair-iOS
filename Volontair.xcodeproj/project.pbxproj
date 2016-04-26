@@ -141,7 +141,6 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -596,7 +595,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				578484E41C764541006A9841 /* Base */,
-				EF0D05951CB68F4B005403B8 /* nl */,
 				EFF4D6421CBFA4AB001AE6E3 /* nl */,
 			);
 			name = Main.storyboard;
