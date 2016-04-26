@@ -214,6 +214,7 @@
 		2FFAA74C1CC0F0D80086CD6F /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				EF9B58391CCF859A00AA52ED /* Employ */,
 				2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */,
 				2FD6F1AF1CBA6FE300879F7F /* OfferModel.swift */,
 				2FE876381CBA902D007D9C41 /* MapViewModel.swift */,
@@ -222,7 +223,6 @@
 				2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */,
 				2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */,
 				2FFE5A641CCE867900D02333 /* CategoryIconModel.swift */,
-				EF9B58371CCF6EA300AA52ED /* AddEmployViewController.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -359,6 +359,14 @@
 			);
 			name = Frameworks;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		EF9B58391CCF859A00AA52ED /* Employ */ = {
+			isa = PBXGroup;
+			children = (
+				EF9B58371CCF6EA300AA52ED /* AddEmployViewController.swift */,
+			);
+			name = Employ;
 			sourceTree = "<group>";
 		};
 		EFF4D63E1CBFA31A001AE6E3 /* Contacts */ = {

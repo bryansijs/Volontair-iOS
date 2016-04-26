@@ -626,9 +626,21 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D7-ES-WFF">
                                 <rect key="frame" x="0.0" y="108" width="600" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-zc-1ip">
+                                        <rect key="frame" x="279" y="213" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aOu-zc-1ip" firstAttribute="centerX" secondItem="0D7-ES-WFF" secondAttribute="centerX" id="baW-zj-S5U"/>
+                                    <constraint firstItem="aOu-zc-1ip" firstAttribute="centerY" secondItem="0D7-ES-WFF" secondAttribute="centerY" id="ctH-Kq-fz6"/>
+                                </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bericht" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-R7-j8v">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-R7-j8v">
                                 <rect key="frame" x="20" y="181" width="560" height="329"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -648,15 +660,18 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Submit"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgL-EB-1YS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgL-EB-1YS">
                                 <rect key="frame" x="20" y="108" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Affiniteit" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e31-vJ-tty">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e31-vJ-tty">
                                 <rect key="frame" x="20" y="146" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldBeginEditing:" destination="rJs-6j-Eex" eventType="editingDidBegin" id="mOn-bJ-Cgl"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iWQ-zV-Dm8">
                                 <rect key="frame" x="20" y="72" width="560" height="29"/>
@@ -669,6 +684,9 @@
                                     <action selector="segmentedControlChanged:" destination="rJs-6j-Eex" eventType="valueChanged" id="HVS-nf-9Lu"/>
                                 </connections>
                             </segmentedControl>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-5C-P0W">
+                                <rect key="frame" x="0.0" y="340" width="600" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -711,7 +729,9 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="categoryPicker" destination="7Fv-5C-P0W" id="S7G-io-KHu"/>
                         <outlet property="categoryTextField" destination="e31-vJ-tty" id="x4j-mb-bUC"/>
+                        <outlet property="messageTextField" destination="Q8S-R7-j8v" id="yW3-Rf-72K"/>
                         <outlet property="offerView" destination="0D7-ES-WFF" id="rWT-Mk-wKl"/>
                         <outlet property="segmentedControl" destination="iWQ-zV-Dm8" id="GFi-dY-msr"/>
                         <outlet property="titleTextField" destination="rgL-EB-1YS" id="kYi-Da-qXT"/>

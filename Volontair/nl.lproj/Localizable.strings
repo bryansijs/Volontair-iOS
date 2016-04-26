@@ -27,3 +27,6 @@ LAST_YEAR="vorig jaar";
 ONE_YEAR_AGO="1 jaar geleden";
 YEARS_AGO="jaren geleden";
 NO_CATEGORY="geen categorieën gevonden";
+MESSAGE="bericht";
+TITLE="titel";
+CATEGORY="categorie";
