@@ -11,9 +11,11 @@ import CoreLocation
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var discoverTableView: UITableView!
+
+
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var mapView: MKMapView!
     
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
