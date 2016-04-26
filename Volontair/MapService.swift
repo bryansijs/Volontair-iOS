@@ -24,24 +24,38 @@ class MapService {
     }
     
     func getRequests() {
-        let requestsUrl = Config.url + Config.requestsEndPoint
         
-        Alamofire.request(.GET, requestsUrl).validate().responseJSON { response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    for request in value["data"] as! [[String:AnyObject]] {
-                        self.mapViewModel?.requests!.append(RequestModel(jsonData: request))
-                    }
+        ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer { (responseObject: [RequestModel]?, error: NSError?) in
+            if ((error) != nil) {
+                print(error)
+            } else {
+                if let requestArray = responseObject{
+                    self.mapViewModel?.requests! = requestArray
                     NSNotificationCenter.defaultCenter().postNotificationName(
                         Config.requestsUpdatedNotificationKey,
                         object: self.mapViewModel?.requests)
                 }
-                
-            case .Failure(let error):
-                print(error)
             }
         }
+      
+//        let requestsUrl = Config.url + Config.requestsEndPoint
+//        
+//        Alamofire.request(.GET, requestsUrl).validate().responseJSON { response in
+//            switch response.result {
+//            case .Success:
+//                if let value = response.result.value {
+//                    for request in value["data"] as! [[String:AnyObject]] {
+//                        self.mapViewModel?.requests!.append(RequestModel(jsonData: request))
+//                    }
+//                    NSNotificationCenter.defaultCenter().postNotificationName(
+//                        Config.requestsUpdatedNotificationKey,
+//                        object: self.mapViewModel?.requests)
+//                }
+//                
+//            case .Failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     func getOffers() {

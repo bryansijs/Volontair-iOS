@@ -35,4 +35,13 @@ class MapMarkerModel: NSObject, MKAnnotation {
         created = json["created"].stringValue
         updated = json["updated"].stringValue
     }
+    
+    init(title: String?, category: String, summary: String, coordinate:CLLocationCoordinate2D, created: String, updated:String){
+        self.title = title
+        self.category = category
+        self.summary = summary
+        self.coordinate = coordinate
+        self.created = created
+        self.updated = updated
+    }
 }

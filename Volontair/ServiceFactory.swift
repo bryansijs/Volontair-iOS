@@ -12,6 +12,7 @@ class ServiceFactory  {
     static let sharedInstance = ServiceFactory()
     
     let userService = UserService()
+    let requestService = RequestService()
     
     private init(){
         print("init ServiceFactory")
