@@ -659,6 +659,9 @@
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="rJs-6j-Eex" eventType="touchUpInside" id="h1Y-H2-0GB"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgL-EB-1YS">
                                 <rect key="frame" x="20" y="108" width="560" height="30"/>
@@ -684,7 +687,7 @@
                                     <action selector="segmentedControlChanged:" destination="rJs-6j-Eex" eventType="valueChanged" id="HVS-nf-9Lu"/>
                                 </connections>
                             </segmentedControl>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-5C-P0W">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fv-5C-P0W">
                                 <rect key="frame" x="0.0" y="340" width="600" height="216"/>
                             </pickerView>
                         </subviews>
@@ -692,6 +695,7 @@
                         <constraints>
                             <constraint firstItem="rgL-EB-1YS" firstAttribute="top" secondItem="iWQ-zV-Dm8" secondAttribute="bottom" constant="8" symbolic="YES" id="0kd-BF-r20"/>
                             <constraint firstItem="iWQ-zV-Dm8" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="2Ll-U3-Cjq"/>
+                            <constraint firstItem="7Fv-5C-P0W" firstAttribute="width" secondItem="cee-0L-PYN" secondAttribute="width" id="6EI-N0-zMy"/>
                             <constraint firstItem="rgL-EB-1YS" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="7J0-gu-YM3"/>
                             <constraint firstItem="0D7-ES-WFF" firstAttribute="centerX" secondItem="e31-vJ-tty" secondAttribute="centerX" id="9oU-Sc-nRg"/>
                             <constraint firstItem="Q8S-R7-j8v" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="BZx-J8-zQk"/>
@@ -712,7 +716,9 @@
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="5" id="gEB-cW-bUv"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="14" id="jeW-Fe-cUK"/>
                             <constraint firstItem="e31-vJ-tty" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="lb4-Wc-Lv6"/>
+                            <constraint firstItem="Cpd-nW-Io5" firstAttribute="top" secondItem="7Fv-5C-P0W" secondAttribute="bottom" id="oxa-xZ-w1f"/>
                             <constraint firstItem="0D7-ES-WFF" firstAttribute="bottom" secondItem="Cpd-nW-Io5" secondAttribute="top" id="pIa-iR-sSi"/>
+                            <constraint firstItem="7Fv-5C-P0W" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leading" id="pnr-nj-yuK"/>
                             <constraint firstItem="6RJ-Hs-JWk" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="vOL-jp-53a"/>
                             <constraint firstItem="e31-vJ-tty" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="vt9-Fa-IOo"/>
                             <constraint firstItem="0D7-ES-WFF" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leading" id="wbL-hF-hL0"/>

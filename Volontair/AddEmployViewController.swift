@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import CoreLocation
 
 class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -50,6 +51,13 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         loadCategories()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     //MARK: SegmentedControl
     
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
@@ -60,15 +68,6 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         }
         
     }
-    
-    //MARK: UIPicker
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
     //MARK: Data
     
     func loadCategories() {
@@ -90,6 +89,60 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             }).addDisposableTo(self.disposeBag)
     }
     
+    //MARK: Form
+    @IBAction func submitButtonPressed(sender: UIButton) {
+        if(segmentedControl.selectedSegmentIndex == 0){
+            submitRequestForm()
+        } else {
+            submitOfferForm()
+        }
+    }
+    
+    private func submitRequestForm(){
+        let validated = validateRequestForm()
+        if validated {
+            let dateFormatter = NSDateFormatter()
+            let convertedDate = dateFormatter.stringFromDate(NSDate())
+            
+            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: convertedDate , updated: convertedDate)
+            
+            ServiceFactory.sharedInstance.requestService.submitRequest(request)
+            
+            
+            let refreshAlert = UIAlertController(title: "Aanvraag", message: "uw aanvraag is succesvol aangemaakt", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                self.navigationController?.popViewControllerAnimated(true)
+            }))
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        }
+    }
+    
+    private func validateRequestForm() -> Bool{
+        if titleTextField.text == ""{
+            titleTextField.backgroundColor = UIColor.redColor()
+            return false
+        }
+        if categoryTextField.text == ""{
+            categoryTextField.backgroundColor = UIColor.redColor()
+            return false
+        }
+        if messageTextField.text == "" || messageTextField.text == NSLocalizedString("MESSAGE",comment: ""){
+            messageTextField.backgroundColor = UIColor.redColor()
+            return false
+        }
+        return true
+    }
+    
+    private func submitOfferForm(){
+        
+    }
+    
+    
+    
+    
+    
+    //MARK: UIPicker
     
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
@@ -110,7 +163,8 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
         categoryTextField.text = skillCategories[index].0
-        categoryPicker.hidden = true;
+        categoryPicker.hidden = true
+        messageTextField.becomeFirstResponder()
     }
     @IBAction func textFieldBeginEditing(sender: UITextField) {
         print("editor mode")

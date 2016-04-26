@@ -13,6 +13,7 @@ struct Config{
     static let url = "https://volontairtest-mikero.rhcloud.com/"
     
     static let requestsEndPoint = "discover/requests"
+    static let requestsPOSTPoint = "discover/requests"
     static let offersEndPoint = "discover/offers"
     
     static let requestDiscipline = "Request"

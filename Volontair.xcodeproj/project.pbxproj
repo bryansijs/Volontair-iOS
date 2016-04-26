@@ -35,7 +35,6 @@
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
-		EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05991CB6D00C005403B8 /* Service.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
@@ -64,6 +63,8 @@
 		EF9998BD1CC38EAC00C42537 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998BC1CC38EAC00C42537 /* Alamofire.framework */; };
 		EF9998BE1CC38EAC00C42537 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF9998BC1CC38EAC00C42537 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B58371CCF6EA300AA52ED /* AddEmployViewController.swift */; };
+		EF9B583D1CCF8EEA00AA52ED /* OfferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */; };
+		EF9B583F1CCF951600AA52ED /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9B583E1CCF951600AA52ED /* RequestService.swift */; };
 		EFA50DF11CAAA93100FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -142,7 +143,6 @@
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EF0D05951CB68F4B005403B8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EF0D05991CB6D00C005403B8 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -167,6 +167,8 @@
 		EF9998B31CC38E7000C42537 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
 		EF9998BC1CC38EAC00C42537 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		EF9B58371CCF6EA300AA52ED /* AddEmployViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmployViewController.swift; sourceTree = "<group>"; };
+		EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferService.swift; sourceTree = "<group>"; };
+		EF9B583E1CCF951600AA52ED /* RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -332,8 +334,9 @@
 		EF2721EE1CBE280200BCD082 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */,
+				EF9B583E1CCF951600AA52ED /* RequestService.swift */,
 				2FFD7DCA1CC95949005CDE2C /* UserService.swift */,
-				EF0D05991CB6D00C005403B8 /* Service.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
+				EF9B583F1CCF951600AA52ED /* RequestService.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EF0D05981CB690D4005403B8 /* Constants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
@@ -531,10 +535,10 @@
 				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
 				2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */,
+				EF9B583D1CCF8EEA00AA52ED /* OfferService.swift in Sources */,
 				2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */,
 				2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */,
 				2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */,
-				EF0D059A1CB6D00C005403B8 /* Service.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
