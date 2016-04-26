@@ -623,8 +623,99 @@
                     <view key="view" contentMode="scaleToFill" id="cee-0L-PYN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D7-ES-WFF">
+                                <rect key="frame" x="0.0" y="108" width="600" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Bericht" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-R7-j8v">
+                                <rect key="frame" x="20" y="181" width="560" height="329"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="329" id="rpU-iG-dUB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rpU-iG-dUB"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RJ-Hs-JWk">
+                                <rect key="frame" x="20" y="518" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgL-EB-1YS">
+                                <rect key="frame" x="20" y="108" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Affiniteit" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e31-vJ-tty">
+                                <rect key="frame" x="20" y="146" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iWQ-zV-Dm8">
+                                <rect key="frame" x="20" y="72" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Gezocht"/>
+                                    <segment title="Aangeboden"/>
+                                </segments>
+                                <color key="tintColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="rJs-6j-Eex" eventType="valueChanged" id="HVS-nf-9Lu"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rgL-EB-1YS" firstAttribute="top" secondItem="iWQ-zV-Dm8" secondAttribute="bottom" constant="8" symbolic="YES" id="0kd-BF-r20"/>
+                            <constraint firstItem="iWQ-zV-Dm8" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="2Ll-U3-Cjq"/>
+                            <constraint firstItem="rgL-EB-1YS" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="7J0-gu-YM3"/>
+                            <constraint firstItem="0D7-ES-WFF" firstAttribute="centerX" secondItem="e31-vJ-tty" secondAttribute="centerX" id="9oU-Sc-nRg"/>
+                            <constraint firstItem="Q8S-R7-j8v" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="BZx-J8-zQk"/>
+                            <constraint firstItem="Q8S-R7-j8v" firstAttribute="top" secondItem="e31-vJ-tty" secondAttribute="bottom" constant="5" id="EBw-hp-t3f"/>
+                            <constraint firstItem="Cpd-nW-Io5" firstAttribute="top" secondItem="6RJ-Hs-JWk" secondAttribute="bottom" constant="8" symbolic="YES" id="GQ2-1n-rfU"/>
+                            <constraint firstItem="Q8S-R7-j8v" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="HPr-b9-e50"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="14" id="Ids-bT-5B5"/>
+                            <constraint firstItem="0D7-ES-WFF" firstAttribute="top" secondItem="iWQ-zV-Dm8" secondAttribute="bottom" constant="8" symbolic="YES" id="MAU-4U-Uh0"/>
+                            <constraint firstItem="rgL-EB-1YS" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="NxN-rP-oiS"/>
+                            <constraint firstItem="e31-vJ-tty" firstAttribute="top" secondItem="rgL-EB-1YS" secondAttribute="bottom" constant="8" id="QYQ-ua-aU7"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="TMx-wF-f8c"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="ZAk-dc-j6F"/>
+                            <constraint firstItem="iWQ-zV-Dm8" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="ZI3-eP-bgN"/>
+                            <constraint firstItem="rgL-EB-1YS" firstAttribute="top" secondItem="lYI-J8-zqf" secondAttribute="bottom" id="Zis-Ft-2Xg"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="Zta-Gb-1ZB"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="8" id="a1w-Ht-j3c"/>
+                            <constraint firstItem="iWQ-zV-Dm8" firstAttribute="top" secondItem="lYI-J8-zqf" secondAttribute="bottom" constant="8" id="eqg-aN-9QF"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="5" id="gEB-cW-bUv"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="top" secondItem="Q8S-R7-j8v" secondAttribute="bottom" constant="14" id="jeW-Fe-cUK"/>
+                            <constraint firstItem="e31-vJ-tty" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leadingMargin" id="lb4-Wc-Lv6"/>
+                            <constraint firstItem="0D7-ES-WFF" firstAttribute="bottom" secondItem="Cpd-nW-Io5" secondAttribute="top" id="pIa-iR-sSi"/>
+                            <constraint firstItem="6RJ-Hs-JWk" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="vOL-jp-53a"/>
+                            <constraint firstItem="e31-vJ-tty" firstAttribute="trailing" secondItem="cee-0L-PYN" secondAttribute="trailingMargin" id="vt9-Fa-IOo"/>
+                            <constraint firstItem="0D7-ES-WFF" firstAttribute="leading" secondItem="cee-0L-PYN" secondAttribute="leading" id="wbL-hF-hL0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Zis-Ft-2Xg"/>
+                                <exclude reference="Ids-bT-5B5"/>
+                                <exclude reference="gEB-cW-bUv"/>
+                                <exclude reference="jeW-Fe-cUK"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="categoryTextField" destination="e31-vJ-tty" id="x4j-mb-bUC"/>
+                        <outlet property="offerView" destination="0D7-ES-WFF" id="rWT-Mk-wKl"/>
+                        <outlet property="segmentedControl" destination="iWQ-zV-Dm8" id="GFi-dY-msr"/>
+                        <outlet property="titleTextField" destination="rgL-EB-1YS" id="kYi-Da-qXT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQR-Io-cJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
