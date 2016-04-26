@@ -29,3 +29,5 @@ NO_CATEGORY="no categories found";
 MESSAGE="message";
 TITLE="title";
 CATEGORY="category";
+REQUEST="request";
+OFFER="offer";

@@ -30,3 +30,5 @@ NO_CATEGORY="geen categorieën gevonden";
 MESSAGE="bericht";
 TITLE="titel";
 CATEGORY="categorie";
+NEW_REQUEST="Nieuwe vraag";
+NEW_OFFER="Nieuw aanbod";

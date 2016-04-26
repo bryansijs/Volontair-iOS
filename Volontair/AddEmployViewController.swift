@@ -13,8 +13,6 @@ import CoreLocation
 class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var offerView: UIView!
-    
-
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var messageTextField: UITextView!
@@ -48,6 +46,9 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         categoryPicker.hidden = true
         categoryPicker.showsSelectionIndicator = true
         
+        //default title
+        self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
+        
         loadCategories()
     }
     
@@ -56,14 +57,15 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     }
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
     
     //MARK: SegmentedControl
     
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
-            case 0: offerView.hidden = true
-            case 1: offerView.hidden = false
+        case 0: offerView.hidden = true; self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
+        case 1: offerView.hidden = false; self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: "")
             default: offerView.hidden = true
         }
         
