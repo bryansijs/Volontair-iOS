@@ -16,6 +16,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
+
     
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
@@ -34,6 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidAppear(animated: Bool) {

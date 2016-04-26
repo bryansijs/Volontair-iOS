@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="1000" y="618"/>
         </scene>
-        <!--map-->
+        <!--Map View Controller-->
         <scene sceneID="xv2-sg-SpU">
             <objects>
                 <viewController id="PY4-Pi-QrT" customClass="MapViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,6 +149,9 @@
                                                     <constraint firstAttribute="width" constant="25" id="cNJ-J4-plH"/>
                                                 </constraints>
                                                 <state key="normal" image="New"/>
+                                                <connections>
+                                                    <segue destination="rJs-6j-Eex" kind="show" id="3sC-zu-bkk"/>
+                                                </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bz3-HS-8kB">
                                                 <rect key="frame" x="8" y="22" width="551" height="29"/>
@@ -202,15 +205,16 @@
                             <constraint firstItem="aei-Lt-0ya" firstAttribute="centerY" secondItem="7XP-7C-Obl" secondAttribute="centerY" id="sO7-6D-cVF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
+                    <navigationItem key="navigationItem" id="Hzw-cz-Sjk"/>
                     <connections>
                         <outlet property="mapView" destination="Vlu-QX-3fb" id="0SD-Zz-Hyh"/>
+                        <outlet property="navigationItem" destination="Hzw-cz-Sjk" id="dsT-YF-bVQ"/>
                         <outlet property="segmentedControl" destination="bz3-HS-8kB" id="8QS-En-5ab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2549" y="-218"/>
+            <point key="canvasLocation" x="3361" y="-218"/>
         </scene>
         <!--profiel-->
         <scene sceneID="Ski-SO-35M">
@@ -608,6 +612,24 @@
             </objects>
             <point key="canvasLocation" x="3314" y="-982"/>
         </scene>
+        <!--Add Employ View Controller-->
+        <scene sceneID="cnU-Ka-2uY">
+            <objects>
+                <viewController id="rJs-6j-Eex" customClass="AddEmployViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lYI-J8-zqf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cpd-nW-Io5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cee-0L-PYN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQR-Io-cJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103" y="-199"/>
+        </scene>
         <!--DashboardViewController-->
         <scene sceneID="eMa-jW-TMA">
             <objects>
@@ -765,7 +787,7 @@
                     <connections>
                         <segue destination="H0Q-Ch-kR8" kind="relationship" relationship="viewControllers" id="xXV-Hx-wYn"/>
                         <segue destination="kIq-lo-JkP" kind="relationship" relationship="viewControllers" id="KPn-vc-OHl"/>
-                        <segue destination="PY4-Pi-QrT" kind="relationship" relationship="viewControllers" id="wkj-Fi-pPB"/>
+                        <segue destination="GnP-DE-UAA" kind="relationship" relationship="viewControllers" id="wkj-Fi-pPB"/>
                         <segue destination="lof-7X-Xfp" kind="relationship" relationship="viewControllers" id="fiK-3h-sOe"/>
                         <segue destination="EEY-sF-sQp" kind="relationship" relationship="viewControllers" id="UjB-LF-2k3"/>
                     </connections>
@@ -773,6 +795,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04p-Hh-GFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1728" y="226"/>
+        </scene>
+        <!--map-->
+        <scene sceneID="Y4u-1w-D71">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GnP-DE-UAA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="map" image="MapsIcon" selectedImage="MapsFilled" id="uLi-Sc-Vj8"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0jW-pI-nkz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PY4-Pi-QrT" kind="relationship" relationship="rootViewController" id="9Ba-s1-itV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0B9-Hk-gQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2549" y="-218"/>
         </scene>
     </scenes>
     <resources>
