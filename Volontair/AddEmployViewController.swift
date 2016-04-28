@@ -46,7 +46,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         //default title
         self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
         submitButton.setTitle(NSLocalizedString("REQUEST",comment: ""), forState: .Normal)
-        messageLabel.text = NSLocalizedString("MESSAGE",comment: "")
+        messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
         
         loadCategories()
     }
@@ -63,8 +63,8 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
-            case 0:  self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
-            case 1:  self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: "")
+        case 0:  self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: ""); messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
+        case 1:  self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: ""); messageLabel.text = NSLocalizedString("OFFER_MESSAGE",comment: "")
             default: self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
         }
         

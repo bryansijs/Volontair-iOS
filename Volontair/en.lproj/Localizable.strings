@@ -33,3 +33,5 @@ NEW_REQUEST="New request";
 NEW_OFFER="New offer";
 SUBMIT="Save";
 REQUEST="Request";
+REQUEST_MESSAGE="Request message";
+OFFER_MESSAGE="Offer message";
