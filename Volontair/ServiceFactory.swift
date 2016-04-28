@@ -13,6 +13,7 @@ class ServiceFactory  {
     
     let userService = UserService()
     let requestService = RequestService()
+    let offerService = OfferService()
     
     private init(){
         print("init ServiceFactory")
