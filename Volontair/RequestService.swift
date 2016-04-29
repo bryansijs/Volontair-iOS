@@ -34,7 +34,7 @@ class RequestService{
     
     //GET
     func loadRequestDataFromServer(completionHandler: ([RequestModel]?,NSError?) -> Void) {
-        Alamofire.request(.GET, Config.url + Config.requestsPOSTPoint).validate().responseJSON { response in
+        Alamofire.request(.GET, Config.url + Config.requestsEndPoint).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {

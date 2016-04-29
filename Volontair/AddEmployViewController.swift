@@ -12,7 +12,6 @@ import CoreLocation
 
 class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var offerView: UIView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var messageTextField: UITextView!
@@ -34,9 +33,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         self.messageTextField.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.messageTextField.layer.cornerRadius = 5;
         self.messageTextField.clipsToBounds = true
-        
-        // hide offer view
-        offerView.hidden = true
+        self.automaticallyAdjustsScrollViewInsets = false
         
         // default request field text
         titleTextField.placeholder = NSLocalizedString("TITLE",comment: "")
@@ -49,8 +46,8 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         
         //default title
         self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
-        submitButton.setTitle(NSLocalizedString("SUBMIT",comment: ""), forState: .Normal)
-        messageLabel.text = NSLocalizedString("MESSAGE",comment: "")
+        submitButton.setTitle(NSLocalizedString("REQUEST",comment: ""), forState: .Normal)
+        messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
         
         loadCategories()
     }
@@ -67,9 +64,9 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
-        case 0: offerView.hidden = true; self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
-        case 1: offerView.hidden = false; self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: "")
-            default: offerView.hidden = true
+        case 0:  self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: ""); messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
+        case 1:  self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: ""); messageLabel.text = NSLocalizedString("OFFER_MESSAGE",comment: "")
+            default: self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
         }
         
     }
@@ -106,20 +103,18 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     private func submitRequestForm(){
         let validated = validateRequestForm()
         if validated {
-            let dateFormatter = NSDateFormatter()
-            let convertedDate = dateFormatter.stringFromDate(NSDate())
-            
-            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: convertedDate , updated: convertedDate)
-            
+            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString())
             ServiceFactory.sharedInstance.requestService.submitRequest(request)
-            
-            
-            let refreshAlert = UIAlertController(title: "Aanvraag", message: "uw aanvraag is succesvol aangemaakt", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                self.navigationController?.popViewControllerAnimated(true)
-            }))
-            presentViewController(refreshAlert, animated: true, completion: nil)
+            showRequestSuccessfulAlert()
+        }
+    }
+    
+    private func submitOfferForm(){
+        let validated = validateRequestForm()
+        if validated {
+            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString())
+            ServiceFactory.sharedInstance.offerService.submitOffer(offer)
+            showRequestSuccessfulAlert()
         }
     }
     
@@ -139,13 +134,19 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         return true
     }
     
-    private func submitOfferForm(){
-        
+    private func getCurrentDateString() -> String{
+        let dateFormatter = NSDateFormatter()
+        return dateFormatter.stringFromDate(NSDate())
     }
     
-    
-    
-    
+    private func showRequestSuccessfulAlert(){
+        let refreshAlert = UIAlertController(title: NSLocalizedString("REQUEST",comment: ""), message: NSLocalizedString("REQUEST_MESSAGE_SUCCESSFULL",comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            self.navigationController?.popViewControllerAnimated(true)
+        }))
+        presentViewController(refreshAlert, animated: true, completion: nil)
+    }
     
     //MARK: UIPicker
     

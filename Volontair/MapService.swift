@@ -24,7 +24,6 @@ class MapService {
     }
     
     func getRequests() {
-        
         ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer { (responseObject: [RequestModel]?, error: NSError?) in
             if ((error) != nil) {
                 print(error)
@@ -37,43 +36,19 @@ class MapService {
                 }
             }
         }
-      
-//        let requestsUrl = Config.url + Config.requestsEndPoint
-//        
-//        Alamofire.request(.GET, requestsUrl).validate().responseJSON { response in
-//            switch response.result {
-//            case .Success:
-//                if let value = response.result.value {
-//                    for request in value["data"] as! [[String:AnyObject]] {
-//                        self.mapViewModel?.requests!.append(RequestModel(jsonData: request))
-//                    }
-//                    NSNotificationCenter.defaultCenter().postNotificationName(
-//                        Config.requestsUpdatedNotificationKey,
-//                        object: self.mapViewModel?.requests)
-//                }
-//                
-//            case .Failure(let error):
-//                print(error)
-//            }
-//        }
     }
     
     func getOffers() {
-        let offersUrl = Config.url + Config.offersEndPoint
-        
-        Alamofire.request(.GET, offersUrl).validate().responseJSON { response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    for offer in value["data"] as! [[String:AnyObject]] {
-                        self.mapViewModel?.offers!.append(OfferModel(jsonData: offer))
-                    }
+        ServiceFactory.sharedInstance.offerService.loadOffersDataFromServer{ (responseObject: [OfferModel]?, error: NSError?) in
+            if ((error) != nil) {
+                print(error)
+            } else {
+                if let offersArray = responseObject{
+                    self.mapViewModel?.offers! = offersArray
                     NSNotificationCenter.defaultCenter().postNotificationName(
                         Config.offersUpdatedNotificationKey,
                         object: self.mapViewModel?.offers)
                 }
-            case .Failure(let error):
-                print(error)
             }
         }
     }
