@@ -33,6 +33,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         self.messageTextField.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.messageTextField.layer.cornerRadius = 5;
         self.messageTextField.clipsToBounds = true
+        self.automaticallyAdjustsScrollViewInsets = false
         
         // default request field text
         titleTextField.placeholder = NSLocalizedString("TITLE",comment: "")
@@ -139,7 +140,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     }
     
     private func showRequestSuccessfulAlert(){
-        let refreshAlert = UIAlertController(title: "Aanvraag", message: "uw aanvraag is succesvol aangemaakt", preferredStyle: UIAlertControllerStyle.Alert)
+        let refreshAlert = UIAlertController(title: NSLocalizedString("REQUEST",comment: ""), message: NSLocalizedString("REQUEST_MESSAGE_SUCCESSFULL",comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
             self.navigationController?.popViewControllerAnimated(true)

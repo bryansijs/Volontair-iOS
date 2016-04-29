@@ -35,3 +35,4 @@ SUBMIT="Save";
 REQUEST="Request";
 REQUEST_MESSAGE="Request message";
 OFFER_MESSAGE="Offer message";
+REQUEST_MESSAGE_SUCCESSFULL="Request successfully saved";

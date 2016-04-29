@@ -36,3 +36,4 @@ SUBMIT="Opslaan";
 REQUEST="Aanvragen";
 REQUEST_MESSAGE="Gezocht omschrijving";
 OFFER_MESSAGE="Aanvraag omschrijving";
+REQUEST_MESSAGE_SUCCESSFULL="uw aanvraag is succesvol aangemaakt";
