@@ -49,6 +49,7 @@
 		EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
 		EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		EF7CBD361CD94798002C3C16 /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7CBD351CD94798002C3C16 /* WizardViewController.swift */; };
 		EF9400CD1CC79129008F93A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9400CF1CC79129008F93A9 /* Localizable.strings */; };
 		EF9400D41CC79CF7008F93A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9400D31CC79CF7008F93A9 /* Assets.xcassets */; };
 		EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9400D71CC7B732008F93A9 /* CategoryModel.swift */; };
@@ -156,6 +157,7 @@
 		EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactServiceFactory.swift; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EF7CBD351CD94798002C3C16 /* WizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
 		EF9400CE1CC79129008F93A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D01CC7912D008F93A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D31CC79CF7008F93A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			children = (
 				578484E11C764541006A9841 /* ViewController.swift */,
 				EF1967431C8C826700B64AD3 /* PageContentViewController.swift */,
+				EF7CBD351CD94798002C3C16 /* WizardViewController.swift */,
 			);
 			name = Wizard;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
 				2FFD7DC81CC958D4005CDE2C /* PageContentViewController.swift in Sources */,
+				EF7CBD361CD94798002C3C16 /* WizardViewController.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
 				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
