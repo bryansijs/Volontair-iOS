@@ -25,18 +25,22 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         userCategoryViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserCategoryViewController"))! as UIViewController
         userPrefrencesViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserPrefrencesViewController"))! as UIViewController
 
-            /* Getting the page View controller */
-            pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
-            self.pageViewController.dataSource = self
-            
-            let pageContentViewController = self.viewControllerAtIndex(0)
-            self.pageViewController.setViewControllers([pageContentViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
-            
-            /* We are substracting 30 because we have a start again button whose height is 30*/
-            self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 30)
-            self.addChildViewController(pageViewController)
-            self.view.addSubview(pageViewController.view)
-            self.pageViewController.didMoveToParentViewController(self)
+        /* Getting the page View controller */
+        pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
+        self.pageViewController.dataSource = nil
+        
+        for reconizer in pageViewController.gestureRecognizers{
+            reconizer.enabled = false;
+        }
+        
+        let pageContentViewController = self.viewControllerAtIndex(0)
+        self.pageViewController.setViewControllers([pageContentViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        
+        /* We are substracting 30 because we have a start again button whose height is 30*/
+        self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 50)
+        self.addChildViewController(pageViewController)
+        self.view.addSubview(pageViewController.view)
+        self.pageViewController.didMoveToParentViewController(self)
     }
     
     @IBAction func start(sender: AnyObject) {
@@ -62,7 +66,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         
         //if the index is the end of the array, return nil since we dont want a view controller after the last one
         if index == identifiers.count - 1 {
-            
             return nil
         }
         
@@ -77,7 +80,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         
         //if the index is 0, return nil since we dont want a view controller before the first one
         if index == 0 {
-            
             return nil
         }
         
@@ -94,8 +96,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         default: return userTypeViewController!
         }
     }
-    
-   
+
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return self.identifiers.count
     }
