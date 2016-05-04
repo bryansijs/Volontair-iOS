@@ -11,12 +11,10 @@ import UIKit
 class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     var index = 0
-    var identifiers: NSArray = ["FirstNavigationController", "SecondNavigationController"]
+    var identifiers: NSArray = ["UserTypeViewController","UserCategoryViewController","UserPrefrencesViewController"]
     var pageViewController : UIPageViewController!
     
     func reset() {
-        
-        
             /* Getting the page View controller */
             pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
             self.pageViewController.dataSource = self
@@ -79,16 +77,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     }
     
     func viewControllerAtIndex(index : Int) -> UIViewController? {
-        //first view controller = firstViewControllers navigation controller
-        if index == 0 {
-            return self.storyboard!.instantiateViewControllerWithIdentifier("FirstViewController") as UIViewController
-        }
-        
-        //second view controller = secondViewController's navigation controller
-        if index == 1 {
-            return self.storyboard!.instantiateViewControllerWithIdentifier("SecondViewController") as UIViewController
-        }
-        return nil
+        return self.storyboard!.instantiateViewControllerWithIdentifier(self.identifiers[index] as! String) as UIViewController
     }
     
    
@@ -107,6 +96,4 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
             self.pageViewController.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         }
     }
-    
-    
 }

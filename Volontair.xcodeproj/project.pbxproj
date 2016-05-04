@@ -16,7 +16,6 @@
 		2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */; };
 		2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
 		2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
-		2FFD7DC81CC958D4005CDE2C /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1967431C8C826700B64AD3 /* PageContentViewController.swift */; };
 		2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCA1CC95949005CDE2C /* UserService.swift */; };
 		2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */; };
@@ -72,6 +71,9 @@
 		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
 		EFF4D63D1CBFA2F3001AE6E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5A86C31CA01815004128E7 /* MapKit.framework */; };
+		EFF75AAD1CDA19DB00090ACB /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */; };
+		EFF75AAF1CDA37BD00090ACB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */; };
+		EFF75AB11CDA388600090ACB /* GeoLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,7 +145,6 @@
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EF1967431C8C826700B64AD3 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
@@ -174,6 +175,9 @@
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		EFF4D6421CBFA4AB001AE6E3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF75AAF1CDA37BD00090ACB /* CoreLocation.framework in Frameworks */,
 				EF9998B61CC38E7000C42537 /* RxBlocking.framework in Frameworks */,
 				EFF4D63D1CBFA2F3001AE6E3 /* MapKit.framework in Frameworks */,
 				EF9998BA1CC38E7100C42537 /* RxSwift.framework in Frameworks */,
@@ -319,8 +324,9 @@
 			isa = PBXGroup;
 			children = (
 				578484E11C764541006A9841 /* ViewController.swift */,
-				EF1967431C8C826700B64AD3 /* PageContentViewController.swift */,
 				EF7CBD351CD94798002C3C16 /* WizardViewController.swift */,
+				EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */,
+				EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */,
 			);
 			name = Wizard;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 		EF287BB11CA9C527009155CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */,
 				EF9998BC1CC38EAC00C42537 /* Alamofire.framework */,
 				EF9998B01CC38E7000C42537 /* RxAlamofire.framework */,
 				EF9998B11CC38E7000C42537 /* RxBlocking.framework */,
@@ -527,12 +534,12 @@
 				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
 				EF9B583F1CCF951600AA52ED /* RequestService.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
+				EFF75AB11CDA388600090ACB /* GeoLocationViewController.swift in Sources */,
 				EF0D05981CB690D4005403B8 /* Constants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
-				2FFD7DC81CC958D4005CDE2C /* PageContentViewController.swift in Sources */,
 				EF7CBD361CD94798002C3C16 /* WizardViewController.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
 				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
@@ -554,6 +561,7 @@
 				EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
+				EFF75AAD1CDA19DB00090ACB /* CategoryTableViewController.swift in Sources */,
 				2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */,
 				2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */,
 				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,

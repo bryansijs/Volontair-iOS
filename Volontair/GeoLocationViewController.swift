@@ -1,23 +1,23 @@
 //
-//  SettingsViewController.swift
+//  GeoLocationViewController.swift
 //  Volontair
 //
-//  Created by Bryan Sijs on 08-03-16.
+//  Created by Bryan Sijs on 04-05-16.
 //  Copyright © 2016 Volontair. All rights reserved.
 //
 
 import UIKit
+import CoreLocation
 
-struct SettingsConstants {
-    static let radiusStepSize: Float = 5
+class GeoLocationViewController: UIViewController {
     
-    static let radiusKey = "volontair.settings.radius"
-}
-
-class SettingsViewController: UITableViewController {
-    @IBOutlet weak var radiusCell: UITableViewCell!
+    @IBOutlet weak var adressTextField: UITextField!
+    @IBOutlet weak var radiusSliderLabel: UILabel!
+    @IBOutlet weak var adressSubmitButton: UIButton!
+    @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var radiusSlider: UISlider!
-    @IBOutlet weak var radiusLabel: UILabel!
+    
+    let locator = CLGeocoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,24 +33,25 @@ class SettingsViewController: UITableViewController {
         
         // restore settings in view
         radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
-        onRadiusSliderValueChanged(radiusSlider);
+        sliderValueChanged(radiusSlider);
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    @IBAction func onRadiusSliderValueChanged(sender: UISlider) {
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
         var currentValue = Int(sender.value)
-        
-        print("Change triggered")
-        
+    
         // update in steps of 5
         currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
-        radiusLabel.text = "\(currentValue)km"
+        radiusSliderLabel.text = "\(currentValue)km"
         
         // persist to user defaults
         NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)
+    }
+    
+    @IBAction func adressSubmitButtonPressed(sender: UIButton) {
+        locator.geocodeAddressString(adressTextField.text!) { (places: [CLPlacemark]?,error: NSError?) in
+            print(places![0].location)
+        }
     }
 }
