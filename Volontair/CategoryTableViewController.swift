@@ -8,15 +8,18 @@
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController {
-    
+class CategoryTableViewController: UITableViewController, ValidationProtocol {
+        
     @IBOutlet var categoryTableView: UITableView!
-    
     var selectedCell = 0
     var selectedCategories = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("appeared")
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -34,5 +37,10 @@ class CategoryTableViewController: UITableViewController {
             selectedCategories.removeAtIndex((index!.littleEndian))
             print(selectedCategories)
         }
+    }
+    
+    func validate()-> Bool {
+        
+        return self.selectedCategories.count > 0
     }
 }

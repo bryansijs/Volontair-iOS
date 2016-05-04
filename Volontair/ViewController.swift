@@ -12,15 +12,25 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     
     var index = 0
     var identifiers: NSArray = ["UserTypeViewController","UserCategoryViewController","UserPrefrencesViewController"]
+    
+    var userTypeViewController : UIViewController?
+    var userCategoryViewController : UIViewController?
+    var userPrefrencesViewController : UIViewController?
+    
     var pageViewController : UIPageViewController!
     
     func reset() {
+        // create contentPageViewControllers
+        userTypeViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserTypeViewController"))! as UIViewController
+        userCategoryViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserCategoryViewController"))! as UIViewController
+        userPrefrencesViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserPrefrencesViewController"))! as UIViewController
+
             /* Getting the page View controller */
             pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
             self.pageViewController.dataSource = self
             
             let pageContentViewController = self.viewControllerAtIndex(0)
-            self.pageViewController.setViewControllers([pageContentViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+            self.pageViewController.setViewControllers([pageContentViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
             
             /* We are substracting 30 because we have a start again button whose height is 30*/
             self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 30)
@@ -31,7 +41,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     
     @IBAction func start(sender: AnyObject) {
         let pageContentViewController = self.viewControllerAtIndex(0)
-        self.pageViewController.setViewControllers([pageContentViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        self.pageViewController.setViewControllers([pageContentViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -44,6 +54,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: PageViewController
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
         let identifier = viewController.restorationIdentifier
@@ -56,10 +67,9 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         }
         
         //increment the index to get the viewController after the current index
-        self.index = self.index + 1
-        return self.viewControllerAtIndex(self.index)
+        self.index = index
+        return self.viewControllerAtIndex(self.index+1)
     }
-    
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
     
         let identifier = viewController.restorationIdentifier
@@ -72,12 +82,17 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         }
         
         //decrement the index to get the viewController before the current one
-        self.index = self.index - 1
-        return self.viewControllerAtIndex(self.index)
+        self.index = index
+        return self.viewControllerAtIndex(self.index-1)
     }
     
-    func viewControllerAtIndex(index : Int) -> UIViewController? {
-        return self.storyboard!.instantiateViewControllerWithIdentifier(self.identifiers[index] as! String) as UIViewController
+    func viewControllerAtIndex(index : Int) -> UIViewController {
+        switch index {
+        case 0: return userTypeViewController!
+        case 1: return userCategoryViewController!
+        case 2: return userPrefrencesViewController!
+        default: return userTypeViewController!
+        }
     }
     
    
@@ -89,11 +104,31 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         return 0
     }
     
-    @IBAction func startWalkthrough(sender: UIButton) {
+    func createValidationAlert(){
+        let alert = UIAlertController(title: "Alert", message: "Not all fields are filled in", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: Buttons
+    @IBAction func nextButtonPressd(sender: AnyObject) {
+        if(self.index != self.identifiers.count-1){
+            let currentContentViewController = self.viewControllerAtIndex(self.index) as! ValidationProtocol
+            if(currentContentViewController.validate()){
+                let pageContentViewController = self.viewControllerAtIndex(self.index+1)
+                self.pageViewController.setViewControllers([pageContentViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+                self.index += 1
+            } else {
+                createValidationAlert()
+            }
+        }
+    }
+    
+    @IBAction func previousButtonPressed(sender: UIButton) {
         if(self.index != 0){
-            let startingViewController = self.viewControllerAtIndex(0)
-            let viewControllers = [startingViewController!]
-            self.pageViewController.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            let pageContentViewController = self.viewControllerAtIndex(self.index-1)
+            self.pageViewController.setViewControllers([pageContentViewController], direction: UIPageViewControllerNavigationDirection.Reverse, animated: true, completion: nil)
+            self.index -= 1
         }
     }
 }

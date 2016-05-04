@@ -48,7 +48,6 @@
 		EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */; };
 		EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4948601C8F2886001A8A3C /* SettingsViewController.swift */; };
 		EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		EF7CBD361CD94798002C3C16 /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7CBD351CD94798002C3C16 /* WizardViewController.swift */; };
 		EF9400CD1CC79129008F93A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9400CF1CC79129008F93A9 /* Localizable.strings */; };
 		EF9400D41CC79CF7008F93A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9400D31CC79CF7008F93A9 /* Assets.xcassets */; };
 		EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9400D71CC7B732008F93A9 /* CategoryModel.swift */; };
@@ -74,6 +73,8 @@
 		EFF75AAD1CDA19DB00090ACB /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */; };
 		EFF75AAF1CDA37BD00090ACB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */; };
 		EFF75AB11CDA388600090ACB /* GeoLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */; };
+		EFF75AB31CDA5F2500090ACB /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AB21CDA5F2400090ACB /* UserTypeViewController.swift */; };
+		EFF75AB51CDA61AE00090ACB /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AB41CDA61AE00090ACB /* ValidationProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,7 +159,6 @@
 		EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactServiceFactory.swift; sourceTree = "<group>"; };
 		EF4948601C8F2886001A8A3C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF5A86C31CA01815004128E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		EF7CBD351CD94798002C3C16 /* WizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
 		EF9400CE1CC79129008F93A9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D01CC7912D008F93A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF9400D31CC79CF7008F93A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +178,8 @@
 		EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationViewController.swift; sourceTree = "<group>"; };
+		EFF75AB21CDA5F2400090ACB /* UserTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTypeViewController.swift; sourceTree = "<group>"; };
+		EFF75AB41CDA61AE00090ACB /* ValidationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,9 +326,10 @@
 			isa = PBXGroup;
 			children = (
 				578484E11C764541006A9841 /* ViewController.swift */,
-				EF7CBD351CD94798002C3C16 /* WizardViewController.swift */,
 				EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */,
 				EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */,
+				EFF75AB21CDA5F2400090ACB /* UserTypeViewController.swift */,
+				EFF75AB41CDA61AE00090ACB /* ValidationProtocol.swift */,
 			);
 			name = Wizard;
 			sourceTree = "<group>";
@@ -540,7 +543,6 @@
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
-				EF7CBD361CD94798002C3C16 /* WizardViewController.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
 				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
@@ -552,6 +554,7 @@
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
+				EFF75AB31CDA5F2500090ACB /* UserTypeViewController.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
@@ -565,6 +568,7 @@
 				2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */,
 				2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */,
 				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
+				EFF75AB51CDA61AE00090ACB /* ValidationProtocol.swift in Sources */,
 				2FFE5A651CCE867900D02333 /* CategoryIconModel.swift in Sources */,
 				2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */,
 				2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */,

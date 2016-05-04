@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class GeoLocationViewController: UIViewController {
+class GeoLocationViewController: UIViewController, ValidationProtocol {
     
     @IBOutlet weak var adressTextField: UITextField!
     @IBOutlet weak var radiusSliderLabel: UILabel!
@@ -18,6 +18,7 @@ class GeoLocationViewController: UIViewController {
     @IBOutlet weak var radiusSlider: UISlider!
     
     let locator = CLGeocoder()
+    var validLocation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,10 @@ class GeoLocationViewController: UIViewController {
         radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
         sliderValueChanged(radiusSlider);
     }
-
     
+    func validate()-> Bool {
+        return validLocation
+    }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         var currentValue = Int(sender.value)
@@ -51,7 +54,13 @@ class GeoLocationViewController: UIViewController {
     
     @IBAction func adressSubmitButtonPressed(sender: UIButton) {
         locator.geocodeAddressString(adressTextField.text!) { (places: [CLPlacemark]?,error: NSError?) in
-            print(places![0].location)
+            if(error != nil) {
+                print(error!.localizedDescription)
+                
+            } else {
+                self.validLocation = true
+                print(places![0].location)
+            }
         }
     }
 }

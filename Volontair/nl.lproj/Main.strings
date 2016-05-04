@@ -3,7 +3,7 @@
 "1Rq-RB-hBn.text" = "👥";
 
 /* Class = "UIButton"; normalTitle = "Opnieuw beginnen"; ObjectID = "5po-cE-9O5"; */
-"5po-cE-9O5.normalTitle" = "Opnieuw beginnen";
+"5po-cE-9O5.normalTitle" = "Vorige";
 
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "CGh-Hs-HOR"; */
 "CGh-Hs-HOR.title" = "Dashboard";
@@ -66,7 +66,7 @@
 "rld-gM-464.text" = "Vrijwilligers";
 
 /* Class = "UIButton"; normalTitle = "Dashboard"; ObjectID = "tj7-m7-Q1x"; */
-"tj7-m7-Q1x.normalTitle" = "Dashboard";
+"tj7-m7-Q1x.normalTitle" = "Volgende";
 
 /* Class = "UITabBarItem"; title = "Map"; ObjectID = "uLi-Sc-Vj8"; */
 "uLi-Sc-Vj8.title" = "Map";
