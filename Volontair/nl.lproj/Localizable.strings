@@ -37,3 +37,6 @@ REQUEST="Aanvragen";
 REQUEST_MESSAGE="Gezocht omschrijving";
 OFFER_MESSAGE="Aanvraag omschrijving";
 REQUEST_MESSAGE_SUCCESSFULL="uw aanvraag is succesvol aangemaakt";
+ALERT="Oeps!";
+FIELDS_NOT_FILLED_IN="Niet alle velden zijn ingevuld";
+CLICK="Ok";

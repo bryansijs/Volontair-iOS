@@ -35,6 +35,12 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
         // restore settings in view
         radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
         sliderValueChanged(radiusSlider);
+        
+        // make textview look like textfield
+        self.aboutMeTextView.layer.borderWidth = 0.5
+        self.aboutMeTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.aboutMeTextView.layer.cornerRadius = 5;
+        self.aboutMeTextView.clipsToBounds = true
     }
     
     func validate()-> Bool {
@@ -56,8 +62,9 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
         locator.geocodeAddressString(adressTextField.text!) { (places: [CLPlacemark]?,error: NSError?) in
             if(error != nil) {
                 print(error!.localizedDescription)
-                
+                self.adressTextField.backgroundColor = UIColor(hue: 0.0028, saturation: 0.7, brightness: 0.89, alpha: 1.0)
             } else {
+                self.adressTextField.backgroundColor = UIColor(hue: 0.475, saturation: 1, brightness: 0.74, alpha: 1.0)
                 self.validLocation = true
                 print(places![0].location)
             }

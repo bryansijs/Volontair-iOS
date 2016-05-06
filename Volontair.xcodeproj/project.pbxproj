@@ -171,10 +171,10 @@
 		EF9B58371CCF6EA300AA52ED /* AddEmployViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmployViewController.swift; sourceTree = "<group>"; };
 		EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferService.swift; sourceTree = "<group>"; };
 		EF9B583E1CCF951600AA52ED /* RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		EF9CE00C1CDD1ED2004CF300 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		EFF4D6421CBFA4AB001AE6E3 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EFF75AB01CDA388600090ACB /* GeoLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationViewController.swift; sourceTree = "<group>"; };
@@ -611,7 +611,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				578484E41C764541006A9841 /* Base */,
-				EFF4D6421CBFA4AB001AE6E3 /* nl */,
+				EF9CE00C1CDD1ED2004CF300 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

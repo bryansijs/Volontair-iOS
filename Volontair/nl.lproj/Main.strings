@@ -2,8 +2,13 @@
 /* Class = "UILabel"; text = "👥"; ObjectID = "1Rq-RB-hBn"; */
 "1Rq-RB-hBn.text" = "👥";
 
-/* Class = "UIButton"; normalTitle = "Opnieuw beginnen"; ObjectID = "5po-cE-9O5"; */
+/* Class = "UIButton"; normalTitle = "Start again"; ObjectID = "5po-cE-9O5"; */
 "5po-cE-9O5.normalTitle" = "Vorige";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "6RJ-Hs-JWk"; */
+"6RJ-Hs-JWk.normalTitle" = "Bevestig";
+
+"Rbx-Dr-hAE.noramlTitle" = "Bevestig";
 
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "CGh-Hs-HOR"; */
 "CGh-Hs-HOR.title" = "Dashboard";
@@ -14,14 +19,23 @@
 /* Class = "UIViewController"; title = "DashboardViewController"; ObjectID = "H0Q-Ch-kR8"; */
 "H0Q-Ch-kR8.title" = "DashboardViewController";
 
-/* Class = "UITableViewSection"; headerTitle = "Kaart"; ObjectID = "Li4-xS-cCD"; */
-"Li4-xS-cCD.headerTitle" = "Kaart";
+/* Class = "UILabel"; text = "Time"; ObjectID = "Ikb-3l-bOX"; */
+"Ikb-3l-bOX.text" = "Time";
+
+/* Class = "UILabel"; text = "Bericht:"; ObjectID = "JUb-01-c1O"; */
+"JUb-01-c1O.text" = "Bericht:";
+
+/* Class = "UITableViewSection"; headerTitle = "Map"; ObjectID = "Li4-xS-cCD"; */
+"Li4-xS-cCD.headerTitle" = "Map";
 
 /* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "Mko-Ff-4eF"; */
-"Mko-Ff-4eF.title" = "Contacten";
+"Mko-Ff-4eF.title" = "Contacts";
 
 /* Class = "UILabel"; text = "100"; ObjectID = "RH3-rC-SjO"; */
 "RH3-rC-SjO.text" = "100";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Sl8-Kp-C5E"; */
+"Sl8-Kp-C5E.text" = "Title";
 
 /* Class = "UIViewController"; title = "FacebookViewController"; ObjectID = "Z9T-1o-TkX"; */
 "Z9T-1o-TkX.title" = "FacebookViewController";
@@ -29,8 +43,20 @@
 /* Class = "UILabel"; text = "100"; ObjectID = "aAX-82-dXb"; */
 "aAX-82-dXb.text" = "100";
 
-/* Class = "UITabBarItem"; title = "Instellingen"; ObjectID = "aHW-0D-C5h"; */
-"aHW-0D-C5h.title" = "Instellingen";
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "aHW-0D-C5h"; */
+"aHW-0D-C5h.title" = "Settings";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aOu-zc-1ip"; */
+"aOu-zc-1ip.text" = "Label";
+
+/* Class = "UISegmentedControl"; bz3-HS-8kB.segmentTitles[0] = "Aangeboden"; ObjectID = "bz3-HS-8kB"; */
+"bz3-HS-8kB.segmentTitles[0]" = "Aangeboden";
+
+/* Class = "UISegmentedControl"; bz3-HS-8kB.segmentTitles[1] = "Gezocht"; ObjectID = "bz3-HS-8kB"; */
+"bz3-HS-8kB.segmentTitles[1]" = "Gezocht";
+
+/* Class = "UITextField"; text = "koken"; ObjectID = "fl2-vw-lVe"; */
+"fl2-vw-lVe.text" = "koken";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "fr6-Wi-JtL"; */
 "fr6-Wi-JtL.text" = "Name";
@@ -38,8 +64,8 @@
 /* Class = "UILabel"; text = "Contacten"; ObjectID = "gjZ-YO-RnM"; */
 "gjZ-YO-RnM.text" = "Contacten";
 
-/* Class = "UISegmentedControl"; hmH-ES-hCM.segmentTitles[0] = "Over mij"; ObjectID = "hmH-ES-hCM"; */
-"hmH-ES-hCM.segmentTitles[0]" = "Over mij";
+/* Class = "UISegmentedControl"; hmH-ES-hCM.segmentTitles[0] = "Over"; ObjectID = "hmH-ES-hCM"; */
+"hmH-ES-hCM.segmentTitles[0]" = "Over";
 
 /* Class = "UISegmentedControl"; hmH-ES-hCM.segmentTitles[1] = "Vraag"; ObjectID = "hmH-ES-hCM"; */
 "hmH-ES-hCM.segmentTitles[1]" = "Vraag";
@@ -47,11 +73,17 @@
 /* Class = "UILabel"; text = "Radius"; ObjectID = "i3p-Z7-lcX"; */
 "i3p-Z7-lcX.text" = "Radius";
 
+/* Class = "UISegmentedControl"; iWQ-zV-Dm8.segmentTitles[0] = "Gezocht"; ObjectID = "iWQ-zV-Dm8"; */
+"iWQ-zV-Dm8.segmentTitles[0]" = "Gezocht";
+
+/* Class = "UISegmentedControl"; iWQ-zV-Dm8.segmentTitles[1] = "Aangeboden"; ObjectID = "iWQ-zV-Dm8"; */
+"iWQ-zV-Dm8.segmentTitles[1]" = "Aangeboden";
+
+/* Class = "UILabel"; text = "subtitle"; ObjectID = "o5V-xR-O56"; */
+"o5V-xR-O56.text" = "subtitle";
+
 /* Class = "UILabel"; text = "Over mij"; ObjectID = "ovk-Xn-qxP"; */
 "ovk-Xn-qxP.text" = "Over mij";
-
-/* Class = "UILabel"; text = "Welkom!"; ObjectID = "pQk-Oi-xVQ"; */
-"pQk-Oi-xVQ.text" = "Welkom!";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "pmo-Qz-Akg"; */
 "pmo-Qz-Akg.text" = "Label";
@@ -68,8 +100,13 @@
 /* Class = "UIButton"; normalTitle = "Dashboard"; ObjectID = "tj7-m7-Q1x"; */
 "tj7-m7-Q1x.normalTitle" = "Volgende";
 
-/* Class = "UITabBarItem"; title = "Map"; ObjectID = "uLi-Sc-Vj8"; */
-"uLi-Sc-Vj8.title" = "Map";
+/* Class = "UITabBarItem"; title = "map"; ObjectID = "uLi-Sc-Vj8"; */
+"uLi-Sc-Vj8.title" = "map";
 
-/* Class = "UITabBarItem"; title = "Profiel"; ObjectID = "ymh-iT-cRq"; */
-"ymh-iT-cRq.title" = "Profiel";
+/* Class = "UITabBarItem"; title = "profiel"; ObjectID = "ymh-iT-cRq"; */
+"ymh-iT-cRq.title" = "profiel";
+
+"DnV-9q-g0i.text" = "Locatie instellingen";
+"ARH-qq-fCb.text" = "Maximum radius";
+"Wrd-If-6wM.text" = "Over mij";
+

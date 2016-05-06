@@ -106,8 +106,10 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     }
     
     func createValidationAlert(){
-        let alert = UIAlertController(title: "Alert", message: "Not all fields are filled in", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("ALERT",comment: "")
+            , message: NSLocalizedString("FIELDS_NOT_FILLED_IN",comment: "")
+            , preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("CLICK",comment: ""), style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
