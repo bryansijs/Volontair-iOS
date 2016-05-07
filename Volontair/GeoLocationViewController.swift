@@ -11,6 +11,7 @@ import CoreLocation
 
 class GeoLocationViewController: UIViewController, ValidationProtocol {
     
+    @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var adressTextField: UITextField!
     @IBOutlet weak var radiusSliderLabel: UILabel!
     @IBOutlet weak var adressSubmitButton: UIButton!
@@ -66,7 +67,12 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
             } else {
                 self.adressTextField.backgroundColor = UIColor(hue: 0.475, saturation: 1, brightness: 0.74, alpha: 1.0)
                 self.validLocation = true
-                print(places![0].location)
+                self.placeLabel.text = places![0].name
+
+                print(places![0].country)
+                print(places![0].postalCode)
+                print(places![0].name)
+                
             }
         }
     }

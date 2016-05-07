@@ -14,7 +14,11 @@ class UserTypeViewController: UIViewController, ValidationProtocol {
     var userWillCreateOffers = true
     
     func validate()-> Bool {
-        return true
+        if (userWillCreateRequests || userWillCreateOffers){
+            return true
+        } else {
+            return false
+        }
     }
     
     @IBAction func requestSwitchValueChanged(sender: UISwitch) {
