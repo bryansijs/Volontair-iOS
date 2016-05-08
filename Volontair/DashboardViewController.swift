@@ -51,6 +51,10 @@ class DashboardViewController: UIViewController {
         if(FBSDKAccessToken.currentAccessToken() != nil) {
             //
             print("User already logged in")
+            let token = FBSDKAccessToken.currentAccessToken()
+            print(FBSDKAccessToken.currentAccessToken().tokenString)
+            print(FBSDKAccessToken.currentAccessToken().description)
+
             return true
         }
         print("User not logged in")

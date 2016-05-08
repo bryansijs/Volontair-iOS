@@ -24,6 +24,7 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
 
         if(FBSDKAccessToken.currentAccessToken() != nil) {
             print("User already logged in")
+            print(FBSDKAccessToken.currentAccessToken().tokenString)
             redirectToDashboard()
             return
         }
