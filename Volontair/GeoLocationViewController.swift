@@ -67,7 +67,7 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
             } else {
                 self.adressTextField.backgroundColor = UIColor(hue: 0.475, saturation: 1, brightness: 0.74, alpha: 1.0)
                 self.validLocation = true
-                self.placeLabel.text = places![0].name
+                self.placeLabel.text = NSLocalizedString("PLACE",comment: "") + places![0].name!
 
                 print(places![0].country)
                 print(places![0].postalCode)
