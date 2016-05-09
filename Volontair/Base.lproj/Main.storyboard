@@ -375,7 +375,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number, Street, City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-Cv-kK3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Straat, Huisnummer, Plaats" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-Cv-kK3">
                                 <rect key="frame" x="20" y="97" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -434,17 +434,25 @@
                                     <action selector="adressSubmitButtonPressed:" destination="nVC-Dx-HG1" eventType="touchUpInside" id="E67-pT-j8L"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgi-Du-Sn1">
+                                <rect key="frame" x="484" y="139" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QTp-Cv-kK3" firstAttribute="top" secondItem="DnV-9q-g0i" secondAttribute="bottom" constant="8" id="5Gv-oI-fMs"/>
                             <constraint firstItem="Wrd-If-6wM" firstAttribute="top" secondItem="klH-kh-7aa" secondAttribute="bottom" constant="27" id="7Xg-Pm-ENW"/>
+                            <constraint firstItem="Rbx-Dr-hAE" firstAttribute="leading" secondItem="Wgi-Du-Sn1" secondAttribute="trailing" constant="21" id="8LN-D0-fxL"/>
                             <constraint firstItem="p9t-Tc-Yst" firstAttribute="leading" secondItem="4YN-Lm-NJS" secondAttribute="leadingMargin" id="D8W-Md-CSg"/>
                             <constraint firstItem="klH-kh-7aa" firstAttribute="top" secondItem="ARH-qq-fCb" secondAttribute="bottom" constant="16" id="Diz-cB-14s"/>
                             <constraint firstAttribute="trailing" secondItem="bwf-ag-Mvz" secondAttribute="trailing" id="LRQ-Js-IBq"/>
                             <constraint firstItem="p9t-Tc-Yst" firstAttribute="top" secondItem="Wrd-If-6wM" secondAttribute="bottom" constant="18" id="Ljp-qE-ozq"/>
                             <constraint firstItem="ARH-qq-fCb" firstAttribute="top" secondItem="QTp-Cv-kK3" secondAttribute="bottom" constant="40" id="Muk-kv-mlK"/>
                             <constraint firstItem="bwf-ag-Mvz" firstAttribute="leading" secondItem="4YN-Lm-NJS" secondAttribute="leading" id="P57-31-iIn"/>
+                            <constraint firstItem="Wgi-Du-Sn1" firstAttribute="top" secondItem="QTp-Cv-kK3" secondAttribute="bottom" constant="12" id="RBs-ZB-YX1"/>
                             <constraint firstItem="aEI-bE-c1f" firstAttribute="top" secondItem="Rbx-Dr-hAE" secondAttribute="bottom" constant="43" id="WY9-9n-grh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QTp-Cv-kK3" secondAttribute="trailing" id="X2F-ev-UJH"/>
                             <constraint firstItem="QTp-Cv-kK3" firstAttribute="leading" secondItem="4YN-Lm-NJS" secondAttribute="leadingMargin" id="ZLo-1t-Jnq"/>
@@ -466,6 +474,7 @@
                         <outlet property="aboutMeTextView" destination="p9t-Tc-Yst" id="7Rb-ir-Vqu"/>
                         <outlet property="adressSubmitButton" destination="Rbx-Dr-hAE" id="4e7-a1-H4Y"/>
                         <outlet property="adressTextField" destination="QTp-Cv-kK3" id="3sN-ql-Kmy"/>
+                        <outlet property="placeLabel" destination="Wgi-Du-Sn1" id="9u6-FB-0mw"/>
                         <outlet property="radiusSlider" destination="klH-kh-7aa" id="vFL-YI-utW"/>
                         <outlet property="radiusSliderLabel" destination="aEI-bE-c1f" id="u6H-aw-Qip"/>
                     </connections>
