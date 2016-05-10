@@ -26,12 +26,22 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        if(!isLoggedIn()) {
-            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-            return
+        let volontairApiService = VolontairApiService(controller: self)
+
+//        if(!isLoggedIn()) {
+//            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+//            return
+//        }
+        
+        if(isLoggedIn()) {
+            volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
+        } else {
+            volontairApiService.login()
         }
         
-        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
+        //self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+        
+        //userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
         
         if welcomeLabel != nil {
             // Set welcome text with name
@@ -48,6 +58,7 @@ class DashboardViewController: UIViewController {
     
     // Function for checking if the user is logged in using Facebook
     func isLoggedIn() -> Bool {
+        return false
         if(FBSDKAccessToken.currentAccessToken() != nil) {
             //
             print("User already logged in")

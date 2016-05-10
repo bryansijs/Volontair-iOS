@@ -34,6 +34,10 @@ struct Config{
     static let conversationUrl = "conversations/"
     static let categoryUrl = "categories/"
     
+    //VolontairApiService
+    static var facebookToken = ""
+    static var VolontairApiToken = ""
+    
     // provided from conversations
     static let messagesUrl = "messages/"
     static let profileNotificationKey = "ProfileDataUpdated"

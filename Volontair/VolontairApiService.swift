@@ -9,8 +9,11 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class VolontairApiService {
+    
+    let viewController: UIViewController
     
     let baseUrl = "http://192.168.178.49:6789"
     let registerFacebookTokenUrl = "/auth/facebook/client?accessToken=";
@@ -18,8 +21,8 @@ class VolontairApiService {
     let getMeUrl = "/users/me"
     //let tempvolontairToken = "fca4a7c6-23c0-4974-82e1-3d2e2e29c9d9"
     
-    init() {
-        
+    init(controller: UIViewController) {
+        viewController = controller
     }
     
     internal func login(facebookToken: String) {
@@ -66,7 +69,8 @@ class VolontairApiService {
     }
     
     private func loginFacebook() {
-        
+        viewController.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+        return
     }
     
     private func loginApi(facebookToken : String) {
@@ -74,9 +78,14 @@ class VolontairApiService {
         
         Alamofire.request(.GET, self.baseUrl + self.registerFacebookTokenUrl + facebookToken , headers: headers)
             .responseData { response in
+                print(response.response)
+                print(response.result)
                 
                 Alamofire.request(.GET, self.baseUrl + self.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
                     .responseString() { response in
+                        
+                        print(response.response)
+                        print(response.result)
                         
                         let URL = response.response?.URL?.fragments //In extension/NSURLFragmentExtension
                         
@@ -103,7 +112,8 @@ class VolontairApiService {
     }
     
     private func getFacebookToken() -> String {
-        return Config.facebookToken;
+        return "EAANjx8rx5OwBAPtWqOuJNlVdi9rWe46qt8xAiluXZBASVlZATiKI97ufVjj7B1GqwRf5HOMPmBoicj6iP97iPGIZBt00WmOrkDsNlU5Ccvl6qB4uHDBZApIANZAU3oDbtaVRPxxZBTvBZCPJJw4UBz4Hty57xbjpNNyNTG0YvifDgZDZD"
+        //return Config.facebookToken;
     }
     
     private func setFacebookToken(token : String) {

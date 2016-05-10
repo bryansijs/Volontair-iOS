@@ -67,6 +67,10 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print("Retrieved data from Facebook:")
                 print(result)
                 
+                print("----------------------------------------------")
+                print(FBSDKAccessToken.currentAccessToken().tokenString)
+                print("----------------------------------------------")
+                
                 //Save username in settings
                 self.prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
                 self.prefs.synchronize()
