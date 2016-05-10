@@ -33,6 +33,7 @@
 		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -145,6 +146,7 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				E891DCFA1CE27DB800D9F560 /* Extensions */,
 				2FFAA74C1CC0F0D80086CD6F /* Map */,
 				EFF4D63E1CBFA31A001AE6E3 /* Contacts */,
 				EF2721EF1CBE293C00BCD082 /* Factory */,
@@ -297,6 +300,13 @@
 				578485011C764542006A9841 /* Info.plist */,
 			);
 			path = VolontairUITests;
+			sourceTree = "<group>";
+		};
+		E891DCFA1CE27DB800D9F560 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		EF2721E81CBE26A200BCD082 /* Profile */ = {
@@ -348,6 +358,7 @@
 				EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */,
 				EF9B583E1CCF951600AA52ED /* RequestService.swift */,
 				2FFD7DCA1CC95949005CDE2C /* UserService.swift */,
+				E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -535,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
+				E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */,
 				EF9B583F1CCF951600AA52ED /* RequestService.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EFF75AB11CDA388600090ACB /* GeoLocationViewController.swift in Sources */,
