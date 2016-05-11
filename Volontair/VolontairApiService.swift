@@ -15,7 +15,7 @@ class VolontairApiService {
     
     let viewController: UIViewController
     
-    let baseUrl = "http://192.168.178.49:6789"
+    let baseUrl = "http://volontair.herokuapp.com"
     let registerFacebookTokenUrl = "/auth/facebook/client?accessToken=";
     let getVolontairApiTokenUrl = "/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
     let getMeUrl = "/users/me"
