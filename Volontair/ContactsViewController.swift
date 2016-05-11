@@ -14,7 +14,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     var conversations = [ConversationModel]()
     var skillCategories = [String: CategoryModel]()
     
-    let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
+    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
     
     
     
@@ -72,7 +72,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         
         cell.nameLabel.text = conversation.name
         cell.lastMessageLabel.text = conversation.lastMessage
-        cell.timeLabel.text = contactSercvice.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
+        cell.timeLabel.text = contactService.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
         
         // round images
         cell.contactImageView.layer.cornerRadius = cell.contactImageView.frame.size.width / 2
@@ -97,7 +97,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadConversations() {
         self.conversations.removeAll()
-        self.contactSercvice.conversations()
+        self.contactService.conversations()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()
@@ -113,7 +113,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadConversationsFilteredBy(filter: String){
         self.conversations.removeAll()
-        self.contactSercvice.conversationsFilteredByCategory(filter)
+        self.contactService.conversationsFilteredByCategory(filter)
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()
@@ -130,23 +130,23 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func loadCategories() {
         self.skillCategories.removeAll()
         skillCategories["-"] = CategoryModel(name: "-", iconName: "")
-//        contactSercvice.categories()
-//            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-//            .observeOn(MainScheduler.instance)
-//            .toArray()
-//            .subscribe(onNext: { (json) -> Void in
-//                if json.count > 0{
-//                    for i in 0...json.count-1{
-//                        if let category = json[i] as? CategoryModel{
-//                            self.skillCategories[category.name] = category
-//                        }
-//                    }
-//                }
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    self.skillCategoryPicker.reloadAllComponents()
-//                    self.categoryTextField.text = self.skillCategories.first?.1.name
-//                }
-//            }).addDisposableTo(self.disposeBag)
+        contactService.categories()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+            .observeOn(MainScheduler.instance)
+            .toArray()
+            .subscribe(onNext: { (json) -> Void in
+                if json.count > 0{
+                    for i in 0...json.count-1{
+                        if let category = json[i] as? CategoryModel{
+                            self.skillCategories[category.name] = category
+                        }
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.skillCategoryPicker.reloadAllComponents()
+                    self.categoryTextField.text = self.skillCategories.first?.1.name
+                }
+            }).addDisposableTo(self.disposeBag)
     }
     
     //MARK: UIPicker

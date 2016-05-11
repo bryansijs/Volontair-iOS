@@ -8,8 +8,6 @@ class ContactsService {
     
     func lastMessage(messagesLink: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
-        print(manager.rx_JSON(.GET, messagesLink).takeLast(1));
-        //CHECK THIS
         return manager.rx_JSON(.GET, messagesLink).takeLast(1)
     }
     
@@ -76,7 +74,7 @@ class ContactsService {
                         let name = listener["name"] as! String
                         let lastMessage = "Test"
                         let avatarUrl = ""
-                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), conversationListenerLink: conversationMessagesLink);
+                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), conversationListenerLink: conversationListenerLink);
                         item.listener = UserModel(jsonData: listener)
                         return item
                     }
@@ -88,46 +86,55 @@ class ContactsService {
     
         return self.conversations()
             .filter({ (data: ConversationModel) -> Bool in
-                if let listener = self.getListener(data.conversationListenerLink) as? [String:AnyObject] {
-                    let listenerCategories = self.getListenerCategories(listener["categoriesLink"] as! String)
-                    
-                }
-//                let listenerCategories = self.getListenerCategories(listener.)
-//                let userCategories = self.getListenerCategories(data.listener)
-//                if let items = data.listener!.offersCategories["main"]?.array {
-//                    for item in items {
-//                        if let title = item.string {
-//                            if title == categoryName{
-//                                return true
-//                            }
-//                        }
-//                    }
-//                }
+                self.getListenerCategories(data.listener!.categoriesLink)
+                    .flatMap({ (categoryData: AnyObject) -> Observable<AnyObject> in
+                        let categories = categoryData["_embedded"]!!["categories"] as! [AnyObject]
+                        return categories.toObservable()
+                    })
+                    .map({ (singleCategory: AnyObject) -> CategoryModel in
+                        return CategoryModel(JSONData: singleCategory);
+                    })
+                    .filter({ (data: CategoryModel) -> Bool in
+                        return (data.name == categoryName)
+                    })
+                
                 return false
             })
     }
 
 
+    func myJust<AnyObject>(element: AnyObject) -> Observable<AnyObject> {
+        return Observable.create { observer in
+            observer.on(.Next(element))
+            observer.on(.Completed)
+            return NopDisposable.instance
+        }
+    }
     
     
-//    func categories() -> Observable<CategoryModel> {
-//        return self.conversations()
-//            .flatMap({ (data: ConversationModel) -> Observable<AnyObject> in
-//                return self.getListener(data.conversationListenerLink)
-//            })
-//            .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
-//                return self.getListenerCategories(userData["categoriesLink"]);
-//                let userCategories = userData["offersCategories"]!!["main"] as! NSArray
-//                return userCategories.toObservable()
-//            })
-//            .map({ (categoryData: AnyObject) -> CategoryModel in
-//                let categoryName = categoryData as! String
-//                let categoryItem = CategoryModel(name: categoryName, iconName: "")
-//                
-//                return categoryItem
-//            })
-//    }
-    
+    func categories() -> Observable<CategoryModel> {
+        return self.conversations()
+            .flatMap({ (data: ConversationModel) -> Observable<AnyObject> in
+                return self.getListener(data.conversationListenerLink)
+            })
+            .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
+                var userCategoriesLink : String!
+                if let dataUserCategoriesLink = userData["_links"]!!["categories"] as? [String:AnyObject] {
+                    userCategoriesLink = dataUserCategoriesLink["href"] as! String
+//                    userCategoriesLink = "http://volontair.herokuapp.com/api/v1/users/7/categories"
+                }
+                return self.getListener(userCategoriesLink)
+            })
+            .flatMap({ (categoryData: AnyObject) -> Observable<AnyObject> in
+                
+                let categories = categoryData["_embedded"]!!["categories"] as! [AnyObject]
+                return categories.toObservable()
+            })
+            .map({ (singleCategory: AnyObject) -> CategoryModel in
+                return CategoryModel(JSONData: singleCategory);
+            })
+    }
+
     func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()

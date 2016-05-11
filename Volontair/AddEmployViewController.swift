@@ -21,7 +21,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var messageLabel: UILabel!
     
     var skillCategories = [String: CategoryModel]()
-    let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
+    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
     let disposeBag = DisposeBag()
     
     //MARK: INIT
@@ -75,20 +75,20 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     func loadCategories() {
         self.skillCategories.removeAll()
 
-//        contactSercvice.categories()
-//            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-//            .observeOn(MainScheduler.instance)
-//            .toArray()
-//            .subscribe(onNext: { (json) -> Void in
-//                if json.count > 0{
-//                    for i in 0...json.count-1{
-//                        if let category = json[i] as? CategoryModel{
-//                            self.skillCategories[category.name] = category
-//                        }
-//                    }
-//                }
-//                self.categoryPicker.reloadAllComponents()
-//            }).addDisposableTo(self.disposeBag)
+        contactService.categories()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+            .observeOn(MainScheduler.instance)
+            .toArray()
+            .subscribe(onNext: { (json) -> Void in
+                if json.count > 0{
+                    for i in 0...json.count-1{
+                        if let category = json[i] as? CategoryModel{
+                            self.skillCategories[category.name] = category
+                        }
+                    }
+                }
+                self.categoryPicker.reloadAllComponents()
+            }).addDisposableTo(self.disposeBag)
     }
     
     //MARK: Form

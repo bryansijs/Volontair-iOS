@@ -19,8 +19,7 @@ class UserModel {
     var enabled: Bool
     var requestsLink : String
     var listenerConversationsLink: String
-    var categoriesLink: String
-    
+    var categoriesLink: String    
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
