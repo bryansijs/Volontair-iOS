@@ -17,18 +17,32 @@ class UserRequestDetailViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var titleLabel: UILabel!
+
+    @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var editButton: UIButton!
     override func viewDidLoad() {
         self.configureView()
+        detailTextView.editable = false
+        saveButton.hidden = true
+   
     }
     
     func configureView(){
-        self.titleLabel.text = detailItem?.title
+        self.titleTextView.text = detailItem?.title
         self.detailTextView.text = detailItem?.summary
     }
     
+    @IBAction func saveButtonPressed(sender: UIButton) {
+        
+    }
+    @IBAction func editButtonPressed(sender: UIButton) {
+        self.saveButton.hidden = false
+        self.detailTextView.editable = true
+        
+    }
     override func viewWillAppear(animated: Bool) {
         //self.requestTableView.setEditing(true, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
