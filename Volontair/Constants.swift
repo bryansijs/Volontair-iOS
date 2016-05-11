@@ -80,6 +80,8 @@ struct ApiConfig{
     static let usersUrl = "/users/"
     static let dashboardUrl = "/dashboard/"
     static let conversationUrl = "/conversations/"
+    static let starterConversationsUrl = "/starterConversations/"
+    static let listenerConversationsUrl = "/listenerConversations/"
     static let categoryUrl = "/categories/"
     
     //VolontairApiService

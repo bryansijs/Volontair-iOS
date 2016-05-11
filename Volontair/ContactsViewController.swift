@@ -83,11 +83,11 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             
             let imageURL = Config.url + conversation.avatarUrl
             let url = NSURL(string: imageURL)
-            let imageData = NSData(contentsOfURL: url!)!
+//            let imageData = NSData(contentsOfURL: url!)!
 
-            dispatch_async(dispatch_get_main_queue()) {
-                cell.contactImageView.image = UIImage(data: imageData)
-            }
+//            dispatch_async(dispatch_get_main_queue()) {
+//                cell.contactImageView.image = UIImage(data: imageData)
+//            }
         }
         
         return cell
@@ -130,23 +130,23 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func loadCategories() {
         self.skillCategories.removeAll()
         skillCategories["-"] = CategoryModel(name: "-", iconName: "")
-        contactSercvice.categories()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-            .observeOn(MainScheduler.instance)
-            .toArray()
-            .subscribe(onNext: { (json) -> Void in
-                if json.count > 0{
-                    for i in 0...json.count-1{
-                        if let category = json[i] as? CategoryModel{
-                            self.skillCategories[category.name] = category
-                        }
-                    }
-                }
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.skillCategoryPicker.reloadAllComponents()
-                    self.categoryTextField.text = self.skillCategories.first?.1.name
-                }
-            }).addDisposableTo(self.disposeBag)
+//        contactSercvice.categories()
+//            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+//            .observeOn(MainScheduler.instance)
+//            .toArray()
+//            .subscribe(onNext: { (json) -> Void in
+//                if json.count > 0{
+//                    for i in 0...json.count-1{
+//                        if let category = json[i] as? CategoryModel{
+//                            self.skillCategories[category.name] = category
+//                        }
+//                    }
+//                }
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    self.skillCategoryPicker.reloadAllComponents()
+//                    self.categoryTextField.text = self.skillCategories.first?.1.name
+//                }
+//            }).addDisposableTo(self.disposeBag)
     }
     
     //MARK: UIPicker
