@@ -19,11 +19,11 @@ class VolontairApiService {
     let registerFacebookTokenUrl = "/auth/facebook/client?accessToken=";
     let getVolontairApiTokenUrl = "/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
     let getMeUrl = "/users/me"
-    //let tempvolontairToken = "fca4a7c6-23c0-4974-82e1-3d2e2e29c9d9"
     
     init(controller: UIViewController) {
         viewController = controller
     }
+    
     
     internal func login(facebookToken: String) {
         self.setFacebookToken(facebookToken)
@@ -52,7 +52,7 @@ class VolontairApiService {
             "Authorization" : "Bearer \(volontairToken)"
         ]
         
-        Alamofire.request(.GET, self.baseUrl + self.getMeUrl, headers: headers, encoding: .JSON)
+        Alamofire.request(.GET, self.baseUrl + self.getMeUrl, encoding: .JSON)
             .responseJSON { response in
                 switch response.result {
                 case .Success(let JSON):

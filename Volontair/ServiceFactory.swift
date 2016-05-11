@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class ServiceFactory  {
     static let sharedInstance = ServiceFactory()
@@ -16,6 +17,7 @@ class ServiceFactory  {
     let offerService = OfferService()
     
     private init(){
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ApiConfig.headers
         print("init ServiceFactory")
     }
     

@@ -12,7 +12,6 @@ import Alamofire
 class UserService  {
     
     var userModel : UserModel?
-    let usersUrl = "/users/"
     
     func getUserProfileModel() -> UserModel?{
         return userModel
@@ -37,10 +36,11 @@ class UserService  {
     }
     
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
+        
         //check if URL is valid
         let profileURL = NSURL(string: ApiConfig.baseUrl + ApiConfig.usersUrl + String(userId))
         
-        Alamofire.request(.GET, profileURL!).validate().responseJSON { response in
+        Alamofire.request(.GET, profileURL!, headers: ApiConfig.headers).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
