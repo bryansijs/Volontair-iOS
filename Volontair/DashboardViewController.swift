@@ -28,16 +28,16 @@ class DashboardViewController: UIViewController {
         
         let volontairApiService = VolontairApiService(controller: self)
 
-        if(!isLoggedIn()) {
-            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-            return
-        }
-        
-//        if(isLoggedIn()) {
-//            volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
-//        } else {
-//            volontairApiService.login()
+//        if(!isLoggedIn()) {
+//            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+//            return
 //        }
+        
+        if(isLoggedIn()) {
+            volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
+        } else {
+            volontairApiService.login()
+        }
         
         //self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
         
@@ -45,7 +45,7 @@ class DashboardViewController: UIViewController {
         
         if welcomeLabel != nil {
             // Set welcome text with name
-            welcomeLabel.text = "Welcome \(userfirstname)!"
+            welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
         setData()
