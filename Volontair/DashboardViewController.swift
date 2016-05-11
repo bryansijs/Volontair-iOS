@@ -35,7 +35,7 @@ class DashboardViewController: UIViewController {
         
         if welcomeLabel != nil {
             // Set welcome text with name
-            welcomeLabel.text = "Welcome \(userfirstname)!"
+            welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
         setData()
