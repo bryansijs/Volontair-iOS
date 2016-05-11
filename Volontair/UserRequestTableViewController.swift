@@ -16,23 +16,24 @@ class UserRequestTableViewController: UITableViewController {
     let userService = ServiceFactory.sharedInstance.userService
     let requests = [RequestModel]()
     
-    
     override func viewWillAppear(animated: Bool) {
         //self.requestTableView.setEditing(true, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.title = "Aanvragen"
     }
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
-    // MARK: - UITableViewDataSource
+    // MARK: - UITable Delete functionality
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // let the controller to know that able to edit tableView's row
         return true
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    
+        // needs to be overwritten but can be empty
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -48,6 +49,9 @@ class UserRequestTableViewController: UITableViewController {
         return [deleteAction]
     }
     
+    
+    // MARK: - UITableView
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return userService.userModel!.requests.count
@@ -60,5 +64,22 @@ class UserRequestTableViewController: UITableViewController {
         cell.textLabel?.text = userService.userModel?.requests[indexPath.row].title
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        performSegueWithIdentifier("showUserRequestDetail", sender: currentCell)
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showUserRequestDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let request = userService.userModel?.requests[indexPath.row]
+                let controller = (segue.destinationViewController as! UserRequestDetailViewController)
+                controller.detailItem = request
+            }
+        }
     }
 }

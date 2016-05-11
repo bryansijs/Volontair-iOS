@@ -36,6 +36,7 @@
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
 		EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D871CE33753000753AB /* UserRequestTableViewController.swift */; };
+		EF098D8A1CE36065000753AB /* UserRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -151,6 +152,7 @@
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
 		EF098D871CE33753000753AB /* UserRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestTableViewController.swift; sourceTree = "<group>"; };
+		EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestDetailViewController.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */,
 				EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */,
 				EF098D871CE33753000753AB /* UserRequestTableViewController.swift */,
+				EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */,
 				EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
+				EF098D8A1CE36065000753AB /* UserRequestDetailViewController.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 				EFF75AAD1CDA19DB00090ACB /* CategoryTableViewController.swift in Sources */,
 				2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */,

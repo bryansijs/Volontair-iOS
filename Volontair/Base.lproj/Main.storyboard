@@ -790,7 +790,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YvQ-dm-hqc">
-                                <rect key="frame" x="20" y="239" width="560" height="312"/>
+                                <rect key="frame" x="20" y="239" width="560" height="317"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr6-Wi-JtL">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
@@ -801,19 +801,25 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axn-Yn-kKX">
+                                        <rect key="frame" x="0.0" y="26" width="560" height="30"/>
+                                        <state key="normal" title="Aanvragen"/>
+                                        <connections>
+                                            <segue destination="zBa-3S-jeu" kind="show" id="hl0-JA-Ggj"/>
+                                        </connections>
+                                    </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hmH-ES-hCM">
-                                        <rect key="frame" x="0.0" y="26" width="560" height="29"/>
+                                        <rect key="frame" x="0.0" y="61" width="560" height="29"/>
                                         <segments>
                                             <segment title="Over"/>
                                             <segment title="Vraag"/>
                                         </segments>
                                         <connections>
                                             <action selector="indexChanged:" destination="lof-7X-Xfp" eventType="valueChanged" id="znF-PQ-yl4"/>
-                                            <segue destination="zBa-3S-jeu" kind="show" id="kje-Kq-gtK"/>
                                         </connections>
                                     </segmentedControl>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGk-h7-VhQ">
-                                        <rect key="frame" x="0.0" y="59" width="560" height="253"/>
+                                        <rect key="frame" x="0.0" y="94" width="560" height="223"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Over mij" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovk-Xn-qxP">
                                                 <rect key="frame" x="8" y="8" width="64" height="21"/>
@@ -879,7 +885,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="2UI-vG-DsS"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="AboutMeLabel" destination="qVD-mG-hhD" id="Qvv-85-sWk"/>
                         <outlet property="FriendsLabel" destination="cij-8x-SrB" id="d9P-DP-JFn"/>
@@ -927,16 +935,17 @@
                     </tableView>
                     <connections>
                         <outlet property="requestTableView" destination="7cR-X4-1Aa" id="3Xp-XD-8A8"/>
+                        <segue destination="3X1-Pu-W07" kind="show" identifier="showUserRequestDetail" id="QPq-oS-KMV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mf-4a-8zI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4051" y="481"/>
         </scene>
-        <!--View Controller-->
+        <!--User Request Detail View Controller-->
         <scene sceneID="BTN-dV-8WL">
             <objects>
-                <viewController id="3X1-Pu-W07" sceneMemberID="viewController">
+                <viewController id="3X1-Pu-W07" customClass="UserRequestDetailViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kyq-Zf-0Y9"/>
                         <viewControllerLayoutGuide type="bottom" id="ex6-20-YCH"/>
@@ -944,8 +953,56 @@
                     <view key="view" contentMode="scaleToFill" id="kg5-ae-vSO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5j-Hd-gYb">
+                                <rect key="frame" x="20" y="72" width="560" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="whi-tX-wXp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omschrijving:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGc-IR-hCf">
+                                <rect key="frame" x="20" y="127" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
+                                <rect key="frame" x="20" y="156" width="560" height="206"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="Soq-84-xqt"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CHp-Cv-LRC" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="3hA-Fd-Oij"/>
+                            <constraint firstItem="f5j-Hd-gYb" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="9qs-qN-Gb7"/>
+                            <constraint firstItem="jGc-IR-hCf" firstAttribute="top" secondItem="f5j-Hd-gYb" secondAttribute="bottom" constant="20" id="GcP-WW-1PC"/>
+                            <constraint firstItem="CHp-Cv-LRC" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="LM7-Uv-X6h"/>
+                            <constraint firstItem="f5j-Hd-gYb" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="8" id="NXF-Wz-Yv5"/>
+                            <constraint firstItem="CHp-Cv-LRC" firstAttribute="top" secondItem="jGc-IR-hCf" secondAttribute="bottom" constant="8" id="PL7-xd-jTK"/>
+                            <constraint firstItem="jGc-IR-hCf" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="guk-hm-hbw"/>
+                            <constraint firstItem="f5j-Hd-gYb" firstAttribute="centerX" secondItem="kg5-ae-vSO" secondAttribute="centerX" id="h9f-H7-j2R"/>
+                            <constraint firstItem="f5j-Hd-gYb" firstAttribute="centerY" secondItem="kg5-ae-vSO" secondAttribute="centerY" id="k8m-f9-Syj"/>
+                            <constraint firstItem="f5j-Hd-gYb" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="oYf-Dm-vsF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="k8m-f9-Syj"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="detailTextView" destination="CHp-Cv-LRC" id="9Bi-7G-IKc"/>
+                        <outlet property="titleLabel" destination="f5j-Hd-gYb" id="EFs-XM-hfP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2Z-MZ-pzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
