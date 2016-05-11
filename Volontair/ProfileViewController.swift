@@ -24,12 +24,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Profiel"
         // profile rounded image
         self.ProfileImageView.layer.cornerRadius = self.ProfileImageView.frame.size.width / 2
         self.ProfileImageView.layer.borderWidth = 3.0
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
+        
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         

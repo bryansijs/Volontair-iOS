@@ -19,7 +19,7 @@ class UserRequestTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         //self.requestTableView.setEditing(true, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.title = "Aanvragen"
+        self.title = "Aanvragen"
     }
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
