@@ -35,6 +35,7 @@
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
+		EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D871CE33753000753AB /* UserRequestTableViewController.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -149,6 +150,7 @@
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
+		EF098D871CE33753000753AB /* UserRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestTableViewController.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */,
 				EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */,
 				EF2E81E21CBEDE6C00FD141C /* ProfileServiceFactory.swift */,
+				EF098D871CE33753000753AB /* UserRequestTableViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
 				EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */,
 				EF3E527F1CC00B6F0053A701 /* ConversationModel.swift in Sources */,
+				EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */,
 				EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */,
 				EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,

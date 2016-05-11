@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         setData()
     }
@@ -61,7 +63,7 @@ class ProfileViewController: UIViewController {
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = ""
             for request in (profileService.getUserProfileModel()?.requests)!{
-                AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
+                AboutMeLabel.text = AboutMeLabel.text + request.title! + "\r\n"
             }
         default:
             break;

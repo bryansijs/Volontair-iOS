@@ -103,8 +103,9 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     private func submitRequestForm(){
         let validated = validateRequestForm()
         if validated {
-            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString())
+            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString(), iconKey: categoryTextField.text!)
             ServiceFactory.sharedInstance.requestService.submitRequest(request)
+        
             showRequestSuccessfulAlert()
         }
     }
@@ -112,7 +113,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     private func submitOfferForm(){
         let validated = validateRequestForm()
         if validated {
-            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString())
+            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString(), iconKey: categoryTextField.text!)
             ServiceFactory.sharedInstance.offerService.submitOffer(offer)
             showRequestSuccessfulAlert()
         }

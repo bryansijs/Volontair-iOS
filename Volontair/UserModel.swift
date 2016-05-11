@@ -19,7 +19,7 @@ class UserModel {
     var offersCategories: [String: JSON]
     var contacts: [JSON]
     var offers: [JSON]
-    var requests: [JSON]
+    var requests: [RequestModel]
     
     
     init(jsonData: AnyObject){
@@ -30,7 +30,14 @@ class UserModel {
         self.offersCategories = json["offersCategories"].dictionaryValue
         self.contacts = json["contacts"].arrayValue
         self.offers = json["offers"].arrayValue
-        self.requests = json["requests"].arrayValue
+        self.requests = [RequestModel]()
+        
+        if let items = json["requests"].arrayObject {
+            for item in items {
+                self.requests.append(RequestModel(jsonData: item))
+            }
+        }
+        
         self.profilePicture = NSData()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
