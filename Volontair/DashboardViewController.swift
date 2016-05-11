@@ -28,16 +28,16 @@ class DashboardViewController: UIViewController {
         
         let volontairApiService = VolontairApiService(controller: self)
 
-//        if(!isLoggedIn()) {
-//            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-//            return
-//        }
-        
-        if(isLoggedIn()) {
-            volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
-        } else {
-            volontairApiService.login()
+        if(!isLoggedIn()) {
+            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+            return
         }
+        
+//        if(isLoggedIn()) {
+//            volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
+//        } else {
+//            volontairApiService.login()
+//        }
         
         //self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
         
