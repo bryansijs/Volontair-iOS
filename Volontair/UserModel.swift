@@ -35,9 +35,9 @@ class UserModel {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //Download profile picutre async
-            let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
-            let url = NSURL(string: imageURL)
-            self.profilePicture = NSData(contentsOfURL: url!)!
+            //let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
+            //let url = NSURL(string: imageURL)
+            //self.profilePicture = NSData(contentsOfURL: url!)!
         }
     }
 }

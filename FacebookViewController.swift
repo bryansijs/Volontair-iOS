@@ -58,21 +58,24 @@ class FacebookViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print ("error \(error)")
                 return
             }
-            print("login succeeded")
             
             if let userData = result as? NSDictionary {
                 
                 let firstname = userData["first_name"] as? String
+                let token = FBSDKAccessToken.currentAccessToken().tokenString
                 
                 print("Retrieved data from Facebook:")
                 print(result)
                 
-                print("----------------------------------------------")
-                print(FBSDKAccessToken.currentAccessToken().tokenString)
-                print("----------------------------------------------")
+                //login api met token
+                //let volontairApiService = VolontairApiService(controller: self)
+                //volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
                 
                 //Save username in settings
+                
                 self.prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
+                self.prefs.setObject(token ,forKey: "VolontairFacebookToken")
+                
                 self.prefs.synchronize()
                 
                 print("username preference added")

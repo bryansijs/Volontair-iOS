@@ -33,15 +33,14 @@ class DashboardViewController: UIViewController {
 //            return
 //        }
         
-        if(isLoggedIn()) {
+        if(isLoggedInToFacebook()) {
             volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
         } else {
-            volontairApiService.login()
+            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+            return
         }
         
-        //self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-        
-        //userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
+        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
         
         if welcomeLabel != nil {
             // Set welcome text with name
@@ -55,10 +54,17 @@ class DashboardViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func isLoggedInToApi() -> String? {
+        if let token = prefs.stringForKey("VolontairApiToken") {
+            return token
+        } else {
+            return nil
+        }
+    }
     
     // Function for checking if the user is logged in using Facebook
-    func isLoggedIn() -> Bool {
-        return false
+    func isLoggedInToFacebook() -> Bool {
+        //return false
         if(FBSDKAccessToken.currentAccessToken() != nil) {
             //
             print("User already logged in")
