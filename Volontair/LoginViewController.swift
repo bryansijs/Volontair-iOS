@@ -24,13 +24,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.stopAnimating()
-        activityIndicator.hidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = false
         
         if let token = volontairApiService.getVolontairApiToken() {
             
             volontairApiService.login(self.redirectToDashboard , completeErrorHandler: self.error)
             self.redirectToDashboard()
+        }else {
+            activityIndicator.hidden = true
+            activityIndicator.stopAnimating()
         }
         
     }
@@ -94,6 +97,8 @@ class LoginViewController: UIViewController {
     }
     
     func error() {
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
         print("Something went wrong")
     }
     

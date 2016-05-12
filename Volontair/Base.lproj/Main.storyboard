@@ -166,7 +166,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="sKE-Nb-tIF" id="J4l-Y0-NRn"/>
                         <segue destination="BUl-iV-mjC" kind="unwind" unwindAction="unwindToDashboard:" id="TGO-fA-uMX"/>
-                        <segue destination="H0Q-Ch-kR8" kind="presentation" identifier="showDashBoardSegue" modalTransitionStyle="coverVertical" id="SWu-JZ-V8I"/>
+                        <segue destination="aV0-b1-kqn" kind="presentation" identifier="showDashBoardSegue" id="gAJ-AO-VvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="265-jH-pJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1554,7 +1554,4 @@
         <image name="icon_technical_questions" width="24" height="24"/>
         <image name="icon_transportation" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="SWu-JZ-V8I"/>
-    </inferredMetricsTieBreakers>
 </document>

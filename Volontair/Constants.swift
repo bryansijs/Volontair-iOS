@@ -35,10 +35,6 @@ struct Config{
     static let conversationUrl = "conversations/"
     static let categoryUrl = "categories/"
     
-    //VolontairApiService
-    static var facebookToken = ""
-    static var VolontairApiToken = ""
-    
     // provided from conversations
     static let messagesUrl = "messages/"
     static let profileNotificationKey = "ProfileDataUpdated"
@@ -60,6 +56,7 @@ struct Config{
 
 struct ApiConfig{
     static let baseUrl = "https://volontair.herokuapp.com/api/v1"
+    static var headers : [String: String] = [:]
     
     static let requestsEndPoint = "/requests/"
     static let offersEndPoint = "/offers/"
@@ -85,8 +82,9 @@ struct ApiConfig{
     static let categoryUrl = "/categories/"
     
     //VolontairApiService
-    static var facebookToken = ""
-    static var VolontairApiToken = ""
+    static let registerFacebookTokenUrl = "https://volontair.herokuapp.com/auth/facebook/client?accessToken=";
+    static let getVolontairApiTokenUrl = "https://volontair.herokuapp.com/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
+    static let getMeUrl = "/users/me"
     
     // provided from conversations
     static let messagesUrl = "/messages/"
@@ -107,10 +105,10 @@ struct ApiConfig{
     ]
     
     //Delete this later
-    static let headers = [
-        "Content-Type": "application/json",
-        "Authorization": "Bearer ef151458-a5e1-4060-9212-f2422a38108a",
-        "Accept": "application/json"
-    ]
+//    static let headers = [
+//        "Content-Type": "application/json",
+//        "Authorization": "Bearer ef151458-a5e1-4060-9212-f2422a38108a",
+//        "Accept": "application/json"
+//    ]
 
 }

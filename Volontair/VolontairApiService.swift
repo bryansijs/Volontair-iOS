@@ -14,13 +14,6 @@ import UIKit
 class VolontairApiService {
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    let baseOnlineUrl = "http://volontair.herokuapp.com"
-    let baseUrl = "http://192.168.178.49:6789"//"http://192.168.178.49:6789"
-    let registerFacebookTokenUrl = "/auth/facebook/client?accessToken=";
-    let getVolontairApiTokenUrl = "/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
-    let getMeUrl = "/api/v1/users/me"
-    //let tempvolontairToken = "fca4a7c6-23c0-4974-82e1-3d2e2e29c9d9"
-    
     internal func login(facebookToken: String , completionHandler:()->Void ) {
         if let token = getVolontairApiToken() {
             self.checkApiAuthentication(token, completeSuccesHandler: completionHandler)
@@ -33,11 +26,7 @@ class VolontairApiService {
         if let token = getVolontairApiToken() {
             self.checkApiAuthentication(token, completeSuccesHandler: completeSuccesHandler)
         } else {
-            if self.getFacebookToken() != "" {
-                self.loginApi(self.getFacebookToken()!, completeSuccseHandler: completeSuccesHandler)
-            } else {
-                completeErrorHandler()
-            }
+            completeErrorHandler()
         }
     }
     
@@ -47,7 +36,7 @@ class VolontairApiService {
             "Authorization" : "Bearer \(volontairToken)"
         ]
         
-        Alamofire.request(.GET, self.baseUrl + self.getMeUrl, headers: headers, encoding: .JSON)
+        Alamofire.request(.GET, ApiConfig.baseUrl + ApiConfig.getMeUrl, headers: headers, encoding: .JSON)
             .responseJSON { response in
                 switch response.result {
                 case .Success(let JSON):
@@ -71,10 +60,10 @@ class VolontairApiService {
     private func loginApi(facebookToken : String, completeSuccseHandler:()->Void?) {
         let headers = [ "Content-Type" : "application/json" ]
         
-        Alamofire.request(.GET, self.baseUrl + self.registerFacebookTokenUrl + facebookToken , headers: headers)
+        Alamofire.request(.GET, ApiConfig.registerFacebookTokenUrl + facebookToken , headers: headers)
             .responseData { response in
                 
-                Alamofire.request(.GET, self.baseUrl + self.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
+                Alamofire.request(.GET, ApiConfig.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
                     .responseString() { response in
                         
                         print(response.response)
@@ -91,8 +80,8 @@ class VolontairApiService {
         }
     }
     
-    private func setGlobalHeaders(headers : [NSObject: AnyObject]) {
-        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
+    private func setGlobalHeaders(headers : [String: String]) {
+        ApiConfig.headers = headers;
     }
     
     // Getters en Setters
