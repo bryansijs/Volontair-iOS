@@ -9,9 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-struct DashboardViewControllerConstants {
-    static let showFacebookModalSegue = "showfacebookmodalsegue"
-}
+
 
 class DashboardViewController: UIViewController {
 
@@ -28,16 +26,15 @@ class DashboardViewController: UIViewController {
         
         let volontairApiService = VolontairApiService(controller: self)
 
-//        if(!isLoggedIn()) {
-//            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-//            return
-//        }
-        
-        if(isLoggedInToFacebook()) {
-            volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
+        if self.isLoggedInToApi() != nil {
+            volontairApiService.login()
         } else {
-            self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-            return
+            if(isLoggedInToFacebook()) {
+                volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
+            } else {
+                //self.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
+                return
+            }
         }
         
         userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
@@ -64,7 +61,6 @@ class DashboardViewController: UIViewController {
     
     // Function for checking if the user is logged in using Facebook
     func isLoggedInToFacebook() -> Bool {
-        //return false
         if(FBSDKAccessToken.currentAccessToken() != nil) {
             //
             print("User already logged in")

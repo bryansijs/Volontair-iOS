@@ -35,6 +35,7 @@
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
+		E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -149,6 +150,7 @@
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
+		E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				E8F928C71CE381C600DDCB61 /* Login */,
 				E891DCFA1CE27DB800D9F560 /* Extensions */,
 				2FFAA74C1CC0F0D80086CD6F /* Map */,
 				EFF4D63E1CBFA31A001AE6E3 /* Contacts */,
@@ -310,6 +313,14 @@
 				E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		E8F928C71CE381C600DDCB61 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		EF2721E81CBE26A200BCD082 /* Profile */ = {
@@ -550,6 +561,7 @@
 			files = (
 				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
 				E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */,
+				E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */,
 				EF9B583F1CCF951600AA52ED /* RequestService.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EFF75AB11CDA388600090ACB /* GeoLocationViewController.swift in Sources */,

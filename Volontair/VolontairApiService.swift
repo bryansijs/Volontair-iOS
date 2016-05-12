@@ -33,14 +33,11 @@ class VolontairApiService {
     }
     
     internal func login() {
-        if self.getVolontairApiToken() != "" {
-            self.checkApiAuthentication(self.getVolontairApiToken())
-            
+        if let token = getVolontairApiToken() {
+            self.checkApiAuthentication(token)
         } else {
-            
             if self.getFacebookToken() != "" {
                 self.loginApi(self.getFacebookToken()!)
-                
             } else {
                 self.loginFacebook()
                 
@@ -88,8 +85,6 @@ class VolontairApiService {
         
         Alamofire.request(.GET, self.baseUrl + self.registerFacebookTokenUrl + facebookToken , headers: headers)
             .responseData { response in
-                print(response.response)
-                print(response.result)
                 
                 Alamofire.request(.GET, self.baseUrl + self.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
                     .responseString() { response in
