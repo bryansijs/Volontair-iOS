@@ -9,56 +9,92 @@
 import UIKit
 import Alamofire
 import FBSDKLoginKit
-import RxSwift
 
 struct LoginViewControllerConstants {
-    static let showFacebookModalSegue = "showfacebookmodalsegue"
+    static let showDashboardSegue = "showDashBoardSegue"
 }
 
 class LoginViewController: UIViewController {
     
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    let volontairApiService = VolontairApiService()
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.stopAnimating()
+        activityIndicator.hidden = true
         
-        let volontairApiService = VolontairApiService(controller: self)
+        if let token = volontairApiService.getVolontairApiToken() {
+            
+            volontairApiService.login(self.redirectToDashboard , completeErrorHandler: self.error)
+            self.redirectToDashboard()
+        }
         
-        if self.isLoggedInToApi() != nil {
-            volontairApiService.login()
-        } else {
-            if(isLoggedInToFacebook()) {
-                volontairApiService.login(FBSDKAccessToken.currentAccessToken().tokenString)
-            } else {
-                self.performSegueWithIdentifier(LoginViewControllerConstants.showFacebookModalSegue, sender: self)
-                
-                return
+    }
+    
+    @IBAction func btnFacebookLogin(sender: AnyObject) {
+        if !activityIndicator.isAnimating() {
+            
+            activityIndicator.hidden = false
+            activityIndicator.startAnimating()
+            
+            let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+            fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in
+                if (error == nil){
+                    let fbloginresult : FBSDKLoginManagerLoginResult = result
+                    if(fbloginresult.grantedPermissions.contains("email"))
+                    {
+                        //maak request voor standaard data en token
+                        self.getFBUserData()
+                    }
+                }
             }
         }
-
     }
     
-    func isLoggedInToApi() -> String? {
-        if let token = prefs.stringForKey("VolontairApiToken") {
-            return token
-        } else {
-            return nil
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("User Logged Out")
+    }
+    
+    func getFBUserData(){
+        if((FBSDKAccessToken.currentAccessToken()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name,gender,birthday,first_name,last_name,email"])
+                .startWithCompletionHandler({ (connection, result, error) -> Void in
+                if (error != nil){
+                    print("getFBUserData error \(error)");
+                }
+                    
+                    if let userData = result as? NSDictionary {
+                        let firstname = userData["first_name"] as? String
+                        let token = FBSDKAccessToken.currentAccessToken().tokenString
+        
+                        print("Retrieved data from Facebook:")
+                        print(result)
+        
+                        self.volontairApiService.login(token, completionHandler: self.redirectToDashboard)
+                        
+                        //Save username & token in settings
+        
+                        self.prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
+                        self.prefs.setObject(token ,forKey: "VolontairFacebookToken")
+                        
+                        self.prefs.synchronize()
+                    }
+            })
         }
     }
     
-    // Function for checking if the user is logged in using Facebook
-    func isLoggedInToFacebook() -> Bool {
-        if(FBSDKAccessToken.currentAccessToken() != nil) {
-            //
-            print("User already logged in")
-            let token = FBSDKAccessToken.currentAccessToken()
-            print(FBSDKAccessToken.currentAccessToken().tokenString)
-            print(FBSDKAccessToken.currentAccessToken().description)
-            
-            return true
-        }
-        print("User not logged in")
-        return false
+    func redirectToDashboard() {
+        // TODO check of home gezet is ander naar configuratie
+        self.performSegueWithIdentifier(LoginViewControllerConstants.showDashboardSegue, sender: self)
+    }
+    
+    func error() {
+        print("Something went wrong")
     }
     
     

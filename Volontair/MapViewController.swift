@@ -54,7 +54,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             object: nil)
         
         // Default is showing offer makers
-        setOffers()
+        setUserOffers()
     }
     
     func clearMarkers() {
@@ -80,19 +80,38 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func setOffers() {
-        // Check if the call is legit
+//    func setOffers() {
+//        // Check if the call is legit
+//        if currentPage != segmentedControlPages.OffersMap {
+//            return
+//        }
+//        print("Set Offer markers")
+//        // Clear all current markers from the map
+//        clearMarkers()
+//        // Iterate over all offers currently in the MapViewModel at MapService
+//        if let model = mapService.getMapViewModel() {
+//            if let offers = model.offers {
+//                for offer in offers {
+//                    addMapMarkerToMap(offer)
+//                }
+//            }
+//        }
+//    }
+    
+    func setUserOffers() {
+        
         if currentPage != segmentedControlPages.OffersMap {
             return
         }
-        print("Set Offer markers")
+        print("Set UserOffer markers")
         // Clear all current markers from the map
         clearMarkers()
         // Iterate over all offers currently in the MapViewModel at MapService
+        
         if let model = mapService.getMapViewModel() {
-            if let offers = model.offers {
-                for offer in offers {
-                    addMapMarkerToMap(offer)
+            if let offers = model.users {
+                for userOffer in offers {
+                    addMapMarkerToMap(userOffer)
                 }
             }
         }
@@ -106,7 +125,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             // Set currentPage enum to OffersMap
             currentPage = segmentedControlPages.OffersMap
             // Get and set Offers (Add to map)
-            setOffers()
+            setUserOffers()
             break;
         case 1:
             // Set currentPage enum to RequestsMap
@@ -168,7 +187,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func updateOnOffersUpdatedNotification() {
-        setOffers()
+        setUserOffers()
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

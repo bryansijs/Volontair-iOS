@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         MapService.sharedInstance.getRequests()
-        MapService.sharedInstance.getOffers()
+        MapService.sharedInstance.getUsersInNeighbourhood()
         
         //Load user object
         ServiceFactory.sharedInstance.getUserService().loadUserDataFromServer(1)
