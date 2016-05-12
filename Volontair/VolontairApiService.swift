@@ -23,7 +23,7 @@ class VolontairApiService {
     
     internal func login(facebookToken: String , completionHandler:()->Void ) {
         if let token = getVolontairApiToken() {
-           self.checkApiAuthentication(token, completeSuccesHandler: completionHandler)
+            self.checkApiAuthentication(token, completeSuccesHandler: completionHandler)
         } else {
             self.loginApi(facebookToken, completeSuccseHandler: completionHandler )
         }
@@ -83,7 +83,7 @@ class VolontairApiService {
                         let URL = response.response?.URL?.fragments //In extension/NSURLFragmentExtension
                         
                         if URL?.count > 0 {
-                                self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler);
+                            self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler);
                         } else {
                             //Facebook token is wrong
                         }

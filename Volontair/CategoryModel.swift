@@ -7,11 +7,18 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class CategoryModel {
     
     var name: String
     var iconName: String
+    
+    init(JSONData: AnyObject) {
+        let data = JSON(JSONData)
+        self.name = data["name"].stringValue
+        self.iconName = data["iconKey"].stringValue
+    }
     
     init(name:String,iconName: String){
         self.name = name

@@ -14,7 +14,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     var conversations = [ConversationModel]()
     var skillCategories = [String: CategoryModel]()
     
-    let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
+    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
     
     
     
@@ -72,7 +72,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         
         cell.nameLabel.text = conversation.name
         cell.lastMessageLabel.text = conversation.lastMessage
-        cell.timeLabel.text = contactSercvice.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
+        cell.timeLabel.text = contactService.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
         
         // round images
         cell.contactImageView.layer.cornerRadius = cell.contactImageView.frame.size.width / 2
@@ -83,11 +83,11 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             
             let imageURL = Config.url + conversation.avatarUrl
             let url = NSURL(string: imageURL)
-            let imageData = NSData(contentsOfURL: url!)!
+//            let imageData = NSData(contentsOfURL: url!)!
 
-            dispatch_async(dispatch_get_main_queue()) {
-                cell.contactImageView.image = UIImage(data: imageData)
-            }
+//            dispatch_async(dispatch_get_main_queue()) {
+//                cell.contactImageView.image = UIImage(data: imageData)
+//            }
         }
         
         return cell
@@ -97,7 +97,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadConversations() {
         self.conversations.removeAll()
-        self.contactSercvice.conversations()
+        self.contactService.conversations()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()
@@ -113,7 +113,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadConversationsFilteredBy(filter: String){
         self.conversations.removeAll()
-        self.contactSercvice.conversationsFilteredByCategory(filter)
+        self.contactService.conversationsFilteredByCategory(filter)
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()
@@ -130,7 +130,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func loadCategories() {
         self.skillCategories.removeAll()
         skillCategories["-"] = CategoryModel(name: "-", iconName: "")
-        contactSercvice.categories()
+        contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()

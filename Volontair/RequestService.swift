@@ -24,7 +24,7 @@ class RequestService{
             ]
         ]
         
-        Alamofire.request(.POST, Config.url + Config.requestsPOSTPoint, parameters: parameters, encoding: .JSON).response { request, response, data, error in
+        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
             print(request)
             print(response)
             print(data)
@@ -34,12 +34,16 @@ class RequestService{
     
     //GET
     func loadRequestDataFromServer(completionHandler: ([RequestModel]?,NSError?) -> Void) {
-        Alamofire.request(.GET, Config.url + Config.requestsEndPoint).validate().responseJSON { response in
+        
+        //check if URL is valid
+        let requestUrl = NSURL(string: ApiConfig.baseUrl + ApiConfig.requestsEndPoint)
+        
+        Alamofire.request(.GET, requestUrl!, headers: ApiConfig.headers).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    
-                    for request in value["data"] as! [[String:AnyObject]] {
+                    for request in value["_embedded"]!!["requests"] as! [[String:AnyObject]] {
+                        print(request)
                         self.requests.append(RequestModel(jsonData: request))
                     }
                     completionHandler(self.requests, nil)

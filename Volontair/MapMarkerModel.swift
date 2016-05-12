@@ -17,8 +17,9 @@ class MapMarkerModel: NSObject, MKAnnotation {
     let category: String
     let summary: String
     let coordinate: CLLocationCoordinate2D
+//    let closed: Bool
     let created: String
-    let updated: String
+    let updated: String?
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
@@ -26,14 +27,15 @@ class MapMarkerModel: NSObject, MKAnnotation {
         // Initialize model with JSON data here
         title = json["title"].stringValue
         category = json["category"].stringValue
-        summary = json["summary"].stringValue
+        summary = json["description"].stringValue
         
-        let lat = json["location"]["lat"].doubleValue
-        let lon = json["location"]["lng"].doubleValue
+        let lat = json["latitude"].doubleValue
+        let lon = json["longitude"].doubleValue
+//        closed = json["closed"].boolValue
         coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         
         created = json["created"].stringValue
-        updated = json["updated"].stringValue
+        updated = json["updated"].string
     }
     
     init(title: String?, category: String, summary: String, coordinate:CLLocationCoordinate2D, created: String, updated:String){
@@ -41,6 +43,7 @@ class MapMarkerModel: NSObject, MKAnnotation {
         self.category = category
         self.summary = summary
         self.coordinate = coordinate
+//        self.closed = closed
         self.created = created
         self.updated = updated
     }
