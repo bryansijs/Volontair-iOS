@@ -19,23 +19,23 @@ class VolontairApiService {
         userService = ServiceFactory.sharedInstance.getUserService()
     }
     
-    internal func login(facebookToken: String , completionHandler:()->Void ) {
+    internal func login(facebookToken: String , completionHandler:()->Void, completionErrorhandler:()->Void? ) {
         if let token = getVolontairApiToken() {
-            self.checkApiAuthentication(token, completeSuccesHandler: completionHandler)
+            self.checkApiAuthentication(token, completeSuccesHandler: completionHandler, completeErrorHandler: completionErrorhandler)
         } else {
-            self.loginApi(facebookToken, completeSuccseHandler: completionHandler )
+            self.loginApi(facebookToken, completeSuccseHandler: completionHandler, completeErrorHandler: completionErrorhandler )
         }
     }
     
     internal func login(completeSuccesHandler:()->Void, completeErrorHandler:()->Void ) {
         if let token = getVolontairApiToken() {
-            self.checkApiAuthentication(token, completeSuccesHandler: completeSuccesHandler)
+            self.checkApiAuthentication(token, completeSuccesHandler: completeSuccesHandler, completeErrorHandler: completeErrorHandler)
         } else {
             completeErrorHandler()
         }
     }
     
-    private func checkApiAuthentication(volontairToken : String, completeSuccesHandler:()->Void? ) {
+    private func checkApiAuthentication(volontairToken : String, completeSuccesHandler:()->Void? , completeErrorHandler:()->Void?) {
         let headers = [
             "Content-Type" : "application/json",
             "Authorization" : "Bearer \(volontairToken)"
@@ -47,13 +47,23 @@ class VolontairApiService {
                 case .Success(let JSON):
                     
                     if let name = JSON["name"] {
-                        print("Jep data is legetiem \(name)")
-                        self.setGlobalHeaders(headers)
-                        self.setVolontairApiToken(volontairToken)
-                        
-                        self.userService.setCurrentUser(UserModel(jsonData: JSON))
-                        
-                        completeSuccesHandler()
+                        if(name != nil) {
+                            print("Jep data is legetiem \(name)")
+                            self.setGlobalHeaders(headers)
+                            print("VolontairApiToken = ",volontairToken)
+                            
+                            if let value = response.result.value {
+                                let user = UserModel(jsonData: value)
+                                self.userService.setCurrentUser(user)
+                            }
+                            
+                            self.setVolontairApiToken(volontairToken)
+                            completeSuccesHandler()
+                        } else {
+                            self.prefs.removeObjectForKey("VolontairApiToken")
+                            self.prefs.removeObjectForKey("VolontairFacebookToken")
+                            completeErrorHandler()
+                        }
                     } else {
                         
                         print("shit dit go wrong")
@@ -65,7 +75,7 @@ class VolontairApiService {
     }
     
     
-    private func loginApi(facebookToken : String, completeSuccseHandler:()->Void?) {
+    private func loginApi(facebookToken : String, completeSuccseHandler:()->Void?, completeErrorHandler:()->Void?) {
         let headers = [ "Content-Type" : "application/json" ]
         
         Alamofire.request(.GET, ApiConfig.registerFacebookTokenUrl + facebookToken , headers: headers)
@@ -79,7 +89,7 @@ class VolontairApiService {
                         
                         if URL?.count > 0 {
                             print(URL!["access_token"])
-                            self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler);
+                            self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler, completeErrorHandler: completeErrorHandler);
                         } else {
                             //Facebook token is wrong
                         }

@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
                         print("Retrieved data from Facebook:")
                         print(result)
         
-                        self.volontairApiService.login(token, completionHandler: self.redirectToDashboard)
+                        self.volontairApiService.login(token, completionHandler: self.redirectToDashboard, completionErrorhandler: self.error)
                         
                         //Save username & token in settings
         

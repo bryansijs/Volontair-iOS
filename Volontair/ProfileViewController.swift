@@ -42,7 +42,8 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        if let data = profileService.getUserProfileModel(){
+        
+        if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
             self.ProfileNameLabel.text = data.name
             self.AboutMeLabel.text = data.summary
             self.ProfileImageView.image = UIImage(data: data.profilePicture)

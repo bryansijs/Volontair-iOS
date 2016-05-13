@@ -41,6 +41,10 @@ class UserService  {
         self.userMe = user
     }
     
+    func getCurrentUser() -> UserModel? {
+        return self.userMe
+    }
+    
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
         
         //check if URL is valid
