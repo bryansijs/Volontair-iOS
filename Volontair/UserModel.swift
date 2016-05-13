@@ -11,7 +11,7 @@ import SwiftyJSON
 import Alamofire
 
 class UserModel {
-    
+    var userId: Int
     var username : String
     var name: String
     var profilePicture: NSData
@@ -30,11 +30,13 @@ class UserModel {
         self.profilePicture = NSData()
         self.summary = json["summary"].stringValue
         self.enabled = json["enabled"].boolValue
-        self.requestsLink = json["_link"]["requests"].stringValue
-        self.listenerConversationsLink = json["_link"]["conversations"].stringValue
-        self.categoriesLink = json["_link"]["categories"].stringValue
+        self.requestsLink = json["_links"]["requests"]["href"].stringValue
+        self.listenerConversationsLink = json["_links"]["listenerConversations"]["href"].stringValue
+        self.categoriesLink = json["_links"]["categories"]["href"].stringValue
         self.latitude = json["latitude"].stringValue
         self.longitude = json["longitude"].stringValue
+        let userIdString = json["_links"]["self"]["href"].stringValue.regex("[1-9]*$")[0]
+        self.userId = Int(userIdString)!
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //Download profile picutre async
