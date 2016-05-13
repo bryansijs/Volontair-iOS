@@ -41,9 +41,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapService.getRequests()
         mapService.getUsersInNeighbourhood()
-        
-
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -192,10 +189,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             // Set region on map once by user location and stop updating
             let l = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             // Todo: bind Span to radius set by user?
-            let span = MKCoordinateSpanMake(Config.defaultMapLatitudeDelta, Config.defaultMapLongitudeDelta)
-            let region = MKCoordinateRegion(center: l, span: span)
-            mapView.setRegion(region, animated: true)
-            locationManager.stopUpdatingLocation()
         }
     }
 }

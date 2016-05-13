@@ -167,12 +167,13 @@
                         <outlet property="activityIndicator" destination="sKE-Nb-tIF" id="J4l-Y0-NRn"/>
                         <segue destination="BUl-iV-mjC" kind="unwind" unwindAction="unwindToDashboard:" id="TGO-fA-uMX"/>
                         <segue destination="aV0-b1-kqn" kind="presentation" identifier="showDashBoardSegue" id="gAJ-AO-VvQ"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showWizardSegue" id="iuy-Jl-kY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="265-jH-pJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BUl-iV-mjC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="226"/>
+            <point key="canvasLocation" x="-1103" y="226"/>
         </scene>
         <!--User Type View Controller-->
         <scene sceneID="hzs-rb-KmS">

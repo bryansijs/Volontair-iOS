@@ -12,6 +12,7 @@ import FBSDKLoginKit
 
 struct LoginViewControllerConstants {
     static let showDashboardSegue = "showDashBoardSegue"
+    static let showWizardSegue = "showWizardSegue"
 }
 
 class LoginViewController: UIViewController {
@@ -28,9 +29,7 @@ class LoginViewController: UIViewController {
         activityIndicator.hidden = false
         
         if let token = volontairApiService.getVolontairApiToken() {
-            
-            volontairApiService.login(self.redirectToDashboard , completeErrorHandler: self.error)
-            self.redirectToDashboard()
+            volontairApiService.login(self.redirectToNextView , completeErrorHandler: self.error)
         }else {
             activityIndicator.hidden = true
             activityIndicator.stopAnimating()
@@ -78,7 +77,7 @@ class LoginViewController: UIViewController {
                         print("Retrieved data from Facebook:")
                         print(result)
         
-                        self.volontairApiService.login(token, completionHandler: self.redirectToDashboard, completionErrorhandler: self.error)
+                        self.volontairApiService.login(token, completionHandler: self.redirectToNextView, completionErrorhandler: self.error)
                         
                         //Save username & token in settings
         
@@ -91,9 +90,15 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func redirectToDashboard() {
-        // TODO check of home gezet is ander naar configuratie
-        self.performSegueWithIdentifier(LoginViewControllerConstants.showDashboardSegue, sender: self)
+    func redirectToNextView() {
+        let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
+        
+//        if(lat == nil || lat == "") {
+//            self.performSegueWithIdentifier(LoginViewControllerConstants.showWizardSegue, sender: self)
+//        } else {
+            self.performSegueWithIdentifier(LoginViewControllerConstants.showDashboardSegue, sender: self)
+//        }
+
     }
     
     func error() {

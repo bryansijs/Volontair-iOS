@@ -19,7 +19,9 @@ class UserModel {
     var enabled: Bool
     var requestsLink : String
     var listenerConversationsLink: String
-    var categoriesLink: String    
+    var categoriesLink: String
+    var latitude : String
+    var longitude : String
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
@@ -31,6 +33,8 @@ class UserModel {
         self.requestsLink = json["_link"]["requests"].stringValue
         self.listenerConversationsLink = json["_link"]["conversations"].stringValue
         self.categoriesLink = json["_link"]["categories"].stringValue
+        self.latitude = json["latitude"].stringValue
+        self.longitude = json["longitude"].stringValue
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             //Download profile picutre async
