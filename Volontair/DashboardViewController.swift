@@ -26,7 +26,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        userfirstname = prefs.stringForKey(FacebookViewControllerConstants.usernamePreference)!
+        userfirstname = prefs.stringForKey(ApiConfig.facebookUsernamePreference)!
         
         if welcomeLabel != nil {
             // Set welcome text with name

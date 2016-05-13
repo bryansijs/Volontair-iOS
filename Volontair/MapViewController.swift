@@ -16,7 +16,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
-
     
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
@@ -36,6 +35,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setRequests), name: ApiConfig.requestsUpdatedNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setUserOffers), name: ApiConfig.userOffersNotificationKey, object: nil)
+        
+        mapService.getRequests()
+        mapService.getUsersInNeighbourhood()
+        
+
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -79,24 +87,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    
-//    func setOffers() {
-//        // Check if the call is legit
-//        if currentPage != segmentedControlPages.OffersMap {
-//            return
-//        }
-//        print("Set Offer markers")
-//        // Clear all current markers from the map
-//        clearMarkers()
-//        // Iterate over all offers currently in the MapViewModel at MapService
-//        if let model = mapService.getMapViewModel() {
-//            if let offers = model.offers {
-//                for offer in offers {
-//                    addMapMarkerToMap(offer)
-//                }
-//            }
-//        }
-//    }
     
     func setUserOffers() {
         

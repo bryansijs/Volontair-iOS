@@ -14,7 +14,6 @@
 		2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE876381CBA902D007D9C41 /* MapViewModel.swift */; };
 		2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */; };
 		2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */; };
-		2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
 		2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 		2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCA1CC95949005CDE2C /* UserService.swift */; };
@@ -124,7 +123,6 @@
 		2FB60C231C946F2C0002BB51 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
 		2FD6F1A91CBA664C00879F7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestModel.swift; path = ../RequestModel.swift; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 		EF2721E91CBE270700BCD082 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */,
 				2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */,
@@ -579,7 +576,6 @@
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
 				2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */,
 				EF9B583D1CCF8EEA00AA52ED /* OfferService.swift in Sources */,
-				2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */,
 				2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */,
 				2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,

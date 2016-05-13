@@ -13,6 +13,11 @@ import UIKit
 
 class VolontairApiService {
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    let userService : UserService
+    
+    init() {
+        userService = ServiceFactory.sharedInstance.getUserService()
+    }
     
     internal func login(facebookToken: String , completionHandler:()->Void ) {
         if let token = getVolontairApiToken() {
@@ -45,6 +50,9 @@ class VolontairApiService {
                         print("Jep data is legetiem \(name)")
                         self.setGlobalHeaders(headers)
                         self.setVolontairApiToken(volontairToken)
+                        
+                        self.userService.setCurrentUser(UserModel(jsonData: JSON))
+                        
                         completeSuccesHandler()
                     } else {
                         
@@ -66,12 +74,11 @@ class VolontairApiService {
                 Alamofire.request(.GET, ApiConfig.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
                     .responseString() { response in
                         
-                        print(response.response)
-                        print(response.result)
                         
                         let URL = response.response?.URL?.fragments //In extension/NSURLFragmentExtension
                         
                         if URL?.count > 0 {
+                            print(URL!["access_token"])
                             self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler);
                         } else {
                             //Facebook token is wrong

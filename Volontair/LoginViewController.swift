@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
                         
                         //Save username & token in settings
         
-                        self.prefs.setObject(firstname, forKey: FacebookViewControllerConstants.usernamePreference)
+                        self.prefs.setObject(firstname, forKey: ApiConfig.facebookUsernamePreference)
                         self.prefs.setObject(token ,forKey: "VolontairFacebookToken")
                         
                         self.prefs.synchronize()

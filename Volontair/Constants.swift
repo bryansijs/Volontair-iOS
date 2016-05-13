@@ -55,6 +55,7 @@ struct Config{
 }
 
 struct ApiConfig{
+    
     static let baseUrl = "https://volontair.herokuapp.com/api/v1"
     static var headers : [String: String] = [:]
     
@@ -92,6 +93,13 @@ struct ApiConfig{
     static let dashboardNotificationKey = "DashboardDataUpdated"
     
     static let defaultCategoryIconUrl = "icon_default"
+    
+    // provided from map
+    static let requestNotificationKey = "RequestsDataUpdated"
+    static let userOffersNotificationKey = "UsersOffersDataUpdated"
+    
+    //Facebook 
+    static let facebookUsernamePreference = "volontair.preferences.username"
     
     // categories mapped to icons
     static let categoryIconDictionary: [CategoryIconModel] =

@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
         self.ProfileNameLabel.text = "profielnaam"
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
+        
         setData()
     }
     

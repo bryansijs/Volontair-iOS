@@ -104,7 +104,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Voo-iv-wak"/>
                                 </constraints>
-                                <state key="normal" title="Aanmelden">
+                                <state key="normal" title="Aanmelden Facebook">
                                     <color key="titleColor" red="0.078431372550000003" green="0.60392156860000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>

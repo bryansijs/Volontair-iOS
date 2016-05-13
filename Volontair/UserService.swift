@@ -12,9 +12,11 @@ import Alamofire
 class UserService  {
     
     var userModel : UserModel?
+    var userMe : UserModel?
     
     func getUserProfileModel() -> UserModel?{
         return userModel
+
     }
     
     func loadUserDataFromServer(userId: Int){
@@ -33,6 +35,10 @@ class UserService  {
                 print(error)
             }
         }
+    }
+    
+    func setCurrentUser(user: UserModel) {
+        self.userMe = user
     }
     
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
@@ -54,28 +60,27 @@ class UserService  {
         }
     }
     
+    
+    
     func loadUsersInNeighbourhood(completionHandler: ([UserModel]?, NSError?) ->Void) {
-        let headers = [
-            "Content-Type" : "application/json",
-            "Authorization" : "Bearer a3d457c2-39c5-44b2-9623-3cdabdb1bc4c"
-        ]
-        
-        let usersUrl = NSURL(string: "http://192.168.178.49:6789/api/v1/users")
-        
-        Alamofire.request(.GET, usersUrl!, headers: headers, encoding: .JSON).validate().responseJSON { response in
+    
+        Alamofire.request(.GET, ApiConfig.baseUrl + ApiConfig.usersUrl , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in
                 switch response.result {
                 case .Success:
                     if let value = response.result.value {
+                        var usersData : [UserModel]? = []
                         
-                        print("Success with JSON: \(value)")
+                        for user in value["_embedded"]!!["users"] as! [[String:AnyObject]] {
+                            print(user)
+                            usersData?.append(UserModel(jsonData: user))
+                            //self.requests.append(RequestModel(jsonData: request))
+                        }
                         
-//                        self.userModel = UserModel(jsonData: value)
-//                        NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.userModel)
-//                        completionHandler(self.userModel, nil)
+                        completionHandler(usersData, nil)
                     }
                 case .Failure(let error):
                     print(error)
-                    //completionHandler(nil, error)
+                    completionHandler(nil, error)
                 }
         }
 

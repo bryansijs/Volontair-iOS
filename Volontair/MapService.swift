@@ -39,21 +39,6 @@ class MapService {
         }
     }
     
-//    func getOffers() {
-//        ServiceFactory.sharedInstance.offerService.loadOffersDataFromServer{ (responseObject: [OfferModel]?, error: NSError?) in
-//            if ((error) != nil) {
-//                print(error)
-//            } else {
-//                if let offersArray = responseObject{
-//                    self.mapViewModel?.offers! = offersArray
-//                    NSNotificationCenter.defaultCenter().postNotificationName(
-//                        Config.offersUpdatedNotificationKey,
-//                        object: self.mapViewModel?.offers)
-//                }
-//            }
-//        }
-//    }
-    
     func getUsersInNeighbourhood() {
         ServiceFactory.sharedInstance.userService.loadUsersInNeighbourhood(self.completeGetUsersInNeighbourhood)
     }
@@ -72,6 +57,7 @@ class MapService {
             }
             
             self.mapViewModel?.users = data
+            NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.userOffersNotificationKey, object: nil)
             
         }
     }
