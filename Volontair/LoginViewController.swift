@@ -47,10 +47,14 @@ class LoginViewController: UIViewController {
             fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in
                 if (error == nil){
                     let fbloginresult : FBSDKLoginManagerLoginResult = result
-                    if(fbloginresult.grantedPermissions.contains("email"))
-                    {
-                        //maak request voor standaard data en token
-                        self.getFBUserData()
+                    if let permission = fbloginresult.grantedPermissions {
+                        if(fbloginresult.grantedPermissions.contains("email"))
+                        {
+                            //maak request voor standaard data en token
+                            self.getFBUserData()
+                        }
+                    } else {
+                        self.error()
                     }
                 }
             }
@@ -92,6 +96,8 @@ class LoginViewController: UIViewController {
     
     func redirectToNextView() {
         let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
+        
+        //TODO zodra de wizard gemaakt is en de info opgeslagen wordt in het user object moet deze if wel gebruikt worde.
         
 //        if(lat == nil || lat == "") {
 //            self.performSegueWithIdentifier(LoginViewControllerConstants.showWizardSegue, sender: self)
