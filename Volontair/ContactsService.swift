@@ -29,7 +29,7 @@ class ContactsService {
             })
             .map({ (categoryData: AnyObject) -> CategoryModel in
                 let categoryName = categoryData as! String
-                let categoryItem = CategoryModel(name: categoryName, iconName: "")
+                let categoryItem = CategoryModel(name: categoryName, iconName: "", iconColorHex: "")
                 
                 return categoryItem
             })

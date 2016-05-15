@@ -55,6 +55,10 @@ class VolontairApiService {
                             if let value = response.result.value {
                                 let user = UserModel(jsonData: value)
                                 self.userService.setCurrentUser(user)
+                                
+                                self.userService.loadUserOffers(user)
+                                self.userService.loadUserRequests(user)
+                                self.userService.loadUserCategorys(user)
                             }
                             
                             self.setVolontairApiToken(volontairToken)

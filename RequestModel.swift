@@ -19,3 +19,4 @@ class RequestModel : MapMarkerModel {
        super.init(title: title, category: category, summary: summary, coordinate: coordinate, created: created, updated: updated)
     }
 }
+

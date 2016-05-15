@@ -129,7 +129,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories["-"] = CategoryModel(name: "-", iconName: "")
+        skillCategories["-"] = CategoryModel(name: "-", iconName: "", iconColorHex: "")
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)

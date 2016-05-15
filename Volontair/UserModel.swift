@@ -17,9 +17,16 @@ class UserModel {
     var profilePicture: NSData
     var summary: String
     var enabled: Bool
+    
+    var categorys : [CategoryModel]?
+    var offers : [OfferModel]?
+    var requests : [RequestModel]?
+    
     var requestsLink : String
+    var offersLink : String
     var listenerConversationsLink: String
     var categoriesLink: String
+    
     var latitude : String
     var longitude : String
     
@@ -31,14 +38,17 @@ class UserModel {
         self.summary = json["summary"].stringValue
         self.enabled = json["enabled"].boolValue
         self.requestsLink = json["_links"]["requests"]["href"].stringValue
+        self.offersLink = json["_links"]["offers"]["href"].stringValue
         self.listenerConversationsLink = json["_links"]["listenerConversations"]["href"].stringValue
         self.categoriesLink = json["_links"]["categories"]["href"].stringValue
         self.latitude = json["latitude"].stringValue
         self.longitude = json["longitude"].stringValue
+        
         let userIdString = json["_links"]["self"]["href"].stringValue.regex("[1-9]*$")[0]
         self.userId = Int(userIdString)!
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
             //Download profile picutre async
             //let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
             //let url = NSURL(string: imageURL)

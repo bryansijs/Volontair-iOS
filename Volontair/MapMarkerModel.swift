@@ -17,7 +17,8 @@ class MapMarkerModel: NSObject, MKAnnotation {
     let category: String
     let summary: String
     let coordinate: CLLocationCoordinate2D
-//    let closed: Bool
+
+    //    let closed: Bool
     let created: String
     let updated: String?
     
@@ -43,6 +44,7 @@ class MapMarkerModel: NSObject, MKAnnotation {
         self.category = category
         self.summary = summary
         self.coordinate = coordinate
+        
 //        self.closed = closed
         self.created = created
         self.updated = updated
