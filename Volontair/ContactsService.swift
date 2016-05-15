@@ -57,7 +57,6 @@ class ContactsService {
                 return data.toObservable()
             })
             .flatMap({ (data: AnyObject) -> Observable<ConversationModel> in
-//                let conversationSelfLink = data["_links"]!!["self"] as! String
                 var conversationListenerLink : String!
                 if let dataListenerLink = data["_links"]!!["listener"] as? [String:AnyObject] {
                     conversationListenerLink = dataListenerLink["href"] as! String
@@ -86,12 +85,16 @@ class ContactsService {
     
         return self.conversations()
             .filter({ (data: ConversationModel) -> Bool in
-                self.getListenerCategories(data.listener!.categoriesLink)
+                //self.getListenerCategories(data.listener!.categoriesLink)
+                self.getListener("http://volontair.herokuapp.com/api/v1/users/7/categories")
                     .flatMap({ (categoryData: AnyObject) -> Observable<AnyObject> in
                         let categories = categoryData["_embedded"]!!["categories"] as! [AnyObject]
                         return categories.toObservable()
                     })
+                    
                     .map({ (singleCategory: AnyObject) -> CategoryModel in
+                        print(singleCategory)
+                        
                         return CategoryModel(JSONData: singleCategory);
                     })
                     .filter({ (data: CategoryModel) -> Bool in
@@ -120,8 +123,8 @@ class ContactsService {
             .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
                 var userCategoriesLink : String!
                 if let dataUserCategoriesLink = userData["_links"]!!["categories"] as? [String:AnyObject] {
-                    userCategoriesLink = dataUserCategoriesLink["href"] as! String
-//                    userCategoriesLink = "http://volontair.herokuapp.com/api/v1/users/7/categories"
+//                    userCategoriesLink = dataUserCategoriesLink["href"] as! String
+                    userCategoriesLink = "http://volontair.herokuapp.com/api/v1/users/7/categories"
                 }
                 return self.getListener(userCategoriesLink)
             })
