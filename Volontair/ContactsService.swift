@@ -6,24 +6,29 @@ import SwiftyJSON
 
 class ContactsService {
     
-    func message(conversationId: Int, messageId: Int) -> Observable<AnyObject> {
+    func lastMessage(messagesLink: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
-        return manager.rx_JSON(.GET, Config.url + Config.conversationUrl + "\(conversationId)/" + Config.messagesUrl + "\(messageId)")
+        return manager.rx_JSON(.GET, messagesLink).takeLast(1)
     }
     
-    func user(userId: Int) -> Observable<AnyObject> {
+    func getListener(userLink: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
-        return manager.rx_JSON(.GET, Config.url + Config.profileUrl + "\(userId)")
+        return manager.rx_JSON(.GET, userLink)
     }
     
-    func userCategories(userId: Int)  -> Observable<CategoryModel> {
-        return self.user(userId)
+    func getListenerCategories(categoriesLink: String) -> Observable<AnyObject> {
+        let manager = Manager.sharedInstance
+        return manager.rx_JSON(.GET, categoriesLink);
+    }
+    
+    func userCategories(userLink: String)  -> Observable<CategoryModel> {
+        return self.getListener(userLink)
             .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
                 let userCategories = userData["offersCategories"]!!["main"] as! NSArray
                 return userCategories.toObservable()
             })
-            .map({ (categorieData: AnyObject) -> CategoryModel in
-                let categoryName = categorieData as! String
+            .map({ (categoryData: AnyObject) -> CategoryModel in
+                let categoryName = categoryData as! String
                 let categoryItem = CategoryModel(name: categoryName, iconName: "")
                 
                 return categoryItem
@@ -38,37 +43,39 @@ class ContactsService {
     func conversations() -> Observable<ConversationModel> {
         
         let manager = Manager.sharedInstance
-        let dummyPostURLString = Config.url + Config.conversationUrl
+        //DEFAULT KAREL
+        let conversationURL = ApiConfig.baseUrl + ApiConfig.usersUrl + "7" + ApiConfig.starterConversationsUrl
         
-        return manager.rx_request(.GET, dummyPostURLString)
+        return manager.rx_request(.GET, conversationURL)
             .flatMap {
                 $0
                     .validate(statusCode: 200 ..< 300)
-                    .validate(contentType: ["application/json"])
                     .rx_JSON()
             }
             .flatMap({ (data: AnyObject) -> Observable<AnyObject> in
-                let data = data["data"] as! [AnyObject]
+                let data = data["_embedded"]!!["conversations"] as! [AnyObject]
                 return data.toObservable()
             })
             .flatMap({ (data: AnyObject) -> Observable<ConversationModel> in
-                let conversationIdStr = data["conversationId"] as! Int
-                let messageIdStr = data["lastMessage"] as! Int
-                let listenerIdStr = data["listener"] as! Int
-                
-                let conversationId = conversationIdStr
-                let messageId = messageIdStr
-                let listenerId = listenerIdStr
+//                let conversationSelfLink = data["_links"]!!["self"] as! String
+                var conversationListenerLink : String!
+                if let dataListenerLink = data["_links"]!!["listener"] as? [String:AnyObject] {
+                    conversationListenerLink = dataListenerLink["href"] as! String
+                }
+                var conversationMessagesLink : String!
+                if let dataMessagesLink = data["_links"]!!["messages"] as? [String:AnyObject] {
+                    conversationMessagesLink = dataMessagesLink["href"] as! String
+                }
                 
                 return Observable.zip(
-                    self.message(conversationId, messageId: messageId),
-                    self.user(listenerId),
-                    resultSelector: { (message: AnyObject, user: AnyObject) -> ConversationModel in
-                        let name = user["name"] as! String
-                        let lastMessage = message["message"] as! String
-                        let avatarUrl = user["avatar"] as! String
-                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), listenerId: listenerId);
-                        item.listener = UserModel(jsonData: user)
+                    self.lastMessage(conversationMessagesLink),
+                    self.getListener(conversationListenerLink),
+                    resultSelector: { (message: AnyObject, listener: AnyObject) -> ConversationModel in
+                        let name = listener["name"] as! String
+                        let lastMessage = "Test"
+                        let avatarUrl = ""
+                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), conversationListenerLink: conversationListenerLink);
+                        item.listener = UserModel(jsonData: listener)
                         return item
                     }
                 )
@@ -79,40 +86,55 @@ class ContactsService {
     
         return self.conversations()
             .filter({ (data: ConversationModel) -> Bool in
+                self.getListenerCategories(data.listener!.categoriesLink)
+                    .flatMap({ (categoryData: AnyObject) -> Observable<AnyObject> in
+                        let categories = categoryData["_embedded"]!!["categories"] as! [AnyObject]
+                        return categories.toObservable()
+                    })
+                    .map({ (singleCategory: AnyObject) -> CategoryModel in
+                        return CategoryModel(JSONData: singleCategory);
+                    })
+                    .filter({ (data: CategoryModel) -> Bool in
+                        return (data.name == categoryName)
+                    })
                 
-                if let items = data.listener!.offersCategories["main"]?.array {
-                    for item in items {
-                        if let title = item.string {
-                            if title == categoryName{
-                                return true
-                            }
-                        }
-                    }
-                }
                 return false
             })
     }
 
 
+    func myJust<AnyObject>(element: AnyObject) -> Observable<AnyObject> {
+        return Observable.create { observer in
+            observer.on(.Next(element))
+            observer.on(.Completed)
+            return NopDisposable.instance
+        }
+    }
     
     
     func categories() -> Observable<CategoryModel> {
         return self.conversations()
             .flatMap({ (data: ConversationModel) -> Observable<AnyObject> in
-                return self.user(data.listenerId)
+                return self.getListener(data.conversationListenerLink)
             })
             .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
-                let userCategories = userData["offersCategories"]!!["main"] as! NSArray
-                return userCategories.toObservable()
+                var userCategoriesLink : String!
+                if let dataUserCategoriesLink = userData["_links"]!!["categories"] as? [String:AnyObject] {
+                    userCategoriesLink = dataUserCategoriesLink["href"] as! String
+//                    userCategoriesLink = "http://volontair.herokuapp.com/api/v1/users/7/categories"
+                }
+                return self.getListener(userCategoriesLink)
             })
-            .map({ (categorieData: AnyObject) -> CategoryModel in
-                let categoryName = categorieData as! String
-                let categoryItem = CategoryModel(name: categoryName, iconName: "")
+            .flatMap({ (categoryData: AnyObject) -> Observable<AnyObject> in
                 
-                return categoryItem
+                let categories = categoryData["_embedded"]!!["categories"] as! [AnyObject]
+                return categories.toObservable()
+            })
+            .map({ (singleCategory: AnyObject) -> CategoryModel in
+                return CategoryModel(JSONData: singleCategory);
             })
     }
-    
+
     func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()

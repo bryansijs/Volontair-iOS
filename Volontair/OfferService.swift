@@ -24,7 +24,7 @@ class OfferService{
             ]
         ]
         
-        Alamofire.request(.POST, Config.url + Config.offersPOSTPoint, parameters: parameters, encoding: .JSON).response { request, response, data, error in
+        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.offersEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
             print(request)
             print(response)
             print(data)
@@ -34,12 +34,16 @@ class OfferService{
     
     //GET
     func loadOffersDataFromServer(completionHandler: ([OfferModel]?,NSError?) -> Void) {
-        Alamofire.request(.GET, Config.url + Config.offersEndPoint).validate().responseJSON { response in
+        
+        //check if URL is valid
+        let offersUrl = NSURL(string: ApiConfig.baseUrl + ApiConfig.offersEndPoint)
+        
+        Alamofire.request(.GET, offersUrl!, headers: ApiConfig.headers).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    
-                    for offer in value["data"] as! [[String:AnyObject]] {
+                    for offer in value["_embedded"]!!["offers"] as! [[String:AnyObject]] {
+                        print(offer)
                         self.offers.append(OfferModel(jsonData: offer))
                     }
                     completionHandler(self.offers, nil)

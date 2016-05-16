@@ -16,7 +16,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var mapView: MKMapView!
-
     
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
@@ -36,6 +35,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setRequests), name: ApiConfig.requestsUpdatedNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setUserOffers), name: ApiConfig.userOffersNotificationKey, object: nil)
+        
+        mapService.getRequests()
+        mapService.getUsersInNeighbourhood()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -54,7 +59,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             object: nil)
         
         // Default is showing offer makers
-        setOffers()
+        setUserOffers()
     }
     
     func clearMarkers() {
@@ -80,19 +85,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func setOffers() {
-        // Check if the call is legit
+    func setUserOffers() {
+        
         if currentPage != segmentedControlPages.OffersMap {
             return
         }
-        print("Set Offer markers")
+        print("Set UserOffer markers")
         // Clear all current markers from the map
         clearMarkers()
         // Iterate over all offers currently in the MapViewModel at MapService
+        
         if let model = mapService.getMapViewModel() {
-            if let offers = model.offers {
-                for offer in offers {
-                    addMapMarkerToMap(offer)
+            if let offers = model.users {
+                for userOffer in offers {
+                    addMapMarkerToMap(userOffer)
                 }
             }
         }
@@ -106,7 +112,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             // Set currentPage enum to OffersMap
             currentPage = segmentedControlPages.OffersMap
             // Get and set Offers (Add to map)
-            setOffers()
+            setUserOffers()
             break;
         case 1:
             // Set currentPage enum to RequestsMap
@@ -168,7 +174,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func updateOnOffersUpdatedNotification() {
-        setOffers()
+        setUserOffers()
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -183,10 +189,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             // Set region on map once by user location and stop updating
             let l = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             // Todo: bind Span to radius set by user?
-            let span = MKCoordinateSpanMake(Config.defaultMapLatitudeDelta, Config.defaultMapLongitudeDelta)
-            let region = MKCoordinateRegion(center: l, span: span)
-            mapView.setRegion(region, animated: true)
-            locationManager.stopUpdatingLocation()
         }
     }
 }

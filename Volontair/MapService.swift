@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
 
 class MapService {
     
@@ -38,18 +39,26 @@ class MapService {
         }
     }
     
-    func getOffers() {
-        ServiceFactory.sharedInstance.offerService.loadOffersDataFromServer{ (responseObject: [OfferModel]?, error: NSError?) in
-            if ((error) != nil) {
-                print(error)
-            } else {
-                if let offersArray = responseObject{
-                    self.mapViewModel?.offers! = offersArray
-                    NSNotificationCenter.defaultCenter().postNotificationName(
-                        Config.offersUpdatedNotificationKey,
-                        object: self.mapViewModel?.offers)
-                }
+    func getUsersInNeighbourhood() {
+        ServiceFactory.sharedInstance.userService.loadUsersInNeighbourhood(self.completeGetUsersInNeighbourhood)
+    }
+    
+    func completeGetUsersInNeighbourhood(users :[UserModel]?, error :NSError?) ->Void {
+        if error != nil {
+            print("Error getting user in neighbourhood", error)
+        
+        } else {
+            var data : [UserMapModel] = []
+            
+            for user in users! { //transform userModel naar userMapModel TODO
+                let coordinates = CLLocationCoordinate2D(latitude: 51.682449, longitude: 5.293167)
+                let mapUser = UserMapModel(title: user.name, category: "TODO lijst van cats", summary: user.summary, coordinate: coordinates, created: "TODO not nessesary", updated: "notNessesary")
+                data.append(mapUser)
             }
+            
+            self.mapViewModel?.users = data
+            NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.userOffersNotificationKey, object: nil)
+            
         }
     }
 }

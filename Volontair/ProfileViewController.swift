@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
         self.ProfileNameLabel.text = "profielnaam"
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
+        
         setData()
     }
     
@@ -41,12 +42,13 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        if let data = profileService.getUserProfileModel(){
+        
+        if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
             self.ProfileNameLabel.text = data.name
             self.AboutMeLabel.text = data.summary
             self.ProfileImageView.image = UIImage(data: data.profilePicture)
-            let amountOfContacts: String = String(data.contacts.count)
-            self.FriendsLabel.text! = amountOfContacts
+//            let amountOfContacts: String = String(data.contacts.count)
+//            self.FriendsLabel.text! = amountOfContacts
         }
     }
     
@@ -60,9 +62,9 @@ class ProfileViewController: UIViewController {
         case 1:
             aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
             AboutMeLabel.text = ""
-            for request in (profileService.getUserProfileModel()?.requests)!{
-                AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
-            }
+//            for request in (profileService.getUserProfileModel()?.requests)!{
+//                AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
+//            }
         default:
             break;
         }
