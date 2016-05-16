@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import RxSwift
+import QuartzCore
 
 class ProfileViewController: UIViewController {
     
@@ -16,8 +17,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var AboutMeLabel: UITextView!
     @IBOutlet weak var FriendsLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var aboutMeHeader: UILabel!
+    @IBOutlet weak var showRequestsButton: UIButton!
     
     let profileService = ProfileServiceFactory.sharedInstance.getProfileService()
     
@@ -50,27 +51,11 @@ class ProfileViewController: UIViewController {
         if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
             self.ProfileNameLabel.text = data.name
             self.AboutMeLabel.text = data.summary
-            self.ProfileImageView.image = UIImage(data: data.profilePicture)
+            self.showRequestsButton.setTitle("\(data.requests.count) Hulp aanvragen", forState: .Normal)
+            self.FriendsLabel.text = "\(data.contacts.count) contacten"
+            self.ProfileImageView.image = self.makeRoundedImage(UIImage(named: "test")!)
 //            let amountOfContacts: String = String(data.contacts.count)
 //            self.FriendsLabel.text! = amountOfContacts
-        }
-    }
-    
-    @IBAction func indexChanged(sender: UISegmentedControl) {
-        
-        switch segmentedControl.selectedSegmentIndex
-        {
-        case 0:
-            aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = profileService.getUserProfileModel()?.summary
-        case 1:
-            aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = ""
-            for request in (profileService.getUserProfileModel()?.requests)!{
-                AboutMeLabel.text = AboutMeLabel.text + request.title! + "\r\n"
-            }
-        default:
-            break;
         }
     }
     
@@ -78,5 +63,22 @@ class ProfileViewController: UIViewController {
     func updateOnNotification() {
         profileService.loadProfileFromServer()
         setData()
+    }
+    
+    func makeRoundedImage(image: UIImage) -> UIImage{
+        let imageLayer = CALayer()
+        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        imageLayer.contents = image.CGImage
+        
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = image.size.width/2.5
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return roundedImage
     }
 }

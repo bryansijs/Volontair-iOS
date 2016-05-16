@@ -130,6 +130,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.addAnnotation(marker)
     }
     
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? MapMarkerModel {
+            
+            print("\(annotation.title) tapped")
+            
+            self.performSegueWithIdentifier("showUserRequests", sender: self)
+            //mapView.removeAnnotation(annotation)
+        }
+    }
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         // Not one of our custom Annotations
         if !(annotation is MapMarkerModel) {
@@ -139,8 +149,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let reuseId = "reused_id"
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if annotationView == nil {
+            
+            // detail button
+            let detailButton = UIButton(type: UIButtonType.System)
+            detailButton.frame.size.width = 44
+            detailButton.frame.size.height = 44
+            detailButton.backgroundColor = UIColor.redColor()
+            detailButton.setImage(UIImage(named: "trash"), forState: .Normal)
+            
+            
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = detailButton
+            //annotationView?.leftCalloutAccessoryView = detailButton
+
         } else {
           annotationView?.annotation = annotation
         }
