@@ -36,7 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startUpdatingLocation()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setRequests), name: ApiConfig.requestsUpdatedNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setRequests), name: ApiConfig.requestDataUpdateNotificationKey, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setUserOffers), name: ApiConfig.userOffersNotificationKey, object: nil)
         
         mapService.getRequests()
@@ -44,26 +44,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     override func viewDidAppear(animated: Bool) {
-        print("Showing Map")
-        
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector:#selector(self.updateOnRequestsUpdatedNotification),
-            name: Config.requestsUpdatedNotificationKey,
-            object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(
-            self,
-            selector:#selector(self.updateOnOffersUpdatedNotification),
-            name: Config.offersUpdatedNotificationKey,
-            object: nil)
-        
-        // Default is showing offer makers
         setUserOffers()
     }
     
     func clearMarkers() {
-        // Clear markers from Map
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.userLocation }
         mapView.removeAnnotations( annotationsToRemove )
     }
@@ -73,9 +57,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return
         }
         print("Set Request markers")
-        // Clear all current markers from the map
         clearMarkers()
-        // Iterate over all requests currently in the MapViewModel at MapService
+
         if let model = mapService.getMapViewModel() {
             if let requests = model.requests {
                 for request in requests {
@@ -98,6 +81,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let model = mapService.getMapViewModel() {
             if let offers = model.users {
                 for userOffer in offers {
+                    //userOffer.loadRoundPicutereAsync(nil, imageUrl: userOffer.imageUrl! , completionHandler: addMapMarkerToMap )
                     addMapMarkerToMap(userOffer)
                 }
             }
@@ -109,15 +93,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         clearMarkers()
         switch segmentedControl!.selectedSegmentIndex {
         case 0:
-            // Set currentPage enum to OffersMap
             currentPage = segmentedControlPages.OffersMap
-            // Get and set Offers (Add to map)
             setUserOffers()
             break;
         case 1:
-            // Set currentPage enum to RequestsMap
             currentPage = segmentedControlPages.RequestsMap
-            // Get and set Requests (Add to map)
             setRequests()
             break;
         default:
@@ -126,7 +106,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // Added given Marker to map
-    func addMapMarkerToMap(marker: MapMarkerModel) {
+    func addMapMarkerToMap(marker: MapMarkerModel) -> Void{
         mapView?.addAnnotation(marker)
     }
     
@@ -135,6 +115,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if !(annotation is MapMarkerModel) {
             return nil
         }
+        
+
         
         let reuseId = "reused_id"
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
@@ -148,47 +130,52 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let mmm = annotation as! MapMarkerModel
         var markerImage: UIImage
         
-        // Get iconUrl for specific
-        //TODO: Replace "default" with mmm.category when changing to API
-        if let found = Config.categoryIconDictionary.indexOf({ $0.category == "default" }) {
-            markerImage = UIImage(named: Config.categoryIconDictionary[found].iconUrl)!
+        markerImage = UIImage(named: Config.defaultCategoryIconUrl)!
+
+        if(annotation is UserMapModel) {
+            if let markerAsUser = annotation as? MapMarkerModel {
+                if let image = markerAsUser.image {
+                    markerImage = self.getRoundedImage(image)
+                } else {
+                    
+                }
+            }
         } else {
-            // We couldn't find an icon for the given category, show the default
-            markerImage = UIImage(named: Config.defaultCategoryIconUrl)!
+            
         }
         
-        // Resize icon (outcomment if required)
-        //UIGraphicsBeginImageContext(Config.defaultMapAnnotationImageSize)
-        //markerImage.drawInRect(CGRectMake(0, 0, Config.defaultMapAnnotationImageSize.width, Config.defaultMapAnnotationImageSize.height))
-        //let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
         
-        // Change markerImage to resizedImage if resizing
         annotationView!.image = markerImage
         
         return annotationView
     }
     
-    func updateOnRequestsUpdatedNotification() {
-        setRequests()
-    }
-    
-    func updateOnOffersUpdatedNotification() {
-        setUserOffers()
+    func getRoundedImage(image : UIImage) -> UIImage {
+        let imageLayer = CALayer()
+        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        imageLayer.contents = image.CGImage
+        
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = image.size.width/2
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return roundedImage
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
-            // Start updating location when authorized
             locationManager.startUpdatingLocation()
         }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            // Set region on map once by user location and stop updating
             let l = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            // Todo: bind Span to radius set by user?
         }
     }
 }

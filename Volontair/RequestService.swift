@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class RequestService{
     
@@ -32,10 +33,7 @@ class RequestService{
         }
     }
     
-    //GET
-    func loadRequestDataFromServer(completionHandler: ([RequestModel]?,NSError?) -> Void) {
-        
-        //check if URL is valid
+    internal func getRequestBasic(completionHandler: (RequestModel) ->Void) {
         let requestUrl = NSURL(string: ApiConfig.baseUrl + ApiConfig.requestsEndPoint)
         
         Alamofire.request(.GET, requestUrl!, headers: ApiConfig.headers).validate().responseJSON { response in
@@ -43,14 +41,66 @@ class RequestService{
             case .Success:
                 if let value = response.result.value {
                     for request in value["_embedded"]!!["requests"] as! [[String:AnyObject]] {
-                        print(request)
-                        self.requests.append(RequestModel(jsonData: request))
+                        
+                        self.getRequestUser(request, completionHandler: completionHandler)
                     }
-                    completionHandler(self.requests, nil)
+                    print("Error getRequestBasic")
                 }
             case .Failure(let error):
-                completionHandler(nil, error)
+                print("Error getRequestBasic", error)
             }
         }
+
+    }
+    
+    internal func getRequestUser(requestData : AnyObject, completionHandler: (RequestModel) ->Void) {
+        let requestJson = JSON(requestData)
+        Alamofire.request(.GET, requestJson["_links"]["creator"]["href"].stringValue , headers: ApiConfig.headers).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    
+                    self.getRequestCategory(requestData, userJson: value, completionHandler: completionHandler)
+                }
+            case .Failure(let error):
+                print("Error getRequestUser", error)
+            }
+        }
+    }
+
+    internal func getRequestCategory(requestJson: AnyObject, userJson: AnyObject, completionHandler: (RequestModel) ->Void) {
+        
+        let jsonRequest = JSON(requestJson)
+        Alamofire.request(.GET, jsonRequest["_links"]["category"]["href"].stringValue , headers: ApiConfig.headers).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    
+                    var categorys : [CategoryModel] = []
+                    //["_embedded"]!!["categorys"]
+                    categorys.append(CategoryModel(JSONData: value))
+                    
+                    self.createFullestFromJsonData(requestJson, jsonOwner: userJson, jsonCategory: categorys, completionHandler: completionHandler)
+                }
+            case .Failure(let error):
+                print("Error getRequestUser", error)
+            }
+        }
+    }
+
+    internal func createFullestFromJsonData(jsonRequest: AnyObject, jsonOwner: AnyObject, jsonCategory: [CategoryModel], completionHandler: (RequestModel) ->Void) {
+        let requestModel = RequestModel(requestData: jsonRequest, requestOwner: jsonOwner, requestCategorys: jsonCategory)
+        completionHandler(requestModel)
+        //self.requests.append(requestModel)
+        
+        //NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.requestDataUpdateNotificationKey, object: requestModel)
+        print(requestModel)
+    }
+    
+    
+    //GET
+    func loadRequestDataFromServer(completionHandler: (RequestModel)->Void) {
+        self.getRequestBasic(completionHandler)
     }
 }

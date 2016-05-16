@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class UserService  {
     
@@ -64,6 +65,25 @@ class UserService  {
         }
     }
     
+    func loadProfilePictures(users :[UserModel]? , completionHandler: ([UserModel]?, NSError?) ->Void) {
+        print("loadProfilePictures")
+        var count = 0;
+        
+        if users != nil {
+            for user in users! {
+                Alamofire.request(.GET, user.imageLink , headers: ApiConfig.headers, encoding: .JSON).response { (request, response, data, error) in
+                    if let value = data {
+                        user.profilePicture = NSData(data: value)
+                    }
+                    count = count + 1
+                    
+                    if (count == (users!.count)) {
+                        completionHandler(users, nil)
+                    }
+                }
+            }
+        }
+    }
     
     
     func loadUsersInNeighbourhood(completionHandler: ([UserModel]?, NSError?) ->Void) {
@@ -91,7 +111,7 @@ class UserService  {
     }
     
     func loadUserCategorys(user: UserModel){
-        Alamofire.request(.GET, "http://volontair.herokuapp.com/api/v1/users/7/categories" , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
+        Alamofire.request(.GET, user.categoriesLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
             response.result {
                 case .Success:
                     if let value = response.result.value {
@@ -109,25 +129,26 @@ class UserService  {
         }
     }
     
-    func loadUserOffers(user: UserModel){
-        Alamofire.request(.GET, user.offersLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
-        response.result {
-        case .Success:
-            if let value = response.result.value {
-                var offers : [OfferModel] = []
-                
-                for off in value["_embedded"]!!["offers"] as! [[String:AnyObject]]{
-                    offers.append(OfferModel(jsonData: off))
-                }
-                user.offers = offers
-            }
-        case .Failure(let error):
-            print(error)
-            }
-        }
-    }
+//    func loadUserOffers(user: UserModel){
+//        Alamofire.request(.GET, user.offersLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
+//        response.result {
+//        case .Success:
+//            if let value = response.result.value {
+//                var offers : [OfferModel] = []
+//                
+//                for off in value["_embedded"]!!["offers"] as! [[String:AnyObject]]{
+//                    //offers.append(OfferModel(jsonData: off))
+//                }
+//                user.offers = offers
+//            }
+//        case .Failure(let error):
+//            print(error)
+//            }
+//        }
+//    }
     
     func loadUserRequests(user: UserModel){
+        
         Alamofire.request(.GET, user.requestsLink, headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
         response.result {
         case .Success:
@@ -135,7 +156,7 @@ class UserService  {
                 var requests : [RequestModel] = []
                 
                 for req in value["_embedded"]!!["requests"] as! [[String:AnyObject]]{
-                    requests.append(RequestModel(jsonData: req))
+                    //requests.append(RequestModel(jsonData: req))
                 }
                 user.requests = requests
             }

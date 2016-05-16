@@ -111,6 +111,11 @@ class LoginViewController: UIViewController {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
         print("Something went wrong")
+        
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
     }
     
     

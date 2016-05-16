@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
         if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
             self.ProfileNameLabel.text = data.name
             self.AboutMeLabel.text = data.summary
-            self.ProfileImageView.image = UIImage(data: data.profilePicture)
+            self.ProfileImageView.image = UIImage(data: data.profilePicture!)
 //            let amountOfContacts: String = String(data.contacts.count)
 //            self.FriendsLabel.text! = amountOfContacts
         }

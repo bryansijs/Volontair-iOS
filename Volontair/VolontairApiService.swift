@@ -56,7 +56,7 @@ class VolontairApiService {
                                 let user = UserModel(jsonData: value)
                                 self.userService.setCurrentUser(user)
                                 
-                                self.userService.loadUserOffers(user)
+                                //self.userService.loadUserOffers(user)
                                 self.userService.loadUserRequests(user)
                                 self.userService.loadUserCategorys(user)
                             }
