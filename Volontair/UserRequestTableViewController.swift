@@ -14,13 +14,19 @@ class UserRequestTableViewController: UITableViewController {
     
     let requestService = ServiceFactory.sharedInstance.requestService
     let userService = ServiceFactory.sharedInstance.userService
-    let requests = [RequestModel]()
+    var requests = [RequestModel]()
+    let requestsFromCurrentUser = true
     
     override func viewWillAppear(animated: Bool) {
         //self.requestTableView.setEditing(true, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.title = "Aanvragen"
+        
+        if (requestsFromCurrentUser){
+            requests = userService.userModel!.requests
+        }
     }
+    
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -54,14 +60,14 @@ class UserRequestTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return userService.userModel!.requests.count
+        return self.requests.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
         
         cell.imageView?.image = UIImage(named: "icon_housekeeping")
-        cell.textLabel?.text = userService.userModel?.requests[indexPath.row].title
+        cell.textLabel?.text = self.requests[indexPath.row].title
         
         return cell
     }
@@ -76,7 +82,7 @@ class UserRequestTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUserRequestDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let request = userService.userModel?.requests[indexPath.row]
+                let request = self.requests[indexPath.row]
                 let controller = (segue.destinationViewController as! UserRequestDetailViewController)
                 controller.detailItem = request
             }

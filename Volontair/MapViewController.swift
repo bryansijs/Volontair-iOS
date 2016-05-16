@@ -171,19 +171,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var markerImage: UIImage
         
         // Get iconUrl for specific
-        //TODO: Replace "default" with mmm.category when changing to API
-        if let found = Config.categoryIconDictionary.indexOf({ $0.category == "default" }) {
+        if let found = Config.categoryIconDictionary.indexOf({ $0.category == mmm.category }) {
             markerImage = UIImage(named: Config.categoryIconDictionary[found].iconUrl)!
         } else {
             // We couldn't find an icon for the given category, show the default
             markerImage = UIImage(named: Config.defaultCategoryIconUrl)!
         }
         
-        // Resize icon (outcomment if required)
-        //UIGraphicsBeginImageContext(Config.defaultMapAnnotationImageSize)
-        //markerImage.drawInRect(CGRectMake(0, 0, Config.defaultMapAnnotationImageSize.width, Config.defaultMapAnnotationImageSize.height))
-        //let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
+//        // Resize icon (outcomment if required)
+//        UIGraphicsBeginImageContext(Config.defaultMapAnnotationImageSize)
+//        markerImage.drawInRect(CGRectMake(0, 0, Config.defaultMapAnnotationImageSize.width, Config.defaultMapAnnotationImageSize.height))
+//        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
         
         // Change markerImage to resizedImage if resizing
         annotationView!.image = markerImage
