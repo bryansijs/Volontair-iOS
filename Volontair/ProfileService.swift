@@ -26,7 +26,7 @@ class ProfileService  {
     //TODO: get current userID
     func loadProfileFromServer(){
         print("loadProfileFromServer")
-        userService.loadUserDataFromServer(1){(responseObject:UserModel?, error:NSError?) in
+        userService.loadUserDataFromServer(7){(responseObject:UserModel?, error:NSError?) in
             if ((error) != nil) {
                 print(error)
             } else {

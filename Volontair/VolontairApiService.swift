@@ -12,85 +12,84 @@ import SwiftyJSON
 import UIKit
 
 class VolontairApiService {
+    var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    let userService : UserService
     
-    let viewController: UIViewController
-    
-    let baseUrl = "http://192.168.178.49:6789"
-    let registerFacebookTokenUrl = "/auth/facebook/client?accessToken=";
-    let getVolontairApiTokenUrl = "/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
-    let getMeUrl = "/users/me"
-    //let tempvolontairToken = "fca4a7c6-23c0-4974-82e1-3d2e2e29c9d9"
-    
-    init(controller: UIViewController) {
-        viewController = controller
+    init() {
+        userService = ServiceFactory.sharedInstance.getUserService()
     }
     
-    internal func login(facebookToken: String) {
-        self.setFacebookToken(facebookToken)
-        self.loginApi(self.getFacebookToken())
-    }
-    
-    internal func login() {
-        if self.getVolontairApiToken() != "" {
-            self.checkApiAuthentication(self.getVolontairApiToken())
-            
+    internal func login(facebookToken: String , completionHandler:()->Void, completionErrorhandler:()->Void? ) {
+        if let token = getVolontairApiToken() {
+            self.checkApiAuthentication(token, completeSuccesHandler: completionHandler, completeErrorHandler: completionErrorhandler)
         } else {
-            
-            if self.getFacebookToken() != "" {
-                self.loginApi(self.getFacebookToken())
-                
-            } else {
-                self.loginFacebook()
-                
-            }
+            self.loginApi(facebookToken, completeSuccseHandler: completionHandler, completeErrorHandler: completionErrorhandler )
         }
     }
     
-    private func checkApiAuthentication(volontairToken : String) {
+    internal func login(completeSuccesHandler:()->Void, completeErrorHandler:()->Void ) {
+        if let token = getVolontairApiToken() {
+            self.checkApiAuthentication(token, completeSuccesHandler: completeSuccesHandler, completeErrorHandler: completeErrorHandler)
+        } else {
+            completeErrorHandler()
+        }
+    }
+    
+    private func checkApiAuthentication(volontairToken : String, completeSuccesHandler:()->Void? , completeErrorHandler:()->Void?) {
         let headers = [
             "Content-Type" : "application/json",
             "Authorization" : "Bearer \(volontairToken)"
         ]
         
-        Alamofire.request(.GET, self.baseUrl + self.getMeUrl, headers: headers, encoding: .JSON)
+        Alamofire.request(.GET, ApiConfig.baseUrl + ApiConfig.getMeUrl, headers: headers, encoding: .JSON)
             .responseJSON { response in
                 switch response.result {
                 case .Success(let JSON):
-                    //TODO hier kijken of je het goede JSON object terugkrijg en ander is de gebruiker nog steeds ingelogd.
-                    // if good
-                    self.setGlobalHeaders(headers)
-                    print("Success with JSON: \(JSON)")
-                    //let response = JSON as! NSDictionary
                     
+                    if let name = JSON["name"] {
+                        if(name != nil) {
+                            print("Jep data is legetiem \(name)")
+                            self.setGlobalHeaders(headers)
+                            print("VolontairApiToken = ",volontairToken)
+                            
+                            if let value = response.result.value {
+                                let user = UserModel(jsonData: value)
+                                self.userService.setCurrentUser(user)
+                            }
+                            
+                            self.setVolontairApiToken(volontairToken)
+                            completeSuccesHandler()
+                        } else {
+                            self.prefs.removeObjectForKey("VolontairApiToken")
+                            self.prefs.removeObjectForKey("VolontairFacebookToken")
+                            completeErrorHandler()
+                        }
+                    } else {
+                        
+                        print("shit dit go wrong")
+                    }
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
                 }
         }
     }
     
-    private func loginFacebook() {
-        viewController.performSegueWithIdentifier(DashboardViewControllerConstants.showFacebookModalSegue, sender: self)
-        return
-    }
     
-    private func loginApi(facebookToken : String) {
+    private func loginApi(facebookToken : String, completeSuccseHandler:()->Void?, completeErrorHandler:()->Void?) {
         let headers = [ "Content-Type" : "application/json" ]
         
-        Alamofire.request(.GET, self.baseUrl + self.registerFacebookTokenUrl + facebookToken , headers: headers)
+        Alamofire.request(.GET, ApiConfig.registerFacebookTokenUrl + facebookToken , headers: headers)
             .responseData { response in
-                print(response.response)
-                print(response.result)
                 
-                Alamofire.request(.GET, self.baseUrl + self.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
+                Alamofire.request(.GET, ApiConfig.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
                     .responseString() { response in
                         
-                        print(response.response)
-                        print(response.result)
                         
                         let URL = response.response?.URL?.fragments //In extension/NSURLFragmentExtension
                         
                         if URL?.count > 0 {
-                            self.checkApiAuthentication(URL!["access_token"]!);
+                            print(URL!["access_token"])
+                            self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler, completeErrorHandler: completeErrorHandler);
                         } else {
                             //Facebook token is wrong
                         }
@@ -98,26 +97,26 @@ class VolontairApiService {
         }
     }
     
-    private func setGlobalHeaders(headers : [NSObject: AnyObject]) {
-        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
+    private func setGlobalHeaders(headers : [String: String]) {
+        ApiConfig.headers = headers;
     }
     
     // Getters en Setters
-    private func getVolontairApiToken() -> String {
-        return Config.VolontairApiToken;
+    internal func getVolontairApiToken() -> String? {
+        if let token = prefs.stringForKey("VolontairApiToken") {
+            return token
+        }
+        return nil;
     }
     
     private func setVolontairApiToken(token : String) {
-        Config.VolontairApiToken = token
+        self.prefs.setObject(token, forKey: "VolontairApiToken")
     }
     
-    private func getFacebookToken() -> String {
-        return "EAANjx8rx5OwBAPtWqOuJNlVdi9rWe46qt8xAiluXZBASVlZATiKI97ufVjj7B1GqwRf5HOMPmBoicj6iP97iPGIZBt00WmOrkDsNlU5Ccvl6qB4uHDBZApIANZAU3oDbtaVRPxxZBTvBZCPJJw4UBz4Hty57xbjpNNyNTG0YvifDgZDZD"
-        //return Config.facebookToken;
+    private func getFacebookToken() -> String? {
+        if let token = prefs.stringForKey("VolontairFacebookToken") {
+            return token
+        }
+        return nil
     }
-    
-    private func setFacebookToken(token : String) {
-        Config.facebookToken = token
-    }
-    
 }

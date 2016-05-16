@@ -14,7 +14,6 @@
 		2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE876381CBA902D007D9C41 /* MapViewModel.swift */; };
 		2FFAA74E1CC0F1290086CD6F /* MapServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */; };
 		2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */; };
-		2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB60C291C9470C50002BB51 /* FacebookViewController.swift */; };
 		2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */; };
 		2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578484E11C764541006A9841 /* ViewController.swift */; };
 		2FFD7DCB1CC95949005CDE2C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD7DCA1CC95949005CDE2C /* UserService.swift */; };
@@ -33,10 +32,12 @@
 		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E85085DC1CE4790C0075AFA3 /* UserMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */; };
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
 		EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D871CE33753000753AB /* UserRequestTableViewController.swift */; };
 		EF098D8A1CE36065000753AB /* UserRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */; };
+		E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -124,7 +125,6 @@
 		2FB60C231C946F2C0002BB51 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		2FB60C291C9470C50002BB51 /* FacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookViewController.swift; path = ../FacebookViewController.swift; sourceTree = "<group>"; };
 		2FD6F1A91CBA664C00879F7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2FD6F1AB1CBA6BF300879F7F /* MapService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		2FD6F1AD1CBA6FDB00879F7F /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestModel.swift; path = ../RequestModel.swift; sourceTree = "<group>"; };
@@ -149,10 +149,12 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapModel.swift; sourceTree = "<group>"; };
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
 		EF098D871CE33753000753AB /* UserRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestTableViewController.swift; sourceTree = "<group>"; };
 		EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestDetailViewController.swift; sourceTree = "<group>"; };
+		E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				2FFAA74D1CC0F1290086CD6F /* MapServiceFactory.swift */,
 				2FFAA74F1CC0F8A10086CD6F /* MapMarkerModel.swift */,
 				2FFE5A641CCE867900D02333 /* CategoryIconModel.swift */,
+				E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 		578484DE1C764541006A9841 /* Volontair */ = {
 			isa = PBXGroup;
 			children = (
+				E8F928C71CE381C600DDCB61 /* Login */,
 				E891DCFA1CE27DB800D9F560 /* Extensions */,
 				2FFAA74C1CC0F0D80086CD6F /* Map */,
 				EFF4D63E1CBFA31A001AE6E3 /* Contacts */,
@@ -316,6 +320,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		E8F928C71CE381C600DDCB61 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		EF2721E81CBE26A200BCD082 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,7 +344,6 @@
 		EF2721E91CBE270700BCD082 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				2FB60C291C9470C50002BB51 /* FacebookViewController.swift */,
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */,
 				2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */,
@@ -556,6 +567,7 @@
 			files = (
 				2FFAA7501CC0F8A10086CD6F /* MapMarkerModel.swift in Sources */,
 				E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */,
+				E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */,
 				EF9B583F1CCF951600AA52ED /* RequestService.swift in Sources */,
 				EF2E81E31CBEDE6C00FD141C /* ProfileServiceFactory.swift in Sources */,
 				EFF75AB11CDA388600090ACB /* GeoLocationViewController.swift in Sources */,
@@ -570,7 +582,6 @@
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
 				2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */,
 				EF9B583D1CCF8EEA00AA52ED /* OfferService.swift in Sources */,
-				2FFD7DC61CC958D4005CDE2C /* FacebookViewController.swift in Sources */,
 				2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */,
 				2FD6F1B01CBA6FE300879F7F /* OfferModel.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
@@ -578,6 +589,7 @@
 				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
 				EFF75AB31CDA5F2500090ACB /* UserTypeViewController.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
+				E85085DC1CE4790C0075AFA3 /* UserMapModel.swift in Sources */,
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
 				EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */,

@@ -21,7 +21,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var messageLabel: UILabel!
     
     var skillCategories = [String: CategoryModel]()
-    let contactSercvice = ContactServiceFactory.sharedInstance.getContactsService()
+    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
     let disposeBag = DisposeBag()
     
     //MARK: INIT
@@ -75,7 +75,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     func loadCategories() {
         self.skillCategories.removeAll()
 
-        contactSercvice.categories()
+        contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()

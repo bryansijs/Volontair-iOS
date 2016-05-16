@@ -10,5 +10,6 @@ import Foundation
 
 class MapViewModel {
     var requests: [RequestModel]? = []
-    var offers: [OfferModel]? = []
+    var users: [UserMapModel]? = []
+    //var offers: [OfferModel]? = []
 }
