@@ -755,6 +755,7 @@
                         <outlet property="navigationItem" destination="Hzw-cz-Sjk" id="dsT-YF-bVQ"/>
                         <outlet property="segmentedControl" destination="bz3-HS-8kB" id="8QS-En-5ab"/>
                         <segue destination="zBa-3S-jeu" kind="show" identifier="showUserRequests" id="kk1-3h-ju8"/>
+                        <segue destination="lof-7X-Xfp" kind="show" identifier="showUserProfile" id="1JB-nb-wsV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -949,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsA-IZ-U6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352" y="481"/>
+            <point key="canvasLocation" x="3300" y="557"/>
         </scene>
         <!--User Request Table View Controller-->
         <scene sceneID="acc-3a-LDc">
@@ -990,7 +991,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mf-4a-8zI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4051" y="481"/>
+            <point key="canvasLocation" x="4079" y="557"/>
         </scene>
         <!--User Request Detail View Controller-->
         <scene sceneID="BTN-dV-8WL">
@@ -1085,7 +1086,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2Z-MZ-pzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4778" y="481"/>
+            <point key="canvasLocation" x="4762" y="557"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="6OV-Cq-3hD">
@@ -1763,5 +1764,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kk1-3h-ju8"/>
+        <segue reference="1JB-nb-wsV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -110,13 +110,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.addAnnotation(marker)
     }
     
+    //click on marker
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? MapMarkerModel {
             
-            print("\(annotation.title) tapped")
+            if(currentPage == segmentedControlPages.VolunteersMap){
+                //profile
+                self.performSegueWithIdentifier("showUserProfile", sender: self)
+            } else {
+                //request list or item
+                if let requestAnnotation = annotation as? RequestModel{
+                    if (requestAnnotation.owner?.requests?.count > 1){
+                        //list
+                        self.performSegueWithIdentifier("showUserRequests", sender: self)
+                    }
+                    else{
+                        //item
+                    }
+                }
+                
+            }
             
-            self.performSegueWithIdentifier("showUserRequests", sender: self)
-            //mapView.removeAnnotation(annotation)
+            print("\(annotation.title) tapped")
         }
     }
     
@@ -125,8 +140,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if !(annotation is MapMarkerModel) {
             return nil
         }
-        
-
         
         let reuseId = "reused_id"
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)

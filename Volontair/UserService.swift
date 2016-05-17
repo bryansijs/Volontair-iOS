@@ -153,10 +153,13 @@ class UserService  {
         response.result {
         case .Success:
             if let value = response.result.value {
+                print(response.result)
+                print(response.result.value)
+                
                 var requests : [RequestModel] = []
                 
                 for req in value["_embedded"]!!["requests"] as! [[String:AnyObject]]{
-                    //requests.append(RequestModel(jsonData: req))
+                    requests.append(RequestModel(requestData: req, requestOwner: user, requestCategorys: user.categorys))
                 }
                 user.requests = requests
             }
