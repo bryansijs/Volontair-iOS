@@ -66,15 +66,23 @@ class ProfileViewController: UIViewController {
         if let userProfile = self.user{
             self.ProfileNameLabel.text = userProfile.name
             self.AboutMeLabel.text = userProfile.summary
-            if(userProfile.requests!.count < 1){
-                self.showRequestsButton.enabled = false
-            }
+            self.setRequestButtonState()
             self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
             //TODO: Contact numbers
             //self.FriendsLabel.text = "\(data..count) contacten"
             self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
             //            let amountOfContacts: String = String(data.contacts.count)
             //            self.FriendsLabel.text! = amountOfContacts
+        }
+    }
+    
+    func setRequestButtonState(){
+        if let userProfile = self.user{
+            if(userProfile.requests!.count < 1){
+                self.showRequestsButton.enabled = false
+            } else {
+                self.showRequestsButton.enabled = true
+            }
         }
     }
     

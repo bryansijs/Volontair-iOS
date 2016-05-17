@@ -129,6 +129,13 @@ class UserService  {
         }
     }
     
+    func deleteUserRequest(request: RequestModel){
+        let index = self.userMe?.requests?.indexOf(request)
+        print(index?.bigEndian)
+        print(index?.littleEndian)
+        self.userMe?.requests?.removeAtIndex((index?.bigEndian)!)
+    }
+    
 //    func loadUserOffers(user: UserModel){
 //        Alamofire.request(.GET, user.offersLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
 //        response.result {
