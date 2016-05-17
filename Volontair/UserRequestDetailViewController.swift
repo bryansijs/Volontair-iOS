@@ -17,17 +17,30 @@ class UserRequestDetailViewController: UIViewController {
         }
     }
 
-
+    var editMode = true
+    
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var editButton: UIButton!
+    
     override func viewDidLoad() {
         self.configureView()
         detailTextView.editable = false
         saveButton.hidden = true
-   
+        prepareEditMode()
+    }
+    
+    override func viewDidLayoutSubviews(){
+        self.titleTextView.setContentOffset(CGPointZero, animated: false)
+    }
+
+    // show edit button?
+    private func prepareEditMode(){
+        if(!editMode){
+            self.editButton.hidden = true
+            self.titleTextView.editable = false
+        }
     }
     
     func configureView(){

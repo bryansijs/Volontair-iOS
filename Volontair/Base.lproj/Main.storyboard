@@ -756,6 +756,7 @@
                         <outlet property="segmentedControl" destination="bz3-HS-8kB" id="8QS-En-5ab"/>
                         <segue destination="zBa-3S-jeu" kind="show" identifier="showUserRequests" id="kk1-3h-ju8"/>
                         <segue destination="lof-7X-Xfp" kind="show" identifier="showUserProfile" id="1JB-nb-wsV"/>
+                        <segue destination="3X1-Pu-W07" kind="show" identifier="showUserOnlyRequest" id="G8o-yB-mji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxX-yM-Ben" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -871,7 +872,7 @@
                                                 </constraints>
                                                 <state key="normal" title="2  Hulp aanvragen"/>
                                                 <connections>
-                                                    <segue destination="zBa-3S-jeu" kind="show" id="hl0-JA-Ggj"/>
+                                                    <segue destination="zBa-3S-jeu" kind="show" identifier="showProfileRequests" id="hl0-JA-Ggj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1043,35 +1044,45 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="MOX-aL-65c">
-                                <rect key="frame" x="15" y="72" width="540" height="35"/>
+                                <rect key="frame" x="15" y="84" width="540" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="tOj-Ci-K5W"/>
+                                    <constraint firstAttribute="height" constant="35" id="Pek-f3-e8h"/>
+                                    <constraint firstAttribute="width" constant="540" id="dya-3x-2e9"/>
+                                    <constraint firstAttribute="width" constant="540" id="xME-pd-K7D"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dya-3x-2e9"/>
+                                        <exclude reference="xME-pd-K7D"/>
+                                    </mask>
+                                </variation>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MOX-aL-65c" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="20" id="0E5-jo-kVb"/>
                             <constraint firstItem="jGc-IR-hCf" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="63" id="1rN-Ww-GWn"/>
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="3hA-Fd-Oij"/>
                             <constraint firstItem="ex6-20-YCH" firstAttribute="top" secondItem="Wa6-cT-FZb" secondAttribute="bottom" constant="10" id="B0A-At-PX9"/>
                             <constraint firstItem="jGc-IR-hCf" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="FPv-Q5-pix"/>
                             <constraint firstItem="Wa6-cT-FZb" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="HkW-sV-rZv"/>
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="LM7-Uv-X6h"/>
-                            <constraint firstItem="MOX-aL-65c" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="8" id="NWX-Dh-kd9"/>
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="top" secondItem="jGc-IR-hCf" secondAttribute="bottom" constant="8" id="PL7-xd-jTK"/>
                             <constraint firstItem="jAM-se-log" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="8" id="Pnx-9A-kQs"/>
-                            <constraint firstItem="jAM-se-log" firstAttribute="leading" secondItem="MOX-aL-65c" secondAttribute="trailing" id="VaN-ZO-S6c"/>
-                            <constraint firstItem="MOX-aL-65c" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" constant="-5" id="bnN-Sk-ywY"/>
+                            <constraint firstItem="MOX-aL-65c" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" constant="-5" id="YjQ-gK-oFo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MOX-aL-65c" secondAttribute="trailing" constant="25" id="cVq-Zs-QL1"/>
                             <constraint firstItem="Wa6-cT-FZb" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="dPD-0Z-QE8"/>
                             <constraint firstItem="jGc-IR-hCf" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="guk-hm-hbw"/>
+                            <constraint firstItem="MOX-aL-65c" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="8" id="nIm-Im-ebH"/>
                             <constraint firstItem="jAM-se-log" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="saO-DL-uxV"/>
                             <constraint firstItem="jAM-se-log" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="uja-z8-dCM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="nIm-Im-ebH"/>
                                 <exclude reference="saO-DL-uxV"/>
                             </mask>
                         </variation>
@@ -1763,7 +1774,8 @@
         <image name="icon_transportation" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kk1-3h-ju8"/>
         <segue reference="1JB-nb-wsV"/>
+        <segue reference="hl0-JA-Ggj"/>
+        <segue reference="QPq-oS-KMV"/>
     </inferredMetricsTieBreakers>
 </document>

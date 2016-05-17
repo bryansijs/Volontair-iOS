@@ -19,6 +19,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
+    var selectedRequest : RequestModel?
+    var selectedUser: UserModel?
     
     enum segmentedControlPages : Int {
         case VolunteersMap = 0
@@ -116,7 +118,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             if(currentPage == segmentedControlPages.VolunteersMap){
                 //profile
+                let userProfile = annotation as! UserMapModel
+                self.selectedUser = userProfile.owner
                 self.performSegueWithIdentifier("showUserProfile", sender: self)
+                
             } else {
                 //request list or item
                 if let requestAnnotation = annotation as? RequestModel{
@@ -126,13 +131,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     }
                     else{
                         //item
+                        self.selectedRequest = requestAnnotation
+                        self.performSegueWithIdentifier("showUserOnlyRequest", sender: self)
                     }
                 }
                 
             }
-            
-            print("\(annotation.title) tapped")
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "showUserRequests") {
+            // pass data to List
+            let newController = segue.destinationViewController as! UserRequestTableViewController
+            newController.requests = (selectedRequest?.owner?.requests)!
+            newController.editMode = false
+        }
+        if (segue.identifier == "showUserOnlyRequest") {
+            // pass data to UserRequestDetailViewController
+            let newController = segue.destinationViewController as! UserRequestDetailViewController
+            newController.detailItem = selectedRequest
+            newController.editMode = false
+        }
+        if (segue.identifier == "showUserProfile") {
+            // pass data to Profile Page
+            let newController = segue.destinationViewController as! ProfileViewController
+            newController.user = self.selectedUser
+            newController.editMode = false
+        }
+        
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {

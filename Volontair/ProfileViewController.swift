@@ -19,6 +19,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var FriendsLabel: UILabel!
     @IBOutlet weak var aboutMeHeader: UILabel!
     @IBOutlet weak var showRequestsButton: UIButton!
+
+    var editMode = true
+    
+    var user: UserModel? {
+        didSet {
+            // Update the view.
+            //self.setdata()
+        }
+    }
     
     let profileService = ProfileServiceFactory.sharedInstance.getProfileService()
     
@@ -33,11 +42,14 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
         
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         setData()
     }
     
@@ -47,17 +59,32 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
-        
-        if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
-            self.ProfileNameLabel.text = data.name
-            self.AboutMeLabel.text = data.summary
-            self.showRequestsButton.setTitle("\(data.requests!.count) Hulp aanvragen", forState: .Normal)
-            //TODO: Contact numbers
-            //self.FriendsLabel.text = "\(data..count) contacten"
-            self.ProfileImageView.image = UIImage(data: data.profilePicture!)
-//            let amountOfContacts: String = String(data.contacts.count)
-//            self.FriendsLabel.text! = amountOfContacts
+        if(self.user == nil){
+            if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
+                self.ProfileNameLabel.text = data.name
+                self.AboutMeLabel.text = data.summary
+                self.showRequestsButton.setTitle("\(data.requests!.count) Hulp aanvragen", forState: .Normal)
+                //TODO: Contact numbers
+                //self.FriendsLabel.text = "\(data..count) contacten"
+                self.ProfileImageView.image = UIImage(data: data.profilePicture!)
+                //            let amountOfContacts: String = String(data.contacts.count)
+                //            self.FriendsLabel.text! = amountOfContacts
+            }
+        } else {
+            // show other person profile
+            if let userProfile = self.user{
+                self.ProfileNameLabel.text = userProfile.name
+                self.AboutMeLabel.text = userProfile.summary
+                self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
+                //TODO: Contact numbers
+                //self.FriendsLabel.text = "\(data..count) contacten"
+                self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
+                //            let amountOfContacts: String = String(data.contacts.count)
+                //            self.FriendsLabel.text! = amountOfContacts
+
+            }
         }
+        
     }
     
     //This will be triggered once the Data is updated.
@@ -81,5 +108,15 @@ class ProfileViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         return roundedImage
+    }
+    
+    //showProfileRequests
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "showProfileRequests") {
+            // pass data to List
+            let newController = segue.destinationViewController as! UserRequestTableViewController
+            newController.requests = (user!.requests)!
+            newController.editMode = self.editMode
+        }
     }
 }

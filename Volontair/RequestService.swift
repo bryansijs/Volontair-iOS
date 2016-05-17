@@ -40,8 +40,9 @@ class RequestService{
             switch response.result {
             case .Success:
                 if let value = response.result.value {
+                    
                     for request in value["_embedded"]!!["requests"] as! [[String:AnyObject]] {
-                        
+                        // get User as owner
                         self.getRequestUser(request, completionHandler: completionHandler)
                     }
                     print("Error getRequestBasic")
@@ -58,9 +59,12 @@ class RequestService{
         Alamofire.request(.GET, requestJson["_links"]["creator"]["href"].stringValue , headers: ApiConfig.headers).validate().responseJSON { response in
             switch response.result {
             case .Success:
+                // get user Category's
                 if let value = response.result.value {
+                    let user = UserModel(jsonData: value)
+                    ServiceFactory.sharedInstance.userService.loadUserRequests(user)
                     
-                    self.getRequestCategory(requestData, userJson: value, completionHandler: completionHandler)
+                    self.getRequestCategory(requestData, user: user, completionHandler: completionHandler)
                 }
             case .Failure(let error):
                 print("Error getRequestUser", error)
@@ -68,20 +72,18 @@ class RequestService{
         }
     }
 
-    internal func getRequestCategory(requestJson: AnyObject, userJson: AnyObject, completionHandler: (RequestModel) ->Void) {
+    internal func getRequestCategory(requestJson: AnyObject, user: UserModel, completionHandler: (RequestModel) ->Void) {
         
         let jsonRequest = JSON(requestJson)
         Alamofire.request(.GET, jsonRequest["_links"]["category"]["href"].stringValue , headers: ApiConfig.headers).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    let json = JSON(value)
-                    
                     var categorys : [CategoryModel] = []
                     
                     categorys.append(CategoryModel(JSONData: value))
                     
-                    self.createFullestFromJsonData(requestJson, jsonOwner: userJson, jsonCategory: categorys, completionHandler: completionHandler)
+                    self.createFullestFromJsonData(requestJson, owner: user, jsonCategory: categorys, completionHandler: completionHandler)
                 }
             case .Failure(let error):
                 print("Error getRequestUser", error)
@@ -89,10 +91,10 @@ class RequestService{
         }
     }
 
-    private func createFullestFromJsonData(jsonRequest: AnyObject, jsonOwner: AnyObject, jsonCategory: [CategoryModel], completionHandler: (RequestModel) ->Void) {
-        let requestModel = RequestModel(requestData: jsonRequest, requestOwner: jsonOwner, requestCategorys: jsonCategory)
+    private func createFullestFromJsonData(jsonRequest: AnyObject, owner: UserModel, jsonCategory: [CategoryModel], completionHandler: (RequestModel) ->Void) {
+        
+        let requestModel = RequestModel(requestData: jsonRequest, requestOwner: owner, requestCategorys: jsonCategory)
         completionHandler(requestModel)
-        //self.requests.append(requestModel)
         
         //NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.requestDataUpdateNotificationKey, object: requestModel)
         print(requestModel)

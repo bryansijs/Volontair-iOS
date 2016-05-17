@@ -17,6 +17,8 @@ class UserRequestTableViewController: UITableViewController {
     var requests = [RequestModel]()
     let requestsFromCurrentUser = true
     
+    var editMode = true
+    
     override func viewWillAppear(animated: Bool) {
         //self.requestTableView.setEditing(true, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -87,6 +89,7 @@ class UserRequestTableViewController: UITableViewController {
                 let request = self.requests[indexPath.row]
                 let controller = (segue.destinationViewController as! UserRequestDetailViewController)
                 controller.detailItem = request
+                controller.editMode = self.editMode
             }
         }
     }

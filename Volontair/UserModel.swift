@@ -50,4 +50,19 @@ class UserModel {
         
         self.imageLink = ApiConfig.baseUrl + ApiConfig.usersUrl + userIdString + "/avatar.png"
     }
+    
+    init(username: String, name: String, summary: String, enabled: Bool, requestsLink: String, offersLink: String, listenerConversationsLink: String, categoriesLink: String, latitude: Double, longitude: Double, userId: Int, imageLink:String){
+        self.username = username
+        self.name = name
+        self.summary = summary
+        self.enabled = enabled
+        self.requestsLink = requestsLink
+        self.offersLink = offersLink
+        self.listenerConversationsLink = listenerConversationsLink
+        self.categoriesLink = categoriesLink
+        self.latitude = latitude
+        self.longitude = longitude
+        self.userId = userId
+        self.imageLink = imageLink
+    }
 }

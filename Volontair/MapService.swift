@@ -26,10 +26,10 @@ class MapService {
 
     
     func getRequests() {
-        ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer(self.completGetRequest)
+        ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer(self.completeGetRequest)
     }
     
-    func completGetRequest(request :RequestModel) -> Void {
+    func completeGetRequest(request :RequestModel) -> Void {
         if request.categorys?.count > 0 {
             print(request.categorys![0])
         }
@@ -48,6 +48,8 @@ class MapService {
             var data : [UserMapModel] = []
             
             for user in users! {
+                ServiceFactory.sharedInstance.userService.loadUserCategorys(user)
+                ServiceFactory.sharedInstance.userService.loadUserRequests(user)
                 let mapUser = UserMapModel(user: user)
                 data.append(mapUser)
             }
