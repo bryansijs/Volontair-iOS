@@ -21,10 +21,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
     
     enum segmentedControlPages : Int {
-        case OffersMap = 0
+        case VolunteersMap = 0
         case RequestsMap = 1
     }
-    var currentPage: segmentedControlPages = segmentedControlPages.OffersMap
+    var currentPage: segmentedControlPages = segmentedControlPages.VolunteersMap
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +37,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setRequests), name: ApiConfig.requestDataUpdateNotificationKey, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setUserOffers), name: ApiConfig.userOffersNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setVolunteers), name: ApiConfig.userOffersNotificationKey, object: nil)
         
         mapService.getRequests()
         mapService.getUsersInNeighbourhood()
     }
     
     override func viewDidAppear(animated: Bool) {
-        setUserOffers()
+        setVolunteers()
     }
     
     func clearMarkers() {
@@ -68,9 +68,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func setUserOffers() {
+    func setVolunteers() {
         
-        if currentPage != segmentedControlPages.OffersMap {
+        if currentPage != segmentedControlPages.VolunteersMap {
             return
         }
         print("Set UserOffer markers")
@@ -93,8 +93,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         clearMarkers()
         switch segmentedControl!.selectedSegmentIndex {
         case 0:
-            currentPage = segmentedControlPages.OffersMap
-            setUserOffers()
+            currentPage = segmentedControlPages.VolunteersMap
+            setVolunteers()
             break;
         case 1:
             currentPage = segmentedControlPages.RequestsMap
