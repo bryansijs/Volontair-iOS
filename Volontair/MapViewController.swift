@@ -156,9 +156,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                if let image = markerAsUser.image {
-                    markerImage = self.getRoundedImage(image)
-                }
+                markerImage = self.getRoundedImage(RBSquareImage(UIImage(named: "test")!))
+                //TODO: real image
+//                if let image = markerAsUser.image {
+//                    markerImage = self.getRoundedImage(UIImage(named: "test")!)
+//                }
             }
         } else if(annotation is RequestModel){
             if let markerAsUser = annotation as? MapMarkerModel {
@@ -166,6 +168,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
         
+            
         annotationView!.image = markerImage
         
         return annotationView
@@ -185,7 +188,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return roundedImage
+        return RBResizeImage(roundedImage, targetSize: CGSize(width: 50, height: 50))
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
