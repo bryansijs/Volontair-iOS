@@ -1033,7 +1033,7 @@
                                     <action selector="editButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="d4X-hd-bE9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
                                 <rect key="frame" x="20" y="516" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Opslaan">

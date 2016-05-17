@@ -60,31 +60,22 @@ class ProfileViewController: UIViewController {
     
     func setData(){
         if(self.user == nil){
-            if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
-                self.ProfileNameLabel.text = data.name
-                self.AboutMeLabel.text = data.summary
-                self.showRequestsButton.setTitle("\(data.requests!.count) Hulp aanvragen", forState: .Normal)
-                //TODO: Contact numbers
-                //self.FriendsLabel.text = "\(data..count) contacten"
-                self.ProfileImageView.image = UIImage(data: data.profilePicture!)
-                //            let amountOfContacts: String = String(data.contacts.count)
-                //            self.FriendsLabel.text! = amountOfContacts
-            }
-        } else {
-            // show other person profile
-            if let userProfile = self.user{
-                self.ProfileNameLabel.text = userProfile.name
-                self.AboutMeLabel.text = userProfile.summary
-                self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
-                //TODO: Contact numbers
-                //self.FriendsLabel.text = "\(data..count) contacten"
-                self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
-                //            let amountOfContacts: String = String(data.contacts.count)
-                //            self.FriendsLabel.text! = amountOfContacts
-
-            }
+            self.user = ServiceFactory.sharedInstance.userService.getCurrentUser()
         }
-        
+        // show other person profile
+        if let userProfile = self.user{
+            self.ProfileNameLabel.text = userProfile.name
+            self.AboutMeLabel.text = userProfile.summary
+            if(userProfile.requests!.count < 1){
+                self.showRequestsButton.enabled = false
+            }
+            self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
+            //TODO: Contact numbers
+            //self.FriendsLabel.text = "\(data..count) contacten"
+            self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
+            //            let amountOfContacts: String = String(data.contacts.count)
+            //            self.FriendsLabel.text! = amountOfContacts
+        }
     }
     
     //This will be triggered once the Data is updated.
