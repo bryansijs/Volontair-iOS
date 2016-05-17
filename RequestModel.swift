@@ -32,4 +32,20 @@ class RequestModel : MapMarkerModel {
                    categorys: requestCategorys
         )
     }
+    
+    init(title: String, summary: String, closed: Bool, created: String, updated: String, category: CategoryModel, owner:UserModel){
+        
+        self.owner = owner
+        let coordinate = CLLocationCoordinate2D(latitude: owner.latitude, longitude: owner.longitude)
+        
+        super.init(
+            title: title,
+            summary: summary,
+            coordinate: coordinate,
+            closed: closed,
+            created: created,
+            updated: updated,
+            categorys: [category]
+        )
+    }
 }

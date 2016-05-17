@@ -105,9 +105,12 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         if validated {
             //TODO request versturen
             
-//            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString())
+            let currentUser = ServiceFactory.sharedInstance.getUserService().getCurrentUser()!
+            let request = RequestModel(title: self.titleTextField.text!, summary: messageTextField.text, closed: false, created: getCurrentDateString(), updated: getCurrentDateString(), category: skillCategories[categoryTextField.text!]!, owner: currentUser)
+            currentUser.requests?.append(request)
+            //TODO: communicate with Server
 //            ServiceFactory.sharedInstance.requestService.submitRequest(request)
-//            showRequestSuccessfulAlert()
+            showRequestSuccessfulAlert()
         }
     }
     
