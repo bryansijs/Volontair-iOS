@@ -23,7 +23,9 @@ class UserRequestTableViewController: UITableViewController {
         self.title = "Aanvragen"
         
         if (requestsFromCurrentUser){
-            requests = userService.userModel!.requests
+            if(userService.userModel!.requests?.count > 0){
+                requests = userService.userModel!.requests!
+            }
         }
     }
     

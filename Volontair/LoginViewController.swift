@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidden = false
         
-        if let token = volontairApiService.getVolontairApiToken() {
+        if volontairApiService.getVolontairApiToken() != nil {
             volontairApiService.login(self.redirectToNextView , completeErrorHandler: self.error)
         }else {
             activityIndicator.hidden = true
@@ -111,6 +111,11 @@ class LoginViewController: UIViewController {
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
         print("Something went wrong")
+        
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
     }
     
     

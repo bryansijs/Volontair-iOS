@@ -8,15 +8,28 @@
 
 import Foundation
 import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 class RequestModel : MapMarkerModel {
     
-    override init(jsonData: AnyObject) {
-        print(jsonData)
-        super.init(jsonData: jsonData)
-    }
+    var owner : UserModel?
     
-    override init(title: String?, category: String, summary: String, coordinate: CLLocationCoordinate2D, created: String, updated: String, iconKey: String){
-        super.init(title: title, category: category, summary: summary, coordinate: coordinate, created: created, updated: updated, iconKey: iconKey)
+    init(requestData: AnyObject, requestOwner: AnyObject, requestCategorys: [CategoryModel]) {
+        let request = JSON(requestData)
+        
+        self.owner = UserModel(jsonData: requestOwner)
+        
+        let coordinate = CLLocationCoordinate2D(latitude: self.owner!.latitude, longitude: self.owner!.longitude)
+        
+        super.init(title: request["title"].stringValue,
+                   summary: request["description"].stringValue,
+                   coordinate: coordinate,
+                   created: request["created"].stringValue,
+                   updated: request["updated"].stringValue,
+                   categorys: requestCategorys
+        )
+        
+        
     }
 }

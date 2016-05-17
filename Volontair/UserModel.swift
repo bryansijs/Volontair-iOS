@@ -12,50 +12,42 @@ import Alamofire
 
 class UserModel {
     
+    var userId: Int
     var username : String
     var name: String
-    var profilePicture: NSData
+    var profilePicture: NSData?
     var summary: String
-    var offersCategories: [String: JSON]
-    var contacts: [JSON]
-    var offers: [JSON]
-    var requests: [RequestModel]
     var enabled: Bool
+    
+    var categorys : [CategoryModel]?
+    var offers : [OfferModel]?
+    var requests : [RequestModel]?
+    
     var requestsLink : String
+    var offersLink : String
     var listenerConversationsLink: String
     var categoriesLink: String
-    var latitude : String
-    var longitude : String
+    var imageLink : String
+    
+    var latitude : Double
+    var longitude : Double
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
         self.username = json["username"].stringValue
         self.name = json["name"].stringValue
         self.summary = json["summary"].stringValue
-        self.offersCategories = json["offersCategories"].dictionaryValue
-        self.contacts = json["contacts"].arrayValue
-        self.offers = json["offers"].arrayValue
-        self.requests = [RequestModel]()
-        
-        if let items = json["requests"].arrayObject {
-            for item in items {
-                self.requests.append(RequestModel(jsonData: item))
-            }
-        }
-        
-        self.profilePicture = NSData()
         self.enabled = json["enabled"].boolValue
-        self.requestsLink = json["_link"]["requests"].stringValue
-        self.listenerConversationsLink = json["_link"]["conversations"].stringValue
-        self.categoriesLink = json["_link"]["categories"].stringValue
-        self.latitude = json["latitude"].stringValue
-        self.longitude = json["longitude"].stringValue
+        self.requestsLink = json["_links"]["requests"]["href"].stringValue
+        self.offersLink = json["_links"]["offers"]["href"].stringValue
+        self.listenerConversationsLink = json["_links"]["listenerConversations"]["href"].stringValue
+        self.categoriesLink = json["_links"]["categories"]["href"].stringValue
+        self.latitude = json["latitude"].doubleValue
+        self.longitude = json["longitude"].doubleValue
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            //Download profile picutre async
-            //let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
-            //let url = NSURL(string: imageURL)
-            //self.profilePicture = NSData(contentsOfURL: url!)!
-        }
+        let userIdString = json["_links"]["self"]["href"].stringValue.regex("[0-9]*$")[0]
+        self.userId = Int(userIdString)!
+        
+        self.imageLink = ApiConfig.baseUrl + ApiConfig.usersUrl + userIdString + "/avatar.png"
     }
 }

@@ -8,14 +8,21 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 class UserMapModel : MapMarkerModel {
     
-    override init(jsonData: AnyObject) {
-        super.init(jsonData: jsonData)
-    }
+    var owner : UserModel?
     
-    override init(title: String?, category: String, summary: String, coordinate: CLLocationCoordinate2D, created: String, updated: String , iconKey: String){
-        super.init(title: title, category: category, summary: summary, coordinate: coordinate, created: created, updated: updated, iconKey: iconKey)
+    init(user: UserModel){
+        self.owner = user
+        let coor = CLLocationCoordinate2D(latitude: user.latitude, longitude: user.longitude)
+        let categorys : [CategoryModel] = []
+        
+        super.init(title: user.name, summary: user.summary, coordinate: coor, categorys: categorys)
+        
+        if let imageData = user.profilePicture {
+            self.image = UIImage(data:imageData, scale:2.4)
+        }
     }
 }

@@ -51,9 +51,10 @@ class ProfileViewController: UIViewController {
         if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
             self.ProfileNameLabel.text = data.name
             self.AboutMeLabel.text = data.summary
-            self.showRequestsButton.setTitle("\(data.requests.count) Hulp aanvragen", forState: .Normal)
-            self.FriendsLabel.text = "\(data.contacts.count) contacten"
-            self.ProfileImageView.image = self.makeRoundedImage(UIImage(named: "test")!)
+            self.showRequestsButton.setTitle("\(data.requests!.count) Hulp aanvragen", forState: .Normal)
+            //TODO: Contact numbers
+            //self.FriendsLabel.text = "\(data..count) contacten"
+            self.ProfileImageView.image = UIImage(data: data.profilePicture!)
 //            let amountOfContacts: String = String(data.contacts.count)
 //            self.FriendsLabel.text! = amountOfContacts
         }
