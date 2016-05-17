@@ -110,7 +110,7 @@ class UserService  {
 
     }
     
-    func loadUserCategorys(user: UserModel){
+    internal func loadUserCategorys(user: UserModel){
         Alamofire.request(.GET, user.categoriesLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
             response.result {
                 case .Success:

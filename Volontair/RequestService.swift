@@ -89,7 +89,7 @@ class RequestService{
         }
     }
 
-    internal func createFullestFromJsonData(jsonRequest: AnyObject, jsonOwner: AnyObject, jsonCategory: [CategoryModel], completionHandler: (RequestModel) ->Void) {
+    private func createFullestFromJsonData(jsonRequest: AnyObject, jsonOwner: AnyObject, jsonCategory: [CategoryModel], completionHandler: (RequestModel) ->Void) {
         let requestModel = RequestModel(requestData: jsonRequest, requestOwner: jsonOwner, requestCategorys: jsonCategory)
         completionHandler(requestModel)
         //self.requests.append(requestModel)

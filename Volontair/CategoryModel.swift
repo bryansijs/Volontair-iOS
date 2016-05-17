@@ -33,6 +33,10 @@ class CategoryModel {
         self.name = name
         self.iconKey = iconName
         self.colorHex = iconColorHex
-        self.icon = ApiConfig.categoryIcons[self.name]!
+        if let image = ApiConfig.categoryIcons[self.name] {
+            self.icon = image
+        } else {
+           self.icon = UIImage(named: "icon_default")!
+        }
     }
 }

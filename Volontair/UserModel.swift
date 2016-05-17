@@ -45,7 +45,7 @@ class UserModel {
         self.latitude = json["latitude"].doubleValue
         self.longitude = json["longitude"].doubleValue
         
-        let userIdString = json["_links"]["self"]["href"].stringValue.regex("[1-9]*$")[0]
+        let userIdString = json["_links"]["self"]["href"].stringValue.regex("[0-9]*$")[0]
         self.userId = Int(userIdString)!
         
         self.imageLink = ApiConfig.baseUrl + ApiConfig.usersUrl + userIdString + "/avatar.png"
