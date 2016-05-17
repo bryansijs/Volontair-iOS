@@ -119,11 +119,13 @@ struct ApiConfig{
             CategoryIconModel(category: "events", iconUrl: "icon_events")
     ]
     
-    //Delete this later
-//    static let headers = [
-//        "Content-Type": "application/json",
-//        "Authorization": "Bearer ef151458-a5e1-4060-9212-f2422a38108a",
-//        "Accept": "application/json"
-//    ]
+    static let categoryIcons : [String: UIImage] = [
+        "Technische vragen" : UIImage(named: "icon_technical_questions")!,
+        "Sociale activiteiten" : UIImage(named: "icon_social_activities")!,
+        "Huis en tuin" : UIImage(named: "icon_housework")!,
+        "Vervoer" : UIImage(named: "icon_transportation")!,
+        "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing")!,
+        "Evenementen" : UIImage(named: "icon_events")!
+    ]
 
 }

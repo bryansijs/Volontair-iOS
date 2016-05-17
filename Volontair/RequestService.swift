@@ -78,7 +78,7 @@ class RequestService{
                     let json = JSON(value)
                     
                     var categorys : [CategoryModel] = []
-                    //["_embedded"]!!["categorys"]
+                    
                     categorys.append(CategoryModel(JSONData: value))
                     
                     self.createFullestFromJsonData(requestJson, jsonOwner: userJson, jsonCategory: categorys, completionHandler: completionHandler)

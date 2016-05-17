@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import UIKit
 
 class CategoryModel {
     
@@ -16,6 +17,7 @@ class CategoryModel {
     var name: String
     var iconKey: String
     var colorHex: String
+    var icon : UIImage
 
     init(JSONData: AnyObject) {
         let data = JSON(JSONData)
@@ -24,11 +26,13 @@ class CategoryModel {
         self.name = data["name"].stringValue
         self.iconKey = data["iconKey"].stringValue
         self.colorHex = data["colorHex"].stringValue
+        self.icon = ApiConfig.categoryIcons[self.name]!
     }
     
     init(name:String,iconName: String, iconColorHex: String){
         self.name = name
         self.iconKey = iconName
         self.colorHex = iconColorHex
+        self.icon = ApiConfig.categoryIcons[self.name]!
     }
 }

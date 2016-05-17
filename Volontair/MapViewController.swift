@@ -136,12 +136,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let markerAsUser = annotation as? MapMarkerModel {
                 if let image = markerAsUser.image {
                     markerImage = self.getRoundedImage(image)
-                } else {
-                    
                 }
             }
-        } else {
-            
+        } else if(annotation is RequestModel){
+            if let markerAsUser = annotation as? MapMarkerModel {
+                markerImage = self.getRoundedImage(markerAsUser.categorys![0].icon)
+            }
         }
         
         
