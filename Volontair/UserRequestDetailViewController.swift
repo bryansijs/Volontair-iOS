@@ -12,7 +12,7 @@ class UserRequestDetailViewController: UIViewController {
     
     var detailItem: RequestModel? {
         didSet {
-            // Update the view.
+         // Update the view.
             //self.configureView()
         }
     }
@@ -49,7 +49,9 @@ class UserRequestDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(sender: UIButton) {
-        
+        self.detailItem?.title = titleTextView.text!
+        self.detailItem?.summary = detailTextView.text!
+        self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func editButtonPressed(sender: UIButton) {
         self.saveButton.hidden = false
