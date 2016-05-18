@@ -24,6 +24,14 @@ class UserRequestDetailViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var requestCategoryLabel: UILabel!
+    @IBOutlet weak var ownerUIImageView: UIImageView!
+    @IBOutlet weak var OwnerNameLabel: UILabel!
+
+    @IBOutlet weak var chatButton: UIButton!
+    @IBOutlet weak var requestDateLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         self.configureView()
         detailTextView.editable = false
@@ -40,12 +48,20 @@ class UserRequestDetailViewController: UIViewController {
         if(!editMode){
             self.editButton.hidden = true
             self.titleTextView.editable = false
+        } else {
+            self.chatButton.hidden = true
         }
     }
     
     func configureView(){
         self.titleTextView.text = detailItem?.title
         self.detailTextView.text = detailItem?.summary
+        self.OwnerNameLabel.text = detailItem?.owner?.name
+        
+        if let category = detailItem?.categorys?.first?.name{
+            self.requestCategoryLabel.text = category
+        }
+        self.requestDateLabel.text = detailItem?.created!.regex("^([0-9]*-[0-9]*)*")[0]
     }
     
     @IBAction func saveButtonPressed(sender: UIButton) {

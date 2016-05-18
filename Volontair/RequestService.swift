@@ -33,6 +33,26 @@ class RequestService{
         }
     }
     
+    func loadRequestCategory(request: RequestModel,requestURL: String){
+        let requestUrl = NSURL(string: requestURL)
+        
+        Alamofire.request(.GET, requestUrl!, headers: ApiConfig.headers).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    print(value)
+                    var categorys : [CategoryModel] = []
+                    
+                    categorys.append(CategoryModel(JSONData: value))
+
+                    request.categorys = categorys
+                }
+            case .Failure(let error):
+                print("Error getRequestBasic", error)
+            }
+        }
+    }
+    
     internal func getRequestBasic(completionHandler: (RequestModel) ->Void) {
         let requestUrl = NSURL(string: ApiConfig.baseUrl + ApiConfig.requestsEndPoint)
         

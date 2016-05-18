@@ -197,7 +197,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = self.getRoundedImage(RBSquareImage(UIImage(named: "test")!))
+                markerImage = getRoundedImage(RBSquareImage(UIImage(named: "test")!))
                 //TODO: real image
 //                if let image = markerAsUser.image {
 //                    markerImage = self.getRoundedImage(UIImage(named: "test")!)
@@ -205,7 +205,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         } else if(annotation is RequestModel){
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = self.getRoundedImage(markerAsUser.categorys![0].icon)
+                markerImage = getRoundedImage(markerAsUser.categorys![0].icon)
             }
         }
         
@@ -213,23 +213,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView!.image = markerImage
         
         return annotationView
-    }
-    
-    func getRoundedImage(image : UIImage) -> UIImage {
-        let imageLayer = CALayer()
-        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
-        imageLayer.contents = image.CGImage
-        
-        imageLayer.masksToBounds = true
-        imageLayer.cornerRadius = image.size.width/2
-        
-        UIGraphicsBeginImageContext(image.size)
-        
-        imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return RBResizeImage(roundedImage, targetSize: CGSize(width: 50, height: 50))
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
