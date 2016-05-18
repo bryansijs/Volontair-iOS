@@ -174,10 +174,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             // detail button
             let detailButton = UIButton(type: UIButtonType.System)
-            detailButton.frame.size.width = 44
-            detailButton.frame.size.height = 44
-            detailButton.backgroundColor = UIColor.redColor()
-            detailButton.setImage(UIImage(named: "trash"), forState: .Normal)
+            detailButton.frame.size.width = 30
+            detailButton.frame.size.height = 30
+            //detailButton.backgroundColor = UIColor.grayColor()
+            detailButton.setBackgroundImage(UIImage(named: "blueArrow"), forState: .Normal)
+            //detailButton.setImage(UIImage(named: "test"), forState: .Normal)
             
             
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
