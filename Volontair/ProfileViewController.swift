@@ -41,8 +41,8 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         
@@ -51,6 +51,15 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         setData()
+        if(!editMode){
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if(!editMode){
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
