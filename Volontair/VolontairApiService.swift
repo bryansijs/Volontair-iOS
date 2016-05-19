@@ -55,6 +55,16 @@ class VolontairApiService {
                             if let value = response.result.value {
                                 let user = UserModel(jsonData: value)
                                 self.userService.setCurrentUser(user)
+                                
+                                // userRequest needs category's
+                                self.userService.loadUserCategorys(user)
+                                self.userService.loadUserRequests(user)
+                                
+                                
+                                let userArray :[UserModel] = [user]
+                                self.userService.loadProfilePictures(userArray, completionHandler: { (user, error) in
+                                    
+                                })
                             }
                             
                             self.setVolontairApiToken(volontairToken)

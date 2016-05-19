@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class RequestService{
     
@@ -32,25 +33,96 @@ class RequestService{
         }
     }
     
-    //GET
-    func loadRequestDataFromServer(completionHandler: ([RequestModel]?,NSError?) -> Void) {
+    func loadRequestCategory(request: RequestModel,requestURL: String){
+        let requestUrl = NSURL(string: requestURL)
         
-        //check if URL is valid
+        Alamofire.request(.GET, requestUrl!, headers: ApiConfig.headers).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    print(value)
+                    var categorys : [CategoryModel] = []
+                    
+                    categorys.append(CategoryModel(JSONData: value))
+
+                    request.categorys = categorys
+                }
+            case .Failure(let error):
+                print("Error getRequestBasic", error)
+            }
+        }
+    }
+    
+    internal func getRequestBasic(completionHandler: (RequestModel) ->Void) {
         let requestUrl = NSURL(string: ApiConfig.baseUrl + ApiConfig.requestsEndPoint)
         
         Alamofire.request(.GET, requestUrl!, headers: ApiConfig.headers).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
+                    
                     for request in value["_embedded"]!!["requests"] as! [[String:AnyObject]] {
-                        print(request)
-                        self.requests.append(RequestModel(jsonData: request))
+                        // get User as owner
+                        self.getRequestUser(request, completionHandler: completionHandler)
                     }
-                    completionHandler(self.requests, nil)
+                    print("Error getRequestBasic")
                 }
             case .Failure(let error):
-                completionHandler(nil, error)
+                print("Error getRequestBasic", error)
             }
         }
+
+    }
+    
+    internal func getRequestUser(requestData : AnyObject, completionHandler: (RequestModel) ->Void) {
+        let requestJson = JSON(requestData)
+        Alamofire.request(.GET, requestJson["_links"]["creator"]["href"].stringValue , headers: ApiConfig.headers).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                // get user Category's
+                if let value = response.result.value {
+                    let user = UserModel(jsonData: value)
+                    ServiceFactory.sharedInstance.userService.loadUserRequests(user)
+                    
+                    self.getRequestCategory(requestData, user: user, completionHandler: completionHandler)
+                }
+            case .Failure(let error):
+                print("Error getRequestUser", error)
+            }
+        }
+    }
+
+    internal func getRequestCategory(requestJson: AnyObject, user: UserModel, completionHandler: (RequestModel) ->Void) {
+        
+        let jsonRequest = JSON(requestJson)
+        Alamofire.request(.GET, jsonRequest["_links"]["category"]["href"].stringValue , headers: ApiConfig.headers).validate().responseJSON { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    var categorys : [CategoryModel] = []
+                    
+                    categorys.append(CategoryModel(JSONData: value))
+                    
+                    self.createFullestFromJsonData(requestJson, owner: user, jsonCategory: categorys, completionHandler: completionHandler)
+                }
+            case .Failure(let error):
+                print("Error getRequestUser", error)
+            }
+        }
+    }
+
+    private func createFullestFromJsonData(jsonRequest: AnyObject, owner: UserModel, jsonCategory: [CategoryModel], completionHandler: (RequestModel) ->Void) {
+        
+        let requestModel = RequestModel(requestData: jsonRequest, requestOwner: owner, requestCategorys: jsonCategory)
+        completionHandler(requestModel)
+        
+        //NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.requestDataUpdateNotificationKey, object: requestModel)
+        print(requestModel)
+    }
+    
+    
+    //GET
+    func loadRequestDataFromServer(completionHandler: (RequestModel)->Void) {
+        self.getRequestBasic(completionHandler)
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import RxSwift
+import QuartzCore
 
 class ProfileViewController: UIViewController {
     
@@ -16,24 +17,49 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ProfileImageView: UIImageView!
     @IBOutlet weak var AboutMeLabel: UITextView!
     @IBOutlet weak var FriendsLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var aboutMeHeader: UILabel!
+    @IBOutlet weak var showRequestsButton: UIButton!
+
+    var editMode = true
+    
+    var user: UserModel? {
+        didSet {
+            // Update the view.
+            //self.setdata()
+        }
+    }
     
     let profileService = ProfileServiceFactory.sharedInstance.getProfileService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Profiel"
         // profile rounded image
         self.ProfileImageView.layer.cornerRadius = self.ProfileImageView.frame.size.width / 2
         self.ProfileImageView.layer.borderWidth = 3.0
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         setData()
+        if(!editMode){
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if(!editMode){
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,31 +68,28 @@ class ProfileViewController: UIViewController {
     }
     
     func setData(){
+        if(self.user == nil){
+            self.user = ServiceFactory.sharedInstance.userService.getCurrentUser()
+        }
+        // show other person profile
+        if let userProfile = self.user{
+            self.ProfileNameLabel.text = userProfile.name
+            self.AboutMeLabel.text = userProfile.summary
+            self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
+            //TODO: Contact numbers
+            //self.FriendsLabel.text = "\(data..count) contacten"
+            self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
+            //            let amountOfContacts: String = String(data.contacts.count)
+            //            self.FriendsLabel.text! = amountOfContacts
+            editableMode()
+
         
-        if let data = ServiceFactory.sharedInstance.userService.getCurrentUser() {
-            self.ProfileNameLabel.text = data.name
-            self.AboutMeLabel.text = data.summary
-            self.ProfileImageView.image = UIImage(data: data.profilePicture)
-//            let amountOfContacts: String = String(data.contacts.count)
-//            self.FriendsLabel.text! = amountOfContacts
         }
     }
     
-    @IBAction func indexChanged(sender: UISegmentedControl) {
-        
-        switch segmentedControl.selectedSegmentIndex
-        {
-        case 0:
-            aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = profileService.getUserProfileModel()?.summary
-        case 1:
-            aboutMeHeader.text = segmentedControl.titleForSegmentAtIndex(segmentedControl.selectedSegmentIndex)
-            AboutMeLabel.text = ""
-//            for request in (profileService.getUserProfileModel()?.requests)!{
-//                AboutMeLabel.text = AboutMeLabel.text + request["title"].stringValue + "\r\n"
-//            }
-        default:
-            break;
+    private func editableMode(){
+        if(!editMode){
+            self.AboutMeLabel.editable = false
         }
     }
     
@@ -74,5 +97,32 @@ class ProfileViewController: UIViewController {
     func updateOnNotification() {
         profileService.loadProfileFromServer()
         setData()
+    }
+    
+    func makeRoundedImage(image: UIImage) -> UIImage{
+        let imageLayer = CALayer()
+        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        imageLayer.contents = image.CGImage
+        
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = image.size.width/2.5
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return roundedImage
+    }
+    
+    //showProfileRequests
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "showProfileRequests") {
+            // pass data to List
+            let newController = segue.destinationViewController as! UserRequestTableViewController
+            newController.requests = (user!.requests)!
+            newController.editMode = self.editMode
+        }
     }
 }

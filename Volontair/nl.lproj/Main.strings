@@ -50,10 +50,10 @@
 "aOu-zc-1ip.text" = "Label";
 
 /* Class = "UISegmentedControl"; bz3-HS-8kB.segmentTitles[0] = "Aangeboden"; ObjectID = "bz3-HS-8kB"; */
-"bz3-HS-8kB.segmentTitles[0]" = "Aangeboden";
+"bz3-HS-8kB.segmentTitles[0]" = "Vrijwilligers";
 
 /* Class = "UISegmentedControl"; bz3-HS-8kB.segmentTitles[1] = "Gezocht"; ObjectID = "bz3-HS-8kB"; */
-"bz3-HS-8kB.segmentTitles[1]" = "Gezocht";
+"bz3-HS-8kB.segmentTitles[1]" = "Aanvragen";
 
 /* Class = "UITextField"; text = "koken"; ObjectID = "fl2-vw-lVe"; */
 "fl2-vw-lVe.text" = "koken";
@@ -77,7 +77,7 @@
 "iWQ-zV-Dm8.segmentTitles[0]" = "Gezocht";
 
 /* Class = "UISegmentedControl"; iWQ-zV-Dm8.segmentTitles[1] = "Aangeboden"; ObjectID = "iWQ-zV-Dm8"; */
-"iWQ-zV-Dm8.segmentTitles[1]" = "Aangeboden";
+"iWQ-zV-Dm8.segmentTitles[1]" = "Vrijwilligers";
 
 /* Class = "UILabel"; text = "subtitle"; ObjectID = "o5V-xR-O56"; */
 "o5V-xR-O56.text" = "subtitle";

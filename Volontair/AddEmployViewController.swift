@@ -103,18 +103,20 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     private func submitRequestForm(){
         let validated = validateRequestForm()
         if validated {
-            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString())
-            ServiceFactory.sharedInstance.requestService.submitRequest(request)
-            showRequestSuccessfulAlert()
+            //TODO request versturen
+            
+//            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString())
+//            ServiceFactory.sharedInstance.requestService.submitRequest(request)
+//            showRequestSuccessfulAlert()
         }
     }
     
     private func submitOfferForm(){
         let validated = validateRequestForm()
         if validated {
-            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString())
-            ServiceFactory.sharedInstance.offerService.submitOffer(offer)
-            showRequestSuccessfulAlert()
+//            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString())
+//            ServiceFactory.sharedInstance.offerService.submitOffer(offer)
+//            showRequestSuccessfulAlert()
         }
     }
     

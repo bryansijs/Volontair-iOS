@@ -12,35 +12,57 @@ import Alamofire
 
 class UserModel {
     
+    var userId: Int
     var username : String
     var name: String
-    var profilePicture: NSData
+    var profilePicture: NSData?
     var summary: String
     var enabled: Bool
+    
+    var categorys : [CategoryModel]?
+    var offers : [OfferModel]?
+    var requests : [RequestModel]?
+    
     var requestsLink : String
+    var offersLink : String
     var listenerConversationsLink: String
     var categoriesLink: String
-    var latitude : String
-    var longitude : String
+    var imageLink : String
+    
+    var latitude : Double
+    var longitude : Double
     
     init(jsonData: AnyObject){
         let json = JSON(jsonData)
         self.username = json["username"].stringValue
         self.name = json["name"].stringValue
-        self.profilePicture = NSData()
         self.summary = json["summary"].stringValue
         self.enabled = json["enabled"].boolValue
-        self.requestsLink = json["_link"]["requests"].stringValue
-        self.listenerConversationsLink = json["_link"]["conversations"].stringValue
-        self.categoriesLink = json["_link"]["categories"].stringValue
-        self.latitude = json["latitude"].stringValue
-        self.longitude = json["longitude"].stringValue
+        self.requestsLink = json["_links"]["requests"]["href"].stringValue
+        self.offersLink = json["_links"]["offers"]["href"].stringValue
+        self.listenerConversationsLink = json["_links"]["listenerConversations"]["href"].stringValue
+        self.categoriesLink = json["_links"]["categories"]["href"].stringValue
+        self.latitude = json["latitude"].doubleValue
+        self.longitude = json["longitude"].doubleValue
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            //Download profile picutre async
-            //let imageURL = "http://volontairtest-mikero.rhcloud.com/" + json["avatar"].string!
-            //let url = NSURL(string: imageURL)
-            //self.profilePicture = NSData(contentsOfURL: url!)!
-        }
+        let userIdString = json["_links"]["self"]["href"].stringValue.regex("[0-9]*$")[0]
+        self.userId = Int(userIdString)!
+        
+        self.imageLink = ApiConfig.baseUrl + ApiConfig.usersUrl + userIdString + "/avatar.png"
+    }
+    
+    init(username: String, name: String, summary: String, enabled: Bool, requestsLink: String, offersLink: String, listenerConversationsLink: String, categoriesLink: String, latitude: Double, longitude: Double, userId: Int, imageLink:String){
+        self.username = username
+        self.name = name
+        self.summary = summary
+        self.enabled = enabled
+        self.requestsLink = requestsLink
+        self.offersLink = offersLink
+        self.listenerConversationsLink = listenerConversationsLink
+        self.categoriesLink = categoriesLink
+        self.latitude = latitude
+        self.longitude = longitude
+        self.userId = userId
+        self.imageLink = imageLink
     }
 }

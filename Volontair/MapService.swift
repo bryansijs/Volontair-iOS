@@ -23,20 +23,17 @@ class MapService {
     func getMapViewModel() -> MapViewModel? {
         return self.mapViewModel
     }
+
     
     func getRequests() {
-        ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer { (responseObject: [RequestModel]?, error: NSError?) in
-            if ((error) != nil) {
-                print(error)
-            } else {
-                if let requestArray = responseObject{
-                    self.mapViewModel?.requests! = requestArray
-                    NSNotificationCenter.defaultCenter().postNotificationName(
-                        Config.requestsUpdatedNotificationKey,
-                        object: self.mapViewModel?.requests)
-                }
-            }
+        ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer(self.completeGetRequest)
+    }
+    
+    func completeGetRequest(request :RequestModel) -> Void {
+        if request.categorys?.count > 0 {
+            print(request.categorys![0])
         }
+        self.mapViewModel?.requests?.append(request)
     }
     
     func getUsersInNeighbourhood() {
@@ -50,15 +47,19 @@ class MapService {
         } else {
             var data : [UserMapModel] = []
             
-            for user in users! { //transform userModel naar userMapModel TODO
-                let coordinates = CLLocationCoordinate2D(latitude: 51.682449, longitude: 5.293167)
-                let mapUser = UserMapModel(title: user.name, category: "TODO lijst van cats", summary: user.summary, coordinate: coordinates, created: "TODO not nessesary", updated: "notNessesary")
+            for user in users! {
+                ServiceFactory.sharedInstance.userService.loadUserCategorys(user)
+                ServiceFactory.sharedInstance.userService.loadUserRequests(user)
+                let mapUser = UserMapModel(user: user)
                 data.append(mapUser)
             }
             
             self.mapViewModel?.users = data
             NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.userOffersNotificationKey, object: nil)
             
+            if users![0].profilePicture == nil {
+                ServiceFactory.sharedInstance.userService.loadProfilePictures( users , completionHandler: self.completeGetUsersInNeighbourhood)
+            }
         }
     }
 }
