@@ -57,3 +57,20 @@ func RBResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
     
     return newImage
 }
+
+func getRoundedImage(image : UIImage) -> UIImage {
+    let imageLayer = CALayer()
+    imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+    imageLayer.contents = image.CGImage
+    
+    imageLayer.masksToBounds = true
+    imageLayer.cornerRadius = image.size.width/2
+    
+    UIGraphicsBeginImageContext(image.size)
+    
+    imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
+    let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return RBResizeImage(roundedImage, targetSize: CGSize(width: 50, height: 50))
+}

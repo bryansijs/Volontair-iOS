@@ -166,7 +166,10 @@ class UserService  {
                 var requests : [RequestModel] = []
                 
                 for req in value["_embedded"]!!["requests"] as! [[String:AnyObject]]{
-                    requests.append(RequestModel(requestData: req, requestOwner: user, requestCategorys: user.categorys))
+                    let request = RequestModel(requestData: req, requestOwner: user, requestCategorys: user.categorys)
+                    let link = req["_links"]!["category"] as! [String:AnyObject]
+                    ServiceFactory.sharedInstance.requestService.loadRequestCategory(request, requestURL: link["href"]! as! String)
+                    requests.append(request)
                 }
                 user.requests = requests
             }

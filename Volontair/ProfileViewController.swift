@@ -41,8 +41,8 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         
@@ -51,6 +51,15 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         setData()
+        if(!editMode){
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if(!editMode){
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,16 +75,24 @@ class ProfileViewController: UIViewController {
         if let userProfile = self.user{
             self.ProfileNameLabel.text = userProfile.name
             self.AboutMeLabel.text = userProfile.summary
-            self.setRequestButtonState()
             self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
             //TODO: Contact numbers
             //self.FriendsLabel.text = "\(data..count) contacten"
             self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
             //            let amountOfContacts: String = String(data.contacts.count)
             //            self.FriendsLabel.text! = amountOfContacts
+            editableMode()
+            setRequestButtonState()
+
+        
         }
     }
     
+    private func editableMode(){
+        if(!editMode){
+            self.AboutMeLabel.editable = false
+        }
+    }
     func setRequestButtonState(){
         if let userProfile = self.user{
             if(userProfile.requests!.count < 1){
