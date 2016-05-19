@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Unknown constraint types" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -1009,17 +1010,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emY-iZ-Vc9">
                                 <rect key="frame" x="0.0" y="64" width="600" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-se-log">
-                                        <rect key="frame" x="567" y="10" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Frb-uf-4bK"/>
-                                            <constraint firstAttribute="width" constant="25" id="vJW-yt-RjS"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="NewBlue"/>
-                                        <connections>
-                                            <action selector="editButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="d4X-hd-bE9"/>
-                                        </connections>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="MOX-aL-65c">
                                         <rect key="frame" x="18" y="4" width="543" height="37"/>
                                         <color key="backgroundColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -1042,14 +1032,19 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="jAM-se-log" firstAttribute="trailing" secondItem="emY-iZ-Vc9" secondAttribute="trailingMargin" id="LWd-dG-8Ot"/>
+                                    <constraint firstAttribute="trailing" secondItem="emY-iZ-Vc9" secondAttribute="trailingMargin" id="LWd-dG-8Ot"/>
                                     <constraint firstItem="MOX-aL-65c" firstAttribute="width" secondItem="emY-iZ-Vc9" secondAttribute="width" constant="-57" id="Nf1-oy-bOf"/>
                                     <constraint firstItem="MOX-aL-65c" firstAttribute="centerY" secondItem="emY-iZ-Vc9" secondAttribute="centerY" id="aWQ-PE-kv6"/>
                                     <constraint firstItem="MOX-aL-65c" firstAttribute="centerX" secondItem="emY-iZ-Vc9" secondAttribute="centerX" constant="-10.5" id="eC4-qa-xdu"/>
                                     <constraint firstAttribute="height" constant="45" id="haB-d6-RyS"/>
                                     <constraint firstItem="MOX-aL-65c" firstAttribute="top" secondItem="emY-iZ-Vc9" secondAttribute="top" constant="4" id="jhW-Jg-e11"/>
-                                    <constraint firstItem="jAM-se-log" firstAttribute="centerY" secondItem="MOX-aL-65c" secondAttribute="centerY" id="xqQ-VS-CLW"/>
+                                    <constraint firstAttribute="centerY" secondItem="MOX-aL-65c" secondAttribute="centerY" id="xqQ-VS-CLW"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LWd-dG-8Ot"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
                                 <rect key="frame" x="20" y="255" width="560" height="206"/>
@@ -1108,7 +1103,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLO-SY-wL3">
-                                <rect key="frame" x="123" y="150" width="48.5" height="13.5"/>
+                                <rect key="frame" x="123" y="150" width="49" height="14"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1150,6 +1145,7 @@
                             <constraint firstAttribute="bottom" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="476" id="ZYT-Up-JHH"/>
                             <constraint firstItem="7Gc-BK-ODS" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="aJ2-F9-iHA"/>
                             <constraint firstItem="jGc-IR-hCf" firstAttribute="top" secondItem="tIl-IX-bNk" secondAttribute="bottom" constant="25" id="adm-9G-Xmw"/>
+                            <constraint firstItem="jAM-se-log" firstAttribute="trailing" secondItem="7Gc-BK-ODS" secondAttribute="trailing" id="bC6-7Z-aYB"/>
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="c5e-31-ne4"/>
                             <constraint firstItem="Wa6-cT-FZb" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="dPD-0Z-QE8"/>
                             <constraint firstItem="ndk-KU-O7T" firstAttribute="top" secondItem="3HK-Rp-fmY" secondAttribute="bottom" constant="8" id="hFK-gP-xCs"/>
@@ -1159,6 +1155,7 @@
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="top" secondItem="ImB-zF-Uba" secondAttribute="bottom" constant="31" id="ues-0L-2JE"/>
                             <constraint firstItem="7Gc-BK-ODS" firstAttribute="top" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="3" id="x0D-X3-du7"/>
                             <constraint firstItem="jGc-IR-hCf" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="xCe-mO-1p8"/>
+                            <constraint firstItem="jAM-se-log" firstAttribute="top" secondItem="kyq-Zf-0Y9" secondAttribute="bottom" constant="8" symbolic="YES" id="zQt-3h-SDZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
