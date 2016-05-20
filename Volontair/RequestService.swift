@@ -16,19 +16,10 @@ class RequestService{
     
     //POST
     func submitRequest(request: RequestModel){
-        
-        //sample params.
-        let parameters = [
-            "foo": [1,2,3],
-            "bar": [
-                "baz": "qux"
-            ]
-        ]
+        //params.
+        let parameters = request.toJson()
         
         Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
-            print(request)
-            print(response)
-            print(data)
             print(error)
         }
     }
@@ -40,11 +31,9 @@ class RequestService{
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    print(value)
-                    var categorys : [CategoryModel] = []
                     
+                    var categorys : [CategoryModel] = []
                     categorys.append(CategoryModel(JSONData: value))
-
                     request.categorys = categorys
                 }
             case .Failure(let error):
@@ -118,6 +107,35 @@ class RequestService{
         
         //NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.requestDataUpdateNotificationKey, object: requestModel)
         print(requestModel)
+    }
+    
+    func editUserRequest(request: RequestModel){
+        
+        //params.
+        let parameters = request.toJson()
+        print(parameters)
+        
+        Alamofire.request(.PATCH, request.requestLink!, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
+            print(error)
+        }
+    }
+    
+    func deleteUserRequest(request: RequestModel){
+        
+        Alamofire.request(.DELETE, request.requestLink!, headers: ApiConfig.headers).validate().responseJSON { response in switch
+        response.result {
+        case .Success:
+            if let value = response.result.value {
+                print(value)
+            }
+        case .Failure(let error):
+            print(error)
+            }
+        }
+        
+        let currentUser = ServiceFactory.sharedInstance.userService.userMe
+        let index = currentUser!.requests?.indexOf(request)
+        currentUser!.requests?.removeAtIndex((index?.littleEndian)!)
     }
     
     

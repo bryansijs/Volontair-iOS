@@ -16,7 +16,6 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var categoryPicker: UIPickerView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     
@@ -59,17 +58,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
-    
-    //MARK: SegmentedControl
-    
-    @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex{
-        case 0:  self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: ""); messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
-        case 1:  self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: ""); messageLabel.text = NSLocalizedString("OFFER_MESSAGE",comment: "")
-            default: self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
-        }
-        
-    }
+
     //MARK: Data
     
     func loadCategories() {
@@ -93,11 +82,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     //MARK: Form
     @IBAction func submitButtonPressed(sender: UIButton) {
-        if(segmentedControl.selectedSegmentIndex == 0){
-            submitRequestForm()
-        } else {
-            submitOfferForm()
-        }
+        submitRequestForm()
     }
     
     private func submitRequestForm(){
@@ -106,20 +91,11 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             //TODO request versturen
             
             let currentUser = ServiceFactory.sharedInstance.getUserService().getCurrentUser()!
-            let request = RequestModel(title: self.titleTextField.text!, summary: messageTextField.text, closed: false, created: getCurrentDateString(), updated: getCurrentDateString(), category: skillCategories[categoryTextField.text!]!, owner: currentUser)
+            let request = RequestModel(title: self.titleTextField.text!, summary: self.messageTextField.text, closed: false, created: getCurrentDateString(), updated: getCurrentDateString(), category: skillCategories[categoryTextField.text!]!, owner: currentUser)
             currentUser.requests?.append(request)
             //TODO: communicate with Server
-//            ServiceFactory.sharedInstance.requestService.submitRequest(request)
+            ServiceFactory.sharedInstance.requestService.submitRequest(request)
             showRequestSuccessfulAlert()
-        }
-    }
-    
-    private func submitOfferForm(){
-        let validated = validateRequestForm()
-        if validated {
-//            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString())
-//            ServiceFactory.sharedInstance.offerService.submitOffer(offer)
-//            showRequestSuccessfulAlert()
         }
     }
     

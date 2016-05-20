@@ -14,12 +14,14 @@ import SwiftyJSON
 class RequestModel : MapMarkerModel {
     
     var owner : UserModel?
+    var requestLink : String?
     
-        
     init(requestData: AnyObject, requestOwner: UserModel, requestCategorys: [CategoryModel]?) {
         let request = JSON(requestData)
+        print(request)
         
         self.owner = requestOwner
+        self.requestLink = request["_links"]["self"]["href"].stringValue
         
         let coordinate = CLLocationCoordinate2D(latitude: self.owner!.latitude, longitude: self.owner!.longitude)
         
@@ -47,5 +49,17 @@ class RequestModel : MapMarkerModel {
             updated: updated,
             categorys: [category]
         )
+    }
+    
+    func toJson() -> Dictionary<String, AnyObject>{
+        
+        
+        return [
+            "title": "\(self.title!)",
+            "description" : "\(self.summary)",
+            "category": (self.categorys?.first?.link!)!,
+            "latitude": (self.owner?.latitude)!,
+            "longtitude" : (self.owner?.longitude)!
+        ]
     }
 }

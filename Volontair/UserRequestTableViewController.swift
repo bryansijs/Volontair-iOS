@@ -29,6 +29,7 @@ class UserRequestTableViewController: UITableViewController {
                 requests = userService.userModel!.requests!
             }
         }
+        self.requestTableView.reloadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -51,7 +52,7 @@ class UserRequestTableViewController: UITableViewController {
             let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
                 // Your delete code here.....
                 let request = self.requests[indexPath.row]
-                self.userService.deleteUserRequest(request)
+                self.requestService.deleteUserRequest(request)
                 self.navigationController?.popViewControllerAnimated(true)
             })
             
