@@ -55,8 +55,8 @@ struct Config{
 }
 
 struct ApiConfig{
-    //static let baseUrl = "http://192.168.178.49:6789/api/v1"
-    static let baseUrl = "https://volontair.herokuapp.com/api/v1"
+    static let baseUrl = "http://192.168.178.49:6789/api/v1"
+    //static let baseUrl = "https://volontair.herokuapp.com/api/v1"
     
     static var headers : [String: String] = [:]
     
@@ -84,11 +84,11 @@ struct ApiConfig{
     static let categoryUrl = "/categories/"
     
     //VolontairApiService
-    //static let registerFacebookTokenUrl = "http://192.168.178.49:6789/auth/facebook/client?accessToken=";
-    static let registerFacebookTokenUrl = "https://volontair.herokuapp.com/auth/facebook/client?accessToken=";
+    static let registerFacebookTokenUrl = "http://192.168.178.49:6789/auth/facebook/client?accessToken=";
+    //static let registerFacebookTokenUrl = "https://volontair.herokuapp.com/auth/facebook/client?accessToken=";
     
-    //static let getVolontairApiTokenUrl = "http://192.168.178.49:6789/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
-    static let getVolontairApiTokenUrl = "https://volontair.herokuapp.com/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
+    static let getVolontairApiTokenUrl = "http://192.168.178.49:6789/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
+    //static let getVolontairApiTokenUrl = "https://volontair.herokuapp.com/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
     
     static let getMeUrl = "/users/me"
     
@@ -104,6 +104,7 @@ struct ApiConfig{
     static let requestInternalUpdate = "RequestInternalUpdate"
     static let userOffersNotificationKey = "UsersOffersDataUpdated"
     static let requestDataUpdateNotificationKey = "UsersOffersDataUpdated"
+    static let mapIconDiameter = 40
     
     //Facebook 
     static let facebookUsernamePreference = "volontair.preferences.username"

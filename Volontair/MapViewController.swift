@@ -135,12 +135,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
                 if let image = markerAsUser.image {
-                    markerImage = self.getRoundedImage(image)
+                    markerImage = self.getRoundedImage(image, backgroundColorHex: nil)
                 }
             }
         } else if(annotation is RequestModel){
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = self.getRoundedImage(markerAsUser.categorys![0].icon)
+                markerImage = self.getRoundedImage(markerAsUser.categorys![0].icon, backgroundColorHex: markerAsUser.categorys![0].colorHex)
             }
         }
         
@@ -150,21 +150,60 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
-    func getRoundedImage(image : UIImage) -> UIImage {
+    func getRoundedImage(image : UIImage, backgroundColorHex : String?) -> UIImage {
+        
+        let imageHeight = CGFloat(ApiConfig.mapIconDiameter)
+        let imageWidth = CGFloat(ApiConfig.mapIconDiameter)
+        
         let imageLayer = CALayer()
-        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        imageLayer.frame = CGRectMake(0, 0, imageWidth, imageHeight)
+        
+        imageLayer.contentsScale = CGFloat(2)
         imageLayer.contents = image.CGImage
         
-        imageLayer.masksToBounds = true
-        imageLayer.cornerRadius = image.size.width/2
+        let borderWhite = UIColor.whiteColor()
+        imageLayer.borderWidth = CGFloat(2)
+        imageLayer.borderColor = borderWhite.CGColor
         
-        UIGraphicsBeginImageContext(image.size)
+        if let backColor = backgroundColorHex {
+            imageLayer.backgroundColor = hexStringToUIColor(backColor).CGColor
+        }
+        
+        
+        
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = imageWidth/2
+        
+        let size = CGSize(width: imageWidth, height: imageHeight)
+        UIGraphicsBeginImageContext(size)
         
         imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
         let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return roundedImage
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.grayColor()
+        }
+        
+        var rgbValue:UInt32 = 0
+        NSScanner(string: cString).scanHexInt(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
