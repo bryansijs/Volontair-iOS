@@ -17,29 +17,27 @@ class MapMarkerModel: NSObject, MKAnnotation {
     let title: String?
     let summary: String
     var coordinate: CLLocationCoordinate2D
-
     var created: String?
+    var closed: Bool?
     var updated: String?
-
     var categorys : [CategoryModel]?
     var image : UIImage?
     
-    init(title: String?, summary: String, coordinate:CLLocationCoordinate2D, created: String, updated:String, categorys: [CategoryModel]){
+    //init(title: String?, summary: String, coordinate:CLLocationCoordinate2D, created: String, updated:String, categorys: [CategoryModel]){
+
+    init(title: String?, summary: String, coordinate:CLLocationCoordinate2D,closed: Bool?, created: String, updated:String, categorys: [CategoryModel]?){
         self.title = title
         self.summary = summary
         self.coordinate = coordinate
-        
         self.categorys = categorys
-        
         self.created = created
         self.updated = updated
     }
     
-    init(title: String?, summary: String, coordinate:CLLocationCoordinate2D, categorys: [CategoryModel]){
+    init(title: String?, summary: String, coordinate:CLLocationCoordinate2D, categorys: [CategoryModel]?){
         self.title = title
         self.summary = summary
         self.coordinate = coordinate
         self.categorys = categorys
     }
-    
 }

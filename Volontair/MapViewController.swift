@@ -19,12 +19,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let mapService = MapService.sharedInstance
     let locationManager = CLLocationManager()
+    var selectedRequest : RequestModel?
+    var selectedUser: UserModel?
     
     enum segmentedControlPages : Int {
-        case OffersMap = 0
+        case VolunteersMap = 0
         case RequestsMap = 1
     }
-    var currentPage: segmentedControlPages = segmentedControlPages.OffersMap
+    var currentPage: segmentedControlPages = segmentedControlPages.VolunteersMap
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +39,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setRequests), name: ApiConfig.requestDataUpdateNotificationKey, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setUserOffers), name: ApiConfig.userOffersNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.setVolunteers), name: ApiConfig.userOffersNotificationKey, object: nil)
         
         mapService.getRequests()
         mapService.getUsersInNeighbourhood()
     }
     
     override func viewDidAppear(animated: Bool) {
-        setUserOffers()
+        setVolunteers()
     }
     
     func clearMarkers() {
@@ -68,9 +70,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func setUserOffers() {
+    func setVolunteers() {
         
-        if currentPage != segmentedControlPages.OffersMap {
+        if currentPage != segmentedControlPages.VolunteersMap {
             return
         }
         print("Set UserOffer markers")
@@ -93,8 +95,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         clearMarkers()
         switch segmentedControl!.selectedSegmentIndex {
         case 0:
-            currentPage = segmentedControlPages.OffersMap
-            setUserOffers()
+            currentPage = segmentedControlPages.VolunteersMap
+            setVolunteers()
             break;
         case 1:
             currentPage = segmentedControlPages.RequestsMap
@@ -110,41 +112,101 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView?.addAnnotation(marker)
     }
     
+    //click on marker
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? MapMarkerModel {
+            
+            if(currentPage == segmentedControlPages.VolunteersMap){
+                //profile
+                let userProfile = annotation as! UserMapModel
+                self.selectedUser = userProfile.owner
+                self.performSegueWithIdentifier("showUserProfile", sender: self)
+                
+            } else {
+                //request list or item
+                if let requestAnnotation = annotation as? RequestModel{
+                    if (requestAnnotation.owner?.requests?.count > 1){
+                        //list
+                        self.performSegueWithIdentifier("showUserRequests", sender: self)
+                    }
+                    else{
+                        //item
+                        self.selectedRequest = requestAnnotation
+                        self.performSegueWithIdentifier("showUserOnlyRequest", sender: self)
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "showUserRequests") {
+            // pass data to List
+            let newController = segue.destinationViewController as! UserRequestTableViewController
+            newController.requests = (selectedRequest?.owner?.requests)!
+            newController.editMode = false
+        }
+        if (segue.identifier == "showUserOnlyRequest") {
+            // pass data to UserRequestDetailViewController
+            let newController = segue.destinationViewController as! UserRequestDetailViewController
+            newController.detailItem = selectedRequest
+            newController.editMode = false
+        }
+        if (segue.identifier == "showUserProfile") {
+            // pass data to Profile Page
+            let newController = segue.destinationViewController as! ProfileViewController
+            newController.user = self.selectedUser
+            newController.editMode = false
+        }
+        
+    }
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         // Not one of our custom Annotations
         if !(annotation is MapMarkerModel) {
             return nil
         }
         
-
-        
         let reuseId = "reused_id"
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if annotationView == nil {
+            
+            // detail button
+            let detailButton = UIButton(type: UIButtonType.System)
+            detailButton.frame.size.width = 30
+            detailButton.frame.size.height = 30
+            //detailButton.backgroundColor = UIColor.grayColor()
+            detailButton.setBackgroundImage(UIImage(named: "blueArrow"), forState: .Normal)
+            //detailButton.setImage(UIImage(named: "test"), forState: .Normal)
+            
+            
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = detailButton
+            //annotationView?.leftCalloutAccessoryView = detailButton
+
         } else {
           annotationView?.annotation = annotation
         }
         
         let mmm = annotation as! MapMarkerModel
         var markerImage: UIImage
-        
+    
         markerImage = UIImage(named: Config.defaultCategoryIconUrl)!
 
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
                 if let image = markerAsUser.image {
-                    markerImage = self.getRoundedImage(image, backgroundColorHex: nil)
+                    markerImage = getRoundedImage(image, backgroundColorHex: nil)
                 }
             }
-        } else if(annotation is RequestModel){
+        } else if(annotation is RequestModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = self.getRoundedImage(markerAsUser.categorys![0].icon, backgroundColorHex: markerAsUser.categorys![0].colorHex)
+                markerImage = getRoundedImage(markerAsUser.categorys![0].icon, backgroundColorHex: markerAsUser.categorys![0].colorHex)
             }
         }
-        
-        
+            
         annotationView!.image = markerImage
         
         return annotationView
@@ -205,7 +267,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             alpha: CGFloat(1.0)
         )
     }
-    
+
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()

@@ -129,34 +129,22 @@ class UserService  {
         }
     }
     
-//    func loadUserOffers(user: UserModel){
-//        Alamofire.request(.GET, user.offersLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
-//        response.result {
-//        case .Success:
-//            if let value = response.result.value {
-//                var offers : [OfferModel] = []
-//                
-//                for off in value["_embedded"]!!["offers"] as! [[String:AnyObject]]{
-//                    //offers.append(OfferModel(jsonData: off))
-//                }
-//                user.offers = offers
-//            }
-//        case .Failure(let error):
-//            print(error)
-//            }
-//        }
-//    }
-    
     func loadUserRequests(user: UserModel){
         
         Alamofire.request(.GET, user.requestsLink, headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
         response.result {
         case .Success:
             if let value = response.result.value {
+                print(response.result)
+                print(response.result.value)
+                
                 var requests : [RequestModel] = []
                 
                 for req in value["_embedded"]!!["requests"] as! [[String:AnyObject]]{
-                    //requests.append(RequestModel(jsonData: req))
+                    let request = RequestModel(requestData: req, requestOwner: user, requestCategorys: user.categorys)
+                    let link = req["_links"]!["category"] as! [String:AnyObject]
+                    ServiceFactory.sharedInstance.requestService.loadRequestCategory(request, requestURL: link["href"]! as! String)
+                    requests.append(request)
                 }
                 user.requests = requests
             }
