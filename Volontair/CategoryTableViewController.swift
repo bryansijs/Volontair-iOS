@@ -13,6 +13,7 @@ class CategoryTableViewController: UITableViewController, ValidationProtocol {
     @IBOutlet var categoryTableView: UITableView!
     var selectedCell = 0
     var selectedCategories = [String]()
+    let wizardService = WizardServiceFactory.sharedInstance.wizardService
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,12 @@ class CategoryTableViewController: UITableViewController, ValidationProtocol {
     }
     
     func validate()-> Bool {
-        return self.selectedCategories.count > 0
+        if(self.selectedCategories.count > 0){
+            //TODO: Category model's
+            //wizardService.setUserCategories(self.selectedCategories)
+            return true
+        } else {
+            return false
+        }
     }
 }

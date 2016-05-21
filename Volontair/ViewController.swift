@@ -124,6 +124,13 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
             } else {
                 createValidationAlert()
             }
+        } else {
+            let currentContentViewController = self.viewControllerAtIndex(self.index) as! ValidationProtocol
+            if(currentContentViewController.validate()){
+                print("laatste!!")
+            }else {
+                createValidationAlert()
+            }
         }
     }
     

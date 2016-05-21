@@ -19,6 +19,9 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
     @IBOutlet weak var radiusSlider: UISlider!
     
     let locator = CLGeocoder()
+    let wizardService = WizardServiceFactory.sharedInstance.wizardService
+    var latitude :Double?
+    var longitude : Double?
     var validLocation = false
     
     override func viewDidLoad() {
@@ -45,7 +48,8 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
     }
     
     func validate()-> Bool {
-        return validLocation
+        print(self.aboutMeTextView.text)
+        return validLocation && self.aboutMeTextView.text != ""
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -68,11 +72,10 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
                 self.adressTextField.backgroundColor = UIColor(hue: 0.475, saturation: 1, brightness: 0.74, alpha: 1.0)
                 self.validLocation = true
                 self.placeLabel.text = NSLocalizedString("PLACE",comment: "") + places![0].name!
-
-                print(places![0].country)
-                print(places![0].postalCode)
-                print(places![0].name)
-                
+                self.latitude = Double((places![0].location?.coordinate.latitude.description)!)
+                self.longitude = Double((places![0].location?.coordinate.longitude.description)!)
+//                print(places![0].country)
+//                print(places![0].postalCode)
             }
         }
     }
