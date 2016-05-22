@@ -19,8 +19,16 @@ class RequestService{
         //params.
         let parameters = request.toJson()
         
-        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
-            print(error)
+        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON)
+            .validate()
+            .responseJSON { response in
+                if(!response.result.isSuccess){
+                    print("submit request wrong")
+                    return
+                }
+
+                let data = JSON(response.result.value!)
+                request.requestLink = data["_links"]["self"]["href"].stringValue
         }
     }
     
