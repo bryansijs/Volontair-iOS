@@ -15,6 +15,7 @@ class ServiceFactory  {
     let userService = UserService()
     let requestService = RequestService()
     let offerService = OfferService()
+    let dashboardService = DashboardService()
     
     private init(){
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ApiConfig.headers

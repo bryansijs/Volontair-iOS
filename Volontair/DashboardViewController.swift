@@ -64,7 +64,8 @@ class DashboardViewController: UIViewController {
     }
     
     func setData(){
-        if let data = dashboardService.getDashboardModel(){
+        let service = ServiceFactory.sharedInstance.dashboardService
+        if let data = service.getDashboardModel(){
             numberOfVolunteersLabel.text = String(data.nearbyVolonteers)
             numberOfContactsLabel.text = String(data.potentialContacts)
         }
