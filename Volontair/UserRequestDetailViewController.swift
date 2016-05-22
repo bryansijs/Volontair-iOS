@@ -52,6 +52,20 @@ class UserRequestDetailViewController: UIViewController {
             self.chatButton.hidden = true
         }
     }
+    @IBAction func StartConversating(sender: AnyObject) {
+        let email = detailItem?.owner?.username
+        
+        let url = NSURL(string: email!)
+        
+        if UIApplication.sharedApplication().canOpenURL(url!) {
+            UIApplication.sharedApplication().openURL(url!)
+        } else {
+            
+        }
+        
+        
+        //UIApplication.sharedApplication().openURL(NSURL(string: "mailto:frank@wwdcdemo.example.com")!)
+    }
     
     func configureView(){
         self.titleTextView.text = detailItem?.title
