@@ -48,6 +48,11 @@ class DashboardService {
     }
     
     private func getSavedRadius() -> Int{
-        return 10
+        let radius = NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey)
+        if radius != 0 {
+            return radius
+        } else {
+            return 10
+        }
     }
 }

@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
     }
     
     func redirectToNextView() -> Void {
-        //let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
+        let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
         
         //TODO zodra de wizard gemaakt is en de info opgeslagen wordt in het user object moet deze if wel gebruikt worde.
         
