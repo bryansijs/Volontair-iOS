@@ -34,10 +34,14 @@ class CategoryTableViewController: UITableViewController, ValidationProtocol {
         
         if(currentCell!.accessoryType != UITableViewCellAccessoryType.Checkmark){
             currentCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selectedCategories.append(categoryService.categories[indexPath.row])
+            self.selectedCategories.append(categoryService.categories[indexPath.row])
         } else {
             currentCell?.accessoryType = UITableViewCellAccessoryType.None
-            selectedCategories.removeAtIndex(indexPath.row)
+            let index = selectedCategories.indexOf{
+                $0.name == categoryService.categories[indexPath.row].name
+                }
+            self.selectedCategories.removeAtIndex(index!)
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
     
