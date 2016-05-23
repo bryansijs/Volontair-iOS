@@ -62,7 +62,10 @@ class ProfileViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         
-        self.contactButton.hidden = true
+        if editMode {
+            self.contactButton.hidden = true
+        }
+
         
         
     }
