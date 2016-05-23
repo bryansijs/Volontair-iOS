@@ -19,7 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var FriendsLabel: UILabel!
     @IBOutlet weak var aboutMeHeader: UILabel!
     @IBOutlet weak var showRequestsButton: UIButton!
-
+    @IBOutlet weak var contactButton: UIButton!
+    
     var editMode = true
     
     var user: UserModel? {
@@ -60,6 +61,8 @@ class ProfileViewController: UIViewController {
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
+        
+        self.contactButton.hidden = true
         
         
     }
