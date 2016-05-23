@@ -130,6 +130,11 @@ class RequestService{
     
     func deleteUserRequest(request: RequestModel){
         
+        let currentUser = ServiceFactory.sharedInstance.userService.userMe
+        let index = currentUser!.requests?.indexOf(request)
+        currentUser!.requests?.removeAtIndex((index?.littleEndian)!)
+        
+        
         Alamofire.request(.DELETE, request.requestLink!, headers: ApiConfig.headers).validate().responseJSON { response in switch
         response.result {
         case .Success:
@@ -140,10 +145,6 @@ class RequestService{
             print(error)
             }
         }
-        
-        let currentUser = ServiceFactory.sharedInstance.userService.userMe
-        let index = currentUser!.requests?.indexOf(request)
-        currentUser!.requests?.removeAtIndex((index?.littleEndian)!)
     }
     
     
