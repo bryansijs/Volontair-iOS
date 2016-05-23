@@ -97,13 +97,11 @@ class LoginViewController: UIViewController {
     func redirectToNextView() {
         let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
         
-        //TODO zodra de wizard gemaakt is en de info opgeslagen wordt in het user object moet deze if wel gebruikt worde.
-        
-//        if(lat == nil || lat == "") {
-//            self.performSegueWithIdentifier(LoginViewControllerConstants.showWizardSegue, sender: self)
-//        } else {
+        if(lat == nil || lat == 0) {
+            self.performSegueWithIdentifier(LoginViewControllerConstants.showWizardSegue, sender: self)
+        } else {
             self.performSegueWithIdentifier(LoginViewControllerConstants.showDashboardSegue, sender: self)
-//        }
+        }
 
     }
     

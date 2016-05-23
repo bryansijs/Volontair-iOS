@@ -127,7 +127,8 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         } else {
             let currentContentViewController = self.viewControllerAtIndex(self.index) as! ValidationProtocol
             if(currentContentViewController.validate()){
-                print("laatste!!")
+                WizardServiceFactory.sharedInstance.wizardService.submitUser()
+                //TODO: go to Dashboard
             }else {
                 createValidationAlert()
             }
