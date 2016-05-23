@@ -21,7 +21,7 @@ class EditProfileViewController: UIViewController {
         
     }
     @IBAction func backButtonPressed(sender: UIButton) {
-        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     override func prefersStatusBarHidden() -> Bool {
         return true
