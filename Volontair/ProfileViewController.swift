@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var FriendsLabel: UILabel!
     @IBOutlet weak var aboutMeHeader: UILabel!
     @IBOutlet weak var showRequestsButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+
 
     var editMode = true
     
@@ -91,6 +93,7 @@ class ProfileViewController: UIViewController {
     private func editableMode(){
         if(!editMode){
             self.AboutMeLabel.editable = false
+            self.editButton.hidden = true
         }
     }
     func setRequestButtonState(){
