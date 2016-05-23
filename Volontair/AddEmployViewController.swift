@@ -65,12 +65,9 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     private func submitRequestForm(){
         let validated = validateRequestForm()
         if validated {
-            //TODO request versturen
-            
             let currentUser = ServiceFactory.sharedInstance.userService.getCurrentUser()!
             let request = RequestModel(title: self.titleTextField.text!, summary: self.messageTextField.text, closed: false, created: getCurrentDateString(), updated: getCurrentDateString(), category: self.selectedCategory!, owner: currentUser)
             currentUser.requests?.append(request)
-            //TODO: communicate with Server
             ServiceFactory.sharedInstance.requestService.submitRequest(request)
             showRequestSuccessfulAlert()
         }

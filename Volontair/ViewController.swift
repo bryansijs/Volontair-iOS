@@ -128,8 +128,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
             let currentContentViewController = self.viewControllerAtIndex(self.index) as! ValidationProtocol
             if(currentContentViewController.validate()){
                 WizardServiceFactory.sharedInstance.wizardService.submitUser()
-                
-                //TODO: go to Dashboard
+                performSegueWithIdentifier("showDashboardFromWizard", sender: nil)
             }else {
                 createValidationAlert()
             }

@@ -11,6 +11,8 @@ import Alamofire
 
 class WizardService {
     
+    let userService = ServiceFactory.sharedInstance.userService
+    
     var volunteer = true
     var limited = true
     var categories : [CategoryModel]?
@@ -27,14 +29,12 @@ class WizardService {
     }
     
     private func setLocalUserProperties(user: UserModel){
-        if let user = ServiceFactory.sharedInstance.userService.getCurrentUser(){
-            user.categorys = self.categories
-            user.latitude = self.latitude
-            user.longitude = self.longtitude
-            user.summary = self.description
-        }
-        
+        user.categorys = self.categories
+        user.latitude = self.latitude
+        user.longitude = self.longtitude
+        user.summary = self.description
     }
+    
     private func saveUserOnServer(user: UserModel){
         let parameters : [String:AnyObject] = [
             "goal": "\(getUserGoalString())",
@@ -46,23 +46,7 @@ class WizardService {
             .responseJSON { response in
                 print(response.result)
         }
-        saveUserCategoryOnServer(user)
-    }
-    
-    private func saveUserCategoryOnServer(user: UserModel){
-
-        let defaultContentType = ApiConfig.headers["Content-Type"]
-        ApiConfig.headers["Content-Type"] = "text/uri-list"
-        for category in self.categories!{
-
-            Alamofire.Manager.request(.POST, user.userLink + ApiConfig.categoryUrl, bodyObject: category.link!,headers: ApiConfig.headers)
-                .responseJSON { response in
-                    print(response.result)
-                    print(response.response)
-                    print(response.request)
-            }
-        }
-        ApiConfig.headers["Content-Type"] = defaultContentType
+        userService.saveUserCategoryOnServer()
     }
     
     private func getUserGoalString() -> String{

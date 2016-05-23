@@ -17,7 +17,6 @@ class UserService  {
     
     func getUserProfileModel() -> UserModel?{
         return userModel
-
     }
     
     func loadUserDataFromServer(userId: Int){
@@ -44,6 +43,20 @@ class UserService  {
     
     func getCurrentUser() -> UserModel? {
         return self.userMe
+    }
+    
+
+    func saveUserCategoryOnServer(){
+        let defaultContentType = ApiConfig.headers["Content-Type"]
+        ApiConfig.headers["Content-Type"] = "text/uri-list"
+        for category in (self.userMe?.categorys!)!{
+            
+            Alamofire.Manager.request(.POST, (self.userMe?.userLink)! + ApiConfig.categoryUrl, bodyObject: category.link!,headers: ApiConfig.headers)
+                .responseJSON { response in
+                    print(response.result)
+            }
+        }
+        ApiConfig.headers["Content-Type"] = defaultContentType
     }
     
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
