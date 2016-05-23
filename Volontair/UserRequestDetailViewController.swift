@@ -92,6 +92,11 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
         self.detailTextView.layer.cornerRadius = 5;
         self.detailTextView.clipsToBounds = true
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.titleTextView.layer.borderWidth = 0.5
+        self.titleTextView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.titleTextView.layer.cornerRadius = 5;
+        self.titleTextView.clipsToBounds = true
     }
     
     @IBAction func saveButtonPressed(sender: UIButton) {
