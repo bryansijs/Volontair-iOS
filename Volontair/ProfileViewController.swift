@@ -28,6 +28,21 @@ class ProfileViewController: UIViewController {
             //self.setdata()
         }
     }
+    @IBAction func StartConversation(sender: AnyObject) {
+        let email = user?.username
+        
+        let url = NSURL(string: email!)
+        
+        if UIApplication.sharedApplication().canOpenURL(url!) {
+            UIApplication.sharedApplication().openURL(url!)
+        } else {
+            let alert = UIAlertView()
+            alert.title = "Contact with this user is not possible"
+            alert.message = "The other user is informed of this problem, Try again later"
+            alert.addButtonWithTitle("ok")
+            alert.show()
+        }
+    }
     
     let profileService = ProfileServiceFactory.sharedInstance.getProfileService()
     

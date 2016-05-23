@@ -14,7 +14,6 @@ import SwiftyJSON
 class RequestModel : MapMarkerModel {
     
     var owner : UserModel?
-    
         
     init(requestData: AnyObject, requestOwner: UserModel, requestCategorys: [CategoryModel]?) {
         let request = JSON(requestData)

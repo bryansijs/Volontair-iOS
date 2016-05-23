@@ -91,6 +91,15 @@
                                     <constraint firstAttribute="height" constant="150" id="j4O-SV-jKf"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Samen, sterk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI7-98-2Gm">
+                                <rect key="frame" x="247" y="282" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sKE-Nb-tIF">
+                                <rect key="frame" x="290" y="311" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dw-by-WBp">
                                 <rect key="frame" x="20" y="518" width="560" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,15 +113,6 @@
                                     <action selector="btnFacebookLogin:" destination="df9-Me-4kn" eventType="touchUpInside" id="vmG-vg-iUx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Samen, sterk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI7-98-2Gm">
-                                <rect key="frame" x="247" y="282" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sKE-Nb-tIF">
-                                <rect key="frame" x="290" y="311" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -900,12 +900,23 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh0-nE-rVA">
+                                                <rect key="frame" x="0.0" y="226" width="560" height="16"/>
+                                                <state key="normal" title="Contact opnemen"/>
+                                                <connections>
+                                                    <action selector="StartConversation:" destination="lof-7X-Xfp" eventType="touchUpInside" id="Jlt-2O-A3d"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="qVD-mG-hhD" firstAttribute="centerX" secondItem="HGk-h7-VhQ" secondAttribute="centerX" id="0qI-Eq-VVB"/>
                                             <constraint firstAttribute="bottom" secondItem="qVD-mG-hhD" secondAttribute="bottom" constant="-29" id="2Xm-Ue-qrZ"/>
                                             <constraint firstItem="qVD-mG-hhD" firstAttribute="top" secondItem="ovk-Xn-qxP" secondAttribute="bottom" constant="8" symbolic="YES" id="RxG-oF-GHB"/>
+                                            <constraint firstItem="zh0-nE-rVA" firstAttribute="leading" secondItem="qVD-mG-hhD" secondAttribute="leading" id="UU8-63-lpv"/>
+                                            <constraint firstAttribute="bottom" secondItem="zh0-nE-rVA" secondAttribute="bottom" id="YAf-G6-OD1"/>
                                             <constraint firstItem="ovk-Xn-qxP" firstAttribute="leading" secondItem="HGk-h7-VhQ" secondAttribute="leadingMargin" id="cGy-Iu-w58"/>
+                                            <constraint firstItem="zh0-nE-rVA" firstAttribute="trailing" secondItem="qVD-mG-hhD" secondAttribute="trailing" id="eUV-wp-gV7"/>
+                                            <constraint firstItem="zh0-nE-rVA" firstAttribute="top" secondItem="HGk-h7-VhQ" secondAttribute="top" constant="226" id="eoz-JL-Ea9"/>
                                             <constraint firstAttribute="trailing" secondItem="qVD-mG-hhD" secondAttribute="trailing" id="h8C-i8-Fl0"/>
                                             <constraint firstItem="qVD-mG-hhD" firstAttribute="top" secondItem="HGk-h7-VhQ" secondAttribute="top" constant="37" id="lWw-1M-zKk"/>
                                             <constraint firstItem="qVD-mG-hhD" firstAttribute="leading" secondItem="HGk-h7-VhQ" secondAttribute="leading" id="v5o-4z-cdt"/>
@@ -1855,8 +1866,8 @@
         <image name="test" width="478" height="334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1JB-nb-wsV"/>
-        <segue reference="hl0-JA-Ggj"/>
         <segue reference="QPq-oS-KMV"/>
+        <segue reference="hl0-JA-Ggj"/>
+        <segue reference="eki-JJ-NkM"/>
     </inferredMetricsTieBreakers>
 </document>

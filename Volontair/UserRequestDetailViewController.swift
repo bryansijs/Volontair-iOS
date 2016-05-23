@@ -54,17 +54,20 @@ class UserRequestDetailViewController: UIViewController {
     }
     @IBAction func StartConversating(sender: AnyObject) {
         let email = detailItem?.owner?.username
+        let subject = detailItem?.summary
         
-        let url = NSURL(string: email!)
+        //?cc=bar@example.com&subject=Greetings%20from%20Cupertino!&body=Wish%20you%20were%20here!
+        let url = NSURL(string: "mailto:"+email!+"?subject="+subject!)
         
         if UIApplication.sharedApplication().canOpenURL(url!) {
             UIApplication.sharedApplication().openURL(url!)
         } else {
-            
+            let alert = UIAlertView()
+            alert.title = "Contact with this user is not possible"
+            alert.message = "The other user is informed of this problem, Try again later"
+            alert.addButtonWithTitle("ok")
+            alert.show()
         }
-        
-        
-        //UIApplication.sharedApplication().openURL(NSURL(string: "mailto:frank@wwdcdemo.example.com")!)
     }
     
     func configureView(){
