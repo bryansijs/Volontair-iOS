@@ -53,7 +53,11 @@ class UserRequestTableViewController: UITableViewController {
                 // Your delete code here.....
                 let request = self.requests[indexPath.row]
                 self.requestService.deleteUserRequest(request)
-                self.navigationController?.popViewControllerAnimated(true)
+                self.requests.removeAtIndex(indexPath.row)
+                if(self.requests.count < 1){
+                      self.navigationController?.popViewControllerAnimated(true)
+                }
+                self.tableView.reloadData()
             })
             
             // You can set its properties like normal button

@@ -96,6 +96,7 @@ class LoginViewController: UIViewController {
     
     func redirectToNextView() {
         let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
+        initAppData()
         
         if(lat == nil || lat == 0) {
             self.performSegueWithIdentifier(LoginViewControllerConstants.showWizardSegue, sender: self)
@@ -103,6 +104,10 @@ class LoginViewController: UIViewController {
             self.performSegueWithIdentifier(LoginViewControllerConstants.showDashboardSegue, sender: self)
         }
 
+    }
+    
+    func initAppData(){
+        ServiceFactory.sharedInstance.categoryService.loadCategories()
     }
     
     func error() {

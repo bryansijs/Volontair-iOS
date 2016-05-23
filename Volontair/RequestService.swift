@@ -19,8 +19,16 @@ class RequestService{
         //params.
         let parameters = request.toJson()
         
-        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
-            print(error)
+        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON)
+            .validate()
+            .responseJSON { response in
+                if(!response.result.isSuccess){
+                    print("submit request wrong")
+                    return
+                }
+
+                let data = JSON(response.result.value!)
+                request.requestLink = data["_links"]["self"]["href"].stringValue
         }
     }
     
@@ -122,6 +130,11 @@ class RequestService{
     
     func deleteUserRequest(request: RequestModel){
         
+        let currentUser = ServiceFactory.sharedInstance.userService.userMe
+        let index = currentUser!.requests?.indexOf(request)
+        currentUser!.requests?.removeAtIndex((index?.littleEndian)!)
+        
+        
         Alamofire.request(.DELETE, request.requestLink!, headers: ApiConfig.headers).validate().responseJSON { response in switch
         response.result {
         case .Success:
@@ -132,10 +145,6 @@ class RequestService{
             print(error)
             }
         }
-        
-        let currentUser = ServiceFactory.sharedInstance.userService.userMe
-        let index = currentUser!.requests?.indexOf(request)
-        currentUser!.requests?.removeAtIndex((index?.littleEndian)!)
     }
     
     

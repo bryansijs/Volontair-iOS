@@ -12,6 +12,8 @@ import RxSwift
 class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
     let contactService = ContactServiceFactory.sharedInstance.getContactsService()
+    let categoryService = ServiceFactory.sharedInstance.categoryService
+    
     let disposeBag = DisposeBag()
     var detailItem: RequestModel? {
         didSet {
@@ -20,7 +22,7 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
         }
     }
     var editMode = true
-    var skillCategories = [String: CategoryModel]()
+    var skillCategories = [CategoryModel]()
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var detailTextView: UITextView!
@@ -92,6 +94,11 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
         self.detailTextView.layer.cornerRadius = 5;
         self.detailTextView.clipsToBounds = true
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.titleTextView.layer.borderWidth = 0.5
+        self.titleTextView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.titleTextView.layer.cornerRadius = 5;
+        self.titleTextView.clipsToBounds = true
     }
     
     @IBAction func saveButtonPressed(sender: UIButton) {
@@ -123,34 +130,20 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        return skillCategories.keys[index]
+        return skillCategories[index].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        categoryTextField.text = skillCategories[index].0
+        categoryTextField.text = skillCategories[index].name
         categoryPicker.hidden = true
         detailTextView.becomeFirstResponder()
     }
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        
-        contactService.categories()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-            .observeOn(MainScheduler.instance)
-            .toArray()
-            .subscribe(onNext: { (json) -> Void in
-                if json.count > 0{
-                    for i in 0...json.count-1{
-                        if let category = json[i] as? CategoryModel{
-                            self.skillCategories[category.name] = category
-                        }
-                    }
-                }
-                self.categoryPicker.reloadAllComponents()
-            }).addDisposableTo(self.disposeBag)
+        self.skillCategories = categoryService.categories
     }
     
     @IBAction func textFieldBeginEditing(sender: UITextField) {
