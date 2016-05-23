@@ -96,6 +96,7 @@ class LoginViewController: UIViewController {
     
     func redirectToNextView() {
         let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
+        initAppData()
         
         //TODO zodra de wizard gemaakt is en de info opgeslagen wordt in het user object moet deze if wel gebruikt worde.
         
@@ -105,6 +106,10 @@ class LoginViewController: UIViewController {
             self.performSegueWithIdentifier(LoginViewControllerConstants.showDashboardSegue, sender: self)
 //        }
 
+    }
+    
+    func initAppData(){
+        ServiceFactory.sharedInstance.categoryService.loadCategories()
     }
     
     func error() {
