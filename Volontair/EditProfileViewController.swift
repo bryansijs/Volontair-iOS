@@ -29,7 +29,6 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
         self.aboutMeTextView.layer.cornerRadius = 5;
         self.aboutMeTextView.clipsToBounds = true
         self.automaticallyAdjustsScrollViewInsets = false
-        
         setData()
     }
     
@@ -49,7 +48,6 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
         
         geoCoder.reverseGeocodeLocation(location) { (placemarks: [CLPlacemark]?, error: NSError?) in
             let placeMark = placemarks?[0]
-            print(placeMark?.addressDictionary)
             self.placeTextField.text = placeMark!.addressDictionary!["Street"] as? String
         }
     }
