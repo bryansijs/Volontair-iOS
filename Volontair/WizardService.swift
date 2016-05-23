@@ -16,7 +16,6 @@ class WizardService {
     var categories : [CategoryModel]?
     var latitude : Double = 0
     var longtitude: Double = 0
-    var radius = 0
     var description = "";
 
     
@@ -29,48 +28,41 @@ class WizardService {
     
     private func setLocalUserProperties(user: UserModel){
         if let user = ServiceFactory.sharedInstance.userService.getCurrentUser(){
-            user.categorys = categories
-            user.latitude = latitude
-            user.longitude = longtitude
-            user.summary = description
-            
-            NSUserDefaults.standardUserDefaults().setInteger(self.radius, forKey: SettingsConstants.radiusKey)
+            user.categorys = self.categories
+            user.latitude = self.latitude
+            user.longitude = self.longtitude
+            user.summary = self.description
         }
         
     }
     private func saveUserOnServer(user: UserModel){
         let parameters : [String:AnyObject] = [
-            "goal": getUserGoalString(),
-            "latitude": latitude,
-            "longitude": longtitude,
-            "summary" : description
+            "goal": "\(getUserGoalString())",
+            "latitude": "\(self.latitude)",
+            "longitude": "\(self.longtitude)",
+            "summary" : "\(self.description)"
         ]
-        print(parameters)
-        print(ApiConfig.headers)
-        Alamofire.request(.PATCH, user.userLink, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
-            print(error)
+        Alamofire.request(.PATCH, user.userLink, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON)
+            .responseJSON { response in
+                print(response.result)
         }
         saveUserCategoryOnServer(user)
-        
-        
     }
     
     private func saveUserCategoryOnServer(user: UserModel){
-        var categoryLinks = [String]()
-        for category in self.categories!{
-            categoryLinks.append(category.link!)
-        }
-        
-        let parameters : [String:AnyObject] = [
-            "": categoryLinks
-        ]
-        
-        print(user.userLink + ApiConfig.categoryUrl)
-        
-        Alamofire.request(.POST, user.userLink + ApiConfig.categoryUrl, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
-            print(error)
-        }
 
+        let defaultContentType = ApiConfig.headers["Content-Type"]
+        ApiConfig.headers["Content-Type"] = "text/uri-list"
+        for category in self.categories!{
+
+            Alamofire.Manager.request(.POST, user.userLink + ApiConfig.categoryUrl, bodyObject: category.link!,headers: ApiConfig.headers)
+                .responseJSON { response in
+                    print(response.result)
+                    print(response.response)
+                    print(response.request)
+            }
+        }
+        ApiConfig.headers["Content-Type"] = defaultContentType
     }
     
     private func getUserGoalString() -> String{
@@ -94,10 +86,9 @@ class WizardService {
         self.categories = categories
     }
     
-    func setUserLocationProperties(latitude: Double, longtitude: Double, radius: Int, description: String){
+    func setUserLocationProperties(latitude: Double, longtitude: Double, description: String){
         self.latitude = latitude
         self.longtitude = longtitude
-        self.radius = radius
         self.description = description
     }
 }

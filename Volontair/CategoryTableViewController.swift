@@ -12,12 +12,21 @@ class CategoryTableViewController: UITableViewController, ValidationProtocol {
         
     @IBOutlet var categoryTableView: UITableView!
     var selectedCell = 0
-    var selectedCategories = [String]()
+    var selectedCategories = [CategoryModel]()
     let wizardService = WizardServiceFactory.sharedInstance.wizardService
+    let categoryService = ServiceFactory.sharedInstance.categoryService
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("LabelCell", forIndexPath: indexPath)
+        
+        cell.imageView?.image = categoryService.categories[indexPath.row].icon
+        cell.textLabel?.text = categoryService.categories[indexPath.row].name
+        
+        return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -26,17 +35,16 @@ class CategoryTableViewController: UITableViewController, ValidationProtocol {
         
         if(currentCell!.accessoryType != UITableViewCellAccessoryType.Checkmark){
             currentCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selectedCategories.append((categoryTableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!)!)
+            selectedCategories.append(categoryService.categories[indexPath.row])
         } else {
             currentCell?.accessoryType = UITableViewCellAccessoryType.None
-            let index = selectedCategories.indexOf(currentCell!.textLabel!.text!)
-            selectedCategories.removeAtIndex((index!.littleEndian))
+            selectedCategories.removeAtIndex(indexPath.row)
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return
+        return categoryService.categories.count
     }
     
     func validate()-> Bool {

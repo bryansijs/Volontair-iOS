@@ -48,8 +48,11 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
     }
     
     func validate()-> Bool {
-        print(self.aboutMeTextView.text)
-        return validLocation && self.aboutMeTextView.text != ""
+        if(validLocation && self.aboutMeTextView.text != ""){
+            wizardService.setUserLocationProperties(self.latitude!, longtitude: self.longitude!, description: self.aboutMeTextView.text)
+            return true
+        }
+        return false
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {

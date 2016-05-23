@@ -60,6 +60,9 @@
                             <constraint firstAttribute="bottom" secondItem="af8-h7-Ryb" secondAttribute="bottom" constant="20" symbolic="YES" id="xST-qe-eXv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="aV0-b1-kqn" kind="show" identifier="showDashboardFromWizard" id="mwK-uu-Cps"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -516,7 +519,7 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zno-s9-Rtf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LabelCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabelCell" id="zno-s9-Rtf" userLabel="LabelCell">
                                 <rect key="frame" x="0.0" y="110" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zno-s9-Rtf" id="pW0-dQ-un4">
@@ -1729,6 +1732,7 @@
         <image name="test" width="478" height="334"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mwK-uu-Cps"/>
         <segue reference="1JB-nb-wsV"/>
         <segue reference="kk1-3h-ju8"/>
         <segue reference="QPq-oS-KMV"/>
