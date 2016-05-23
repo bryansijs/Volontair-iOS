@@ -25,7 +25,6 @@ class CategoryTableViewController: UITableViewController, ValidationProtocol {
         
         cell.imageView?.image = categoryService.categories[indexPath.row].icon
         cell.textLabel?.text = categoryService.categories[indexPath.row].name
-        
         return cell
     }
 
