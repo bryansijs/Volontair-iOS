@@ -1047,7 +1047,7 @@
                                 </variation>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
-                                <rect key="frame" x="20" y="255" width="560" height="206"/>
+                                <rect key="frame" x="20" y="255" width="560" height="261"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="206" id="Soq-84-xqt"/>
@@ -1055,6 +1055,11 @@
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Soq-84-xqt"/>
+                                    </mask>
+                                </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-se-log">
                                 <rect key="frame" x="555" y="72" width="25" height="25"/>
@@ -1067,7 +1072,7 @@
                                     <action selector="editButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="d4X-hd-bE9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
                                 <rect key="frame" x="20" y="516" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.18431372549019609" green="0.69803921568627447" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Opslaan">
@@ -1138,7 +1143,7 @@
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="3hA-Fd-Oij"/>
                             <constraint firstAttribute="trailing" secondItem="LQ6-3d-0zv" secondAttribute="trailing" id="3uk-zK-cGI"/>
                             <constraint firstItem="emY-iZ-Vc9" firstAttribute="width" secondItem="kg5-ae-vSO" secondAttribute="width" id="9M8-z2-R4s"/>
-                            <constraint firstItem="ex6-20-YCH" firstAttribute="top" secondItem="Wa6-cT-FZb" secondAttribute="bottom" constant="10" id="B0A-At-PX9"/>
+                            <constraint firstItem="ex6-20-YCH" firstAttribute="top" secondItem="Wa6-cT-FZb" secondAttribute="bottom" constant="5" id="B0A-At-PX9"/>
                             <constraint firstItem="ImB-zF-Uba" firstAttribute="top" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="3" id="CB7-4t-dF0"/>
                             <constraint firstItem="3HK-Rp-fmY" firstAttribute="top" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="10" id="DlN-eZ-O6b"/>
                             <constraint firstItem="tIl-IX-bNk" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="Gr4-oh-uWq"/>
@@ -1148,6 +1153,7 @@
                             <constraint firstItem="tIl-IX-bNk" firstAttribute="top" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="10" id="QOK-eU-A2A"/>
                             <constraint firstItem="ImB-zF-Uba" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="Scf-TG-fPQ"/>
                             <constraint firstItem="emY-iZ-Vc9" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leading" id="W6c-6T-wZx"/>
+                            <constraint firstItem="Wa6-cT-FZb" firstAttribute="top" secondItem="CHp-Cv-LRC" secondAttribute="bottom" id="XeF-vR-uz1"/>
                             <constraint firstAttribute="bottom" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="476" id="ZYT-Up-JHH"/>
                             <constraint firstItem="7Gc-BK-ODS" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="aJ2-F9-iHA"/>
                             <constraint firstItem="jGc-IR-hCf" firstAttribute="top" secondItem="tIl-IX-bNk" secondAttribute="bottom" constant="25" id="adm-9G-Xmw"/>
