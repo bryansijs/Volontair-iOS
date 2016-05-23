@@ -19,11 +19,28 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
     let geoCoder = CLGeocoder()
     let locManager = CLLocationManager()
     let userService = ServiceFactory.sharedInstance.userService
+    let profileService = ProfileServiceFactory.sharedInstance.profileService
     let currentUser = ServiceFactory.sharedInstance.userService.getCurrentUser()
     
     override func viewDidLoad() {
+        // make textview look like textfield
+        self.aboutMeTextView.layer.borderWidth = 0.5
+        self.aboutMeTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.aboutMeTextView.layer.cornerRadius = 5;
+        self.aboutMeTextView.clipsToBounds = true
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        setData()
+    }
+    
+    private func setData(){
         self.nameTextField.text = currentUser?.name
+        self.aboutMeTextView.text = currentUser?.summary
         setPlaceField()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        setData()
     }
     
     private func setPlaceField(){
@@ -55,12 +72,21 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
     }
+    
     @IBAction func saveButtonPressed(sender: UIButton) {
-        
+        currentUser?.name = self.nameTextField.text!
+        currentUser?.summary = self.aboutMeTextView.text
+        // location allready in currentUser
+        profileService.saveEditedProfile()
+        closeView()
+    }
+    
+    private func closeView(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func backButtonPressed(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        closeView()
     }
     override func prefersStatusBarHidden() -> Bool {
         return true
