@@ -34,6 +34,8 @@
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E85085DC1CE4790C0075AFA3 /* UserMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */; };
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
+		E882071D1CF3719C009857EF /* RadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E882071C1CF3719C009857EF /* RadiusViewController.swift */; };
+		E882071F1CF371C9009857EF /* HomeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E882071E1CF371C9009857EF /* HomeLocationViewController.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
 		E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */; };
 		EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D871CE33753000753AB /* UserRequestTableViewController.swift */; };
@@ -154,6 +156,8 @@
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapModel.swift; sourceTree = "<group>"; };
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
+		E882071C1CF3719C009857EF /* RadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusViewController.swift; sourceTree = "<group>"; };
+		E882071E1CF371C9009857EF /* HomeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLocationViewController.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
 		E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF098D871CE33753000753AB /* UserRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestTableViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +380,8 @@
 			isa = PBXGroup;
 			children = (
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
+				E882071C1CF3719C009857EF /* RadiusViewController.swift */,
+				E882071E1CF371C9009857EF /* HomeLocationViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -592,6 +598,7 @@
 				EF0D05981CB690D4005403B8 /* Constants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
+				E882071D1CF3719C009857EF /* RadiusViewController.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
@@ -605,6 +612,7 @@
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
+				E882071F1CF371C9009857EF /* HomeLocationViewController.swift in Sources */,
 				EF49F6991CE5F47400C17BA4 /* StringRegexExtension.swift in Sources */,
 				EFF75AB31CDA5F2500090ACB /* UserTypeViewController.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,
