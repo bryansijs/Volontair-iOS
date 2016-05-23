@@ -41,3 +41,7 @@ ALERT="Oeps!";
 FIELDS_NOT_FILLED_IN="Niet alle velden zijn ingevuld";
 CLICK="Ok";
 PLACE="Plaats: ";
+
+/* Error messege contacting other people */
+CONTACT_ERROR_TITLE="Kan geen contact maken met deze gebruiker";
+CONTACT_ERROR_MESSAGE="Dit probleem is bekend gemaakt aan deze gebruiker. Probeer het later opnieuw";

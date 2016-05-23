@@ -38,8 +38,10 @@ class ProfileViewController: UIViewController {
             UIApplication.sharedApplication().openURL(url!)
         } else {
             let alert = UIAlertView()
-            alert.title = "Contact with this user is not possible"
-            alert.message = "The other user is informed of this problem, Try again later"
+            
+            
+            alert.title = NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment")
+            alert.message = NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment")
             alert.addButtonWithTitle("ok")
             alert.show()
         }
