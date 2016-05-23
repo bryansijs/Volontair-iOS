@@ -129,24 +129,6 @@ class UserService  {
         }
     }
     
-//    func loadUserOffers(user: UserModel){
-//        Alamofire.request(.GET, user.offersLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
-//        response.result {
-//        case .Success:
-//            if let value = response.result.value {
-//                var offers : [OfferModel] = []
-//                
-//                for off in value["_embedded"]!!["offers"] as! [[String:AnyObject]]{
-//                    //offers.append(OfferModel(jsonData: off))
-//                }
-//                user.offers = offers
-//            }
-//        case .Failure(let error):
-//            print(error)
-//            }
-//        }
-//    }
-    
     func loadUserRequests(user: UserModel){
         
         Alamofire.request(.GET, user.requestsLink, headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
