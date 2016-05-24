@@ -16,13 +16,10 @@ class ServiceFactory  {
     let requestService = RequestService()
     let offerService = OfferService()
     let dashboardService = DashboardService()
+    let categoryService = CategoryService()
     
     private init(){
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ApiConfig.headers
         print("init ServiceFactory")
-    }
-    
-    func getUserService() -> UserService{
-        return userService
     }
 }

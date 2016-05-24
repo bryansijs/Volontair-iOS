@@ -18,6 +18,7 @@ class CategoryModel {
     var iconKey: String
     var colorHex: String
     var icon : UIImage
+    var link : String?
 
     init(JSONData: AnyObject) {
         let data = JSON(JSONData)
@@ -27,6 +28,7 @@ class CategoryModel {
         self.iconKey = data["iconKey"].stringValue
         self.colorHex = data["colorHex"].stringValue
         self.icon = ApiConfig.categoryIcons[self.name]!
+        self.link = data["_links"]["self"]["href"].stringValue
     }
     
     init(name:String,iconName: String, iconColorHex: String){

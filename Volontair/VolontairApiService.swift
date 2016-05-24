@@ -16,7 +16,7 @@ class VolontairApiService {
     let userService : UserService
     
     init() {
-        userService = ServiceFactory.sharedInstance.getUserService()
+        userService = ServiceFactory.sharedInstance.userService
     }
     
     internal func login(facebookToken: String , completionHandler:()->Void, completionErrorhandler:()->Void? ) {

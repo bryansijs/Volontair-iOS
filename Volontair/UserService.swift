@@ -17,7 +17,6 @@ class UserService  {
     
     func getUserProfileModel() -> UserModel?{
         return userModel
-
     }
     
     func loadUserDataFromServer(userId: Int){
@@ -44,6 +43,20 @@ class UserService  {
     
     func getCurrentUser() -> UserModel? {
         return self.userMe
+    }
+    
+
+    func saveUserCategoryOnServer(){
+        let defaultContentType = ApiConfig.headers["Content-Type"]
+        ApiConfig.headers["Content-Type"] = "text/uri-list"
+        for category in (self.userMe?.categorys!)!{
+            
+            Alamofire.Manager.request(.POST, (self.userMe?.userLink)! + ApiConfig.categoryUrl, bodyObject: category.link!,headers: ApiConfig.headers)
+                .responseJSON { response in
+                    print(response.result)
+            }
+        }
+        ApiConfig.headers["Content-Type"] = defaultContentType
     }
     
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
@@ -128,24 +141,6 @@ class UserService  {
             }
         }
     }
-    
-//    func loadUserOffers(user: UserModel){
-//        Alamofire.request(.GET, user.offersLink , headers: ApiConfig.headers, encoding: .JSON).validate().responseJSON { response in switch
-//        response.result {
-//        case .Success:
-//            if let value = response.result.value {
-//                var offers : [OfferModel] = []
-//                
-//                for off in value["_embedded"]!!["offers"] as! [[String:AnyObject]]{
-//                    //offers.append(OfferModel(jsonData: off))
-//                }
-//                user.offers = offers
-//            }
-//        case .Failure(let error):
-//            print(error)
-//            }
-//        }
-//    }
     
     func loadUserRequests(user: UserModel){
         

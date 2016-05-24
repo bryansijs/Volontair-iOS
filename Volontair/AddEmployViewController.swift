@@ -16,13 +16,12 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var messageTextField: UITextView!
     @IBOutlet weak var categoryPicker: UIPickerView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     
-    var skillCategories = [String: CategoryModel]()
-    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
+    let categoryService = ServiceFactory.sharedInstance.categoryService
     let disposeBag = DisposeBag()
+    var selectedCategory: CategoryModel?
     
     //MARK: INIT
     override func viewDidLoad() {
@@ -48,8 +47,6 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
         submitButton.setTitle(NSLocalizedString("REQUEST",comment: ""), forState: .Normal)
         messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
-        
-        loadCategories()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,63 +57,19 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         
     }
     
-    //MARK: SegmentedControl
-    
-    @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex{
-        case 0:  self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: ""); messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
-        case 1:  self.navigationItem.title = NSLocalizedString("NEW_OFFER",comment: ""); messageLabel.text = NSLocalizedString("OFFER_MESSAGE",comment: "")
-            default: self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
-        }
-        
-    }
-    //MARK: Data
-    
-    func loadCategories() {
-        self.skillCategories.removeAll()
-
-        contactService.categories()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-            .observeOn(MainScheduler.instance)
-            .toArray()
-            .subscribe(onNext: { (json) -> Void in
-                if json.count > 0{
-                    for i in 0...json.count-1{
-                        if let category = json[i] as? CategoryModel{
-                            self.skillCategories[category.name] = category
-                        }
-                    }
-                }
-                self.categoryPicker.reloadAllComponents()
-            }).addDisposableTo(self.disposeBag)
-    }
-    
     //MARK: Form
     @IBAction func submitButtonPressed(sender: UIButton) {
-        if(segmentedControl.selectedSegmentIndex == 0){
-            submitRequestForm()
-        } else {
-            submitOfferForm()
-        }
+        submitRequestForm()
     }
     
     private func submitRequestForm(){
         let validated = validateRequestForm()
         if validated {
-            //TODO request versturen
-            
-//            let request = RequestModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString() , updated: getCurrentDateString())
-//            ServiceFactory.sharedInstance.requestService.submitRequest(request)
-//            showRequestSuccessfulAlert()
-        }
-    }
-    
-    private func submitOfferForm(){
-        let validated = validateRequestForm()
-        if validated {
-//            let offer = OfferModel(title: titleTextField.text, category: categoryTextField.text!, summary: messageTextField.text, coordinate: CLLocationCoordinate2D(), created: getCurrentDateString(), updated: getCurrentDateString())
-//            ServiceFactory.sharedInstance.offerService.submitOffer(offer)
-//            showRequestSuccessfulAlert()
+            let currentUser = ServiceFactory.sharedInstance.userService.getCurrentUser()!
+            let request = RequestModel(title: self.titleTextField.text!, summary: self.messageTextField.text, closed: false, created: getCurrentDateString(), updated: getCurrentDateString(), category: self.selectedCategory!, owner: currentUser)
+            currentUser.requests?.append(request)
+            ServiceFactory.sharedInstance.requestService.submitRequest(request)
+            showRequestSuccessfulAlert()
         }
     }
     
@@ -159,18 +112,19 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     // returns the # of rows in each component..
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return skillCategories.count
+        return categoryService.categories.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let index = skillCategories.startIndex.advancedBy(row) // index 1
-        return skillCategories.keys[index]
+        let index = categoryService.categories.startIndex.advancedBy(row) // index 1
+        return categoryService.categories[index].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        let index = skillCategories.startIndex.advancedBy(row) // index 1
-        categoryTextField.text = skillCategories[index].0
+        let index = categoryService.categories.startIndex.advancedBy(row) // index 1
+        self.selectedCategory = categoryService.categories[index]
+        categoryTextField.text = categoryService.categories[index].name
         categoryPicker.hidden = true
         messageTextField.becomeFirstResponder()
     }
