@@ -72,13 +72,30 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func saveButtonPressed(sender: UIButton) {
-        currentUser?.name = self.nameTextField.text!
-        currentUser?.summary = self.aboutMeTextView.text
-        // location allready in currentUser
-        profileService.saveEditedProfile()
-        closeView()
+        if validate() {
+            currentUser?.name = self.nameTextField.text!
+            currentUser?.summary = self.aboutMeTextView.text
+            // location allready in currentUser
+            profileService.saveEditedProfile()
+            closeView()
+        }
     }
     
+    private func validate() -> Bool {
+        if self.nameTextField.text?.characters.count < 8 {
+            let alertController = UIAlertController(title: "Naam", message:
+                "Je naam moet minimaal 8 caracters lang zijn", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+
+    
+    @IBAction func nameTextFieldDidEndEdit(sender: UITextField) {
+        validate()
+    }
     private func closeView(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }

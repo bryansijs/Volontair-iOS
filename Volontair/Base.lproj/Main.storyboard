@@ -969,6 +969,9 @@
                                 <rect key="frame" x="20" y="77" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTextFieldDidEndEdit:" destination="J2u-Yf-5u2" eventType="editingDidEnd" id="KAy-9B-4Va"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g0-cv-cWc">
                                 <rect key="frame" x="20" y="55" width="31" height="14"/>
