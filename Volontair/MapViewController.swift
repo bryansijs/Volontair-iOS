@@ -199,11 +199,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let markerAsUser = annotation as? MapMarkerModel {
                 if let image = markerAsUser.image {
                     markerImage = getRoundedImage(image, backgroundColorHex: nil)
+                } else {
+                    let image = UIImage(named: "user_default_icon")!
+                    markerImage = getRoundedImage(image, backgroundColorHex: "#00bcd4")
                 }
             }
         } else if(annotation is RequestModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = getRoundedImage(markerAsUser.categorys![0].icon, backgroundColorHex: markerAsUser.categorys![0].colorHex)
+                markerImage = getRoundedImage(resizeImage(markerAsUser.categorys![0].icon, newWidth: 20), backgroundColorHex: markerAsUser.categorys![0].colorHex)
+                //markerImage = resizeImage(markerAsUser.categorys![0].icon, newWidth: 20)
             }
         }
             
@@ -212,18 +216,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
-    func getRoundedImage(image : UIImage, backgroundColorHex : String?) -> UIImage {
+    func getRoundedImage(orginalImage : UIImage, backgroundColorHex : String?) -> UIImage {
         
         let imageHeight = CGFloat(ApiConfig.mapIconDiameter)
         let imageWidth = CGFloat(ApiConfig.mapIconDiameter)
         
         let imageLayer = CALayer()
-        imageLayer.frame = CGRectMake(0, 0, imageWidth, imageHeight)
+        imageLayer.frame = CGRectMake(0, 0, imageWidth , imageHeight)
         
-        imageLayer.contentsScale = CGFloat(2)
-        imageLayer.contents = image.CGImage
-        
+        //let newImage = self.resizeImage(orginalImage, newWidth: 20)
+        imageLayer.contentsScale = 0.2
+        imageLayer.contents = orginalImage.CGImage
+
         let borderWhite = UIColor.whiteColor()
+        
         imageLayer.borderWidth = CGFloat(2)
         imageLayer.borderColor = borderWhite.CGColor
         
@@ -233,10 +239,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         
         
-        imageLayer.masksToBounds = true
+        imageLayer.masksToBounds = false
         imageLayer.cornerRadius = imageWidth/2
         
-        let size = CGSize(width: imageWidth, height: imageHeight)
+        let size = CGSize(width: imageWidth * 2, height: imageHeight * 2)
         UIGraphicsBeginImageContext(size)
         
         imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -266,6 +272,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
