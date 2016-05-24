@@ -1825,6 +1825,7 @@
                     <connections>
                         <outlet property="numberOfContactsLabel" destination="RH3-rC-SjO" id="XVY-1R-YoQ"/>
                         <outlet property="numberOfVolunteersLabel" destination="aAX-82-dXb" id="eV1-pr-ati"/>
+                        <outlet property="topLevelMapInfoView" destination="g0C-dg-eIW" id="gpV-1d-1Me"/>
                         <outlet property="welcomeLabel" destination="pQk-Oi-xVQ" id="WQT-qE-aAI"/>
                     </connections>
                 </viewController>
