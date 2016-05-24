@@ -35,10 +35,16 @@ class DashboardViewController: UIViewController {
         }
         
         topLevelMapInfoView.userInteractionEnabled = true;
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapFunction:"))
+        topLevelMapInfoView.addGestureRecognizer(tap)
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
         setData()
+    }
+    
+    func tapFunction(sender:UITapGestureRecognizer) {
+        self.tabBarController!.selectedIndex = 2
     }
     
     override func didReceiveMemoryWarning() {
