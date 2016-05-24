@@ -14,8 +14,8 @@ import Alamofire
 
 class MapMarkerModel: NSObject, MKAnnotation {
     
-    let title: String?
-    let summary: String
+    var title: String?
+    var summary: String
     var coordinate: CLLocationCoordinate2D
     var created: String?
     var closed: Bool?

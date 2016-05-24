@@ -29,6 +29,7 @@ class UserRequestTableViewController: UITableViewController {
                 requests = userService.userModel!.requests!
             }
         }
+        self.requestTableView.reloadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -47,16 +48,25 @@ class UserRequestTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        // add the action button you want to show when swiping on tableView's cell , in this case add the delete button.
-        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
-            // Your delete code here.....
-            print("delete")
-        })
-        
-        // You can set its properties like normal button
-        deleteAction.backgroundColor = UIColor.redColor()
-        
-        return [deleteAction]
+        if(editMode){
+            let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
+                // Your delete code here.....
+                let request = self.requests[indexPath.row]
+                self.requestService.deleteUserRequest(request)
+                self.requests.removeAtIndex(indexPath.row)
+                if(self.requests.count < 1){
+                      self.navigationController?.popViewControllerAnimated(true)
+                }
+                self.tableView.reloadData()
+            })
+            
+            // You can set its properties like normal button
+            deleteAction.backgroundColor = UIColor.redColor()
+            
+            return [deleteAction]
+        } else {
+            return nil
+        }
     }
     
     

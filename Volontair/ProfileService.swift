@@ -13,7 +13,7 @@ class ProfileService  {
     
     private var profileModel : UserModel?  = nil
     
-    private let userService = ServiceFactory.sharedInstance.getUserService()
+    private let userService = ServiceFactory.sharedInstance.userService
     
     func getUserProfileModel() -> UserModel?{
         return profileModel
@@ -23,10 +23,9 @@ class ProfileService  {
         loadProfileFromServer()
     }
     
-    //TODO: get current userID
     func loadProfileFromServer(){
         print("loadProfileFromServer")
-        userService.loadUserDataFromServer(7){(responseObject:UserModel?, error:NSError?) in
+        userService.loadUserDataFromServer((userService.getCurrentUser()?.userId)!){(responseObject:UserModel?, error:NSError?) in
             if ((error) != nil) {
                 print(error)
             } else {

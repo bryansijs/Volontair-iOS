@@ -55,8 +55,8 @@ struct Config{
 }
 
 struct ApiConfig{
-    //static let baseUrl = "http://192.168.178.49:6789/api/v1"
-    static let baseUrl = "https://volontair.herokuapp.com/api/v1"
+    static let baseUrl = "http://192.168.178.49:6789/api/v1"
+    //static let baseUrl = "https://volontair.herokuapp.com/api/v1"
     
     static var headers : [String: String] = [:]
     
@@ -84,11 +84,11 @@ struct ApiConfig{
     static let categoryUrl = "/categories/"
     
     //VolontairApiService
-    //static let registerFacebookTokenUrl = "http://192.168.178.49:6789/auth/facebook/client?accessToken=";
-    static let registerFacebookTokenUrl = "https://volontair.herokuapp.com/auth/facebook/client?accessToken=";
+    static let registerFacebookTokenUrl = "http://192.168.178.49:6789/auth/facebook/client?accessToken=";
+    //static let registerFacebookTokenUrl = "https://volontair.herokuapp.com/auth/facebook/client?accessToken=";
     
-    //static let getVolontairApiTokenUrl = "http://192.168.178.49:6789/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
-    static let getVolontairApiTokenUrl = "https://volontair.herokuapp.com/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
+    static let getVolontairApiTokenUrl = "http://192.168.178.49:6789/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
+    //static let getVolontairApiTokenUrl = "https://volontair.herokuapp.com/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
     
     static let getMeUrl = "/users/me"
     
@@ -121,12 +121,12 @@ struct ApiConfig{
     ]
     
     static let categoryIcons : [String: UIImage] = [
-        "Technische vragen" : UIImage(named: "icon_technical_questions")!,
-        "Sociale activiteiten" : UIImage(named: "icon_social_activities")!,
-        "Huis en tuin" : UIImage(named: "icon_housework")!,
-        "Vervoer" : UIImage(named: "icon_transportation")!,
-        "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing")!,
-        "Evenementen" : UIImage(named: "icon_events")!
+        "Technische vragen" : UIImage(named: "icon_technical_questions_white")!,
+        "Sociale activiteiten" : UIImage(named: "icon_social_activities_white")!,
+        "Huis en tuin" : UIImage(named: "icon_housework_white")!,
+        "Vervoer" : UIImage(named: "icon_transportation_white")!,
+        "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing_white")!,
+        "Evenementen" : UIImage(named: "icon_events_white")!
     ]
 
 }

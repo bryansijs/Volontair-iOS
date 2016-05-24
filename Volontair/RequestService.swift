@@ -16,20 +16,19 @@ class RequestService{
     
     //POST
     func submitRequest(request: RequestModel){
+        //params.
+        let parameters = request.toJson()
         
-        //sample params.
-        let parameters = [
-            "foo": [1,2,3],
-            "bar": [
-                "baz": "qux"
-            ]
-        ]
-        
-        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
-            print(request)
-            print(response)
-            print(data)
-            print(error)
+        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.requestsEndPoint, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON)
+            .validate()
+            .responseJSON { response in
+                if(!response.result.isSuccess){
+                    print("submit request wrong")
+                    return
+                }
+
+                let data = JSON(response.result.value!)
+                request.requestLink = data["_links"]["self"]["href"].stringValue
         }
     }
     
@@ -40,11 +39,9 @@ class RequestService{
             switch response.result {
             case .Success:
                 if let value = response.result.value {
-                    print(value)
-                    var categorys : [CategoryModel] = []
                     
+                    var categorys : [CategoryModel] = []
                     categorys.append(CategoryModel(JSONData: value))
-
                     request.categorys = categorys
                 }
             case .Failure(let error):
@@ -118,6 +115,36 @@ class RequestService{
         
         //NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.requestDataUpdateNotificationKey, object: requestModel)
         print(requestModel)
+    }
+    
+    func editUserRequest(request: RequestModel){
+        
+        //params.
+        let parameters = request.toJson()
+        print(parameters)
+        
+        Alamofire.request(.PATCH, request.requestLink!, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON).response { request, response, data, error in
+            print(error)
+        }
+    }
+    
+    func deleteUserRequest(request: RequestModel){
+        
+        let currentUser = ServiceFactory.sharedInstance.userService.userMe
+        let index = currentUser!.requests?.indexOf(request)
+        currentUser!.requests?.removeAtIndex((index?.littleEndian)!)
+        
+        
+        Alamofire.request(.DELETE, request.requestLink!, headers: ApiConfig.headers).validate().responseJSON { response in switch
+        response.result {
+        case .Success:
+            if let value = response.result.value {
+                print(value)
+            }
+        case .Failure(let error):
+            print(error)
+            }
+        }
     }
     
     
