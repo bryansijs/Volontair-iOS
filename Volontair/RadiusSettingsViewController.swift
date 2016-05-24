@@ -10,24 +10,30 @@ import UIKit
 
 class RadiusSettingsViewController : UIViewController {
     
+
     @IBOutlet weak var radiusSlider: UISlider!
+    @IBOutlet weak var radiusInKmLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
-        //onRadiusChanged(radiusSlider);
+        if NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey) != 0 {
+            let slideValue = NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey)
+            radiusSlider?.value = Float(slideValue);
+        } else {
+            radiusSlider?.value = Float(10)
+        }
+        
+        onRadiusChanged(radiusSlider)
     }
     
     @IBAction func onRadiusChanged(sender: UISlider) {
         
                 var currentValue = Int(sender.value)
         
-                print("Change triggered")
-        
                 // update in steps of 5
                 currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
-                //radiusLabel.text = "\(currentValue)km"
+                radiusInKmLabel.text = "\(currentValue)km"
         
                 // persist to user defaults
                 NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)

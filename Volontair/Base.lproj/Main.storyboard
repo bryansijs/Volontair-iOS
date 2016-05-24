@@ -1303,7 +1303,6 @@
                                 <rect key="frame" x="18" y="130" width="564" height="31"/>
                                 <connections>
                                     <action selector="onRadiusChanged:" destination="LFN-I5-Lta" eventType="valueChanged" id="yRt-3e-PHA"/>
-                                    <action selector="onRadiusSliderValueChanged:" destination="EEY-sF-sQp" eventType="valueChanged" id="Tzt-Ae-mph"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXw-KE-jyH">
@@ -1333,6 +1332,10 @@
                             <constraint firstItem="Iyo-tF-lVQ" firstAttribute="top" secondItem="4df-aU-226" secondAttribute="bottom" constant="8" symbolic="YES" id="uzT-OJ-B7D"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="radiusInKmLabel" destination="4df-aU-226" id="eiI-RA-4ee"/>
+                        <outlet property="radiusSlider" destination="Iyo-tF-lVQ" id="p00-ZS-AWo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IK-7K-fl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
