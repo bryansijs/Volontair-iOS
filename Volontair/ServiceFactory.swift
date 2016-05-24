@@ -15,6 +15,7 @@ class ServiceFactory  {
     let userService = UserService()
     let requestService = RequestService()
     let offerService = OfferService()
+    let dashboardService = DashboardService()
     let categoryService = CategoryService()
     
     private init(){

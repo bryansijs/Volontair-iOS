@@ -32,8 +32,9 @@ class DashboardViewController: UIViewController {
             // Set welcome text with name
             welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
         setData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,7 +65,8 @@ class DashboardViewController: UIViewController {
     }
     
     func setData(){
-        if let data = dashboardService.getDashboardModel(){
+        let service = ServiceFactory.sharedInstance.dashboardService
+        if let data = service.getDashboardModel(){
             numberOfVolunteersLabel.text = String(data.nearbyVolonteers)
             numberOfContactsLabel.text = String(data.potentialContacts)
         }

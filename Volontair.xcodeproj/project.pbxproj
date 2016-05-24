@@ -365,7 +365,6 @@
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */,
 				2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */,
-				2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -395,6 +394,7 @@
 		EF2721EE1CBE280200BCD082 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */,
 				EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */,
 				EF9B583E1CCF951600AA52ED /* RequestService.swift */,
 				2FFD7DCA1CC95949005CDE2C /* UserService.swift */,
