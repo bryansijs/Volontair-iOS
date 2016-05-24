@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_default-1.png",
+      "filename" : "User_white.png",
       "scale" : "1x"
     },
     {
@@ -11,7 +11,6 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icon_default.png",
       "scale" : "3x"
     }
   ],

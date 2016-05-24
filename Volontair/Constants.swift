@@ -104,6 +104,7 @@ struct ApiConfig{
     static let requestInternalUpdate = "RequestInternalUpdate"
     static let userOffersNotificationKey = "UsersOffersDataUpdated"
     static let requestDataUpdateNotificationKey = "UsersOffersDataUpdated"
+    static let mapIconDiameter = 40
     
     //Facebook 
     static let facebookUsernamePreference = "volontair.preferences.username"
@@ -127,5 +128,13 @@ struct ApiConfig{
         "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing")!,
         "Evenementen" : UIImage(named: "icon_events")!
     ]
-
+    
+    static let categoryIconsWhite : [String: UIImage] = [
+        "Technische vragen" : UIImage(named: "icon_technical_questions_white")!,
+        "Sociale activiteiten" : UIImage(named: "icon_social_activities_white")!,
+        "Huis en tuin" : UIImage(named: "icon_housework_white")!,
+        "Vervoer" : UIImage(named: "icon_transportation_white")!,
+        "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing_white")!,
+        "Evenementen" : UIImage(named: "icon_events_white")!
+    ]
 }
