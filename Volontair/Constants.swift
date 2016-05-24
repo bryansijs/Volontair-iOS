@@ -28,8 +28,6 @@ struct Config{
     static let defaultMapLatitudeDelta: Double = 1
     static let defaultMapLongitudeDelta: Double = 1
     
-    static let defaultMapAnnotationImageSize = CGSize(width: 24, height: 24)
-    
     static let profileUrl = "users/"
     static let dashboardUrl = "dashboard/"
     static let conversationUrl = "conversations/"

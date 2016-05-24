@@ -198,9 +198,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
                 if let image = markerAsUser.image {
-                    markerImage = image.markerCircle(hexStringToUIColor("#FFFFFF"))!
+                    markerImage = getRoundedImage(image)
+                   
                 } else {
-                    markerImage = UIImage(named: "user_default_icon_white")!.markerCircle(hexStringToUIColor("#00bcd4"))!
+                    markerImage = getRoundedImage(UIImage(named: "user_default_icon_white")!)
                 }
             }
         } else if(annotation is RequestModel) {
@@ -213,6 +214,27 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView!.image = markerImage
         
         return annotationView
+    }
+    
+    func getRoundedImage(image : UIImage) -> UIImage {
+        let imageLayer = CALayer()
+        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        imageLayer.contents = image.CGImage
+        
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = image.size.width/2
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        imageLayer.backgroundColor = hexStringToUIColor("#00bcd4").CGColor
+        imageLayer.borderWidth = 2
+        imageLayer.borderColor = UIColor.whiteColor().CGColor
+        
+        imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return RBResizeImage(roundedImage, targetSize: CGSize(width: 40, height: 40))
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {

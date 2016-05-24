@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         activityIndicator.hidden = false
         
         if volontairApiService.getVolontairApiToken() != nil {
-            volontairApiService.login(self.redirectToNextView , completeErrorHandler: self.error)
+            volontairApiService.login(self.loadMinimalDataForApplicationStart , completeErrorHandler: self.error)
         }else {
             activityIndicator.hidden = true
             activityIndicator.stopAnimating()
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
                         print("Retrieved data from Facebook:")
                         print(result)
         
-                        self.volontairApiService.login(token, completionHandler: self.redirectToNextView, completionErrorhandler: self.error)
+                        self.volontairApiService.login(token, completionHandler: self.loadMinimalDataForApplicationStart, completionErrorhandler: self.error)
                         
                         //Save username & token in settings
         
@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func redirectToNextView() {
+    func redirectToNextView() -> Void {
         let lat = ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude
         initAppData()
         
@@ -121,5 +121,12 @@ class LoginViewController: UIViewController {
         loginManager.logOut()
     }
     
+    func loadMinimalDataForApplicationStart() {
+        self.loadDashBoardData(self.redirectToNextView)
+    }
+    
+    func loadDashBoardData(completionHandler:() -> Void) {
+        ServiceFactory.sharedInstance.dashboardService.loadDashboardDataFromServer(self.redirectToNextView)
+    }
     
 }

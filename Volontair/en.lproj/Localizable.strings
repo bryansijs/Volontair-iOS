@@ -38,3 +38,8 @@ OFFER_MESSAGE="Offer message";
 REQUEST_MESSAGE_SUCCESSFULL="Request successfully saved";
 PLACE="Place: ";
 HOME="Home ";
+LOCATION="Location";
+CANTUPDATELOC="Can't update your location";
+NAME="Name";
+MINIMUM_NAME_LENGHT="Name must be at leatst 8 characters.";
+
