@@ -234,7 +234,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return RBResizeImage(roundedImage, targetSize: CGSize(width: 50, height: 50))
+        return RBResizeImage(roundedImage, targetSize: CGSize(width: 40, height: 40))
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
