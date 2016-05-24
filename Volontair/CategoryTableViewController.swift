@@ -11,6 +11,7 @@ import UIKit
 class CategoryTableViewController: UITableViewController, ValidationProtocol {
         
     @IBOutlet var categoryTableView: UITableView!
+    
     var selectedCell = 0
     var selectedCategories = [CategoryModel]()
     let wizardService = WizardServiceFactory.sharedInstance.wizardService
