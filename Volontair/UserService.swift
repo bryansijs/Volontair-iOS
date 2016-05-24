@@ -82,9 +82,18 @@ class UserService  {
         print("loadProfilePictures")
         var count = 0;
         
+        let parameters : [String : String] = [
+        "width" : "500",
+        "height" : "500"
+        ]
+        
+        
         if users != nil {
             for user in users! {
-                Alamofire.request(.GET, user.imageLink , headers: ApiConfig.headers, encoding: .JSON).response { (request, response, data, error) in
+                Alamofire.request(.GET, user.imageLink + "?width=180&height=180", encoding: .JSON).response { (request, response, data, error) in
+                    print(request)
+                    print(response)
+                    print(user.imageLink)
                     if let value = data {
                         user.profilePicture = NSData(data: value)
                     }
