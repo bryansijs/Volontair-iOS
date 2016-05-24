@@ -43,14 +43,7 @@ class DashboardViewController: UIViewController {
     }
     
     func tapFunction(sender:UITapGestureRecognizer) {
-        self.performSegueWithIdentifier("goToTabBarController", sender: self)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "goToTabBarController"){
-            let tabVC = segue.destinationViewController as! UITabBarController
-            tabVC.selectedIndex = 2
-        }
+        self.tabBarController!.selectedIndex = 2
     }
     
     override func didReceiveMemoryWarning() {
