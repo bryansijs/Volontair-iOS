@@ -27,8 +27,8 @@ class DashboardService {
         
         let dashboardParams : [String:Double] = [
         "radius": Double(getSavedRadius()),
-        "latitude": (ServiceFactory.sharedInstance.getUserService().getCurrentUser()?.latitude)!,
-        "longitude": (ServiceFactory.sharedInstance.getUserService().getCurrentUser()?.longitude)!
+        "latitude": (ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude)!,
+        "longitude": (ServiceFactory.sharedInstance.userService.getCurrentUser()?.longitude)!
         ]
         
         Alamofire.request(.GET, dashURL, headers: ApiConfig.headers, parameters: dashboardParams)
