@@ -18,6 +18,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var numberOfContactsLabel: UILabel!
     @IBOutlet weak var numberOfVolunteersLabel: UILabel!
+    @IBOutlet weak var topLevelMapInfoView: UIView!
     
     let dashboardService = DashboardServiceFactory.sharedInstance.getDashboardService()
     
@@ -32,9 +33,19 @@ class DashboardViewController: UIViewController {
             // Set welcome text with name
             welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
         }
+
+        
+        topLevelMapInfoView.userInteractionEnabled = true;
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapFunction:"))
+        topLevelMapInfoView.addGestureRecognizer(tap)
+        
         setData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
 
+    }
+    
+    func tapFunction(sender:UITapGestureRecognizer) {
+        self.tabBarController!.selectedIndex = 2
     }
     
     override func didReceiveMemoryWarning() {

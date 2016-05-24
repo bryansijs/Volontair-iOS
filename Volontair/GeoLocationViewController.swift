@@ -45,6 +45,8 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
         self.aboutMeTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.aboutMeTextView.layer.cornerRadius = 5;
         self.aboutMeTextView.clipsToBounds = true
+        self.aboutMeTextView.returnKeyType = UIReturnKeyType.Done
+        self.addDoneButtonOnKeyboard()
     }
     
     func validate()-> Bool {
@@ -81,5 +83,31 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
 //                print(places![0].postalCode)
             }
         }
+    }
+    
+    //MARK: Hide Keyboard
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = .Default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(GeoLocationViewController.doneButtonAction))
+        
+        var items: [UIBarButtonItem] = []
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.aboutMeTextView.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.aboutMeTextView.resignFirstResponder()
     }
 }
