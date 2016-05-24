@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 class ProfileService  {
@@ -21,6 +22,22 @@ class ProfileService  {
     
     init() {
         loadProfileFromServer()
+    }
+    
+    func saveEditedProfile(){
+        
+        let currentUser = userService.getCurrentUser()!
+        let parameters : [String:AnyObject] = [
+            "name" :"\(currentUser.name)",
+            "summary": "\(currentUser.summary)",
+            "longitude": "\(currentUser.longitude)",
+            "latitude" : "\(currentUser.latitude)"
+        ]
+        Alamofire.request(.PATCH, currentUser.userLink, headers: ApiConfig.headers, parameters: parameters, encoding: .JSON)
+            .responseJSON { response in
+                print(response.result)
+        }
+
     }
     
     func loadProfileFromServer(){

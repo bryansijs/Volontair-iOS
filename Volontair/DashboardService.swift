@@ -17,23 +17,42 @@ class DashboardService {
         return dashboardmodel
     }
     
-    func loadDashboardDataFromServer(){
-        let dashboardURL = Config.url + Config.dashboardUrl
+    func loadDashboardDataFromServer(completionHandler:() -> Void){
+        let dashboardURL = ApiConfig.baseUrl + ApiConfig.dashboardUrl
         guard let dashURL = NSURL(string: dashboardURL) else {
             print("Error: cannot create URL")
             return
         }
         
-        Alamofire.request(.GET, dashURL).validate().responseJSON { response in
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    self.dashboardmodel = DashboardModel(jsonData: value)
+        
+        let dashboardParams : [String:Double] = [
+        "radius": Double(getSavedRadius()),
+        "latitude": (ServiceFactory.sharedInstance.userService.getCurrentUser()?.latitude)!,
+        "longitude": (ServiceFactory.sharedInstance.userService.getCurrentUser()?.longitude)!
+        ]
+        
+        Alamofire.request(.GET, dashURL, headers: ApiConfig.headers, parameters: dashboardParams)
+            .responseJSON { response in
+                switch response.result {
+                case .Success(let JSON):
+                    
+                    self.dashboardmodel = DashboardModel(jsonData: JSON)
                     NSNotificationCenter.defaultCenter().postNotificationName(Config.dashboardNotificationKey, object: self.dashboardmodel)
+                    completionHandler()
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
                 }
-            case .Failure(let error):
-                print(error)
-            }
+        }
+
+    }
+    
+    private func getSavedRadius() -> Int{
+        let radius = NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey)
+        if radius != 0 {
+            return radius
+        } else {
+            return 10
         }
     }
 }

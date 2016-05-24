@@ -197,24 +197,69 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = getRoundedImage(RBSquareImage(UIImage(named: "test")!))
-                //TODO: real image
-//                if let image = markerAsUser.image {
-//                    markerImage = self.getRoundedImage(UIImage(named: "test")!)
-//                }
+                if let image = markerAsUser.image {
+                    markerImage = getRoundedImage(image)
+                   
+                } else {
+                    markerImage = getRoundedImage(UIImage(named: "user_default_icon_white")!)
+                }
             }
-        } else if(annotation is RequestModel){
+        } else if(annotation is RequestModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = getRoundedImage(markerAsUser.categorys![0].icon)
+                let image : UIImage = ApiConfig.categoryIconsWhite[markerAsUser.categorys![0].name]!
+                markerImage =  image.markerCircle(hexStringToUIColor(markerAsUser.categorys![0].colorHex))!
             }
         }
-        
             
         annotationView!.image = markerImage
         
         return annotationView
     }
     
+    func getRoundedImage(image : UIImage) -> UIImage {
+        let imageLayer = CALayer()
+        imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        imageLayer.contents = image.CGImage
+        
+        imageLayer.masksToBounds = true
+        imageLayer.cornerRadius = image.size.width/2
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        imageLayer.backgroundColor = hexStringToUIColor("#00bcd4").CGColor
+        imageLayer.borderWidth = 2
+        imageLayer.borderColor = UIColor.whiteColor().CGColor
+        
+        imageLayer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return RBResizeImage(roundedImage, targetSize: CGSize(width: 40, height: 40))
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.grayColor()
+        }
+        
+        var rgbValue:UInt32 = 0
+        NSScanner(string: cString).scanHexInt(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
+
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
