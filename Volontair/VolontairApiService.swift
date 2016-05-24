@@ -59,8 +59,7 @@ class VolontairApiService {
                                 // userRequest needs category's
                                 self.userService.loadUserCategorys(user)
                                 self.userService.loadUserRequests(user)
-                                //ServiceFactory.sharedInstance.dashboardService.loadDashboardDataFromServer()
-                                
+                                                            
                                 let userArray :[UserModel] = [user]
                                 self.userService.loadProfilePictures(userArray, completionHandler: { (user, error) in
                                     
