@@ -41,3 +41,4 @@ ALERT="Oeps!";
 FIELDS_NOT_FILLED_IN="Niet alle velden zijn ingevuld";
 CLICK="Ok";
 PLACE="Plaats: ";
+HOME="Thuis ";

@@ -31,6 +31,7 @@
 		57C442C31CA080CA00A556F5 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C241C946F2C0002BB51 /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C442C41CA080CC00A556F5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; };
 		57C442C51CA080CC00A556F5 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB60C251C946F2C0002BB51 /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E80A85C41CF4CF550011026E /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80A85C31CF4CF550011026E /* SettingsService.swift */; };
 		E85085DC1CE4790C0075AFA3 /* UserMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */; };
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
@@ -156,6 +157,7 @@
 		578484FF1C764542006A9841 /* VolontairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolontairUITests.swift; sourceTree = "<group>"; };
 		578485011C764542006A9841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57C6A5FB1C90DBED00C98899 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E80A85C31CF4CF550011026E /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapModel.swift; sourceTree = "<group>"; };
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
 				E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */,
 				E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */,
+				E80A85C31CF4CF550011026E /* SettingsService.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */,
 				EF3E52841CC00BC50053A701 /* ContactsViewController.swift in Sources */,
 				EF2E81E51CBEDF9B00FD141C /* UserModel.swift in Sources */,
+				E80A85C41CF4CF550011026E /* SettingsService.swift in Sources */,
 				EF3E527F1CC00B6F0053A701 /* ConversationModel.swift in Sources */,
 				EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */,
 				EF3E52851CC00BC50053A701 /* ContactTableViewCell.swift in Sources */,
