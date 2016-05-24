@@ -49,7 +49,7 @@ class UserModel {
         let userIdString = userLink.regex("[0-9]*$")[0]
         self.userId = Int(userIdString)!
         
-        self.imageLink = ApiConfig.baseUrl + ApiConfig.usersUrl + userIdString + "/avatar.png"
+        self.imageLink = json["imageUrl"].stringValue
     }
     
 //    init(username: String, name: String, summary: String, enabled: Bool, requestsLink: String, offersLink: String, listenerConversationsLink: String, categoriesLink: String, latitude: Double, longitude: Double, userId: Int, imageLink:String, userLink: String){
