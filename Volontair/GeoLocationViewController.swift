@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class GeoLocationViewController: UIViewController, ValidationProtocol {
+class GeoLocationViewController: UIViewController, ValidationProtocol, UITextViewDelegate {
     
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var adressTextField: UITextField!
@@ -45,6 +45,11 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
         self.aboutMeTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.aboutMeTextView.layer.cornerRadius = 5;
         self.aboutMeTextView.clipsToBounds = true
+        self.aboutMeTextView.returnKeyType = UIReturnKeyType.Done
+        self.aboutMeTextView.delegate = self
+        
+        self.addDoneButtonOnKeyboard()
+
     }
     
     func validate()-> Bool {
@@ -53,6 +58,11 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
             return true
         }
         return false
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -81,5 +91,42 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
 //                print(places![0].postalCode)
             }
         }
+    }
+    
+    //MARK: textviewDelegate
+    
+    func addDoneToolBarToKeyboard(textview :UITextView){
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle = .BlackTranslucent
+
+        
+    }
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = .Default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(GeoLocationViewController.doneButtonAction))
+        
+        var items: [UIBarButtonItem] = []
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.aboutMeTextView.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.aboutMeTextView.resignFirstResponder()
+    }
+    
+    override func disablesAutomaticKeyboardDismissal() -> Bool {
+        return false
     }
 }
