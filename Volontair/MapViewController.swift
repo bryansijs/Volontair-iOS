@@ -201,13 +201,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     markerImage = image.markerCircle(hexStringToUIColor("#FFFFFF"))!
                 } else {
                     markerImage = UIImage(named: "user_default_icon_white")!.markerCircle(hexStringToUIColor("#00bcd4"))!
-                    //let image = UIImage(named: "user_default_icon")!
-                    //markerImage = getRoundedImage(image, backgroundColorHex: "#00bcd4")
                 }
             }
         } else if(annotation is RequestModel) {
             if let markerAsUser = annotation as? MapMarkerModel {
-                markerImage = markerAsUser.categorys![0].icon.markerCircle(hexStringToUIColor(markerAsUser.categorys![0].colorHex))!
+                let image : UIImage = ApiConfig.categoryIconsWhite[markerAsUser.categorys![0].name]!
+                markerImage =  image.markerCircle(hexStringToUIColor(markerAsUser.categorys![0].colorHex))!
             }
         }
             

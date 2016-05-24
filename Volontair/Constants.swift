@@ -121,6 +121,15 @@ struct ApiConfig{
     ]
     
     static let categoryIcons : [String: UIImage] = [
+        "Technische vragen" : UIImage(named: "icon_technical_questions")!,
+        "Sociale activiteiten" : UIImage(named: "icon_social_activities")!,
+        "Huis en tuin" : UIImage(named: "icon_housework")!,
+        "Vervoer" : UIImage(named: "icon_transportation")!,
+        "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing")!,
+        "Evenementen" : UIImage(named: "icon_events")!
+    ]
+    
+    static let categoryIconsWhite : [String: UIImage] = [
         "Technische vragen" : UIImage(named: "icon_technical_questions_white")!,
         "Sociale activiteiten" : UIImage(named: "icon_social_activities_white")!,
         "Huis en tuin" : UIImage(named: "icon_housework_white")!,
@@ -128,5 +137,4 @@ struct ApiConfig{
         "Reparaties en vervangen" : UIImage(named: "icon_repairing_and_replacing_white")!,
         "Evenementen" : UIImage(named: "icon_events_white")!
     ]
-
 }
