@@ -82,6 +82,7 @@ class ProfileViewController: UIViewController {
             //            let amountOfContacts: String = String(data.contacts.count)
             //            self.FriendsLabel.text! = amountOfContacts
             editableMode()
+            setRequestButtonState()
 
         
         }
@@ -90,6 +91,15 @@ class ProfileViewController: UIViewController {
     private func editableMode(){
         if(!editMode){
             self.AboutMeLabel.editable = false
+        }
+    }
+    func setRequestButtonState(){
+        if let userProfile = self.user{
+            if(userProfile.requests!.count < 1){
+                self.showRequestsButton.enabled = false
+            } else {
+                self.showRequestsButton.enabled = true
+            }
         }
     }
     

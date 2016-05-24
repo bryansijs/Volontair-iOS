@@ -13,8 +13,11 @@ class UserTypeViewController: UIViewController, ValidationProtocol {
     var userWillCreateRequests = true
     var userWillCreateOffers = true
     
+    let wizardService = WizardServiceFactory.sharedInstance.wizardService
+    
     func validate()-> Bool {
         if (userWillCreateRequests || userWillCreateOffers){
+            wizardService.setUserTypeProperties(userWillCreateOffers, limited: userWillCreateRequests)
             return true
         } else {
             return false
