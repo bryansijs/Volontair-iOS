@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class GeoLocationViewController: UIViewController, ValidationProtocol, UITextViewDelegate {
+class GeoLocationViewController: UIViewController, ValidationProtocol {
     
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var adressTextField: UITextField!
@@ -46,10 +46,7 @@ class GeoLocationViewController: UIViewController, ValidationProtocol, UITextVie
         self.aboutMeTextView.layer.cornerRadius = 5;
         self.aboutMeTextView.clipsToBounds = true
         self.aboutMeTextView.returnKeyType = UIReturnKeyType.Done
-        self.aboutMeTextView.delegate = self
-        
         self.addDoneButtonOnKeyboard()
-
     }
     
     func validate()-> Bool {
@@ -58,11 +55,6 @@ class GeoLocationViewController: UIViewController, ValidationProtocol, UITextVie
             return true
         }
         return false
-    }
-    
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -93,14 +85,7 @@ class GeoLocationViewController: UIViewController, ValidationProtocol, UITextVie
         }
     }
     
-    //MARK: textviewDelegate
-    
-    func addDoneToolBarToKeyboard(textview :UITextView){
-        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-        doneToolbar.barStyle = .BlackTranslucent
-
-        
-    }
+    //MARK: Hide Keyboard
     
     func addDoneButtonOnKeyboard()
     {
@@ -124,9 +109,5 @@ class GeoLocationViewController: UIViewController, ValidationProtocol, UITextVie
     func doneButtonAction()
     {
         self.aboutMeTextView.resignFirstResponder()
-    }
-    
-    override func disablesAutomaticKeyboardDismissal() -> Bool {
-        return false
     }
 }
