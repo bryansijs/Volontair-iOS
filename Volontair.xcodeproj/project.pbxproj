@@ -35,6 +35,8 @@
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
 		E8A26DC71CF4627400EE5753 /* UIImageMapFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */; };
+		E8A26DCB1CF4744400EE5753 /* RadiusSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */; };
+		E8A26DCE1CF4747900EE5753 /* LocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */; };
 		E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */; };
 		EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D871CE33753000753AB /* UserRequestTableViewController.swift */; };
 		EF098D8A1CE36065000753AB /* UserRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */; };
@@ -158,6 +160,8 @@
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
 		E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageMapFragmentExtension.swift; sourceTree = "<group>"; };
+		E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusSettingsViewController.swift; sourceTree = "<group>"; };
+		E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingsViewController.swift; sourceTree = "<group>"; };
 		E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF098D871CE33753000753AB /* UserRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestTableViewController.swift; sourceTree = "<group>"; };
 		EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestDetailViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 			isa = PBXGroup;
 			children = (
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
+				E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */,
+				E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -607,12 +613,14 @@
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
 				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
+				E8A26DCB1CF4744400EE5753 /* RadiusSettingsViewController.swift in Sources */,
 				E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */,
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
 				2FFD7DCD1CC95A44005CDE2C /* DashboardModel.swift in Sources */,
 				EF9B583D1CCF8EEA00AA52ED /* OfferService.swift in Sources */,
 				2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */,
 				EFBBB28E1CF35090001B5339 /* AlamofireStringAsBody.swift in Sources */,
+				E8A26DCE1CF4747900EE5753 /* LocationSettingsViewController.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
