@@ -15,42 +15,49 @@ struct SettingsConstants {
 }
 
 class SettingsViewController: UITableViewController {
+//    @IBOutlet weak var radiusCell: UITableViewCell!
+//    @IBOutlet weak var radiusSlider: UISlider!
+//    @IBOutlet weak var radiusLabel: UILabel!
+    
     @IBOutlet weak var radiusCell: UITableViewCell!
-    @IBOutlet weak var radiusSlider: UISlider!
-    @IBOutlet weak var radiusLabel: UILabel!
+    @IBOutlet weak var locationCell: UITableViewCell!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        radiusCell.userInteractionEnabled = true
+        locationCell.userInteractionEnabled = true
         
-        // set defaults
-        let settingsDefaults = [
-            SettingsConstants.radiusKey: 10 as Int
-        ]
-        defaults.registerDefaults(settingsDefaults)
-        defaults.synchronize()
+        let radiusTap = UITapGestureRecognizer(target: self, action: Selector("tapRadiusFunction:"))
+        let locationTap = UITapGestureRecognizer(target: self, action: Selector("tapLocationFunction:"))
+        
+        radiusCell.addGestureRecognizer(radiusTap)
+        locationCell.addGestureRecognizer(locationTap)
         
         // restore settings in view
-        radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
-        onRadiusSliderValueChanged(radiusSlider);
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//        radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
+//        onRadiusSliderValueChanged(radiusSlider);
     }
     
-    @IBAction func onRadiusSliderValueChanged(sender: UISlider) {
-        var currentValue = Int(sender.value)
-        
-        print("Change triggered")
-        
-        // update in steps of 5
-        currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
-        radiusLabel.text = "\(currentValue)km"
-        
-        // persist to user defaults
-        NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)
+    func tapRadiusFunction(sender:UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("segueToRadiusSettings", sender: self)
     }
+    
+    func tapLocationFunction(sender:UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("segueToLocationSettings", sender: self)
+    }
+    
+//    @IBAction func onRadiusSliderValueChanged(sender: UISlider) {
+//        var currentValue = Int(sender.value)
+//        
+//        print("Change triggered")
+//        
+//        // update in steps of 5
+//        currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
+//        radiusLabel.text = "\(currentValue)km"
+//        
+//        // persist to user defaults
+//        NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)
+//    }
 }
