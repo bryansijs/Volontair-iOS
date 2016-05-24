@@ -62,6 +62,11 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Error while updating location " + error.localizedDescription)
+        
+        let alertController = UIAlertController(title: NSLocalizedString("LOCATION",comment: ""), message:
+            NSLocalizedString("CANTUPDATELOC",comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func currentLocationButtonPressed(sender: UIButton) {
@@ -83,8 +88,8 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
     
     private func validate() -> Bool {
         if self.nameTextField.text?.characters.count < 8 {
-            let alertController = UIAlertController(title: "Naam", message:
-                "Je naam moet minimaal 8 caracters lang zijn", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: NSLocalizedString("NAME",comment: ""), message:
+                NSLocalizedString("MINIMUM_NAME_LENGHT",comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
             return false
