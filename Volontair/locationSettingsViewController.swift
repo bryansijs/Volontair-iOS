@@ -40,7 +40,7 @@ class LocationSettingsViewController : UIViewController {
             } else {
                 self.adressTextField.backgroundColor = UIColor(hue: 0.475, saturation: 1, brightness: 0.74, alpha: 1.0)
                 self.validLocation = true
-                self.placeLabel.text = NSLocalizedString("HOME",comment: "") + places![0].name! + places![0].administrativeArea!
+                self.placeLabel.text = places![0].name! + places![0].administrativeArea!
                 self.latitude = Double((places![0].location?.coordinate.latitude.description)!)
                 self.longitude = Double((places![0].location?.coordinate.longitude.description)!)
                 self.settingsService.updateCurrentUserLocation(self.latitude!, longitude: self.longitude!)
@@ -77,7 +77,7 @@ class LocationSettingsViewController : UIViewController {
             }
             
             if(streetName != nil && townName != nil) {
-                self.placeLabel.text = " \(streetName!)  \(townName!)"
+                self.placeLabel.text = " \(streetName!)"+" "+"\(townName!)"
             }
         })
     

@@ -28,15 +28,13 @@ class RadiusSettingsViewController : UIViewController {
     }
     
     @IBAction func onRadiusChanged(sender: UISlider) {
-        
                 var currentValue = Int(sender.value)
-        
                 // update in steps of 5
                 currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
                 radiusInKmLabel.text = "\(currentValue)km"
-        
                 // persist to user defaults
                 NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)
-        
     }
+    
+    
 }
