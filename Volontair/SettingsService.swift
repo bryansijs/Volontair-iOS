@@ -20,6 +20,7 @@ class SettingsService {
         Alamofire.request(.PATCH, user.userLink, headers: ApiConfig.headers, parameters: ["latitude" : latitude,"longitude" : longitude], encoding: .JSON)
             .responseJSON { response in
                 print(response.result)
+                
         }
         
     }
