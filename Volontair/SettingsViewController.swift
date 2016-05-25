@@ -35,9 +35,14 @@ class SettingsViewController: UITableViewController {
         radiusCell.addGestureRecognizer(radiusTap)
         locationCell.addGestureRecognizer(locationTap)
         
-        // restore settings in view
-//        radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
-//        onRadiusSliderValueChanged(radiusSlider);
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
     
     func tapRadiusFunction(sender:UITapGestureRecognizer) {
@@ -48,16 +53,4 @@ class SettingsViewController: UITableViewController {
         self.performSegueWithIdentifier("segueToLocationSettings", sender: self)
     }
     
-//    @IBAction func onRadiusSliderValueChanged(sender: UISlider) {
-//        var currentValue = Int(sender.value)
-//        
-//        print("Change triggered")
-//        
-//        // update in steps of 5
-//        currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
-//        radiusLabel.text = "\(currentValue)km"
-//        
-//        // persist to user defaults
-//        NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)
-//    }
 }
