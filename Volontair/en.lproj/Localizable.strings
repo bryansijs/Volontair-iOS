@@ -20,7 +20,7 @@ LAST_WEEK="last week";
 ONE_WEEK_AGO="1 week ago";
 WEEKS_AGO="weeks ago";
 LAST_MONTH="last moth";
-ONE_MONTH_AGO="1 moth ago";
+ONE_MONTH_AGO="1 month ago";
 MONTHS_AGO="moths ago";
 LAST_YEAR="last year";
 ONE_YEAR_AGO="1 year ago";
@@ -37,9 +37,12 @@ REQUEST_MESSAGE="Request message";
 OFFER_MESSAGE="Offer message";
 REQUEST_MESSAGE_SUCCESSFULL="Request successfully saved";
 PLACE="Place: ";
+
+/* Error messege contacting other people */
+CONTACT_ERROR_TITLE="Contact with this user is not possible";
+CONTACT_ERROR_MESSAGE="The other user is informed of this problem, Try again later";
 HOME="Home ";
 LOCATION="Location";
 CANTUPDATELOC="Can't update your location";
 NAME="Name";
 MINIMUM_NAME_LENGHT="Name must be at leatst 8 characters.";
-

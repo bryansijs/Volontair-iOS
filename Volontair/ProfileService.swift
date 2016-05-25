@@ -42,15 +42,19 @@ class ProfileService  {
     
     func loadProfileFromServer(){
         print("loadProfileFromServer")
-        userService.loadUserDataFromServer((userService.getCurrentUser()?.userId)!){(responseObject:UserModel?, error:NSError?) in
-            if ((error) != nil) {
-                print(error)
-            } else {
-                if let userModel = responseObject{
-                    self.profileModel = userModel
+        if let userid = userService.getCurrentUser()?.userId {
+            userService.loadUserDataFromServer(userid){(responseObject:UserModel?, error:NSError?) in
+                if ((error) != nil) {
+                    print(error)
+                } else {
+                    if let userModel = responseObject{
+                        self.profileModel = userModel
+                    }
                 }
+                
             }
-
+        } else {
+            print("error loading current user")
         }
     }
 }
