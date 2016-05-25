@@ -1119,7 +1119,7 @@
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-se-log">
-                                <rect key="frame" x="555" y="72" width="25" height="25"/>
+                                <rect key="frame" x="574" y="72" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Frb-uf-4bK"/>
                                     <constraint firstAttribute="width" constant="25" id="vJW-yt-RjS"/>
@@ -1171,7 +1171,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gc-BK-ODS">
-                                <rect key="frame" x="550" y="112" width="30" height="30"/>
+                                <rect key="frame" x="569" y="112" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="0JG-Ps-tuT"/>
                                     <constraint firstAttribute="height" constant="30" id="7fO-BN-lXH"/>
@@ -1208,6 +1208,7 @@
                             <constraint firstItem="3HK-Rp-fmY" firstAttribute="leading" secondItem="tIl-IX-bNk" secondAttribute="trailing" constant="8" id="L9b-wq-ZKr"/>
                             <constraint firstItem="CHp-Cv-LRC" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leadingMargin" id="LM7-Uv-X6h"/>
                             <constraint firstItem="tIl-IX-bNk" firstAttribute="top" secondItem="emY-iZ-Vc9" secondAttribute="bottom" constant="10" id="QOK-eU-A2A"/>
+                            <constraint firstItem="jAM-se-log" firstAttribute="leading" secondItem="MOX-aL-65c" secondAttribute="trailing" constant="13" id="Rtg-4r-UQd"/>
                             <constraint firstItem="ImB-zF-Uba" firstAttribute="trailing" secondItem="kg5-ae-vSO" secondAttribute="trailingMargin" id="Scf-TG-fPQ"/>
                             <constraint firstItem="emY-iZ-Vc9" firstAttribute="leading" secondItem="kg5-ae-vSO" secondAttribute="leading" id="W6c-6T-wZx"/>
                             <constraint firstItem="Wa6-cT-FZb" firstAttribute="top" secondItem="CHp-Cv-LRC" secondAttribute="bottom" id="XeF-vR-uz1"/>
@@ -1235,6 +1236,7 @@
                                 <exclude reference="ZYT-Up-JHH"/>
                                 <exclude reference="jRW-IN-RBh"/>
                                 <exclude reference="CB7-4t-dF0"/>
+                                <exclude reference="aJ2-F9-iHA"/>
                             </mask>
                         </variation>
                     </view>
