@@ -12,6 +12,7 @@ import UIKit
 
 class CategoryModel {
     
+    var id : String?
     var created : String?
     var updated: String?
     var name: String
@@ -29,6 +30,7 @@ class CategoryModel {
         self.colorHex = data["colorHex"].stringValue
         self.icon = ApiConfig.categoryIcons[self.name]!
         self.link = data["_links"]["self"]["href"].stringValue
+        self.id = link!.regex("[0-9]*$")[0]
     }
     
     init(name:String,iconName: String, iconColorHex: String){

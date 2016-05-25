@@ -21,21 +21,30 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var interestsCell: UIView!
     @IBOutlet weak var logOutCell: UIView!
     
+    var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         radiusCell.userInteractionEnabled = true
         locationCell.userInteractionEnabled = true
+        interestsCell.userInteractionEnabled = true;
+        logOutCell.userInteractionEnabled = true;
         
-        let radiusTap = UITapGestureRecognizer(target: self, action: Selector("tapRadiusFunction:"))
-        let locationTap = UITapGestureRecognizer(target: self, action: Selector("tapLocationFunction:"))
+        let radiusTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapRadiusFunction(_:)))
+        let locationTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapLocationFunction(_:)))
+        let interestsTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapCategoriesFunction(_:)))
+        let logOutTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.LogoutApp(_:)))
         
         radiusCell.addGestureRecognizer(radiusTap)
         locationCell.addGestureRecognizer(locationTap)
+        interestsCell.addGestureRecognizer(interestsTap)
+        logOutCell.addGestureRecognizer(logOutTap)
         
     }
     
+
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -50,6 +59,16 @@ class SettingsViewController: UITableViewController {
     
     func tapLocationFunction(sender:UITapGestureRecognizer) {
         self.performSegueWithIdentifier("segueToLocationSettings", sender: self)
+    }
+    
+    func tapCategoriesFunction(sender:UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("segueToCategorieSettings", sender: self)
+    }
+    
+    func LogoutApp(sender:UITapGestureRecognizer) {
+        self.prefs.removeObjectForKey("VolontairApiToken")
+        self.prefs.removeObjectForKey("VolontairFacebookToken")
+        self.performSegueWithIdentifier("segueToLoginView", sender: self)
     }
     
 }
