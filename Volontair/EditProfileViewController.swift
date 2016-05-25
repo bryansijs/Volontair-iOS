@@ -31,6 +31,7 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
         self.automaticallyAdjustsScrollViewInsets = false
         self.placeTextField.enabled = false
         setData()
+        addDoneButtonOnKeyboard()
     }
     
     private func setData(){
@@ -112,4 +113,20 @@ class EditProfileViewController: UIViewController, CLLocationManagerDelegate {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    //MARK: Hide Keyboard
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar = self.doneToolbar(#selector(self.doneButtonAction))
+        self.nameTextField.inputAccessoryView = doneToolbar
+        self.aboutMeTextView.inputAccessoryView = doneToolbar
+    }
+    
+    func doneButtonAction()
+    {
+        self.nameTextField.resignFirstResponder()
+        self.aboutMeTextView.resignFirstResponder()
+    }
+
 }
