@@ -37,6 +37,7 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         // default request field text
         titleTextField.placeholder = NSLocalizedString("TITLE",comment: "")
         categoryTextField.placeholder = NSLocalizedString("CATEGORY",comment: "")
+        categoryTextField.inputView = UIView()
         
         //Category picker
         categoryPicker.delegate = self
@@ -47,6 +48,8 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         self.navigationItem.title = NSLocalizedString("NEW_REQUEST",comment: "")
         submitButton.setTitle(NSLocalizedString("REQUEST",comment: ""), forState: .Normal)
         messageLabel.text = NSLocalizedString("REQUEST_MESSAGE",comment: "")
+        
+        addDoneButtonOnKeyboard()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -138,6 +141,32 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         categoryPicker.hidden = false
         return false
     }
-
-
+    
+    //MARK: Hide Keyboard
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = .Default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(GeoLocationViewController.doneButtonAction))
+        
+        var items: [UIBarButtonItem] = []
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.messageTextField.inputAccessoryView = doneToolbar
+        self.titleTextField.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.messageTextField.resignFirstResponder()
+        self.titleTextField.resignFirstResponder()
+    }
 }
