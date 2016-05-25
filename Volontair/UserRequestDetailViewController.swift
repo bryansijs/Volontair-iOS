@@ -50,7 +50,9 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
         categoryPicker.delegate = self
         categoryPicker.hidden = true
         categoryPicker.showsSelectionIndicator = true
+        categoryTextField.inputView = UIView()
         loadCategories()
+        addDoneButtonOnKeyboard()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -165,6 +167,21 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
     
     @IBAction func textFieldBeginEditing(sender: UITextField) {
         categoryPicker.hidden = false
+    }
+    
+    //MARK: Hide Keyboard
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar = self.doneToolbar(#selector(self.doneButtonAction))
+        self.titleTextView.inputAccessoryView = doneToolbar
+        self.detailTextView.inputAccessoryView = doneToolbar
+    }
+    
+    func doneButtonAction()
+    {
+        self.titleTextView.resignFirstResponder()
+        self.detailTextView.resignFirstResponder()
     }
     
 }
