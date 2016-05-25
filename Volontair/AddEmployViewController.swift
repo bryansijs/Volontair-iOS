@@ -146,22 +146,9 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
     
     func addDoneButtonOnKeyboard()
     {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
-        doneToolbar.barStyle = .Default
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(GeoLocationViewController.doneButtonAction))
-        
-        var items: [UIBarButtonItem] = []
-        items.append(flexSpace)
-        items.append(done)
-        
-        doneToolbar.items = items
-        doneToolbar.sizeToFit()
-        
+        let doneToolbar = self.doneToolbar(#selector(self.doneButtonAction))
         self.messageTextField.inputAccessoryView = doneToolbar
         self.titleTextField.inputAccessoryView = doneToolbar
-        
     }
     
     func doneButtonAction()
