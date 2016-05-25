@@ -19,8 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var FriendsLabel: UILabel!
     @IBOutlet weak var aboutMeHeader: UILabel!
     @IBOutlet weak var showRequestsButton: UIButton!
+    @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-
 
     var editMode = true
     
@@ -28,6 +28,21 @@ class ProfileViewController: UIViewController {
         didSet {
             // Update the view.
             //self.setdata()
+        }
+    }
+    @IBAction func StartConversation(sender: AnyObject) {
+        
+        let email = user!.username
+        let url = NSURL(string: "mailto:\(email)")
+        
+        if UIApplication.sharedApplication().canOpenURL(url!) {
+            UIApplication.sharedApplication().openURL(url!)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment"), message: NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment"), preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                self.navigationController?.popViewControllerAnimated(true)
+            }))
+            presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -48,7 +63,9 @@ class ProfileViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
         
-        
+        if editMode {
+            self.contactButton.hidden = true
+        } 
     }
     
     override func viewWillAppear(animated: Bool) {

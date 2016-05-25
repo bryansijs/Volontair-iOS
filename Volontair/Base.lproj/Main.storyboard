@@ -667,7 +667,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YvQ-dm-hqc">
-                                <rect key="frame" x="20" y="239" width="560" height="317"/>
+                                <rect key="frame" x="20" y="239" width="560" height="331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr6-Wi-JtL">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
@@ -759,17 +759,36 @@
                                             <constraint firstItem="Axn-Yn-kKX" firstAttribute="width" secondItem="20n-MW-mzo" secondAttribute="width" id="wzl-9y-brE"/>
                                         </constraints>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGk-h7-VhQ">
-                                        <rect key="frame" x="0.0" y="61" width="560" height="256"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOC-wa-D3h">
+                                        <rect key="frame" x="0.0" y="61" width="560" height="30"/>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.74901960779999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XYs-q8-NIT"/>
+                                        </constraints>
+                                        <state key="normal" title="Contact Opnemen">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="StartConversation:" destination="lof-7X-Xfp" eventType="touchUpInside" id="21Z-SJ-ZXI"/>
+                                        </connections>
+                                    </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="HGk-h7-VhQ">
+                                        <rect key="frame" x="0.0" y="96" width="560" height="235"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-mG-hhD">
-                                                <rect key="frame" x="0.0" y="37" width="560" height="234"/>
+                                                <rect key="frame" x="0.0" y="37" width="560" height="150"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="234" id="Rp2-1n-0Re"/>
+                                                    <constraint firstAttribute="height" constant="150" id="Rp2-1n-0Re"/>
+                                                    <constraint firstAttribute="height" constant="150" id="hiI-DZ-gIt"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Rp2-1n-0Re"/>
+                                                    </mask>
+                                                </variation>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Over mij" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovk-Xn-qxP">
                                                 <rect key="frame" x="8" y="8" width="64" height="21"/>
@@ -785,12 +804,22 @@
                                             <constraint firstItem="ovk-Xn-qxP" firstAttribute="leading" secondItem="HGk-h7-VhQ" secondAttribute="leadingMargin" id="cGy-Iu-w58"/>
                                             <constraint firstAttribute="trailing" secondItem="qVD-mG-hhD" secondAttribute="trailing" id="h8C-i8-Fl0"/>
                                             <constraint firstItem="qVD-mG-hhD" firstAttribute="top" secondItem="HGk-h7-VhQ" secondAttribute="top" constant="37" id="lWw-1M-zKk"/>
+                                            <constraint firstAttribute="bottom" secondItem="qVD-mG-hhD" secondAttribute="bottom" id="mcj-5L-ddm"/>
                                             <constraint firstItem="qVD-mG-hhD" firstAttribute="leading" secondItem="HGk-h7-VhQ" secondAttribute="leading" id="v5o-4z-cdt"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2Xm-Ue-qrZ"/>
+                                            </mask>
+                                        </variation>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.40000000000000002" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstItem="LOC-wa-D3h" firstAttribute="leading" secondItem="YvQ-dm-hqc" secondAttribute="leading" id="FvU-w4-VE8"/>
+                                    <constraint firstAttribute="trailing" secondItem="LOC-wa-D3h" secondAttribute="trailing" id="UuM-vF-da7"/>
+                                </constraints>
                                 <variation key="heightClass=compact" misplaced="YES">
                                     <rect key="frame" x="20" y="195" width="560" height="156"/>
                                 </variation>
@@ -817,9 +846,10 @@
                             <constraint firstItem="YvQ-dm-hqc" firstAttribute="leading" secondItem="Fa7-2g-coh" secondAttribute="leadingMargin" id="OF5-V6-hEr"/>
                             <constraint firstItem="mDN-KE-erb" firstAttribute="top" secondItem="m4J-o7-6cP" secondAttribute="bottom" constant="5" id="RzA-OI-xUJ"/>
                             <constraint firstItem="3qV-j3-Ijv" firstAttribute="centerX" secondItem="nB2-Av-1bX" secondAttribute="centerX" id="ani-zF-025"/>
-                            <constraint firstItem="PbF-GP-ZGy" firstAttribute="top" secondItem="YvQ-dm-hqc" secondAttribute="bottom" id="bbi-up-mdb"/>
+                            <constraint firstItem="PbF-GP-ZGy" firstAttribute="top" secondItem="YvQ-dm-hqc" secondAttribute="bottom" constant="20" id="bbi-up-mdb"/>
                             <constraint firstItem="mDN-KE-erb" firstAttribute="trailing" secondItem="Fa7-2g-coh" secondAttribute="trailingMargin" id="hDL-ho-iGN"/>
                             <constraint firstItem="nB2-Av-1bX" firstAttribute="top" secondItem="Fa7-2g-coh" secondAttribute="top" id="lg8-i8-lvY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="YvQ-dm-hqc" secondAttribute="bottom" constant="30" id="qAu-yv-Tyx"/>
                             <constraint firstItem="mDN-KE-erb" firstAttribute="top" secondItem="nB2-Av-1bX" secondAttribute="bottom" constant="5" id="txm-oZ-96M"/>
                             <constraint firstItem="nB2-Av-1bX" firstAttribute="top" secondItem="m4J-o7-6cP" secondAttribute="bottom" constant="-20" id="wjt-XR-cTf"/>
                             <constraint firstItem="nB2-Av-1bX" firstAttribute="centerX" secondItem="Fa7-2g-coh" secondAttribute="centerX" id="xyP-uG-uDk"/>
@@ -828,6 +858,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="wjt-XR-cTf"/>
+                                <exclude reference="bbi-up-mdb"/>
                                 <exclude reference="RzA-OI-xUJ"/>
                                 <exclude reference="z9C-Z5-MCT"/>
                             </mask>
@@ -842,13 +873,14 @@
                         <outlet property="ProfileImageView" destination="3qV-j3-Ijv" id="uq4-0n-8sm"/>
                         <outlet property="ProfileNameLabel" destination="fr6-Wi-JtL" id="2ar-Iz-xOq"/>
                         <outlet property="aboutMeHeader" destination="ovk-Xn-qxP" id="wsM-7r-9XS"/>
+                        <outlet property="contactButton" destination="LOC-wa-D3h" id="FaG-k2-ldL"/>
                         <outlet property="editButton" destination="mDN-KE-erb" id="9nv-RI-YVz"/>
                         <outlet property="showRequestsButton" destination="Axn-Yn-kKX" id="0Ge-aq-PvV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsA-IZ-U6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4062" y="557"/>
+            <point key="canvasLocation" x="4058" y="549"/>
         </scene>
         <!--User Request Table View Controller-->
         <scene sceneID="acc-3a-LDc">
@@ -1050,7 +1082,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfo-Po-jfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4427" y="1343"/>
+            <point key="canvasLocation" x="4697" y="1301"/>
         </scene>
         <!--User Request Detail View Controller-->
         <scene sceneID="BTN-dV-8WL">
@@ -1522,7 +1554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IK-7K-fl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352" y="1839"/>
+            <point key="canvasLocation" x="2966" y="1973"/>
         </scene>
         <!--Location Settings View Controller-->
         <scene sceneID="0P3-mC-h29">
@@ -1592,7 +1624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9q-7v-7LG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4035" y="1839"/>
+            <point key="canvasLocation" x="3675" y="1973"/>
         </scene>
         <!--FacebookViewController-->
         <scene sceneID="qoq-Uh-yt5">
@@ -2052,8 +2084,8 @@
         <image name="test" width="478" height="334"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gAJ-AO-VvQ"/>
         <segue reference="1JB-nb-wsV"/>
-        <segue reference="mwK-uu-Cps"/>
         <segue reference="hl0-JA-Ggj"/>
         <segue reference="QPq-oS-KMV"/>
     </inferredMetricsTieBreakers>
