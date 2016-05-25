@@ -19,6 +19,9 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
     @IBOutlet weak var radiusSlider: UISlider!
     
     let locator = CLGeocoder()
+    let wizardService = WizardServiceFactory.sharedInstance.wizardService
+    var latitude :Double?
+    var longitude : Double?
     var validLocation = false
     
     override func viewDidLoad() {
@@ -42,10 +45,16 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
         self.aboutMeTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.aboutMeTextView.layer.cornerRadius = 5;
         self.aboutMeTextView.clipsToBounds = true
+        self.aboutMeTextView.returnKeyType = UIReturnKeyType.Done
+        self.addDoneButtonOnKeyboard()
     }
     
     func validate()-> Bool {
-        return validLocation
+        if(validLocation && self.aboutMeTextView.text != ""){
+            wizardService.setUserLocationProperties(self.latitude!, longtitude: self.longitude!, description: self.aboutMeTextView.text)
+            return true
+        }
+        return false
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -68,12 +77,37 @@ class GeoLocationViewController: UIViewController, ValidationProtocol {
                 self.adressTextField.backgroundColor = UIColor(hue: 0.475, saturation: 1, brightness: 0.74, alpha: 1.0)
                 self.validLocation = true
                 self.placeLabel.text = NSLocalizedString("PLACE",comment: "") + places![0].name!
-
-                print(places![0].country)
-                print(places![0].postalCode)
-                print(places![0].name)
-                
+                self.latitude = Double((places![0].location?.coordinate.latitude.description)!)
+                self.longitude = Double((places![0].location?.coordinate.longitude.description)!)
+//                print(places![0].country)
+//                print(places![0].postalCode)
             }
         }
+    }
+    
+    //MARK: Hide Keyboard
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = .Default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(GeoLocationViewController.doneButtonAction))
+        
+        var items: [UIBarButtonItem] = []
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.aboutMeTextView.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.aboutMeTextView.resignFirstResponder()
     }
 }

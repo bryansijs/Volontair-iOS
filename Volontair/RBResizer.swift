@@ -13,8 +13,8 @@ func RBSquareImageTo(image: UIImage, size: CGSize) -> UIImage {
 }
 
 func RBSquareImage(image: UIImage) -> UIImage {
-    let originalWidth  = image.size.width
-    let originalHeight = image.size.height
+    let originalWidth  = CGFloat(ApiConfig.mapIconDiameter)
+    let originalHeight = CGFloat(ApiConfig.mapIconDiameter)
     
     var edge: CGFloat
     if originalWidth > originalHeight {

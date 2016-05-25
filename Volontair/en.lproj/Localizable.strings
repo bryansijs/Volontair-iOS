@@ -41,3 +41,8 @@ PLACE="Place: ";
 /* Error messege contacting other people */
 CONTACT_ERROR_TITLE="Contact with this user is not possible";
 CONTACT_ERROR_MESSAGE="The other user is informed of this problem, Try again later";
+HOME="Home ";
+LOCATION="Location";
+CANTUPDATELOC="Can't update your location";
+NAME="Name";
+MINIMUM_NAME_LENGHT="Name must be at leatst 8 characters.";

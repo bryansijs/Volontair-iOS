@@ -20,7 +20,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var aboutMeHeader: UILabel!
     @IBOutlet weak var showRequestsButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
-    
+    @IBOutlet weak var editButton: UIButton!
+
     var editMode = true
     
     var user: UserModel? {
@@ -98,6 +99,7 @@ class ProfileViewController: UIViewController {
         if let userProfile = self.user{
             self.ProfileNameLabel.text = userProfile.name
             self.AboutMeLabel.text = userProfile.summary
+            self.AboutMeLabel.editable = false
             self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
             //TODO: Contact numbers
             //self.FriendsLabel.text = "\(data..count) contacten"
@@ -114,6 +116,7 @@ class ProfileViewController: UIViewController {
     private func editableMode(){
         if(!editMode){
             self.AboutMeLabel.editable = false
+            self.editButton.hidden = true
         }
     }
     func setRequestButtonState(){

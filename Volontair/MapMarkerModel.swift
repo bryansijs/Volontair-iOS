@@ -23,6 +23,8 @@ class MapMarkerModel: NSObject, MKAnnotation {
     var categorys : [CategoryModel]?
     var image : UIImage?
     
+    //init(title: String?, summary: String, coordinate:CLLocationCoordinate2D, created: String, updated:String, categorys: [CategoryModel]){
+
     init(title: String?, summary: String, coordinate:CLLocationCoordinate2D,closed: Bool?, created: String, updated:String, categorys: [CategoryModel]?){
         self.title = title
         self.summary = summary

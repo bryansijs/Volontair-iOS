@@ -17,7 +17,6 @@ class UserService  {
     
     func getUserProfileModel() -> UserModel?{
         return userModel
-
     }
     
     func loadUserDataFromServer(userId: Int){
@@ -46,6 +45,20 @@ class UserService  {
         return self.userMe
     }
     
+
+    func saveUserCategoryOnServer(){
+        let defaultContentType = ApiConfig.headers["Content-Type"]
+        ApiConfig.headers["Content-Type"] = "text/uri-list"
+        for category in (self.userMe?.categorys!)!{
+            
+            Alamofire.Manager.request(.POST, (self.userMe?.userLink)! + ApiConfig.categoryUrl, bodyObject: category.link!,headers: ApiConfig.headers)
+                .responseJSON { response in
+                    print(response.result)
+            }
+        }
+        ApiConfig.headers["Content-Type"] = defaultContentType
+    }
+    
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
         
         //check if URL is valid
@@ -69,9 +82,18 @@ class UserService  {
         print("loadProfilePictures")
         var count = 0;
         
+        let parameters : [String : String] = [
+        "width" : "500",
+        "height" : "500"
+        ]
+        
+        
         if users != nil {
             for user in users! {
-                Alamofire.request(.GET, user.imageLink , headers: ApiConfig.headers, encoding: .JSON).response { (request, response, data, error) in
+                Alamofire.request(.GET, user.imageLink + "?width=180&height=180", encoding: .JSON).response { (request, response, data, error) in
+                    print(request)
+                    print(response)
+                    print(user.imageLink)
                     if let value = data {
                         user.profilePicture = NSData(data: value)
                     }
