@@ -2082,8 +2082,8 @@
         <image name="test" width="478" height="334"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gAJ-AO-VvQ"/>
         <segue reference="1JB-nb-wsV"/>
-        <segue reference="mwK-uu-Cps"/>
         <segue reference="hl0-JA-Ggj"/>
         <segue reference="QPq-oS-KMV"/>
     </inferredMetricsTieBreakers>
