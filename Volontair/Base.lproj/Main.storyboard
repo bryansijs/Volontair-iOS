@@ -487,6 +487,7 @@
         <!--Category Table View Controller-->
         <scene sceneID="KPP-QF-18v">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFa-ZD-nPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController restorationIdentifier="UserCategoryViewController" storyboardIdentifier="UserCategoryViewController" id="sdw-EU-UTW" customClass="CategoryTableViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bNL-4j-PNx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -538,7 +539,6 @@
                         <outlet property="categoryTableView" destination="bNL-4j-PNx" id="KzV-dP-opa"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aFa-ZD-nPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="367" y="981"/>
         </scene>
@@ -1411,8 +1411,8 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="53"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pva-qb-pZz">
-                                    <rect key="frame" x="261" y="16" width="64" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pva-qb-pZz">
+                                    <rect key="frame" x="268" y="16" width="64" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -1433,7 +1433,7 @@
                             </variation>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Instellingen" id="Li4-xS-cCD" userLabel="Settings">
+                            <tableViewSection headerTitle="Map" id="Li4-xS-cCD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="radiusCell" textLabel="ggk-nN-t3E" style="IBUITableViewCellStyleDefault" id="aHF-dT-Pdz">
                                         <rect key="frame" x="0.0" y="167" width="600" height="44"/>
@@ -1471,6 +1471,44 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Profiel" id="yHI-jH-vMN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="radiusCell" textLabel="HAH-yI-kWw" style="IBUITableViewCellStyleDefault" id="vU1-Pu-FCL" userLabel="interests Cell">
+                                        <rect key="frame" x="0.0" y="306" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vU1-Pu-FCL" id="lOX-SO-pe7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HAH-yI-kWw">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="radiusCell" textLabel="cFS-rG-4Mx" style="IBUITableViewCellStyleDefault" id="MBk-Wm-IZ2" userLabel="LogOut Cell">
+                                        <rect key="frame" x="0.0" y="350" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MBk-Wm-IZ2" id="QdW-nd-Rn9">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Log out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cFS-rG-4Mx">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="EEY-sF-sQp" id="1cZ-cY-mf7"/>
@@ -1479,7 +1517,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="gp3-IH-aFt"/>
                     <connections>
+                        <outlet property="interestsCell" destination="lOX-SO-pe7" id="kEh-GV-uPG"/>
                         <outlet property="locationCell" destination="iFC-qv-4xc" id="oeV-2n-jnC"/>
+                        <outlet property="logOutCell" destination="QdW-nd-Rn9" id="zHl-Iq-evw"/>
                         <outlet property="radiusCell" destination="aHF-dT-Pdz" id="MTG-bU-pfi"/>
                         <segue destination="LFN-I5-Lta" kind="show" identifier="segueToRadiusSettings" id="mgE-kl-ume"/>
                         <segue destination="TZJ-x9-906" kind="show" identifier="segueToLocationSettings" id="8Yd-W1-CBC"/>
@@ -1547,7 +1587,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IK-7K-fl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352" y="1839"/>
+            <point key="canvasLocation" x="3352" y="1899"/>
         </scene>
         <!--Location Settings View Controller-->
         <scene sceneID="0P3-mC-h29">

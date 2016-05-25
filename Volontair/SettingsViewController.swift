@@ -15,12 +15,11 @@ struct SettingsConstants {
 }
 
 class SettingsViewController: UITableViewController {
-//    @IBOutlet weak var radiusCell: UITableViewCell!
-//    @IBOutlet weak var radiusSlider: UISlider!
-//    @IBOutlet weak var radiusLabel: UILabel!
     
     @IBOutlet weak var radiusCell: UITableViewCell!
     @IBOutlet weak var locationCell: UITableViewCell!
+    @IBOutlet weak var interestsCell: UIView!
+    @IBOutlet weak var logOutCell: UIView!
     
     
     override func viewDidLoad() {

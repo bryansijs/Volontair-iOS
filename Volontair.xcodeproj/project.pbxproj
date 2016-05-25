@@ -38,6 +38,7 @@
 		E8A26DC71CF4627400EE5753 /* UIImageMapFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */; };
 		E8A26DCB1CF4744400EE5753 /* RadiusSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */; };
 		E8A26DCE1CF4747900EE5753 /* LocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */; };
+		E8EB87C21CF610280017DBFC /* CategorieSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EB87C11CF610280017DBFC /* CategorieSettingsViewController.swift */; };
 		E8F928C91CE381FB00DDCB61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */; };
 		EF098D881CE33753000753AB /* UserRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D871CE33753000753AB /* UserRequestTableViewController.swift */; };
 		EF098D8A1CE36065000753AB /* UserRequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */; };
@@ -166,6 +167,7 @@
 		E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageMapFragmentExtension.swift; sourceTree = "<group>"; };
 		E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusSettingsViewController.swift; sourceTree = "<group>"; };
 		E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingsViewController.swift; sourceTree = "<group>"; };
+		E8EB87C11CF610280017DBFC /* CategorieSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorieSettingsViewController.swift; sourceTree = "<group>"; };
 		E8F928C81CE381FB00DDCB61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EF098D871CE33753000753AB /* UserRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestTableViewController.swift; sourceTree = "<group>"; };
 		EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequestDetailViewController.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */,
 				E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */,
 				E80A85C31CF4CF550011026E /* SettingsService.swift */,
+				E8EB87C11CF610280017DBFC /* CategorieSettingsViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				EF0AE2C71CF0A0C400D9CFAD /* WizardServiceFactory.swift in Sources */,
 				2FD6F1AA1CBA664C00879F7F /* MapViewController.swift in Sources */,
 				EFF75AB51CDA61AE00090ACB /* ValidationProtocol.swift in Sources */,
+				E8EB87C21CF610280017DBFC /* CategorieSettingsViewController.swift in Sources */,
 				2FFE5A651CCE867900D02333 /* CategoryIconModel.swift in Sources */,
 				2FFD7DCF1CC95A6F005CDE2C /* DashboardService.swift in Sources */,
 				2FE876391CBA902D007D9C41 /* MapViewModel.swift in Sources */,
