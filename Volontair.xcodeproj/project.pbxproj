@@ -48,6 +48,7 @@
 		EF0AE2C71CF0A0C400D9CFAD /* WizardServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AE2C61CF0A0C400D9CFAD /* WizardServiceFactory.swift */; };
 		EF0AE2C91CF31D4500D9CFAD /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AE2C81CF31D4500D9CFAD /* CategoryService.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
+		EF1305621CF6EC180042C2F5 /* CustomColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1305611CF6EC180042C2F5 /* CustomColorExtension.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
 		EF287BA61CA9BFC6009155CC /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = EF287BA51CA9BFC6009155CC /* Cartfile */; };
@@ -179,6 +180,7 @@
 		EF0AE2C61CF0A0C400D9CFAD /* WizardServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardServiceFactory.swift; sourceTree = "<group>"; };
 		EF0AE2C81CF31D4500D9CFAD /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EF1305611CF6EC180042C2F5 /* CustomColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorExtension.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		EF287BA51CA9BFC6009155CC /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
@@ -348,6 +350,7 @@
 				EFBBB28D1CF35090001B5339 /* AlamofireStringAsBody.swift */,
 				E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */,
 				EF5B78D31CF5E79400C686E6 /* UIViewControllerToolbarDoneButton.swift */,
+				EF1305611CF6EC180042C2F5 /* CustomColorExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				EF9B583D1CCF8EEA00AA52ED /* OfferService.swift in Sources */,
 				2FFD7DC71CC958D4005CDE2C /* DashboardViewController.swift in Sources */,
 				EFBBB28E1CF35090001B5339 /* AlamofireStringAsBody.swift in Sources */,
+				EF1305621CF6EC180042C2F5 /* CustomColorExtension.swift in Sources */,
 				E8A26DCE1CF4747900EE5753 /* LocationSettingsViewController.swift in Sources */,
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
