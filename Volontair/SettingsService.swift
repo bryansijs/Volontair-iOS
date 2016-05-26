@@ -28,6 +28,11 @@ class SettingsService {
         
     }
     
+    func updateUserCategories(categories : [CategoryModel]) {
+        
+        
+    }
+    
     
     
 }

@@ -59,6 +59,22 @@ class UserService  {
         ApiConfig.headers["Content-Type"] = defaultContentType
     }
     
+    func deleteUserCategoryServer(category: CategoryModel) {
+//        let defaultContentType = ApiConfig.headers["Content-Type"]
+//        ApiConfig.headers["Content-Type"] = "text/uri-list"
+        let url = NSURL(string: (self.userMe?.userLink)! + ApiConfig.categoryUrl + "/" + category.id!)
+        
+        Alamofire.request(.DELETE, url!, headers: ApiConfig.headers)
+            .responseJSON { response in
+                print(response.result)
+        }
+//            Alamofire.Manager.request(.GET, (self.userMe?.userLink)! + ApiConfig.categoryUrl + "/" + category.id!,headers: ApiConfig.headers)
+//                .responseJSON { response in
+//                    print(response.result)
+//            }
+ //       ApiConfig.headers["Content-Type"] = defaultContentType
+    }
+    
     func loadUserDataFromServer(userId: Int, completionHandler: (UserModel?,NSError?) -> Void) {
         
         //check if URL is valid
@@ -143,7 +159,7 @@ class UserService  {
                             categorys.append(CategoryModel(JSONData: cat))
                         }
                         
-                        
+                        ServiceFactory.sharedInstance.userService.getCurrentUser()?.categorys = categorys
                     }
                 case .Failure(let error):
                     print(error)

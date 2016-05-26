@@ -15,29 +15,46 @@ struct SettingsConstants {
 }
 
 class SettingsViewController: UITableViewController {
-//    @IBOutlet weak var radiusCell: UITableViewCell!
-//    @IBOutlet weak var radiusSlider: UISlider!
-//    @IBOutlet weak var radiusLabel: UILabel!
     
     @IBOutlet weak var radiusCell: UITableViewCell!
     @IBOutlet weak var locationCell: UITableViewCell!
+    @IBOutlet weak var interestsCell: UIView!
+    @IBOutlet weak var logOutCell: UIView!
+    
+    var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Settings"
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 45, green: 183, blue: 207)
         radiusCell.userInteractionEnabled = true
         locationCell.userInteractionEnabled = true
+        interestsCell.userInteractionEnabled = true;
+        logOutCell.userInteractionEnabled = true;
         
-        let radiusTap = UITapGestureRecognizer(target: self, action: Selector("tapRadiusFunction:"))
-        let locationTap = UITapGestureRecognizer(target: self, action: Selector("tapLocationFunction:"))
+        let radiusTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapRadiusFunction(_:)))
+        let locationTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapLocationFunction(_:)))
+        let interestsTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.tapCategoriesFunction(_:)))
+        let logOutTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.LogoutApp(_:)))
         
         radiusCell.addGestureRecognizer(radiusTap)
         locationCell.addGestureRecognizer(locationTap)
+        interestsCell.addGestureRecognizer(interestsTap)
+        logOutCell.addGestureRecognizer(logOutTap)
         
-        // restore settings in view
-//        radiusSlider?.value = Float(NSUserDefaults.standardUserDefaults().integerForKey(SettingsConstants.radiusKey))
-//        onRadiusSliderValueChanged(radiusSlider);
+        
+    }
+    
+
+    override func viewWillAppear(animated: Bool) {
+        //self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
     
     func tapRadiusFunction(sender:UITapGestureRecognizer) {
@@ -48,16 +65,14 @@ class SettingsViewController: UITableViewController {
         self.performSegueWithIdentifier("segueToLocationSettings", sender: self)
     }
     
-//    @IBAction func onRadiusSliderValueChanged(sender: UISlider) {
-//        var currentValue = Int(sender.value)
-//        
-//        print("Change triggered")
-//        
-//        // update in steps of 5
-//        currentValue = Int(roundf(Float(currentValue) / SettingsConstants.radiusStepSize) * SettingsConstants.radiusStepSize);
-//        radiusLabel.text = "\(currentValue)km"
-//        
-//        // persist to user defaults
-//        NSUserDefaults.standardUserDefaults().setInteger(currentValue, forKey: SettingsConstants.radiusKey)
-//    }
+    func tapCategoriesFunction(sender:UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("segueToCategorieSettings", sender: self)
+    }
+    
+    func LogoutApp(sender:UITapGestureRecognizer) {
+        self.prefs.removeObjectForKey("VolontairApiToken")
+        self.prefs.removeObjectForKey("VolontairFacebookToken")
+        self.performSegueWithIdentifier("segueToLoginView", sender: self)
+    }
+    
 }
