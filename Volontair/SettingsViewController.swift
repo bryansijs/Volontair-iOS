@@ -45,6 +45,7 @@ class SettingsViewController: UITableViewController {
         interestsCell.addGestureRecognizer(interestsTap)
         logOutCell.addGestureRecognizer(logOutTap)
         
+        
     }
     
 
