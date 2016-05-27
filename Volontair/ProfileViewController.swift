@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var showRequestsButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var categoryContainerView: UIView!
 
     var editMode = true
     
@@ -59,6 +60,8 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+//        self.categoryContainerView.ciewconrt
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
@@ -154,6 +157,13 @@ class ProfileViewController: UIViewController {
             let newController = segue.destinationViewController as! UserRequestTableViewController
             newController.requests = (user!.requests)!
             newController.editMode = self.editMode
+        }
+        if (segue.identifier == "showProfileCategories") {
+            let newController = segue.destinationViewController as! ProfileCollectionViewController
+            if(self.user == nil){
+                self.user = ServiceFactory.sharedInstance.userService.getCurrentUser()
+            }
+            newController.categories = self.user?.categorys
         }
     }
 }

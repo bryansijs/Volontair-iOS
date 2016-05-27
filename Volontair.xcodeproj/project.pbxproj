@@ -88,6 +88,7 @@
 		EFBBB28E1CF35090001B5339 /* AlamofireStringAsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBB28D1CF35090001B5339 /* AlamofireStringAsBody.swift */; };
 		EFBBB2901CF380C4001B5339 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBB28F1CF380C4001B5339 /* EditProfileViewController.swift */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
+		EFDAAEA81CF8D3E3000B658F /* ProfileCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAAEA71CF8D3E3000B658F /* ProfileCollectionViewController.swift */; };
 		EFDBD6A61CEB57A100BC7ED8 /* RBResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDBD6A51CEB57A100BC7ED8 /* RBResizer.swift */; };
 		EFF4D63D1CBFA2F3001AE6E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5A86C31CA01815004128E7 /* MapKit.framework */; };
 		EFF75AAD1CDA19DB00090ACB /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */; };
@@ -214,6 +215,7 @@
 		EFBBB28F1CF380C4001B5339 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		EFDAAEA71CF8D3E3000B658F /* ProfileCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewController.swift; sourceTree = "<group>"; };
 		EFDBD6A51CEB57A100BC7ED8 /* RBResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBResizer.swift; sourceTree = "<group>"; };
 		EFF75AAC1CDA19DB00090ACB /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		EFF75AAE1CDA37BD00090ACB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -373,6 +375,7 @@
 				EF098D871CE33753000753AB /* UserRequestTableViewController.swift */,
 				EF098D891CE36065000753AB /* UserRequestDetailViewController.swift */,
 				EFBBB28F1CF380C4001B5339 /* EditProfileViewController.swift */,
+				EFDAAEA71CF8D3E3000B658F /* ProfileCollectionViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				EF3E52871CC00CF50053A701 /* ContactServiceFactory.swift in Sources */,
 				578484E01C764541006A9841 /* AppDelegate.swift in Sources */,
 				EFDBD6A61CEB57A100BC7ED8 /* RBResizer.swift in Sources */,
+				EFDAAEA81CF8D3E3000B658F /* ProfileCollectionViewController.swift in Sources */,
 				EF098D8A1CE36065000753AB /* UserRequestDetailViewController.swift in Sources */,
 				EF4948611C8F2886001A8A3C /* SettingsViewController.swift in Sources */,
 				EFF75AAD1CDA19DB00090ACB /* CategoryTableViewController.swift in Sources */,
