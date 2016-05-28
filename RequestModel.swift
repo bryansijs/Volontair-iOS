@@ -18,7 +18,6 @@ class RequestModel : MapMarkerModel {
     
     init(requestData: AnyObject, requestOwner: UserModel, requestCategorys: [CategoryModel]?) {
         let request = JSON(requestData)
-        print(request)
         
         self.owner = requestOwner
         self.requestLink = request["_links"]["self"]["href"].stringValue

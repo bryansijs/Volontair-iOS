@@ -102,7 +102,6 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                print(json)
                 self.conversations += json
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
@@ -118,7 +117,6 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                print(json)
                 self.conversations += json
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
@@ -179,7 +177,6 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        print("editor mode")
         skillCategoryPicker.hidden = false
         return false
     }

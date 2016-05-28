@@ -26,14 +26,13 @@ class MapService {
 
     
     func getRequests() {
+        self.mapViewModel?.requests?.removeAll()
         ServiceFactory.sharedInstance.requestService.loadRequestDataFromServer(self.completeGetRequest)
     }
     
     func completeGetRequest(request :RequestModel) -> Void {
-        if request.categorys?.count > 0 {
-            print(request.categorys![0])
-        }
         self.mapViewModel?.requests?.append(request)
+        NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.requestDataUpdateNotificationKey, object: nil)
     }
     
     func getUsersInNeighbourhood() {
