@@ -34,8 +34,6 @@
 		E80A85C41CF4CF550011026E /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80A85C31CF4CF550011026E /* SettingsService.swift */; };
 		E85085DC1CE4790C0075AFA3 /* UserMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */; };
 		E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */; };
-		E882071D1CF3719C009857EF /* RadiusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E882071C1CF3719C009857EF /* RadiusViewController.swift */; };
-		E882071F1CF371C9009857EF /* HomeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E882071E1CF371C9009857EF /* HomeLocationViewController.swift */; };
 		E891DCF91CE27D8C00D9F560 /* VolontairApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */; };
 		E8A26DC71CF4627400EE5753 /* UIImageMapFragmentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */; };
 		E8A26DCB1CF4744400EE5753 /* RadiusSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */; };
@@ -166,8 +164,6 @@
 		E80A85C31CF4CF550011026E /* SettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		E85085DB1CE4790C0075AFA3 /* UserMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapModel.swift; sourceTree = "<group>"; };
 		E86020C21CE27E8A004F1CEF /* NSURLFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLFragmentExtension.swift; sourceTree = "<group>"; };
-		E882071C1CF3719C009857EF /* RadiusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusViewController.swift; sourceTree = "<group>"; };
-		E882071E1CF371C9009857EF /* HomeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLocationViewController.swift; sourceTree = "<group>"; };
 		E891DCF81CE27D8C00D9F560 /* VolontairApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolontairApiService.swift; sourceTree = "<group>"; };
 		E8A26DC61CF4627400EE5753 /* UIImageMapFragmentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageMapFragmentExtension.swift; sourceTree = "<group>"; };
 		E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusSettingsViewController.swift; sourceTree = "<group>"; };
@@ -405,8 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				EF4948601C8F2886001A8A3C /* SettingsViewController.swift */,
-				E882071C1CF3719C009857EF /* RadiusViewController.swift */,
-				E882071E1CF371C9009857EF /* HomeLocationViewController.swift */,
 				E8A26DCA1CF4744400EE5753 /* RadiusSettingsViewController.swift */,
 				E8A26DCD1CF4747900EE5753 /* LocationSettingsViewController.swift */,
 				E80A85C31CF4CF550011026E /* SettingsService.swift */,
@@ -632,7 +626,6 @@
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				E8A26DC71CF4627400EE5753 /* UIImageMapFragmentExtension.swift in Sources */,
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
-				E882071D1CF3719C009857EF /* RadiusViewController.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
@@ -649,7 +642,6 @@
 				EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */,
 				EF9400D81CC7B732008F93A9 /* CategoryModel.swift in Sources */,
 				EF5354FF1CB98DA800B5DEE2 /* (null) in Sources */,
-				E882071F1CF371C9009857EF /* HomeLocationViewController.swift in Sources */,
 				EF49F6991CE5F47400C17BA4 /* StringRegexExtension.swift in Sources */,
 				EFF75AB31CDA5F2500090ACB /* UserTypeViewController.swift in Sources */,
 				EF2E81E71CBEE56100FD141C /* DashboardServiceFactory.swift in Sources */,

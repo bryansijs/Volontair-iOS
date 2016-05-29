@@ -34,7 +34,6 @@ class DashboardViewController: UIViewController {
             welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
         }
 
-        
         topLevelMapInfoView.userInteractionEnabled = true;
         let tap = UITapGestureRecognizer(target: self, action: Selector("tapFunction:"))
         topLevelMapInfoView.addGestureRecognizer(tap)
