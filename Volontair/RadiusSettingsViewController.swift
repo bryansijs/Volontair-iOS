@@ -27,6 +27,11 @@ class RadiusSettingsViewController : UIViewController {
         onRadiusChanged(radiusSlider)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        ServiceFactory.sharedInstance.dashboardService.loadDashboardDataFromServer({
+        })
+    }
+    
     @IBAction func onRadiusChanged(sender: UISlider) {
                 var currentValue = Int(sender.value)
                 // update in steps of 5

@@ -53,7 +53,7 @@ class UserService  {
             
             Alamofire.Manager.request(.POST, (self.userMe?.userLink)! + ApiConfig.categoryUrl, bodyObject: category.link!,headers: ApiConfig.headers)
                 .responseJSON { response in
-                    print(response.result)
+                    print(response.response)
             }
         }
         ApiConfig.headers["Content-Type"] = defaultContentType
@@ -66,7 +66,7 @@ class UserService  {
         
         Alamofire.request(.DELETE, url!, headers: ApiConfig.headers)
             .responseJSON { response in
-                print(response.result)
+                print(response.response)
         }
 //            Alamofire.Manager.request(.GET, (self.userMe?.userLink)! + ApiConfig.categoryUrl + "/" + category.id!,headers: ApiConfig.headers)
 //                .responseJSON { response in
@@ -95,7 +95,6 @@ class UserService  {
     }
     
     func loadProfilePictures(users :[UserModel]? , completionHandler: ([UserModel]?, NSError?) ->Void) {
-        print("loadProfilePictures")
         var count = 0;
         
         let parameters : [String : String] = [
@@ -107,9 +106,6 @@ class UserService  {
         if users != nil {
             for user in users! {
                 Alamofire.request(.GET, user.imageLink + "?width=180&height=180", encoding: .JSON).response { (request, response, data, error) in
-                    print(request)
-                    print(response)
-                    print(user.imageLink)
                     if let value = data {
                         user.profilePicture = NSData(data: value)
                     }
@@ -133,13 +129,9 @@ class UserService  {
                         var usersData : [UserModel]? = []
                         
                         for user in value["_embedded"]!!["users"] as! [[String:AnyObject]] {
-                            print(user)
-                            
                             let user = UserModel(jsonData: user)
                             usersData?.append(user)
                             self.loadUserCategorys(user)
-                            
-                            //self.requests.append(RequestModel(jsonData: request))
                         }
                         
                         completionHandler(usersData, nil)
@@ -176,9 +168,6 @@ class UserService  {
         response.result {
         case .Success:
             if let value = response.result.value {
-                print(response.result)
-                print(response.result.value)
-                
                 var requests : [RequestModel] = []
                 
                 for req in value["_embedded"]!!["requests"] as! [[String:AnyObject]]{
