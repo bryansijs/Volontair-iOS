@@ -216,6 +216,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
+
+    
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print(mapView.camera.altitude)
+        if (mapView.camera.altitude < 16289.00 ) {
+            mapView.camera.altitude = 17000.00;
+        }
+    }
+    
     func getRoundedImage(image : UIImage) -> UIImage {
         let imageLayer = CALayer()
         imageLayer.frame = CGRectMake(0, 0, image.size.width, image.size.height)
