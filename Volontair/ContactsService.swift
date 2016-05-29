@@ -6,6 +6,8 @@ import SwiftyJSON
 
 class ContactsService {
     
+    let userService = ServiceFactory.sharedInstance.userService
+    
     func lastMessage(messagesLink: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
         return manager.rx_JSON(.GET, messagesLink).takeLast(1)
@@ -43,8 +45,7 @@ class ContactsService {
     func conversations() -> Observable<ConversationModel> {
         
         let manager = Manager.sharedInstance
-        //DEFAULT KAREL
-        let conversationURL = ApiConfig.baseUrl + ApiConfig.usersUrl + "7" + ApiConfig.starterConversationsUrl
+        let conversationURL = ApiConfig.baseUrl + ApiConfig.usersUrl + String(userService.getCurrentUser()!.userId) + ApiConfig.starterConversationsUrl
         
         return manager.rx_request(.GET, conversationURL)
             .flatMap {
@@ -123,8 +124,7 @@ class ContactsService {
             .flatMap({ (userData: AnyObject) -> Observable<AnyObject> in
                 var userCategoriesLink : String!
                 if let dataUserCategoriesLink = userData["_links"]!!["categories"] as? [String:AnyObject] {
-//                    userCategoriesLink = dataUserCategoriesLink["href"] as! String
-                    userCategoriesLink = "http://volontair.herokuapp.com/api/v1/users/7/categories"
+                    userCategoriesLink = dataUserCategoriesLink["href"] as! String
                 }
                 return self.getListener(userCategoriesLink)
             })
