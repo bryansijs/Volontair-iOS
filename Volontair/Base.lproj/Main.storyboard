@@ -1135,7 +1135,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
                                 <rect key="frame" x="20" y="255" width="560" height="266"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1161,7 +1161,7 @@
                                     <action selector="editButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="d4X-hd-bE9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
                                 <rect key="frame" x="20" y="521" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.18431372549019609" green="0.69803921568627447" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Opslaan">
@@ -1210,7 +1210,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="speechFilled"/>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-3d-0zv">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-3d-0zv">
                                 <rect key="frame" x="0.0" y="340" width="600" height="216"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </pickerView>
@@ -2175,8 +2175,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gAJ-AO-VvQ"/>
+        <segue reference="G8o-yB-mji"/>
+        <segue reference="kk1-3h-ju8"/>
         <segue reference="1JB-nb-wsV"/>
-        <segue reference="hl0-JA-Ggj"/>
-        <segue reference="QPq-oS-KMV"/>
     </inferredMetricsTieBreakers>
 </document>

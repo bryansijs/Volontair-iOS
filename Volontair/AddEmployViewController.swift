@@ -72,6 +72,11 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
             let request = RequestModel(title: self.titleTextField.text!, summary: self.messageTextField.text, closed: false, created: getCurrentDateString(), updated: getCurrentDateString(), category: self.selectedCategory!, owner: currentUser)
             currentUser.requests?.append(request)
             ServiceFactory.sharedInstance.requestService.submitRequest(request)
+            
+            //reshresh requests
+            MapService.sharedInstance.getRequests()
+            
+            //show alert
             showRequestSuccessfulAlert()
         }
     }
@@ -132,12 +137,10 @@ class AddEmployViewController: UIViewController,UIPickerViewDelegate, UIPickerVi
         messageTextField.becomeFirstResponder()
     }
     @IBAction func textFieldBeginEditing(sender: UITextField) {
-        print("editor mode")
         categoryPicker.hidden = false
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        print("editor mode")
         categoryPicker.hidden = false
         return false
     }
