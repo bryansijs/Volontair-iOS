@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="df9-Me-4kn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -211,7 +211,7 @@
                             <view contentMode="scaleToFill" restorationIdentifier="Question" translatesAutoresizingMaskIntoConstraints="NO" id="xan-H0-n4D">
                                 <rect key="frame" x="20" y="122" width="560" height="45"/>
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0e-ax-wzP">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l0e-ax-wzP">
                                         <rect key="frame" x="503" y="13" width="51" height="29"/>
                                         <connections>
                                             <action selector="requestSwitchValueChanged:" destination="uue-Mq-dyn" eventType="valueChanged" id="sWi-la-HNV"/>
@@ -2174,7 +2174,7 @@
         <image name="test" width="478" height="334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gAJ-AO-VvQ"/>
+        <segue reference="mwK-uu-Cps"/>
         <segue reference="1JB-nb-wsV"/>
         <segue reference="hl0-JA-Ggj"/>
         <segue reference="QPq-oS-KMV"/>
