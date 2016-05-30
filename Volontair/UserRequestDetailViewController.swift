@@ -97,7 +97,6 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
         } else {
             let alert = UIAlertController(title: NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment"), message: NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment"), preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-                self.navigationController?.popViewControllerAnimated(true)
             }))
             presentViewController(alert, animated: true, completion: nil)
         }
