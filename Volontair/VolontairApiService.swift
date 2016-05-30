@@ -103,6 +103,7 @@ class VolontairApiService {
                                 print(URL!["access_token"])
                                 self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler, completeErrorHandler: completeErrorHandler);
                             } else {
+                                print("Error in VolontairApiService.loginApi: Facebook token is wrong")
                                 //Facebook token is wrong
                             }
                     }
