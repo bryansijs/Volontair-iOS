@@ -106,36 +106,9 @@ class ContactsService {
                         return conversationModel
                 })
                 
-//                let conver = ConversationModel(name: conversationModel.name, avatarUrl: conversationModel.avatarUrl , lastMessage: conversationModel.lastMessage, lastMessageDate: conversationModel.lastMessageDate, conversationListenerLink: conversationModel.conversationListenerLink)
-//                
-//                return conver
             })
     }
-    
-//    func conversationsFilteredByCategory(categoryName: String) -> Observable<ConversationModel>{
-//    
-//        return self.conversations()
-//            .filter({ (data: ConversationModel) -> Bool in
-//                //self.getListenerCategories(data.listener!.categoriesLink)
-//                ServiceFactory.sharedInstance.userService.getCurrentUser()?.categoriesLink
-//                self.getListener("http://volontair.herokuapp.com/api/v1/users/7/categories")
-//                    .flatMap({ (categoryData: AnyObject) -> Observable<AnyObject> in
-//                        let categories = categoryData["_embedded"]!!["categories"] as! [AnyObject]
-//                        return categories.toObservable()
-//                    })
-//                    
-//                    .map({ (singleCategory: AnyObject) -> CategoryModel in
-//                        print(singleCategory)
-//                        
-//                        return CategoryModel(JSONData: singleCategory);
-//                    })
-//                    .filter({ (data: CategoryModel) -> Bool in
-//                        return (data.name == categoryName)
-//                    })
-//                
-//                return false
-//            })
-//    }
+
 
 
     func myJust<AnyObject>(element: AnyObject) -> Observable<AnyObject> {

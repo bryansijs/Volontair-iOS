@@ -114,24 +114,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             }).addDisposableTo(self.disposeBag)
     }
     
-//    func loadConversationsFilteredBy(filter: String){
-//        self.conversations.removeAll()
-//        self.contactService.conversationsFilteredByCategory(filter)
-//            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-//            .observeOn(MainScheduler.instance)
-//            .toArray()
-//            .subscribe(onNext: { (json) -> Void in
-//                self.conversations += json
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    self.refreshControl.endRefreshing()
-//                    self.tableView.reloadData()
-//                }
-//            }).addDisposableTo(self.disposeBag)
-//    }
-    
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories[""] = CategoryModel(name: "", iconName: "", iconColorHex: "")
         
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
@@ -139,12 +123,15 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .toArray()
             .subscribe(onNext: { (json) -> Void in
                 if json.count > 0{
+
                     for i in 0...json.count-1{
                         if let category = json[i] as? CategoryModel{
                             self.skillCategories[category.name] = category
                         }
                     }
                 }
+                self.skillCategories[" "] = CategoryModel(name: "", iconName: "", iconColorHex: "")
+                
                 dispatch_async(dispatch_get_main_queue()) {
                     self.skillCategoryPicker.reloadAllComponents()
                     self.categoryTextField.text = self.skillCategories.first?.1.name
