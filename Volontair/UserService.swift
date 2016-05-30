@@ -29,7 +29,7 @@ class UserService  {
             case .Success:
                 if let value = response.result.value {
                     self.userModel = UserModel(jsonData: value)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.userModel)
+                    NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.profileNotificationKey, object: self.userModel)
                 }
             case .Failure(let error):
                 print(error)
@@ -85,7 +85,7 @@ class UserService  {
             case .Success:
                 if let value = response.result.value {
                     self.userModel = UserModel(jsonData: value)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.profileNotificationKey, object: self.userModel)
+                    NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.profileNotificationKey, object: self.userModel)
                     completionHandler(self.userModel, nil)
                 }
             case .Failure(let error):
