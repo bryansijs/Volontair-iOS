@@ -25,7 +25,7 @@ class DashboardViewController: UIViewController {
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var userfirstname: String = ""
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
         userfirstname = prefs.stringForKey(ApiConfig.facebookUsernamePreference)!
         
