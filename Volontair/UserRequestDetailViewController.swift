@@ -103,6 +103,8 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
             alert.addButtonWithTitle("ok")
             alert.show()
         }
+        let contact = ContactsService()
+        contact.addContactToContacsList((self.detailItem?.owner)!)
     }
     
     //MARK: Buttons

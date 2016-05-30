@@ -7,12 +7,14 @@ class ConversationModel {
     var conversationListenerLink: String
     var lastMessageDate: NSDate
     var listener: UserModel?
+    var selfLink: String = ""
     
-    init(name: String, avatarUrl: String, lastMessage: String, lastMessageDate: NSDate, conversationListenerLink: String) {
+    init(name: String, avatarUrl: String, lastMessage: String, lastMessageDate: NSDate, conversationListenerLink: String, selfLink: String) {
         self.name = name
         self.avatarUrl = avatarUrl
         self.lastMessage = lastMessage
         self.lastMessageDate = lastMessageDate
         self.conversationListenerLink = conversationListenerLink
+        self.selfLink = selfLink
     }
 }

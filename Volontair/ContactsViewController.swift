@@ -14,7 +14,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     var conversations = [ConversationModel]()
     var allConversations = [ConversationModel]()
     
-    var skillCategories = [String: CategoryModel]()
+    var skillCategories = [CategoryModel]()
     
     let contactService = ContactServiceFactory.sharedInstance.getContactsService()
     
@@ -41,17 +41,24 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         skillCategoryPicker.hidden = true
         skillCategoryPicker.showsSelectionIndicator = true
         
+        //tableview
+        //tableView.setEditing(true, animated: true)
         loadCategories()
         loadConversations()
         
         if (skillCategories.count > 0){
-            categoryTextField.text = skillCategories.first?.1.name
+            categoryTextField.text = skillCategories.first?.name
         } else {
             categoryTextField.text = NSLocalizedString("NO_CATEGORY",comment: "")
         }
     }
     
     //MARK: TableView
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // let the controller to know that able to edit tableView's row
+        return true
+    }
     
     func refresh(sender:AnyObject)
     {
@@ -85,15 +92,29 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             
             let imageURL = Config.url + conversation.avatarUrl
             let url = NSURL(string: imageURL)
-//            let imageData = NSData(contentsOfURL: url!)!
-
-//            dispatch_async(dispatch_get_main_queue()) {
-//                cell.contactImageView.image = UIImage(data: imageData)
-//            }
         }
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // needs to be overwritten but can be empty
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+            let deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action , indexPath) -> Void in
+                self.contactService.deleteConversation(self.conversations[indexPath.row])
+                self.conversations.removeAtIndex(indexPath.row)
+                self.tableView.reloadData()
+            })
+            
+            // You can set its properties like normal button
+            deleteAction.backgroundColor = UIColor.redColor()
+            
+            return [deleteAction]
+    }
+    
+    
     
     //MARK: Data
     
@@ -106,6 +127,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .subscribe(onNext: { (json) -> Void in
                 self.conversations += json
                 self.allConversations = self.conversations
+                self.loadConversationsFilteredByCategory(self.categoryTextField.text!)
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
@@ -116,6 +138,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadCategories() {
         self.skillCategories.removeAll()
+        self.skillCategories.append(CategoryModel(name: "", iconName: "", iconColorHex: ""))
         
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
@@ -123,18 +146,24 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .toArray()
             .subscribe(onNext: { (json) -> Void in
                 if json.count > 0{
-
                     for i in 0...json.count-1{
                         if let category = json[i] as? CategoryModel{
-                            self.skillCategories[category.name] = category
+                            var add : Bool = true
+                            for skill in self.skillCategories {
+                                if category.name == skill.name {
+                                    add = false;
+                                }
+                            }
+                            if add {
+                                self.skillCategories.append(category)
+                            }
                         }
                     }
                 }
-                self.skillCategories[" "] = CategoryModel(name: "", iconName: "", iconColorHex: "")
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.skillCategoryPicker.reloadAllComponents()
-                    self.categoryTextField.text = self.skillCategories.first?.1.name
+                    self.categoryTextField.text = self.skillCategories.first?.name
                 }
             }).addDisposableTo(self.disposeBag)
     }
@@ -153,36 +182,61 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        return skillCategories.keys[index]
+        return skillCategories[index].name
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user : UserModel = self.conversations[indexPath.row].listener!
+        let email = user.username
+        let url = NSURL(string: "mailto:\(email)")
+        
+        if UIApplication.sharedApplication().canOpenURL(url!) {
+            UIApplication.sharedApplication().openURL(url!)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment"), message: NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment"), preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                self.navigationController?.popViewControllerAnimated(true)
+            }))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        if(skillCategories[index].0 != ""){
-            self.loadConversationsFilteredByCategory(skillCategories[index].0)
+        if(skillCategories[index].name != ""){
+            self.loadConversationsFilteredByCategory(skillCategories[index].name)
             //loadConversationsFilteredBy(skillCategories[index].0)
         } else {
             loadConversations()
         }
-        categoryTextField.text = skillCategories[index].0
+        categoryTextField.text = skillCategories[index].name
         skillCategoryPicker.hidden = true;
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        skillCategoryPicker.hidden = false
-        return false
+        //skillCategoryPicker.hidden = false
+        return true
     }
     
     func loadConversationsFilteredByCategory(categoryName : String) {
-        self.conversations = [ConversationModel]()
-        for conversation : ConversationModel in self.allConversations {
-            for categorie : CategoryModel in (conversation.listener?.categorys)! {
-                print(categorie.name + " - " + categoryName)
-                if(categorie.name == categoryName) {
-                    self.conversations.append(conversation)
+
+        if categoryName != "" {
+            
+            self.conversations = [ConversationModel]()
+            for conversation : ConversationModel in self.allConversations {
+                for categorie : CategoryModel in (conversation.listener?.categorys)! {
+                    
+                    if(categorie.name == categoryName) {
+                        self.conversations.append(conversation)
+                    }
                 }
             }
+            self.skillCategoryPicker.reloadAllComponents()
+            self.tableView.reloadData()
+            self.categoryTextField.text = self.skillCategories.first?.name
         }
     }
     

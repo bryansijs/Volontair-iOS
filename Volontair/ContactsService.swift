@@ -80,7 +80,8 @@ class ContactsService {
                         let name = listener["name"] as! String
                         let lastMessage = "Test"
                         let avatarUrl = ""
-                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), conversationListenerLink: conversationListenerLink);
+                        let selfLink = message["_links"]!!["self"]!!["href"] as! String
+                        let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), conversationListenerLink: conversationListenerLink, selfLink: selfLink);
                         item.listener = UserModel(jsonData: listener)
                         
                         return item
@@ -141,7 +142,7 @@ class ContactsService {
                 return CategoryModel(JSONData: singleCategory);
             })
     }
-
+    
     func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()
@@ -238,23 +239,40 @@ class ContactsService {
                             "message" : "Eerste Contact op: 1 Jan 01:00:00 GMT 1970"
                         ]
                         
-                        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.conversationUrl + String(converSationId) + "/message", parameters: converSationTextMessageParams, encoding: .JSON)
-                            .responseJSON { response in
-                                switch response.result {
-                                case .Success(let JSON):
-                                    print(response.response)
-                                    print(response.request)
-                                    print("Success")
-                                    
-                                case .Failure(let error):
-                                    
-                                    print(error)
-                                }
-                        }
+//                        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.conversationUrl + String(converSationId) + "/message", parameters: converSationTextMessageParams, encoding: .JSON)
+//                            .responseJSON { response in
+//                                switch response.result {
+//                                case .Success(let JSON):
+//                                    print(response.response)
+//                                    print(response.request)
+//                                    print("Success")
+//                                    
+//                                case .Failure(let error):
+//                                    
+//                                    print(error)
+//                                }
+//                        }
                     case .Failure(let error) :
                         print("Request failed with error: \(error)")
                     }
             }
+    }
+    
+    func deleteConversation(conversation : ConversationModel) {
+        
+        Alamofire.request(.DELETE, conversation.selfLink , headers: ApiConfig.headers)
+            .responseJSON { response in
+                switch response.result {
+                case .Success(let JSON):
+                    
+                    print(response.response)
+                    print(response.request)
+                    print(response.result)
+                    //conversation
+                case .Failure(let error) :
+                    print("Request failed with error: \(error)")
+                }
+        }
     }
     
     init(){ }
