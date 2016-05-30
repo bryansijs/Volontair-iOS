@@ -83,6 +83,7 @@
 		EFA50DF81CAAA97000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
 		EFA50DF91CAAA97000FE4545 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFA50DFB1CAAAB9000FE4545 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */; };
+		EFB54F401CFC355A005D796A /* DashboardInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB54F3F1CFC355A005D796A /* DashboardInfoTableViewController.swift */; };
 		EFBBB28E1CF35090001B5339 /* AlamofireStringAsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBB28D1CF35090001B5339 /* AlamofireStringAsBody.swift */; };
 		EFBBB2901CF380C4001B5339 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBB28F1CF380C4001B5339 /* EditProfileViewController.swift */; };
 		EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */; };
@@ -207,6 +208,7 @@
 		EF9B583E1CCF951600AA52ED /* RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
 		EF9CE00C1CDD1ED2004CF300 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		EFA50DEF1CAAA93100FE4545 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
+		EFB54F3F1CFC355A005D796A /* DashboardInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInfoTableViewController.swift; sourceTree = "<group>"; };
 		EFBBB28D1CF35090001B5339 /* AlamofireStringAsBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireStringAsBody.swift; sourceTree = "<group>"; };
 		EFBBB28F1CF380C4001B5339 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		EFBDCCE81CA0051400981A6E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				EFD116881C92C2FF00C05E09 /* DashboardViewController.swift */,
 				EF2E81E61CBEE56100FD141C /* DashboardServiceFactory.swift */,
 				2FFD7DCC1CC95A44005CDE2C /* DashboardModel.swift */,
+				EFB54F3F1CFC355A005D796A /* DashboardInfoTableViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,
 				2FD6F1AE1CBA6FDB00879F7F /* RequestModel.swift in Sources */,
 				2FFD7DC91CC958D4005CDE2C /* ViewController.swift in Sources */,
+				EFB54F401CFC355A005D796A /* DashboardInfoTableViewController.swift in Sources */,
 				E8A26DCB1CF4744400EE5753 /* RadiusSettingsViewController.swift in Sources */,
 				E86020C31CE27E8A004F1CEF /* NSURLFragmentExtension.swift in Sources */,
 				EF9B58381CCF6EA300AA52ED /* AddEmployViewController.swift in Sources */,
