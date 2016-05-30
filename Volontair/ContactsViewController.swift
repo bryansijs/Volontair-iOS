@@ -168,6 +168,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
         if(skillCategories[index].0 != "-"){
+            self.loadConversationsFilteredByCategory(skillCategories[index].0)
             loadConversationsFilteredBy(skillCategories[index].0)
         } else {
             loadConversations()
@@ -179,6 +180,14 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         skillCategoryPicker.hidden = false
         return false
+    }
+    
+    func loadConversationsFilteredByCategory(categoryName : String) {
+        // get all conversations
+        // get owners of conversation
+        // if owner has category same as categoryName show this message.
+        
+        print("Here i am")
     }
     
 }
