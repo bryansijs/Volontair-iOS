@@ -114,20 +114,20 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             }).addDisposableTo(self.disposeBag)
     }
     
-    func loadConversationsFilteredBy(filter: String){
-        self.conversations.removeAll()
-        self.contactService.conversationsFilteredByCategory(filter)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-            .observeOn(MainScheduler.instance)
-            .toArray()
-            .subscribe(onNext: { (json) -> Void in
-                self.conversations += json
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.refreshControl.endRefreshing()
-                    self.tableView.reloadData()
-                }
-            }).addDisposableTo(self.disposeBag)
-    }
+//    func loadConversationsFilteredBy(filter: String){
+//        self.conversations.removeAll()
+//        self.contactService.conversationsFilteredByCategory(filter)
+//            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+//            .observeOn(MainScheduler.instance)
+//            .toArray()
+//            .subscribe(onNext: { (json) -> Void in
+//                self.conversations += json
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    self.refreshControl.endRefreshing()
+//                    self.tableView.reloadData()
+//                }
+//            }).addDisposableTo(self.disposeBag)
+//    }
     
     func loadCategories() {
         self.skillCategories.removeAll()
