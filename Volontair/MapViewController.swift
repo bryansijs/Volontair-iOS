@@ -199,7 +199,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let mmm = annotation as! MapMarkerModel
         var markerImage: UIImage
     
-        markerImage = UIImage(named: Config.defaultCategoryIconUrl)!
+        markerImage = UIImage(named: ApiConfig.defaultCategoryIconUrl)!
 
         if(annotation is UserMapModel) {
             if let markerAsUser = annotation as? MapMarkerModel {

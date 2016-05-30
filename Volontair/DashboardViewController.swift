@@ -39,7 +39,7 @@ class DashboardViewController: UIViewController {
         containerView.addGestureRecognizer(tap)
         
         setData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: ApiConfig.dashboardNotificationKey, object: nil)
 
     }
     
