@@ -21,18 +21,17 @@ class LoginViewController: UIViewController {
     let volontairApiService = VolontairApiService()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var facebookInlogButton: UIButton!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
-        activityIndicator.hidden = false
+        self.showLoading()
         
         if volontairApiService.getVolontairApiToken() != nil {
             volontairApiService.login(self.loadMinimalDataForApplicationStart , completeErrorHandler: self.error)
         }else {
-            activityIndicator.hidden = true
-            activityIndicator.stopAnimating()
+            self.hideLoading()
         }
         
     }
@@ -40,8 +39,7 @@ class LoginViewController: UIViewController {
     @IBAction func btnFacebookLogin(sender: AnyObject) {
         if !activityIndicator.isAnimating() {
             
-            activityIndicator.hidden = false
-            activityIndicator.startAnimating()
+            self.showLoading()
             
             let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
             fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in
@@ -111,8 +109,7 @@ class LoginViewController: UIViewController {
     }
     
     func error() {
-        activityIndicator.hidden = true
-        activityIndicator.stopAnimating()
+        self.hideLoading()
         print("Something went wrong")
         
         FBSDKAccessToken.setCurrentAccessToken(nil)
@@ -127,6 +124,18 @@ class LoginViewController: UIViewController {
     
     func loadDashBoardData(completionHandler:() -> Void) {
         ServiceFactory.sharedInstance.dashboardService.loadDashboardDataFromServer(self.redirectToNextView)
+    }
+    
+    func hideLoading() {
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
+        facebookInlogButton.hidden = false
+    }
+    
+    func showLoading() {
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+        facebookInlogButton.hidden = true
     }
     
 }
