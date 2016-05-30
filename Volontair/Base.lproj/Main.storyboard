@@ -2228,8 +2228,13 @@
             <objects>
                 <viewController id="bdP-Vf-5OV" sceneMemberID="viewController">
                     <layoutGuides>
+
                         <viewControllerLayoutGuide type="top" id="sO7-tU-UEK"/>
                         <viewControllerLayoutGuide type="bottom" id="3GP-Mb-adk"/>
+
+                        <viewControllerLayoutGuide type="top" id="am9-ht-gBy"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Uk-Bd-yHw"/>
+
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qRl-TQ-EJI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>

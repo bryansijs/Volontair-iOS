@@ -12,6 +12,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
+    var allConversations = [ConversationModel]()
+    
     var skillCategories = [String: CategoryModel]()
     
     let contactService = ContactServiceFactory.sharedInstance.getContactsService()
@@ -103,6 +105,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .toArray()
             .subscribe(onNext: { (json) -> Void in
                 self.conversations += json
+                self.allConversations = self.conversations
+                
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
@@ -110,24 +114,25 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             }).addDisposableTo(self.disposeBag)
     }
     
-    func loadConversationsFilteredBy(filter: String){
-        self.conversations.removeAll()
-        self.contactService.conversationsFilteredByCategory(filter)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-            .observeOn(MainScheduler.instance)
-            .toArray()
-            .subscribe(onNext: { (json) -> Void in
-                self.conversations += json
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.refreshControl.endRefreshing()
-                    self.tableView.reloadData()
-                }
-            }).addDisposableTo(self.disposeBag)
-    }
+//    func loadConversationsFilteredBy(filter: String){
+//        self.conversations.removeAll()
+//        self.contactService.conversationsFilteredByCategory(filter)
+//            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+//            .observeOn(MainScheduler.instance)
+//            .toArray()
+//            .subscribe(onNext: { (json) -> Void in
+//                self.conversations += json
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    self.refreshControl.endRefreshing()
+//                    self.tableView.reloadData()
+//                }
+//            }).addDisposableTo(self.disposeBag)
+//    }
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories["-"] = CategoryModel(name: "-", iconName: "", iconColorHex: "")
+        skillCategories[""] = CategoryModel(name: "", iconName: "", iconColorHex: "")
+        
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
@@ -167,8 +172,9 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        if(skillCategories[index].0 != "-"){
-            loadConversationsFilteredBy(skillCategories[index].0)
+        if(skillCategories[index].0 != ""){
+            self.loadConversationsFilteredByCategory(skillCategories[index].0)
+            //loadConversationsFilteredBy(skillCategories[index].0)
         } else {
             loadConversations()
         }
@@ -179,6 +185,18 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         skillCategoryPicker.hidden = false
         return false
+    }
+    
+    func loadConversationsFilteredByCategory(categoryName : String) {
+        self.conversations = [ConversationModel]()
+        for conversation : ConversationModel in self.allConversations {
+            for categorie : CategoryModel in (conversation.listener?.categorys)! {
+                print(categorie.name + " - " + categoryName)
+                if(categorie.name == categoryName) {
+                    self.conversations.append(conversation)
+                }
+            }
+        }
     }
     
 }
