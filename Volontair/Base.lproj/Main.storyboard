@@ -1274,6 +1274,9 @@
                                     <constraint firstAttribute="height" constant="30" id="7fO-BN-lXH"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="speechFilled"/>
+                                <connections>
+                                    <action selector="contactButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="q7Z-Ma-dH8"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-3d-0zv">
                                 <rect key="frame" x="0.0" y="340" width="600" height="216"/>
@@ -1340,7 +1343,6 @@
                         <outlet property="OwnerNameLabel" destination="3HK-Rp-fmY" id="hM1-Eu-o6o"/>
                         <outlet property="categoryPicker" destination="LQ6-3d-0zv" id="XK5-As-wR3"/>
                         <outlet property="categoryTextField" destination="2rp-hk-576" id="Sp1-oE-qRM"/>
-                        <outlet property="chatButton" destination="7Gc-BK-ODS" id="uaZ-Su-YQ2"/>
                         <outlet property="detailTextView" destination="CHp-Cv-LRC" id="9Bi-7G-IKc"/>
                         <outlet property="editButton" destination="jAM-se-log" id="Spe-EO-vui"/>
                         <outlet property="ownerUIImageView" destination="tIl-IX-bNk" id="HCW-x5-5GC"/>
@@ -1959,7 +1961,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="center" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ifg-cy-L7q">
+                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ifg-cy-L7q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZb-01-P1F">
@@ -2036,7 +2038,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJV-Po-ck8">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJV-Po-ck8">
                                         <rect key="frame" x="0.0" y="188" width="600" height="312"/>
                                         <connections>
                                             <segue destination="OPs-Vg-gjB" kind="embed" identifier="embedSeque" id="UB8-Om-6p2"/>
@@ -2278,9 +2280,9 @@
         <image name="volunteer" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1JB-nb-wsV"/>
         <segue reference="gAJ-AO-VvQ"/>
         <segue reference="G8o-yB-mji"/>
-        <segue reference="1JB-nb-wsV"/>
-        <segue reference="kk1-3h-ju8"/>
+        <segue reference="hl0-JA-Ggj"/>
     </inferredMetricsTieBreakers>
 </document>
