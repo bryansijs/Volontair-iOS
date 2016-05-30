@@ -12,6 +12,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
+    var allConversations = [ConversationModel]()
+    
     var skillCategories = [String: CategoryModel]()
     
     let contactService = ContactServiceFactory.sharedInstance.getContactsService()
@@ -103,6 +105,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .toArray()
             .subscribe(onNext: { (json) -> Void in
                 self.conversations += json
+                self.allConversations = self.conversations
+                
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
@@ -127,7 +131,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories["-"] = CategoryModel(name: "-", iconName: "", iconColorHex: "")
+        skillCategories[""] = CategoryModel(name: "", iconName: "", iconColorHex: "")
+        
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
@@ -167,9 +172,9 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        if(skillCategories[index].0 != "-"){
+        if(skillCategories[index].0 != ""){
             self.loadConversationsFilteredByCategory(skillCategories[index].0)
-            loadConversationsFilteredBy(skillCategories[index].0)
+            //loadConversationsFilteredBy(skillCategories[index].0)
         } else {
             loadConversations()
         }
@@ -183,11 +188,15 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func loadConversationsFilteredByCategory(categoryName : String) {
-        // get all conversations
-        // get owners of conversation
-        // if owner has category same as categoryName show this message.
-        
-        print("Here i am")
+        self.conversations = [ConversationModel]()
+        for conversation : ConversationModel in self.allConversations {
+            for categorie : CategoryModel in (conversation.listener?.categorys)! {
+                print(categorie.name + " - " + categoryName)
+                if(categorie.name == categoryName) {
+                    self.conversations.append(conversation)
+                }
+            }
+        }
     }
     
 }
