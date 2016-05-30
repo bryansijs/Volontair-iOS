@@ -214,6 +214,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let markerAsUser = annotation as? MapMarkerModel {
                 let image : UIImage = ApiConfig.categoryIconsWhite[markerAsUser.categorys![0].name]!
                 markerImage =  image.markerCircle(hexStringToUIColor(markerAsUser.categorys![0].colorHex))!
+            } else {
+                let image = UIImage(named: "icon_events_white")!
+                markerImage =  image.markerCircle(hexStringToUIColor("#00bcd4"))!
             }
         }
             
