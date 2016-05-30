@@ -73,7 +73,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         let conversation = conversations[indexPath.row]
         
         cell.nameLabel.text = conversation.name
-        cell.lastMessageLabel.text = conversation.lastMessage
+        cell.lastMessageLabel.text = "" //conversation.lastMessage
         cell.timeLabel.text = contactService.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
         
         // round images

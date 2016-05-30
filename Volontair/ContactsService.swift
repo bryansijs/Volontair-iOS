@@ -236,6 +236,54 @@ class ContactsService {
         
     }
     
+    func addContactToContacsList(newContact : UserModel) {
+        
+            let conversationdURL = ApiConfig.baseUrl + ApiConfig.conversationUrl
+            guard let versationURL = NSURL(string: conversationdURL) else {
+                print("Error: cannot create URL")
+                return
+            }
+    
+    
+            let conversationParams : [String:String] = [
+                "listener": newContact.userLink,
+                "starter": (ServiceFactory.sharedInstance.userService.getCurrentUser()?.userLink)!
+            ]
+    
+            Alamofire.request(.POST, versationURL, headers: ApiConfig.headers, parameters: conversationParams, encoding: .JSON)
+                .responseJSON { response in
+                    switch response.result {
+                    case .Success(let JSON):
+                        print(JSON)
+                        print(response.response)
+                        print(response.request)
+                        
+                        let converSationIdUrl = response.response?.allHeaderFields["location"]! as! String
+                        let converSationId = converSationIdUrl.regex("[0-9]*$")[0]
+                        
+                        let converSationTextMessageParams : [String : String] = [
+                            "message" : "Eerste Contact op: 1 Jan 01:00:00 GMT 1970"
+                        ]
+                        
+                        Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.conversationUrl + String(converSationId) + "/message", parameters: converSationTextMessageParams, encoding: .JSON)
+                            .responseJSON { response in
+                                switch response.result {
+                                case .Success(let JSON):
+                                    print(response.response)
+                                    print(response.request)
+                                    print("Success")
+                                    
+                                case .Failure(let error):
+                                    
+                                    print(error)
+                                }
+                        }
+                    case .Failure(let error) :
+                        print("Request failed with error: \(error)")
+                    }
+            }
+    }
+    
     init(){ }
     
 }

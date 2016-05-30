@@ -418,6 +418,7 @@
 		EF2721EE1CBE280200BCD082 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EF3E52801CC00BC50053A701 /* ContactsService.swift */,
 				2FFD7DCE1CC95A6F005CDE2C /* DashboardService.swift */,
 				EF9B583C1CCF8EEA00AA52ED /* OfferService.swift */,
 				EF9B583E1CCF951600AA52ED /* RequestService.swift */,
@@ -472,7 +473,6 @@
 			isa = PBXGroup;
 			children = (
 				EF3E527E1CC00B6F0053A701 /* ConversationModel.swift */,
-				EF3E52801CC00BC50053A701 /* ContactsService.swift */,
 				EF3E52811CC00BC50053A701 /* ContactsViewController.swift */,
 				EF3E52821CC00BC50053A701 /* ContactTableViewCell.swift */,
 				EF3E52861CC00CF50053A701 /* ContactServiceFactory.swift */,
