@@ -16,6 +16,11 @@ class ContactsService {
         return manager.rx_JSON(.GET, userLink)
     }
     
+    func getCategorys(CategoryLink: String) -> Observable<AnyObject> {
+        let manager = Manager.sharedInstance
+        return manager.rx_JSON(.GET, CategoryLink)
+    }
+    
     func getListenerCategories(categoriesLink: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
         return manager.rx_JSON(.GET, categoriesLink);
@@ -70,14 +75,39 @@ class ContactsService {
                     self.lastMessage(conversationMessagesLink),
                     self.getListener(conversationListenerLink),
                     resultSelector: { (message: AnyObject, listener: AnyObject) -> ConversationModel in
+                        
                         let name = listener["name"] as! String
                         let lastMessage = "Test"
                         let avatarUrl = ""
                         let item = ConversationModel(name: name, avatarUrl: avatarUrl, lastMessage: lastMessage, lastMessageDate: NSDate(), conversationListenerLink: conversationListenerLink);
                         item.listener = UserModel(jsonData: listener)
+                        
                         return item
                     }
                 )
+            }).flatMap({ (conversationModel: ConversationModel) -> Observable<ConversationModel> in
+                
+                let link = conversationModel.listener?.categoriesLink
+                
+                return Observable.zip(
+                    self.getCategorys(link!),
+                    self.getCategorys(link!),
+                    resultSelector: { (categorie: AnyObject, temp: AnyObject) -> ConversationModel in
+                        
+                        var categories = [CategoryModel]()
+
+                        for cat in categorie["_embedded"]!!["categories"] as! [[String:AnyObject]]{
+                            let category = CategoryModel(JSONData: cat)
+                            categories.append(category)
+                        }
+                        conversationModel.listener?.categorys = categories
+
+                        return conversationModel
+                })
+                
+//                let conver = ConversationModel(name: conversationModel.name, avatarUrl: conversationModel.avatarUrl , lastMessage: conversationModel.lastMessage, lastMessageDate: conversationModel.lastMessageDate, conversationListenerLink: conversationModel.conversationListenerLink)
+//                
+//                return conver
             })
     }
     
