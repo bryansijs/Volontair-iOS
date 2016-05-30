@@ -17,6 +17,7 @@ class DashboardViewController: UIViewController {
     
     private var embeddedViewController: DashboardInfoTableViewController!
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var welcomeLabel: UILabel!
     
     let dashboardService = DashboardServiceFactory.sharedInstance.getDashboardService()
@@ -30,8 +31,12 @@ class DashboardViewController: UIViewController {
         
         if welcomeLabel != nil {
             // Set welcome text with name
-            welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
+            welcomeLabel.text = "Welkom \(userfirstname)!"
         }
+        
+        containerView.userInteractionEnabled = true;
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DashboardViewController.tapFunction(_:)))
+        containerView.addGestureRecognizer(tap)
         
         setData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
