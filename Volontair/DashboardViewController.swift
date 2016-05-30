@@ -14,11 +14,10 @@ struct DashboardViewControllerConstants {
 }
 
 class DashboardViewController: UIViewController {
+    
+    private var embeddedViewController: DashboardInfoTableViewController!
 
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var numberOfContactsLabel: UILabel!
-    @IBOutlet weak var numberOfVolunteersLabel: UILabel!
-    @IBOutlet weak var topLevelMapInfoView: UIView!
     
     let dashboardService = DashboardServiceFactory.sharedInstance.getDashboardService()
     
@@ -33,14 +32,20 @@ class DashboardViewController: UIViewController {
             // Set welcome text with name
             welcomeLabel.text = "Welkom \(userfirstname)!, In de buurt zijn:"
         }
-
-        topLevelMapInfoView.userInteractionEnabled = true;
-        let tap = UITapGestureRecognizer(target: self, action: Selector("tapFunction:"))
-        topLevelMapInfoView.addGestureRecognizer(tap)
         
         setData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
 
+    }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? DashboardInfoTableViewController
+            where segue.identifier == "embedSeque" {
+            
+            self.embeddedViewController = vc
+        }
     }
     
     func tapFunction(sender:UITapGestureRecognizer) {
@@ -77,8 +82,7 @@ class DashboardViewController: UIViewController {
     func setData(){
         let service = ServiceFactory.sharedInstance.dashboardService
         if let data = service.getDashboardModel(){
-            numberOfVolunteersLabel.text = String(data.nearbyVolonteers)
-            numberOfContactsLabel.text = String(data.potentialContacts)
+            self.embeddedViewController.setLabels(String(data.potentialContacts), numberOfVolunteers: String(data.nearbyVolonteers))
         }
     }
     
