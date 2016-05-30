@@ -10,7 +10,7 @@ import UIKit
 
 class UserTypeViewController: UIViewController, ValidationProtocol {
 
-    var userWillCreateRequests = true
+    var userWillCreateRequests = false
     var userWillCreateOffers = true
     
     let wizardService = WizardServiceFactory.sharedInstance.wizardService
