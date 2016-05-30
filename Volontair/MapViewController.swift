@@ -46,7 +46,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     override func viewDidAppear(animated: Bool) {
-        setVolunteers()
+        if(self.segmentedControl.selectedSegmentIndex == 1){
+            mapService.getRequests()
+            setRequests()
+        } else {
+            setVolunteers()
+        }
     }
     
     func clearMarkers() {
@@ -127,6 +132,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if let requestAnnotation = annotation as? RequestModel{
                     if (requestAnnotation.owner?.requests?.count > 1){
                         //list
+                        self.selectedRequest = requestAnnotation
                         self.performSegueWithIdentifier("showUserRequests", sender: self)
                     }
                     else{
@@ -214,6 +220,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotationView!.image = markerImage
         
         return annotationView
+    }
+    
+
+    
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print(mapView.camera.altitude)
+        if (mapView.camera.altitude < 16289.00 ) {
+            mapView.camera.altitude = 17000.00;
+        }
     }
     
     func getRoundedImage(image : UIImage) -> UIImage {
