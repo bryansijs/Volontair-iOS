@@ -104,6 +104,8 @@
 /* Class = "UILabel"; text = "Vrijwilligers"; ObjectID = "rld-gM-464"; */
 "rld-gM-464.text" = "Vrijwilligers";
 
+"CKR-6k-sIZ.text" = "Interesses:";
+
 /* Class = "UIButton"; normalTitle = "Dashboard"; ObjectID = "tj7-m7-Q1x"; */
 "tj7-m7-Q1x.normalTitle" = "Volgende";
 

@@ -129,8 +129,9 @@ class UserService  {
                         var usersData : [UserModel]? = []
                         
                         for user in value["_embedded"]!!["users"] as! [[String:AnyObject]] {
-                            usersData?.append(UserModel(jsonData: user))
-                            //self.requests.append(RequestModel(jsonData: request))
+                            let user = UserModel(jsonData: user)
+                            usersData?.append(user)
+                            self.loadUserCategorys(user)
                         }
                         
                         completionHandler(usersData, nil)
@@ -153,8 +154,7 @@ class UserService  {
                         for cat in value["_embedded"]!!["categories"] as! [[String:AnyObject]]{
                             categorys.append(CategoryModel(JSONData: cat))
                         }
-                        
-                        ServiceFactory.sharedInstance.userService.getCurrentUser()?.categorys = categorys
+                        user.categorys = categorys
                     }
                 case .Failure(let error):
                     print(error)
