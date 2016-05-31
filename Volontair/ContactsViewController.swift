@@ -102,6 +102,20 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let email = self.conversations[indexPath.row].listener!.username
+        let url = NSURL(string: "mailto:\(email)")
+        
+        if UIApplication.sharedApplication().canOpenURL(url!) {
+            UIApplication.sharedApplication().openURL(url!)
+        } else {
+            let alert = UIAlertController(title: NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment"), message: NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment"), preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                self.navigationController?.popViewControllerAnimated(true)
+            }))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
     //MARK: Data
     
