@@ -12,9 +12,11 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     let refreshControl = UIRefreshControl()
     
     var conversations = [ConversationModel]()
-    var skillCategories = [String: CategoryModel]()
+    var allConversations = [ConversationModel]()
     
-    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
+    var skillCategories = [CategoryModel]()
+    
+    let contactService = ContactServiceFactory.sharedInstance.contactsService
     
     
     
@@ -39,17 +41,41 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         skillCategoryPicker.hidden = true
         skillCategoryPicker.showsSelectionIndicator = true
         
+    
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         loadCategories()
         loadConversations()
         
         if (skillCategories.count > 0){
-            categoryTextField.text = skillCategories.first?.1.name
+            categoryTextField.text = skillCategories.first?.name
         } else {
             categoryTextField.text = NSLocalizedString("NO_CATEGORY",comment: "")
         }
     }
     
     //MARK: TableView
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let conversation = self.conversations[indexPath.row]
+        if conversation.name != "" {
+            
+            let email = conversation.listener?.username
+            let emailLink = "mailto:" + email!
+            let url = NSURL(string: emailLink)
+            
+            if UIApplication.sharedApplication().canOpenURL(url!) {
+                UIApplication.sharedApplication().openURL(url!)
+            } else {
+                let alert = UIAlertController(title: NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment"), message: NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment"), preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    self.navigationController?.popViewControllerAnimated(true)
+                }))
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
     
     func refresh(sender:AnyObject)
     {
@@ -71,8 +97,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         let conversation = conversations[indexPath.row]
         
         cell.nameLabel.text = conversation.name
-        cell.lastMessageLabel.text = conversation.lastMessage
-        cell.timeLabel.text = contactService.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
+        cell.lastMessageLabel.text = "" //conversation.lastMessage
+        cell.timeLabel.text = ""//contactService.timeAgoSinceDate(conversation.lastMessageDate, numericDates: true)
         
         // round images
         cell.contactImageView.layer.cornerRadius = cell.contactImageView.frame.size.width / 2
@@ -80,14 +106,13 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
 
         //Download profile picutre Async
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            
-            let imageURL = ApiConfig.baseUrl + conversation.avatarUrl
-            let url = NSURL(string: imageURL)
-//            let imageData = NSData(contentsOfURL: url!)!
-
-//            dispatch_async(dispatch_get_main_queue()) {
-//                cell.contactImageView.image = UIImage(data: imageData)
-//            }
+            let url = NSURL(string: conversation.listener!.imageLink)
+            let data = NSData(contentsOfURL:url!)
+            dispatch_async(dispatch_get_main_queue(), {
+                if data != nil{
+                    cell.contactImageView.image = UIImage(data: data!)
+                }
+            });
         }
         
         return cell
@@ -102,47 +127,56 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                self.conversations += json
+                if json.count > 0 {
+                    self.conversations += json.sort { $0.0.name < $0.1.name }
+                    self.allConversations = self.conversations
+                    self.loadConversationsFilteredByCategory(self.categoryTextField.text!)
+                } else {
+                    self.conversations.append(ConversationModel(name: "Nog geen contacten", avatarUrl: "", lastMessage: "", lastMessageDate: NSDate() , conversationListenerLink: ""))
+                }
+
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
-            }).addDisposableTo(self.disposeBag)
-    }
-    
-    func loadConversationsFilteredBy(filter: String){
-        self.conversations.removeAll()
-        self.contactService.conversationsFilteredByCategory(filter)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
-            .observeOn(MainScheduler.instance)
-            .toArray()
-            .subscribe(onNext: { (json) -> Void in
-                self.conversations += json
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.refreshControl.endRefreshing()
-                    self.tableView.reloadData()
-                }
+                
             }).addDisposableTo(self.disposeBag)
     }
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories["-"] = CategoryModel(name: "-", iconName: "", iconColorHex: "")
+        skillCategories.append(CategoryModel(name: "", iconName: "", iconColorHex: ""))
+        
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
+                var skills : [CategoryModel] = []
+                skills.append(CategoryModel(name: "", iconName: "", iconColorHex: ""))
+                
                 if json.count > 0{
                     for i in 0...json.count-1{
+                        var add = true
                         if let category = json[i] as? CategoryModel{
-                            self.skillCategories[category.name] = category
+                            
+                            for cat in skills {
+                                if cat.name == category.name {
+                                    add = false
+                                }
+                            }
+                            if add {
+                                skills.append(category)
+                            }
+                            
                         }
                     }
                 }
+                self.skillCategories = skills.sort { $0.0.name < $0.1.name }
+                
                 dispatch_async(dispatch_get_main_queue()) {
                     self.skillCategoryPicker.reloadAllComponents()
-                    self.categoryTextField.text = self.skillCategories.first?.1.name
+                    self.categoryTextField.text = self.skillCategories.first?.name
                 }
             }).addDisposableTo(self.disposeBag)
     }
@@ -161,24 +195,42 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        return skillCategories.keys[index]
+        return skillCategories[index].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        if(skillCategories[index].0 != "-"){
-            loadConversationsFilteredBy(skillCategories[index].0)
+        if(skillCategories[index].name != ""){
+            self.loadConversationsFilteredByCategory(skillCategories[index].name)
         } else {
             loadConversations()
         }
-        categoryTextField.text = skillCategories[index].0
+        categoryTextField.text = skillCategories[index].name
         skillCategoryPicker.hidden = true;
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         skillCategoryPicker.hidden = false
         return false
+    }
+    
+    func loadConversationsFilteredByCategory(categoryName : String) {
+        if categoryName == "" {
+            self.tableView.reloadData()
+            return
+        }
+        
+        self.conversations = [ConversationModel]()
+        for conversation : ConversationModel in self.allConversations {
+            for categorie : CategoryModel in (conversation.listener?.categorys)! {
+                print(categorie.name + " - " + categoryName)
+                if(categorie.name == categoryName) {
+                    self.conversations.append(conversation)
+                }
+            }
+        }
+        self.tableView.reloadData()
     }
     
 }

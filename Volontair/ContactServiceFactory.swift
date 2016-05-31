@@ -16,8 +16,4 @@ class ContactServiceFactory  {
     private init(){
         print("init ContactsServiceFactory")
     }
-    
-    func getContactsService() -> ContactsService{
-        return contactsService
-    }
 }
