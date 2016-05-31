@@ -905,6 +905,7 @@
                         <outlet property="aboutMeHeader" destination="ovk-Xn-qxP" id="wsM-7r-9XS"/>
                         <outlet property="categoryContainerView" destination="uwN-iL-meP" id="vy6-6Y-FVi"/>
                         <outlet property="contactButton" destination="LOC-wa-D3h" id="FaG-k2-ldL"/>
+                        <outlet property="contactsView" destination="20n-MW-mzo" id="2aa-QE-jUh"/>
                         <outlet property="editButton" destination="mDN-KE-erb" id="9nv-RI-YVz"/>
                         <outlet property="showRequestsButton" destination="Axn-Yn-kKX" id="0Ge-aq-PvV"/>
                     </connections>

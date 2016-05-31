@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var categoryContainerView: UIView!
+    @IBOutlet weak var contactsView: UIView!
 
     var editMode = true
     
@@ -63,14 +64,28 @@ class ProfileViewController: UIViewController {
         self.ProfileNameLabel.text = "profielnaam"
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-//        self.categoryContainerView.ciewconrt
-        
-        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goToContacts(_:)))
+        self.contactsView.addGestureRecognizer(gesture)
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: ApiConfig.profileNotificationKey, object: nil)
         
         if editMode {
             self.contactButton.hidden = true
-        } 
+        }
+    }
+    
+    func goToContacts(sender:UITapGestureRecognizer){
+        self.tabBarController!.selectedIndex = 1
+    }
+    
+    func calculateNumberOfContacts(){
+        ContactServiceFactory.sharedInstance.contactsService.conversations()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
+            .observeOn(MainScheduler.instance)
+            .toArray()
+            .subscribe(onNext: { (json) -> Void in
+                self.FriendsLabel.text = "\(json.count) contakten"
+            })
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -101,15 +116,14 @@ class ProfileViewController: UIViewController {
             self.AboutMeLabel.text = userProfile.summary
             self.AboutMeLabel.editable = false
             self.showRequestsButton.setTitle("\(userProfile.requests!.count) Hulp aanvragen", forState: .Normal)
-            //TODO: Contact numbers
+            
             //self.FriendsLabel.text = "\(data..count) contacten"
             self.ProfileImageView.image = UIImage(data: userProfile.profilePicture!)
             //            let amountOfContacts: String = String(data.contacts.count)
             //            self.FriendsLabel.text! = amountOfContacts
             editableMode()
             setRequestButtonState()
-
-        
+            calculateNumberOfContacts()
         }
     }
     

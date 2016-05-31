@@ -140,7 +140,8 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
                     self.tableView.reloadData()
                 }
                 
-            }).addDisposableTo(self.disposeBag)
+            })
+            .addDisposableTo(self.disposeBag)
     }
     
     func loadCategories() {
