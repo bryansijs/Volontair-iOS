@@ -106,9 +106,13 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
 
         //Download profile picutre Async
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            
-            let imageURL = ApiConfig.baseUrl + conversation.avatarUrl
-            let url = NSURL(string: imageURL)
+            let url = NSURL(string: conversation.listener!.imageLink)
+            let data = NSData(contentsOfURL:url!)
+            dispatch_async(dispatch_get_main_queue(), {
+                if data != nil{
+                    cell.contactImageView.image = UIImage(data: data!)
+                }
+            });
         }
         
         return cell
