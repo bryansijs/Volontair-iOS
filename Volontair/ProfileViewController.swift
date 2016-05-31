@@ -45,6 +45,8 @@ class ProfileViewController: UIViewController {
             }))
             presentViewController(alert, animated: true, completion: nil)
         }
+        
+        ContactServiceFactory.sharedInstance.contactsService.addContactToContacsList(self.user!)
     }
     
     let profileService = ProfileServiceFactory.sharedInstance.getProfileService()
