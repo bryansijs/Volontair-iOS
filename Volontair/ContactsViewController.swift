@@ -127,10 +127,14 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                self.conversations += json.sort { $0.0.name < $0.1.name }
-                self.allConversations = self.conversations
-                self.loadConversationsFilteredByCategory(self.categoryTextField.text!)
-                
+                if json.count > 0 {
+                    self.conversations += json.sort { $0.0.name < $0.1.name }
+                    self.allConversations = self.conversations
+                    self.loadConversationsFilteredByCategory(self.categoryTextField.text!)
+                } else {
+                    self.conversations.append(ConversationModel(name: "Nog geen contacten", avatarUrl: "", lastMessage: "", lastMessageDate: NSDate() , conversationListenerLink: ""))
+                }
+
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
