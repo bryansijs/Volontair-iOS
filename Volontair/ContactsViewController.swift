@@ -14,7 +14,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     var conversations = [ConversationModel]()
     var allConversations = [ConversationModel]()
     
-    var skillCategories = [String: CategoryModel]()
+    var skillCategories = [CategoryModel]()
     
     let contactService = ContactServiceFactory.sharedInstance.getContactsService()
     
@@ -41,11 +41,18 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         skillCategoryPicker.hidden = true
         skillCategoryPicker.showsSelectionIndicator = true
         
+        //loadCategories()
+        //loadConversations()
+        
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         loadCategories()
         loadConversations()
         
         if (skillCategories.count > 0){
-            categoryTextField.text = skillCategories.first?.1.name
+            categoryTextField.text = skillCategories.first?.name
         } else {
             categoryTextField.text = NSLocalizedString("NO_CATEGORY",comment: "")
         }
@@ -95,6 +102,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    
     //MARK: Data
     
     func loadConversations() {
@@ -104,6 +112,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
+                
                 self.conversations += json
                 self.allConversations = self.conversations
                 
@@ -122,19 +131,31 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
+                var skills : [CategoryModel] = []
                 if json.count > 0{
-
                     for i in 0...json.count-1{
                         if let category = json[i] as? CategoryModel{
-                            self.skillCategories[category.name] = category
+                            var add = true
+                            for skill in skills {
+                                if skill.name == category.name {
+                                    add = false
+                                }
+                            }
+                            if add {
+                                skills.append(category)
+                            }
+                            
                         }
                     }
                 }
-                self.skillCategories[" "] = CategoryModel(name: "", iconName: "", iconColorHex: "")
+                skills.append(CategoryModel(name: "", iconName: "", iconColorHex: ""))
+                self.skillCategories = skills.sort { $0.0.name < $0.1.name }
+                
+                
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.skillCategoryPicker.reloadAllComponents()
-                    self.categoryTextField.text = self.skillCategories.first?.1.name
+                    self.categoryTextField.text = self.skillCategories.first?.name
                 }
             }).addDisposableTo(self.disposeBag)
     }
@@ -153,19 +174,20 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        return skillCategories.keys[index]
+        return skillCategories[index].name
+        
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        if(skillCategories[index].0 != ""){
-            self.loadConversationsFilteredByCategory(skillCategories[index].0)
+        if(skillCategories[index].name != ""){
+            self.loadConversationsFilteredByCategory(skillCategories[index].name)
             //loadConversationsFilteredBy(skillCategories[index].0)
         } else {
             loadConversations()
         }
-        categoryTextField.text = skillCategories[index].0
+        categoryTextField.text = skillCategories[index].name
         skillCategoryPicker.hidden = true;
     }
     
@@ -184,6 +206,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
                 }
             }
         }
+        self.tableView.reloadData()
     }
     
 }
