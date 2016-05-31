@@ -110,7 +110,6 @@ class ContactsService {
     }
 
 
-
     func myJust<AnyObject>(element: AnyObject) -> Observable<AnyObject> {
         return Observable.create { observer in
             observer.on(.Next(element))
@@ -227,9 +226,7 @@ class ContactsService {
                 .responseJSON { response in
                     switch response.result {
                     case .Success(let JSON):
-                        print(JSON)
-                        print(response.response)
-                        print(response.request)
+
                         
                         let converSationIdUrl = response.response?.allHeaderFields["location"]! as! String
                         let converSationId = converSationIdUrl.regex("[0-9]*$")[0]
@@ -239,18 +236,7 @@ class ContactsService {
                         ]
                         
                         Alamofire.request(.POST, ApiConfig.baseUrl + ApiConfig.conversationUrl + String(converSationId) + "/message", parameters: converSationTextMessageParams, encoding: .JSON)
-                            .responseJSON { response in
-                                switch response.result {
-                                case .Success(let JSON):
-                                    print(response.response)
-                                    print(response.request)
-                                    print("Success")
-                                    
-                                case .Failure(let error):
-                                    
-                                    print(error)
-                                }
-                        }
+                        
                     case .Failure(let error) :
                         print("Request failed with error: \(error)")
                     }

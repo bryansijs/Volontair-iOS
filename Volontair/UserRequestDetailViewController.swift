@@ -11,7 +11,7 @@ import RxSwift
 
 class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let contactService = ContactServiceFactory.sharedInstance.getContactsService()
+    let contactService = ContactServiceFactory.sharedInstance.contactsService
     let categoryService = ServiceFactory.sharedInstance.categoryService
     
     let disposeBag = DisposeBag()
@@ -100,6 +100,7 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
             }))
             presentViewController(alert, animated: true, completion: nil)
         }
+        ContactServiceFactory.sharedInstance.contactsService.addContactToContacsList(detailItem!.owner!)
         
     }
     
