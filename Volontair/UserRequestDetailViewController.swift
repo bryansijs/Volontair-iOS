@@ -100,6 +100,7 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
             }))
             presentViewController(alert, animated: true, completion: nil)
         }
+        ContactServiceFactory.sharedInstance.contactsService.addContactToContacsList(detailItem!.owner!)
         
     }
     
