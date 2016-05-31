@@ -87,22 +87,20 @@ class UserRequestDetailViewController: UIViewController,UIPickerViewDelegate, UI
             self.chatButton.hidden = true
         }
     }
-    @IBAction func StartConversating(sender: UIButton) {
-        let email = detailItem?.owner?.username
-        let subject = detailItem?.summary
-        
-        //?cc=bar@example.com&subject=Greetings%20from%20Cupertino!&body=Wish%20you%20were%20here!
-        let url = NSURL(string: "mailto:"+email!+"?subject="+subject!)
+    
+    @IBAction func contactButtonPressed(sender: UIButton) {
+        let email = "mailto:\(detailItem!.owner!.username)"
+        let url = NSURL(string: email)
         
         if UIApplication.sharedApplication().canOpenURL(url!) {
             UIApplication.sharedApplication().openURL(url!)
         } else {
-            let alert = UIAlertView()
-            alert.title = "Contact with this user is not possible"
-            alert.message = "The other user is informed of this problem, Try again later"
-            alert.addButtonWithTitle("ok")
-            alert.show()
+            let alert = UIAlertController(title: NSLocalizedString("CONTACT_ERROR_TITLE", comment: "Comment"), message: NSLocalizedString("CONTACT_ERROR_MESSAGE", comment: "Comment"), preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            presentViewController(alert, animated: true, completion: nil)
         }
+        
     }
     
     //MARK: Buttons

@@ -78,7 +78,10 @@ class VolontairApiService {
                         print("shit dit go wrong")
                     }
                 case .Failure(let error):
-                    print("Request failed with error: \(error)")
+                    print(error)
+                    self.prefs.removeObjectForKey("VolontairApiToken")
+                    self.prefs.removeObjectForKey("VolontairFacebookToken")
+                    completeErrorHandler()
                 }
         }
     }
@@ -89,19 +92,23 @@ class VolontairApiService {
         
         Alamofire.request(.GET, ApiConfig.registerFacebookTokenUrl + facebookToken , headers: headers)
             .responseData { response in
-                
-                Alamofire.request(.GET, ApiConfig.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
-                    .responseString() { response in
-                        
-                        
-                        let URL = response.response?.URL?.fragments //In extension/NSURLFragmentExtension
-                        
-                        if URL?.count > 0 {
-                            print(URL!["access_token"])
-                            self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler, completeErrorHandler: completeErrorHandler);
-                        } else {
-                            //Facebook token is wrong
-                        }
+                if response.result.isSuccess {
+                    Alamofire.request(.GET, ApiConfig.getVolontairApiTokenUrl, headers: headers, encoding: .JSON)
+                        .responseString() { response in
+                            
+                            
+                            let URL = response.response?.URL?.fragments //In extension/NSURLFragmentExtension
+                            
+                            if URL?.count > 0 {
+                                print(URL!["access_token"])
+                                self.checkApiAuthentication(URL!["access_token"]!, completeSuccesHandler: completeSuccseHandler, completeErrorHandler: completeErrorHandler);
+                            } else {
+                                print("Error in VolontairApiService.loginApi: Facebook token is wrong")
+                                //Facebook token is wrong
+                            }
+                    }
+                } else {
+                    completeErrorHandler()
                 }
         }
     }

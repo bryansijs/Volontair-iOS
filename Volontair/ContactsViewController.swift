@@ -90,7 +90,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
         //Download profile picutre Async
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
-            let imageURL = Config.url + conversation.avatarUrl
+            let imageURL = ApiConfig.baseUrl + conversation.avatarUrl
             let url = NSURL(string: imageURL)
 //            let imageData = NSData(contentsOfURL: url!)!
 
@@ -126,9 +126,17 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .observeOn(MainScheduler.instance)
             .toArray()
             .subscribe(onNext: { (json) -> Void in
-                
-                self.conversations += json
-                self.allConversations = self.conversations
+                if json.count > 0{
+                    self.conversations += json
+                    self.allConversations = self.conversations
+                    
+                } else {
+                    let date = NSDate()
+                    let conversation = ConversationModel(name: "Nog geen contacten", avatarUrl: "", lastMessage: "", lastMessageDate: date, conversationListenerLink:"")
+                    self.allConversations.append(conversation)
+                    self.conversations.append(conversation)
+                    
+                }
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()

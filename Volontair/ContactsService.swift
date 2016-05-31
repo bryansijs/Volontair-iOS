@@ -44,7 +44,7 @@ class ContactsService {
     
     func category(categoryName: String) -> Observable<AnyObject> {
         let manager = Manager.sharedInstance
-        return manager.rx_JSON(.GET, Config.url + Config.categoryUrl + "\(categoryName)")
+        return manager.rx_JSON(.GET, ApiConfig.baseUrl + ApiConfig.categoryUrl + "\(categoryName)")
     }
     
     func conversations() -> Observable<ConversationModel> {

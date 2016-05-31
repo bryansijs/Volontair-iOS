@@ -67,7 +67,7 @@ class ProfileViewController: UIViewController {
 //        self.categoryContainerView.ciewconrt
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: Config.profileNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: ApiConfig.profileNotificationKey, object: nil)
         
         if editMode {
             self.contactButton.hidden = true

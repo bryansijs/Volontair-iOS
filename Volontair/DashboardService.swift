@@ -37,7 +37,7 @@ class DashboardService {
                 case .Success(let JSON):
                     
                     self.dashboardmodel = DashboardModel(jsonData: JSON)
-                    NSNotificationCenter.defaultCenter().postNotificationName(Config.dashboardNotificationKey, object: self.dashboardmodel)
+                    NSNotificationCenter.defaultCenter().postNotificationName(ApiConfig.dashboardNotificationKey, object: self.dashboardmodel)
                     completionHandler()
                     
                 case .Failure(let error):

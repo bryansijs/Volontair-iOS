@@ -25,7 +25,7 @@ class DashboardViewController: UIViewController {
     var prefs: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var userfirstname: String = ""
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
         userfirstname = prefs.stringForKey(ApiConfig.facebookUsernamePreference)!
         
@@ -39,7 +39,7 @@ class DashboardViewController: UIViewController {
         containerView.addGestureRecognizer(tap)
         
         setData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: Config.dashboardNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DashboardViewController.updateOnNotification), name: ApiConfig.dashboardNotificationKey, object: nil)
 
     }
     

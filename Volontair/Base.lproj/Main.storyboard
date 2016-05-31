@@ -151,6 +151,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="sKE-Nb-tIF" id="J4l-Y0-NRn"/>
+                        <outlet property="facebookInlogButton" destination="0Dw-by-WBp" id="pcu-fo-VEV"/>
                         <segue destination="BUl-iV-mjC" kind="unwind" unwindAction="unwindToDashboard:" id="TGO-fA-uMX"/>
                         <segue destination="aV0-b1-kqn" kind="presentation" identifier="showDashBoardSegue" id="gAJ-AO-VvQ"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="showWizardSegue" id="iuy-Jl-kY6"/>
@@ -785,7 +786,7 @@
                                             <segue destination="Pet-4j-mzY" kind="embed" identifier="showProfileCategories" id="HMs-O0-4T4"/>
                                         </connections>
                                     </containerView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="HGk-h7-VhQ">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGk-h7-VhQ">
                                         <rect key="frame" x="0.0" y="175" width="560" height="154"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-mG-hhD">
@@ -1200,7 +1201,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-Cv-LRC">
                                 <rect key="frame" x="20" y="255" width="560" height="266"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1226,7 +1227,7 @@
                                     <action selector="editButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="d4X-hd-bE9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-cT-FZb">
                                 <rect key="frame" x="20" y="521" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.18431372549019609" green="0.69803921568627447" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Opslaan">
@@ -1274,8 +1275,11 @@
                                     <constraint firstAttribute="height" constant="30" id="7fO-BN-lXH"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="speechFilled"/>
+                                <connections>
+                                    <action selector="contactButtonPressed:" destination="3X1-Pu-W07" eventType="touchUpInside" id="q7Z-Ma-dH8"/>
+                                </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-3d-0zv">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQ6-3d-0zv">
                                 <rect key="frame" x="0.0" y="340" width="600" height="216"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </pickerView>
@@ -1340,7 +1344,6 @@
                         <outlet property="OwnerNameLabel" destination="3HK-Rp-fmY" id="hM1-Eu-o6o"/>
                         <outlet property="categoryPicker" destination="LQ6-3d-0zv" id="XK5-As-wR3"/>
                         <outlet property="categoryTextField" destination="2rp-hk-576" id="Sp1-oE-qRM"/>
-                        <outlet property="chatButton" destination="7Gc-BK-ODS" id="uaZ-Su-YQ2"/>
                         <outlet property="detailTextView" destination="CHp-Cv-LRC" id="9Bi-7G-IKc"/>
                         <outlet property="editButton" destination="jAM-se-log" id="Spe-EO-vui"/>
                         <outlet property="ownerUIImageView" destination="tIl-IX-bNk" id="HCW-x5-5GC"/>
@@ -1382,6 +1385,12 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-xR-O56">
+                                                    <rect key="frame" x="50" y="23" width="503" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Sit-cQ-8yi">
                                                     <rect key="frame" x="8" y="5" width="34" height="34"/>
                                                     <constraints>
@@ -1394,12 +1403,6 @@
                                                         <constraint firstAttribute="width" constant="101" id="4T4-3n-ncd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5V-xR-O56">
-                                                    <rect key="frame" x="50" y="22" width="503" height="21"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2278,9 +2281,9 @@
         <image name="volunteer" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gAJ-AO-VvQ"/>
         <segue reference="1JB-nb-wsV"/>
+        <segue reference="gAJ-AO-VvQ"/>
+        <segue reference="G8o-yB-mji"/>
         <segue reference="hl0-JA-Ggj"/>
-        <segue reference="QPq-oS-KMV"/>
     </inferredMetricsTieBreakers>
 </document>
