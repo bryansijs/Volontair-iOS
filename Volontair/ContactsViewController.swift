@@ -59,7 +59,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let conversation = self.conversations[indexPath.row]
-        if conversation.name != "" {
+        if conversation.name != "-" {
             
             let email = conversation.listener?.username
             let emailLink = "mailto:" + email!
@@ -145,7 +145,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     
     func loadCategories() {
         self.skillCategories.removeAll()
-        skillCategories.append(CategoryModel(name: "", iconName: "", iconColorHex: ""))
+        skillCategories.append(CategoryModel(name: "-", iconName: "", iconColorHex: ""))
         
         contactService.categories()
             .subscribeOn(ConcurrentDispatchQueueScheduler(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)))
@@ -153,7 +153,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
             .toArray()
             .subscribe(onNext: { (json) -> Void in
                 var skills : [CategoryModel] = []
-                skills.append(CategoryModel(name: "", iconName: "", iconColorHex: ""))
+                skills.append(CategoryModel(name: "-", iconName: "", iconColorHex: ""))
                 
                 if json.count > 0{
                     for i in 0...json.count-1{
@@ -201,7 +201,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let index = skillCategories.startIndex.advancedBy(row) // index 1
-        if(skillCategories[index].name != ""){
+        if(skillCategories[index].name != "-"){
             self.loadConversationsFilteredByCategory(skillCategories[index].name)
         } else {
             loadConversations()
@@ -216,7 +216,7 @@ class ContactsViewController : UIViewController, UITableViewDelegate, UITableVie
     }
     
     func loadConversationsFilteredByCategory(categoryName : String) {
-        if categoryName == "" {
+        if categoryName == "-" {
             self.tableView.reloadData()
             return
         }
