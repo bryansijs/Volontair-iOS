@@ -63,13 +63,12 @@ class ProfileViewController: UIViewController {
         self.ProfileImageView.layer.masksToBounds = true
         self.ProfileNameLabel.text = "profielnaam"
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goToContacts(_:)))
-        self.contactsView.addGestureRecognizer(gesture)
-
+    
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileViewController.updateOnNotification), name: ApiConfig.profileNotificationKey, object: nil)
         
         if editMode {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.goToContacts(_:)))
+            self.contactsView.addGestureRecognizer(gesture)
             self.contactButton.hidden = true
         }
     }
