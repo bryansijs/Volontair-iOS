@@ -771,7 +771,7 @@
                                             <action selector="StartConversation:" destination="lof-7X-Xfp" eventType="touchUpInside" id="21Z-SJ-ZXI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Interests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKR-6k-sIZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Interesses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKR-6k-sIZ">
                                         <rect key="frame" x="0.0" y="96" width="560" height="14"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -905,6 +905,7 @@
                         <outlet property="aboutMeHeader" destination="ovk-Xn-qxP" id="wsM-7r-9XS"/>
                         <outlet property="categoryContainerView" destination="uwN-iL-meP" id="vy6-6Y-FVi"/>
                         <outlet property="contactButton" destination="LOC-wa-D3h" id="FaG-k2-ldL"/>
+                        <outlet property="contactsView" destination="20n-MW-mzo" id="2aa-QE-jUh"/>
                         <outlet property="editButton" destination="mDN-KE-erb" id="9nv-RI-YVz"/>
                         <outlet property="showRequestsButton" destination="Axn-Yn-kKX" id="0Ge-aq-PvV"/>
                     </connections>
