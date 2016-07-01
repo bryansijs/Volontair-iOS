@@ -9,7 +9,15 @@
 import UIKit
 
 class DisclaimerViewController: UIViewController, ValidationProtocol {
+    
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var acceptUISwitch: UISwitch!
+    
+    override func viewDidLoad() {
+        UIWebView.loadRequest(webView)(NSURLRequest(URL: NSURL(string: ApiConfig.disclaimerURL)!))
+    }
+    
     func validate()-> Bool {
-        return true
+        return acceptUISwitch.on
     }
 }
