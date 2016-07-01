@@ -328,7 +328,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRP-im-GUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-340" y="988"/>
+            <point key="canvasLocation" x="-700" y="1720"/>
+        </scene>
+        <!--Disclaimer View Controller-->
+        <scene sceneID="9pa-BP-sZ7">
+            <objects>
+                <viewController restorationIdentifier="DisclaimerViewController" storyboardIdentifier="DisclaimerViewController" id="kUb-D8-Ion" customClass="DisclaimerViewController" customModule="Volontair" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PBe-2U-y49"/>
+                        <viewControllerLayoutGuide type="bottom" id="78z-qR-dfb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RUG-7P-FOO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU1-Bz-IET">
+                                <rect key="frame" x="20" y="28" width="560" height="499"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="499" id="eCe-cz-a8B"/>
+                                </constraints>
+                            </webView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6r-N2-ki2">
+                                <rect key="frame" x="531" y="535" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akkoord:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BV-1A-ie5">
+                                <rect key="frame" x="434" y="540" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HU1-Bz-IET" firstAttribute="trailing" secondItem="RUG-7P-FOO" secondAttribute="trailingMargin" id="MKd-nw-SSm"/>
+                            <constraint firstItem="HU1-Bz-IET" firstAttribute="leading" secondItem="RUG-7P-FOO" secondAttribute="leadingMargin" id="QPn-Ke-cPf"/>
+                            <constraint firstItem="c6r-N2-ki2" firstAttribute="trailing" secondItem="RUG-7P-FOO" secondAttribute="trailingMargin" id="TNW-l7-jl8"/>
+                            <constraint firstItem="6BV-1A-ie5" firstAttribute="top" secondItem="HU1-Bz-IET" secondAttribute="bottom" constant="13" id="aDD-fg-eGI"/>
+                            <constraint firstItem="c6r-N2-ki2" firstAttribute="top" secondItem="HU1-Bz-IET" secondAttribute="bottom" constant="8" id="oHl-xk-40m"/>
+                            <constraint firstItem="HU1-Bz-IET" firstAttribute="top" secondItem="PBe-2U-y49" secondAttribute="bottom" constant="8" id="ux8-pW-hjv"/>
+                            <constraint firstItem="c6r-N2-ki2" firstAttribute="leading" secondItem="6BV-1A-ie5" secondAttribute="trailing" constant="28" id="vYv-hX-ctU"/>
+                            <constraint firstItem="78z-qR-dfb" firstAttribute="top" secondItem="c6r-N2-ki2" secondAttribute="bottom" constant="34" id="xbO-ZA-aEI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="acceptUISwitch" destination="c6r-N2-ki2" id="qsO-zB-Yja"/>
+                        <outlet property="webView" destination="HU1-Bz-IET" id="yRA-PR-agH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ei-KO-l8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1325" y="1720"/>
         </scene>
         <!--Geo Location View Controller-->
         <scene sceneID="V6S-Ow-NP6">
@@ -483,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kor-pE-eyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="988"/>
+            <point key="canvasLocation" x="612" y="1720"/>
         </scene>
         <!--Category Table View Controller-->
         <scene sceneID="KPP-QF-18v">
@@ -541,7 +591,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFa-ZD-nPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="981"/>
+            <point key="canvasLocation" x="-25" y="1720"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="xv2-sg-SpU">
@@ -2282,9 +2332,9 @@
         <image name="volunteer" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hl0-JA-Ggj"/>
         <segue reference="1JB-nb-wsV"/>
-        <segue reference="gAJ-AO-VvQ"/>
+        <segue reference="mwK-uu-Cps"/>
+        <segue reference="hl0-JA-Ggj"/>
         <segue reference="QPq-oS-KMV"/>
     </inferredMetricsTieBreakers>
 </document>

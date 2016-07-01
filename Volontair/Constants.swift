@@ -43,6 +43,7 @@ struct ApiConfig{
     //VolontairApiService
     //static let registerFacebookTokenUrl = "http://192.168.178.49:6789/auth/facebook/client?accessToken=";
     static let registerFacebookTokenUrl = "https://volontair.herokuapp.com/auth/facebook/client?accessToken=";
+    static let disclaimerURL = "https://volontair.herokuapp.com/disclaimer";
     
     //static let getVolontairApiTokenUrl = "http://192.168.178.49:6789/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";
     static let getVolontairApiTokenUrl = "https://volontair.herokuapp.com/oauth/authorize?response_type=token&client_id=volontair&redirect_uri=/";

@@ -46,6 +46,7 @@
 		EF0AE2C71CF0A0C400D9CFAD /* WizardServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AE2C61CF0A0C400D9CFAD /* WizardServiceFactory.swift */; };
 		EF0AE2C91CF31D4500D9CFAD /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0AE2C81CF31D4500D9CFAD /* CategoryService.swift */; };
 		EF0D05981CB690D4005403B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0D05971CB690D4005403B8 /* Constants.swift */; };
+		EF1208BA1D21C3EA00B12246 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1208B91D21C3EA00B12246 /* DisclaimerViewController.swift */; };
 		EF1305621CF6EC180042C2F5 /* CustomColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1305611CF6EC180042C2F5 /* CustomColorExtension.swift */; };
 		EF2721ED1CBE27FB00BCD082 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */; };
 		EF2721F11CBE29D300BCD082 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */; };
@@ -178,6 +179,7 @@
 		EF0AE2C61CF0A0C400D9CFAD /* WizardServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardServiceFactory.swift; sourceTree = "<group>"; };
 		EF0AE2C81CF31D4500D9CFAD /* CategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		EF0D05971CB690D4005403B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EF1208B91D21C3EA00B12246 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		EF1305611CF6EC180042C2F5 /* CustomColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColorExtension.swift; sourceTree = "<group>"; };
 		EF2721EC1CBE27FB00BCD082 /* ProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		EF2721F01CBE29D300BCD082 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				EFF75AB41CDA61AE00090ACB /* ValidationProtocol.swift */,
 				EF0AE2C41CF0A08900D9CFAD /* WizardService.swift */,
 				EF0AE2C61CF0A0C400D9CFAD /* WizardServiceFactory.swift */,
+				EF1208B91D21C3EA00B12246 /* DisclaimerViewController.swift */,
 			);
 			name = Wizard;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				EF0D05981CB690D4005403B8 /* Constants.swift in Sources */,
 				EFBDCCE91CA0051400981A6E /* ProfileViewController.swift in Sources */,
 				E8A26DC71CF4627400EE5753 /* UIImageMapFragmentExtension.swift in Sources */,
+				EF1208BA1D21C3EA00B12246 /* DisclaimerViewController.swift in Sources */,
 				EF3E52831CC00BC50053A701 /* ContactsService.swift in Sources */,
 				EF3E38D61C9B5C60005210ED /* FBSDKLoginKit.framework in Sources */,
 				2FD6F1AC1CBA6BF300879F7F /* MapService.swift in Sources */,

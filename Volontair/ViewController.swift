@@ -16,11 +16,13 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     var userTypeViewController : UIViewController?
     var userCategoryViewController : UIViewController?
     var userPrefrencesViewController : UIViewController?
+    var disclaimerViewController : UIViewController?
     
     var pageViewController : UIPageViewController!
     
     func reset() {
         // create contentPageViewControllers
+        disclaimerViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("DisclaimerViewController"))! as UIViewController
         userTypeViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserTypeViewController"))! as UIViewController
         userCategoryViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserCategoryViewController"))! as UIViewController
         userPrefrencesViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("UserPrefrencesViewController"))! as UIViewController
@@ -90,9 +92,10 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     
     func viewControllerAtIndex(index : Int) -> UIViewController {
         switch index {
-        case 0: return userTypeViewController!
-        case 1: return userCategoryViewController!
-        case 2: return userPrefrencesViewController!
+        case 0: return disclaimerViewController!
+        case 1: return userTypeViewController!
+        case 2: return userCategoryViewController!
+        case 3: return userPrefrencesViewController!
         default: return userTypeViewController!
         }
     }
